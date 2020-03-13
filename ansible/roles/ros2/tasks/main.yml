@@ -1,0 +1,36 @@
+---
+- name : generate locale
+  become: yes
+  shell : locale-gen en_US en_US.UTF-8
+
+- name : setup locale
+  become: yes
+  shell : update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+- name : export locale
+  become: yes
+  shell : export LANG=en_US.UTF-8
+
+- name: install depends via apt
+  become: yes
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - curl
+    - gnupg2
+    - lsb-release
+
+- name: setup ros2 keys
+  become: yes
+  apt_key:
+    url: "https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc"
+    state: present
+
+- name: setup ros2 sources
+  become: yes
+  shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+
+- name: update apt-get repo and cache
+  become: yes
+  apt: update_cache=yes force_apt_get=yes
