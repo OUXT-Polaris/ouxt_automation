@@ -1,11 +1,11 @@
 repositories:
-  hermite_path_planner:
+  plannig/hermite_path_planner:
     type: git
     url: https://github.com/OUXT-Polaris/hermite_path_planner.git
     version: master
-  color_names:
+  utils/color_names:
     type: git
     url: https://github.com/OUXT-Polaris/color_names.git
-  quaternion_operation:
+  utils/quaternion_operation:
     type: git
     url: https://github.com/OUXT-Polaris/quaternion_operation.git
