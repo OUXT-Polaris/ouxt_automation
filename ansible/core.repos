@@ -1,4 +1,8 @@
 repositories:
+  perception/pcl_apps:
+    type: git
+    url: https://github.com/OUXT-Polaris/pcl_apps.git
+    version: master
   plannig/hermite_path_planner:
     type: git
     url: https://github.com/OUXT-Polaris/hermite_path_planner.git
