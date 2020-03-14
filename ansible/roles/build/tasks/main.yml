@@ -1,0 +1,21 @@
+---
+- name: delete older list
+  shell: rm /etc/ros/rosdep/sources.list.d/20-default.list
+  become: yes
+
+- name: rosdep init
+  shell: rosdep init
+  become: yes
+
+- name: rosdep update
+  command: rosdep update
+  become: yes
+
+- name: install depends
+  command: rosdep install -y -r -i --from-paths ../robotx_ws/src --ignore-src --rosdistro eloquent
+  become: yes
+
+- name: build
+  shell: colcon build --symlink-install
+  args:
+    chdir: ../robotx_ws
