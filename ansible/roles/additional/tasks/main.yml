@@ -1,0 +1,5 @@
+---
+- name : clone core repos
+  shell : vcs import < ../../ansible/additional.repos
+  args:
+    chdir: ../robotx_ws/src

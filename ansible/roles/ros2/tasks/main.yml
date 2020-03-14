@@ -37,7 +37,7 @@
   become: yes
   apt: update_cache=yes
 
-- name: install ros2 eloquent/colcon
+- name: install ros2 eloquent/colcon/vcs
   become: yes
   apt:
     name: "{{ packages }}"
@@ -47,6 +47,7 @@
     packages:
       - "{{ ros_package_name }}"
       - python3-colcon-common-extensions
+      - python3-vcstool
 
 - name: make workspace
   file: path={{ansible_env.PWD}}/../robotx_ws
@@ -58,11 +59,6 @@
 
 - name: add setup.bash to .bashrc
   shell: echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
-
-- name: initialize workspace
-  shell: colcon build
-  args:
-    chdir: ../robotx_ws
 
 - name: add local_setup.bash to .bashrc
   shell: echo "source {{ansible_env.PWD}}/../robotx_ws/install/local_setup.bash" >> ~/.bashrc

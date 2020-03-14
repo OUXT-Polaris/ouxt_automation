@@ -3,3 +3,4 @@
   roles: 
     - ros2
     - core
+    - additional
