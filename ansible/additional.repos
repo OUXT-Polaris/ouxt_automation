@@ -3,3 +3,6 @@ repositories:
     type: git
     url: https://github.com/OUXT-Polaris/navi_sim.git
     version: master
+  control/joy_to_twist:
+    type: git
+    url: https://github.com/OUXT-Polaris/joy_to_twist.git
