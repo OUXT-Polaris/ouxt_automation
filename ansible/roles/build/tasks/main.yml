@@ -21,6 +21,9 @@
   command: rosdep install -y -r -i --from-paths ../robotx_ws/src --ignore-src --rosdistro eloquent
   become: yes
 
+ - name: load env variable
+   shell: source ~/.bashrc executable=/bin/bash
+      
 - name: build
   shell: colcon build --symlink-install
   args:
