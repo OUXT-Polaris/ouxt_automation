@@ -1,0 +1,17 @@
+name: robotx_setup
+
+on: [push, pull_request]
+
+jobs:
+    job1:
+        name: Build
+        runs-on: ubuntu-18.04
+        steps:
+            - name: basic install
+              run: |
+                  sudo apt update
+                  sudo apt install make ansible
+            - uses: actions/checkout@v2-beta
+            - name: ansible
+              run: |
+                  make local_setup_full
