@@ -22,7 +22,7 @@
   become: yes
 
 - name: load env variable
-  shell: source ~/.bashrc executable=/bin/bash
+  shell: source /opt/ros/eloquent/setup.bash && source ~/robotx_ws/install/local_setup.bash
       
 - name: build
   shell: colcon build --symlink-install
