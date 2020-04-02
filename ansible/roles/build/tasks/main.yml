@@ -22,7 +22,7 @@
   become: yes
 
 - name: load env variable
-  shell: /opt/ros/eloquent/setup.sh
+  shell: . /opt/ros/eloquent/setup.sh
       
 - name: build
   shell: colcon build --symlink-install
