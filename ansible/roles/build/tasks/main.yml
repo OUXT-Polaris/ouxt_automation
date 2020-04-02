@@ -22,9 +22,12 @@
   become: yes
 
 - name: load env variable
-  shell: source /opt/ros/eloquent/setup.bash && source ../robotx_ws/install/local_setup.bash
+  shell: source /opt/ros/eloquent/setup.bash
       
 - name: build
   shell: colcon build --symlink-install
   args:
     chdir: ../robotx_ws
+
+- name: load env variable from workspace
+  shell: source ../robotx_ws/install/local_setup.bash
