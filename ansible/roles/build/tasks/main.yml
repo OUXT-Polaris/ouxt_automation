@@ -24,7 +24,8 @@
 - name: load env variable & build
   shell: |-
     cd ../robotx_ws
-    source ~/.bashrc
+    source /opt/ros/eloquent/setup.bash
+    source install/local_setup.bash
     colcon build --symlink-install
   args:
     executable: /bin/bash
