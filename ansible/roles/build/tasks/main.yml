@@ -26,5 +26,5 @@
     cd ../robotx_ws
     source ~/.bashrc
     colcon build --symlink-install
-    args:
-      executable: /bin/bash
+  args:
+    executable: /bin/bash
