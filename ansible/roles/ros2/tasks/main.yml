@@ -53,6 +53,7 @@
       - python3-catkin-pkg 
       - python3-rosdep
       - python3-argcomplete
+      - ros-eloquent-ament-cmake
 
 - name: make workspace
   file: path={{ansible_env.PWD}}/../robotx_ws
