@@ -23,8 +23,8 @@
 
 - name: load env variable & build
   shell: |-
+    cd ../robotx_ws
     source ~/.bashrc
     colcon build --symlink-install
     args:
       executable: /bin/bash
-      chdir: ../robotx_ws
