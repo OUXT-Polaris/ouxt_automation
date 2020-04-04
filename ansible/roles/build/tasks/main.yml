@@ -1,6 +1,12 @@
 ---
-- name: delete older list
+- name: check older list
+  stat:
+    path: /etc/ros/rosdep/sources.list.d/20-default.list
+  register: older_list
+
+- name: delete older list if it exists
   shell: rm /etc/ros/rosdep/sources.list.d/20-default.list
+  when: older_list.stat.exists == true
   become: yes
 
 - name: rosdep init
@@ -15,7 +21,11 @@
   command: rosdep install -y -r -i --from-paths ../robotx_ws/src --ignore-src --rosdistro eloquent
   become: yes
 
-- name: build
-  shell: colcon build --symlink-install
+- name: load env variable & build
+  shell: |-
+    cd ../robotx_ws
+    source /opt/ros/eloquent/setup.bash
+    source install/local_setup.bash
+    colcon build --symlink-install
   args:
-    chdir: ../robotx_ws
+    executable: /bin/bash

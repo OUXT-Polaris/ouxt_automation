@@ -32,10 +32,10 @@
 - name: setup ros2 sources
   become: yes
   shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
-
+  
 - name: update apt-get repo and cache
   become: yes
-  apt: update_cache=yes
+  shell: apt update
 
 - name: install ros2 eloquent/colcon/vcs
   become: yes
@@ -53,6 +53,7 @@
       - python3-catkin-pkg 
       - python3-rosdep
       - python3-argcomplete
+      - ros-eloquent-ament-cmake
 
 - name: make workspace
   file: path={{ansible_env.PWD}}/../robotx_ws
