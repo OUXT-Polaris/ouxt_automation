@@ -27,11 +27,15 @@ repositories:
     type: git
     url: https://github.com/OUXT-Polaris/data_buffer.git
     version: ros2
-  drivers/velodyne:
-    url: https://github.com/ros-drivers/velodyne.git
-    type: git
-    version: dashing-devel
   utils/geometry_msgs_data_buffer:
     type: git
     url: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
     version: ros2
+  drivers/velodyne:
+    url: https://github.com/ros-drivers/velodyne.git
+    type: git
+    version: dashing-devel
+  description/wamv_description:
+    type: git
+    url: https://github.com/OUXT-Polaris/wamv_description.git
+    version: master
