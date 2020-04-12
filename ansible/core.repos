@@ -39,7 +39,3 @@ repositories:
     type: git
     url: https://github.com/OUXT-Polaris/wamv_description.git
     version: master
-  description/robot_state_publisher
-    type: git
-    url: https://github.com/OUXT-Polaris/robot_state_publisher.git
-    version: ros2
