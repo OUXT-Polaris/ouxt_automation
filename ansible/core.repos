@@ -35,6 +35,10 @@ repositories:
     url: https://github.com/ros-drivers/velodyne.git
     type: git
     version: dashing-devel
+  drivers/nmea_msgs:
+    url: https://github.com/ros-drivers/nmea_msgs.git
+    type: git
+    version: ros2
   description/wamv_description:
     type: git
     url: https://github.com/OUXT-Polaris/wamv_description.git
