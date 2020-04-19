@@ -39,6 +39,10 @@ repositories:
     url: https://github.com/ros-drivers/nmea_msgs.git
     type: git
     version: ros2
+  drivers/nmea_gps_driver:
+    url: https://github.com/OUXT-Polaris/nmea_gps_driver.git
+    type: git
+    version: master
   description/wamv_description:
     type: git
     url: https://github.com/OUXT-Polaris/wamv_description.git
