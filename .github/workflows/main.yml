@@ -16,4 +16,4 @@ jobs:
             - uses: actions/checkout@v2-beta
             - name: ansible
               run: |
-                  make local_setup_full
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become
