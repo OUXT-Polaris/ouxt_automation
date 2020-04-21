@@ -1,5 +1,73 @@
 ---
-- name : clone core repos
-  shell : vcs import < ../../ansible/core.repos
-  args:
-    chdir: ../robotx_ws/src
+- name : clone pcl_apps
+  git:
+    repo: https://github.com/OUXT-Polaris/pcl_apps.git
+    dest: ../robotx_ws/src/perception/pcl_apps
+    version: master
+    accept_hostkey: yes
+- name : clone pointcloud_to_laserscan
+  git:
+    repo: https://github.com/OUXT-Polaris/pointcloud_to_laserscan.git
+    dest: ../robotx_ws/src/perception/pointcloud_to_laserscan
+    version: eloquent-devel
+    accept_hostkey: yes
+- name : clone hermite_path_planner
+  git:
+    repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
+    dest: ../robotx_ws/src/plannig/hermite_path_planner
+    version: master
+    accept_hostkey: yes
+- name: clone behavior_tree_action_builder
+  git:
+    repo: https://github.com/OUXT-Polaris/behavior_tree_action_builder.git
+    dest: ../robotx_ws/src/plannig/behavior_tree_action_builder
+    version: master
+    accept_hostkey: yes
+- name: clone color_names
+  git:
+    repo: https://github.com/OUXT-Polaris/color_names.git
+    dest: ../robotx_ws/src/utils/color_names
+    version: master
+    accept_hostkey: yes
+- name: clone quaternion_operation
+  git:
+    repo: https://github.com/OUXT-Polaris/quaternion_operation.git
+    dest: ../robotx_ws/src/utils/quaternion_operation
+    version: ros2
+    accept_hostkey: yes
+- name: clone data_buffer
+  git:
+    repo: https://github.com/OUXT-Polaris/data_buffer.git
+    dest: ../robotx_ws/src/utils/data_buffer
+    version: ros2
+    accept_hostkey: yes
+- name: clone geometry_msgs_data_buffer
+  git:
+    repo: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
+    dest: ../robotx_ws/src/utils/geometry_msgs_data_buffer
+    version: ros2
+    accept_hostkey: yes
+- name: clone velodyne
+  git:
+    repo: https://github.com/ros-drivers/velodyne.git
+    dest: ../robotx_ws/src/utils/drivers/velodyne
+    version: dashing-devel
+    accept_hostkey: yes
+- name: clone nmea_msgs
+  git:
+    repo: https://github.com/ros-drivers/nmea_msgs.git
+    dest: ../robotx_ws/src/drivers/nmea_msgs
+    version: ros2
+    accept_hostkey: yes
+- name: clone nmea_gps_driver
+  git:
+    repo: https://github.com/OUXT-Polaris/nmea_gps_driver.git
+    dest: ../robotx_ws/src/drivers/nmea_gps_driver
+    version: master
+    accept_hostkey: yes
+- name: clone wamv_description
+  git:
+    repo: https://github.com/OUXT-Polaris/wamv_description.git
+    dest: ../robotx_ws/src/description/wamv_description
+    version: master
+    accept_hostkey: yes
