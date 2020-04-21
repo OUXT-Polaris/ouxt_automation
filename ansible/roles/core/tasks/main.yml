@@ -53,3 +53,21 @@
     dest: ../robotx_ws/src/utils/drivers/velodyne
     version: dashing-devel
     accept_hostkey: yes
+- name: clone nmea_msgs
+  git:
+    repo: https://github.com/ros-drivers/nmea_msgs.git
+    dest: ../robotx_ws/src/drivers/nmea_msgs
+    version: ros2
+    accept_hostkey: yes
+- name: clone nmea_gps_driver
+  git:
+    repo: https://github.com/OUXT-Polaris/nmea_gps_driver.git
+    dest: ../robotx_ws/src/drivers/nmea_gps_driver
+    version: master
+    accept_hostkey: yes
+- name: clone wamv_description
+  git:
+    repo: https://github.com/OUXT-Polaris/wamv_description.git
+    dest: ../robotx_ws/src/description/wamv_description
+    version: master
+    accept_hostkey: yes
