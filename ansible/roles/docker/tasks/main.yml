@@ -48,6 +48,7 @@
     state: started
     enabled: yes
   become: yes
+  ignore_errors: yes
 
 - name: Install docker-compose
   get_url:

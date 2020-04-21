@@ -22,6 +22,7 @@
     - curl
     - gnupg2
     - lsb-release
+    - git
 
 - name: setup ros2 keys
   become: yes

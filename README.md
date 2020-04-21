@@ -10,7 +10,7 @@ Ubuntu 18.04
 
 ansible task install ROS2 eloquent, so you do not necessary to setup ROS2
 
-before you run makefile, you have to install ansible via apt
+before you run ansible-script, you have to install ansible via apt
 
 ```
 sudo apt install ansible
@@ -19,5 +19,13 @@ sudo apt install ansible
 ### install in local host (full package)
 
 ```
-make local_setup_full
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-sudo-pass
+```
+
+### install to test docker image
+
+```
+cd docker
+sh run.sh
+ansible-playbook -i ansible/hosts/docker.ini ansible/setup_full.yml
 ```
