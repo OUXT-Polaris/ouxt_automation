@@ -50,7 +50,7 @@
 - name: clone velodyne
   git:
     repo: https://github.com/ros-drivers/velodyne.git
-    dest: ../robotx_ws/src/utils/drivers/velodyne
+    dest: ../robotx_ws/src/drivers/velodyne
     version: dashing-devel
     accept_hostkey: yes
 - name: clone nmea_msgs
