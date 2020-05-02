@@ -23,6 +23,18 @@
     dest: ../robotx_ws/src/planning/behavior_tree_action_builder
     version: master
     accept_hostkey: yes
+- name: clone robotx_behavior_tree
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
+    dest: ../robotx_ws/src/planning/robotx_behavior_tree
+    version: master
+    accept_hostkey: yes
+- name: clone robotx_bt_planner
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_bt_planner.git
+    dest: ../robotx_ws/src/planning/robotx_bt_planner
+    version: master
+    accept_hostkey: yes
 - name: clone color_names
   git:
     repo: https://github.com/OUXT-Polaris/color_names.git
