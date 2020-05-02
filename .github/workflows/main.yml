@@ -1,6 +1,6 @@
 name: robotx_setup
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
     job1:
