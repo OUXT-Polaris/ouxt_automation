@@ -83,3 +83,9 @@
     dest: ../robotx_ws/src/description/wamv_description
     version: master
     accept_hostkey: yes
+- name: clone pf_localization
+  git:
+    repo: https://github.com/OUXT-Polaris/pf_localization.git
+    dest: ../robotx_ws/src/pf_localization/pf_localization
+    version: ros2
+    accept_hostkey: yes 
