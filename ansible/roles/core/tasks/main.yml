@@ -89,3 +89,15 @@
     dest: ../robotx_ws/src/pf_localization/nmea_to_geopose
     version: ros2
     accept_hostkey: yes
+- name: clone pf_localization
+  git:
+    repo: https://github.com/OUXT-Polaris/pf_localization.git
+    dest: ../robotx_ws/src/pf_localization/pf_localization
+    version: ros2
+    accept_hostkey: yes 
+- name: clone odom_frame_publisher
+  git:
+    repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
+    dest: ../robotx_ws/src/odom_frame_publisher/odom_frame_publisher
+    version: ros2
+    accept_hostkey: yes
