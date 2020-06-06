@@ -83,3 +83,9 @@
     dest: ../robotx_ws/src/description/wamv_description
     version: master
     accept_hostkey: yes
+- name: clone odom_frame_publisher
+  git:
+    repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
+    dest: ../robotx_ws/src/odom_frame_publisher/odom_frame_publisher
+    version: ros2
+    accept_hostkey: yes
