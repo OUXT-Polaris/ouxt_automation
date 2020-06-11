@@ -11,6 +11,12 @@
     dest: ../robotx_ws/src/perception/pointcloud_to_laserscan
     version: eloquent-devel
     accept_hostkey: yes
+- name : clone scan_segmentation
+  git:
+    repo: https://github.com/OUXT-Polaris/scan_segmentation
+    dest: ../robotx_ws/src/perception/scan_segmentation
+    version: eloquent-devel
+    accept_hostkey: yes
 - name : clone hermite_path_planner
   git:
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
