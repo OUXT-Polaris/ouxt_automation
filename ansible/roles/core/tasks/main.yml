@@ -15,7 +15,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/scan_segmentation
     dest: ../robotx_ws/src/perception/scan_segmentation
-    version: eloquent-devel
+    version: master
     accept_hostkey: yes
 - name : clone hermite_path_planner
   git:
