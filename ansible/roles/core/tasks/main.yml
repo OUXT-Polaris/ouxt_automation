@@ -77,6 +77,12 @@
     dest: ../robotx_ws/src/utils/geometry_msgs_data_buffer
     version: ros2
     accept_hostkey: yes
+- name: clone document_generator
+  git:
+    repo: https://github.com/OUXT-Polaris/document_generator.git
+    dest: ../robotx_ws/src/utils/document_generator
+    version: master
+    accept_hostkey: yes
 - name: clone velodyne
   git:
     repo: https://github.com/ros-drivers/velodyne.git
