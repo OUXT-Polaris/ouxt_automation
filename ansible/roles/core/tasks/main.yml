@@ -12,7 +12,7 @@
     dest: ../robotx_ws/src/perception/pointcloud_to_laserscan
     version: eloquent-devel
     accept_hostkey: yes
-- name : cloneimage_processing_utils
+- name : clone image_processing_utils
   git:
     repo: https://github.com/OUXT-Polaris/image_processing_utils.git
     dest: ../robotx_ws/src/perception/image_processing_utils
