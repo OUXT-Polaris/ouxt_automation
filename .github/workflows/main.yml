@@ -26,11 +26,15 @@ jobs:
               env:
                 SLACK_CHANNEL: ci
                 SLACK_TITLE: Test Success
-                SLACK_COLOR: good
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_COLOR: '#5cb85c'
+                SLACK_MESSAGE: 'succeed to run build test in robotx_setup'
             - name: Slack Notification on Failure
               uses: rtCamp/action-slack-notify@v2.0.2
               if: failure()
               env:
                 SLACK_CHANNEL: ci
                 SLACK_TITLE: Test Failure
-                SLACK_COLOR: danger
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_COLOR: '#dc143c'
+                SLACK_MESSAGE: 'failed to run build test in robotx_setup'
