@@ -108,6 +108,18 @@
     dest: ../robotx_ws/src/drivers/nmea_gps_driver
     version: master
     accept_hostkey: yes
+- name: clone raspicam
+  git:
+    repo: https://github.com/OUXT-Polaris/raspicam.git
+    dest: ../robotx_ws/src/drivers/raspicam
+    version: master
+    accept_hostkey: yes
+- name: clone raspicam_driver
+  git:
+    repo: https://github.com/OUXT-Polaris/raspicam_driver.git
+    dest: ../robotx_ws/src/drivers/raspicam_driver
+    version: master
+    accept_hostkey: yes
 
 # Description Packages
 - name: clone wamv_description
