@@ -1,4 +1,5 @@
 ---
+# Perception Packages
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
@@ -10,6 +11,12 @@
     repo: https://github.com/OUXT-Polaris/pointcloud_to_laserscan.git
     dest: ../robotx_ws/src/perception/pointcloud_to_laserscan
     version: eloquent-devel
+    accept_hostkey: yes
+- name : clone image_processing_utils
+  git:
+    repo: https://github.com/OUXT-Polaris/image_processing_utils.git
+    dest: ../robotx_ws/src/perception/image_processing_utils
+    version: master
     accept_hostkey: yes
 - name : clone scan_segmentation
   git:
@@ -23,6 +30,8 @@
     dest: ../robotx_ws/src/perception/perception_bringup
     version: master
     accept_hostkey: yes
+
+# Planning Packages
 - name : clone hermite_path_planner
   git:
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
@@ -47,6 +56,8 @@
     dest: ../robotx_ws/src/planning/robotx_bt_planner
     version: master
     accept_hostkey: yes
+
+# Utility Packages
 - name: clone color_names
   git:
     repo: https://github.com/OUXT-Polaris/color_names.git
@@ -71,6 +82,14 @@
     dest: ../robotx_ws/src/utils/geometry_msgs_data_buffer
     version: ros2
     accept_hostkey: yes
+- name: clone document_generator
+  git:
+    repo: https://github.com/OUXT-Polaris/document_generator.git
+    dest: ../robotx_ws/src/utils/document_generator
+    version: master
+    accept_hostkey: yes
+
+# Driver Packages
 - name: clone velodyne
   git:
     repo: https://github.com/ros-drivers/velodyne.git
@@ -95,27 +114,37 @@
     dest: ../robotx_ws/src/drivers/raspicam
     version: master
     accept_hostkey: yes
+- name: clone raspicam_driver
+  git:
+    repo: https://github.com/OUXT-Polaris/raspicam_driver.git
+    dest: ../robotx_ws/src/drivers/raspicam_driver
+    version: master
+    accept_hostkey: yes
+
+# Description Packages
 - name: clone wamv_description
   git:
     repo: https://github.com/OUXT-Polaris/wamv_description.git
     dest: ../robotx_ws/src/description/wamv_description
     version: master
     accept_hostkey: yes
+
+# Localization Packages
 - name: clone nmea_to_geopose
   git:
     repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
-    dest: ../robotx_ws/src/pf_localization/nmea_to_geopose
+    dest: ../robotx_ws/src/localization/nmea_to_geopose
     version: ros2
     accept_hostkey: yes
 - name: clone pf_localization
   git:
     repo: https://github.com/OUXT-Polaris/pf_localization.git
-    dest: ../robotx_ws/src/pf_localization/pf_localization
+    dest: ../robotx_ws/src/localization/pf_localization
     version: ros2
     accept_hostkey: yes 
 - name: clone odom_frame_publisher
   git:
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
-    dest: ../robotx_ws/src/odom_frame_publisher/odom_frame_publisher
+    dest: ../robotx_ws/src/localization/odom_frame_publisher
     version: ros2
     accept_hostkey: yes
