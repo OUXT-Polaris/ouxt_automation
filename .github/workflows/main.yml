@@ -10,14 +10,6 @@ jobs:
         name: setup
         runs-on: ubuntu-18.04
         steps:
-            - name: Slack Notification of starting build test
-              uses: rtCamp/action-slack-notify@v2.0.2
-              env:
-                SLACK_CHANNEL: ci
-                SLACK_TITLE: 'start build test'
-                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-                SLACK_COLOR: '#5cb85c'
-                SLACK_MESSAGE: 'start build test in github actions'
             - name: basic install
               run: |
                   sudo apt install make ansible
@@ -28,21 +20,10 @@ jobs:
             - name: ansible
               run: |
                   ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become
-            - name: Slack Notification on Success
-              if: success()
-              uses: rtCamp/action-slack-notify@v2.0.2
+            - name: Slack Notification
+              uses: 8398a7/action-slack@v2
+              with:
+                status: ${{ job.status }}
               env:
-                SLACK_CHANNEL: ci
-                SLACK_TITLE: Test Success
-                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-                SLACK_COLOR: '#5cb85c'
-                SLACK_MESSAGE: 'succeed to run build test in robotx_setup'
-            - name: Slack Notification on Failure
-              uses: rtCamp/action-slack-notify@v2.0.2
-              if: failure()
-              env:
-                SLACK_CHANNEL: ci
-                SLACK_TITLE: Test Failure
-                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-                SLACK_COLOR: '#dc143c'
-                SLACK_MESSAGE: 'failed to run build test in robotx_setup'
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
