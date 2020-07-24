@@ -10,6 +10,14 @@ jobs:
         name: setup
         runs-on: ubuntu-18.04
         steps:
+            - name: Slack Notification of starting build test
+              uses: rtCamp/action-slack-notify@v2.0.2
+              env:
+                SLACK_CHANNEL: ci
+                SLACK_TITLE: 'start build test'
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_COLOR: '#5cb85c'
+                SLACK_MESSAGE: 'start build test in github actions'
             - name: basic install
               run: |
                   sudo apt install make ansible
