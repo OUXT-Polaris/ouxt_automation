@@ -130,6 +130,18 @@
     accept_hostkey: yes
 
 # Localization Packages
+- name: clone geographic_info
+  git:
+    repo: https://github.com/OUXT-Polaris/geographic_info.git
+    dest: ../robotx_ws/src/localization/geographic_info
+    version: ros2
+    accept_hostkey: yes
+- name: clone geographic_conversions
+  git:
+    repo: https://github.com/OUXT-Polaris/geographic_conversions.git
+    dest: ../robotx_ws/src/localization/geographic_conversions
+    version: ros2
+    accept_hostkey: yes
 - name: clone nmea_to_geopose
   git:
     repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
