@@ -136,10 +136,10 @@
     dest: ../robotx_ws/src/localization/geographic_info
     version: ros2
     accept_hostkey: yes
-- name: clone geographic_conversions
+- name: clone geographic_conversion
   git:
-    repo: https://github.com/OUXT-Polaris/geographic_conversions.git
-    dest: ../robotx_ws/src/localization/geographic_conversions
+    repo: https://github.com/OUXT-Polaris/geographic_conversion.git
+    dest: ../robotx_ws/src/localization/geographic_conversion
     version: ros2
     accept_hostkey: yes
 - name: clone nmea_to_geopose
