@@ -6,3 +6,4 @@ ansible_become_pass : '{{ wamv_ansible_sudo_pass }}'
 ansible_python_interpreter : '/usr/bin/python3'
 ros_package_name : ros-eloquent-ros-base
 workspace_path : /home/cameramodule01/robotx_ws
+ntp_server: false

@@ -1,5 +1,10 @@
 ---
-- hosts: camera_module_01
+#- hosts: camera_module_01
+#  roles:
+#    - jetson
+#    - ros2
+- hosts:
+  - camera_module_01
+  - master
   roles:
-    - jetson
-    - ros2
+    - ntp
