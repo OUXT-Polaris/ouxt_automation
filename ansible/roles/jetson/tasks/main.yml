@@ -1,0 +1,4 @@
+- name: add nvcc to the path
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: 'export PATH="$PATH:/usr/local/cuda/bin"'

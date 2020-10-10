@@ -1,0 +1,5 @@
+---
+- hosts: camera_module_01
+  roles:
+    - jetson
+    - ros2

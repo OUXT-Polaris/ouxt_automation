@@ -23,7 +23,7 @@
 
 - name: load env variable & build
   shell: |-
-    cd ../robotx_ws
+    cd {{ workspace_path }}
     source /opt/ros/eloquent/setup.bash
     colcon build --symlink-install
   args:

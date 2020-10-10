@@ -2,12 +2,12 @@
 - name : clone navi_sim
   git:
     repo: https://github.com/OUXT-Polaris/navi_sim.git
-    dest: ../robotx_ws/src/simulation/navi_sim
+    dest: "{{workspace_path}}/src/simulation/navi_sim"
     version: master
     accept_hostkey: yes
 - name : clone joy_to_twist
   git:
     repo: https://github.com/OUXT-Polaris/joy_to_twist.git
-    dest: ../robotx_ws/src/control/joy_to_twist
+    dest: "{{workspace_path}}/src/control/joy_to_twist"
     version: master
     accept_hostkey: yes
