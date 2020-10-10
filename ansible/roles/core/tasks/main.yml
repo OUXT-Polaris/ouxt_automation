@@ -50,12 +50,6 @@
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
     accept_hostkey: yes
-- name: clone robotx_bt_planner
-  git:
-    repo: https://github.com/OUXT-Polaris/robotx_bt_planner.git
-    dest: "{{workspace_path}}/src/planning/robotx_bt_planner"
-    version: master
-    accept_hostkey: yes
 
 # Utility Packages
 - name: clone color_names
