@@ -8,6 +8,7 @@
   vars:
     packages:
     - chrony
+  ignore_errors: true
 
 - name: check backup chrony config exists
   stat:
@@ -50,4 +51,8 @@
 
 - name: restart chronyd
   shell: systemctl restart chronyd
+  become: true
+
+- name: sync time
+  shell: chronyc -a makestep
   become: true

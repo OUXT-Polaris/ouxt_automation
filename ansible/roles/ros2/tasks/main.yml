@@ -38,7 +38,7 @@
   apt:
     update_cache: yes
   become: yes
-  ignore_errors: true 
+  ignore_errors: true
 
 - name: install ros2 eloquent/colcon/vcs
   become: yes
@@ -57,6 +57,7 @@
       - python3-rosdep
       - python3-argcomplete
       - ros-eloquent-ament-cmake
+      - ca-certificates
 
 - name: make workspace
   file: path={{workspace_path}}

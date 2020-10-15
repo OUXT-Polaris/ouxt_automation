@@ -2,3 +2,53 @@
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: 'export PATH="$PATH:/usr/local/cuda/bin"'
+- name: add cuda include dir to the path
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: 'export CPATH="$CPATH:/usr/local/cuda/targets/aarch64-linux/include"'
+- name: add cuda library dir to the path
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: 'export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"'
+
+- name : clone image_processing_utils
+  git:
+    repo: https://github.com/OUXT-Polaris/image_processing_utils.git
+    dest: "{{workspace_path}}/src/perception/image_processing_utils"
+    version: master
+    accept_hostkey: yes
+
+- name: clone yolo_tensorrt
+  git:
+    repo: https://github.com/OUXT-Polaris/yolo-tensorrt.git
+    dest: "{{workspace_path}}/src/perception/yolo_tensorrt"
+    version: master
+    accept_hostkey: yes
+
+- name: remove old rosdep list
+  file:
+    path: /etc/ros/rosdep/sources.list.d/20-default.list
+    state: absent
+  become: true
+  ignore_errors: true
+
+- name: rosdep init
+  shell: rosdep init
+  become: yes
+  
+- name: rosdep update
+  command: rosdep update
+  become: yes
+
+- name: install depends
+  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --skip-keys nvidia-cuda --skip-keys nvidia-cuda-dev --rosdistro eloquent
+  become: yes
+
+- name: load env variable & build
+  shell: |-
+    source /home/{{ ansible_user }}/.bashrc
+    cd {{ workspace_path }}
+    source /opt/ros/eloquent/setup.bash
+    colcon build --symlink-install --cmake-args '-DCMAKE_CUDA_COMPILER=nvcc'
+  args:
+    executable: /bin/bash
