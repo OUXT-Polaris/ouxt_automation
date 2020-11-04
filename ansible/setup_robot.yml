@@ -1,6 +1,6 @@
 ---
 - hosts:
-  - camera_module_01
+  - camera_module_02
   #- camera_module_02
   - master
   roles:
