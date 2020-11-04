@@ -50,12 +50,6 @@
     dest: ../robotx_ws/src/planning/robotx_behavior_tree
     version: master
     accept_hostkey: yes
-- name: clone robotx_bt_planner
-  git:
-    repo: https://github.com/OUXT-Polaris/robotx_bt_planner.git
-    dest: ../robotx_ws/src/planning/robotx_bt_planner
-    version: master
-    accept_hostkey: yes
 
 # Utility Packages
 - name: clone color_names
@@ -119,6 +113,12 @@
     repo: https://github.com/OUXT-Polaris/raspicam_driver.git
     dest: ../robotx_ws/src/drivers/raspicam_driver
     version: master
+    accept_hostkey: yes
+- name : clone realsense driver
+  git :
+    repo: https://github.com/IntelRealSense/realsense-ros.git
+    dest: ../robotx_ws/src/drivers/realsense_ros
+    version: eloquent
     accept_hostkey: yes
 
 # Description Packages
