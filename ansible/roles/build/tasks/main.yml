@@ -21,13 +21,10 @@
   command: rosdep install -y -r -i --from-paths ../robotx_ws/src --ignore-src --rosdistro eloquent
   become: yes
 
-- name: Setup tmate session
-  uses: mxschmitt/action-tmate@v1
-
-- name: load env variable & build
-  shell: |-
-    cd ../robotx_ws
-    source /opt/ros/eloquent/setup.bash
-    colcon build --symlink-install
-  args:
-    executable: /bin/bash
+#- name: load env variable & build
+#  shell: |-
+#    cd ../robotx_ws
+#    source /opt/ros/eloquent/setup.bash
+#    colcon build --symlink-install
+#  args:
+#    executable: /bin/bash
