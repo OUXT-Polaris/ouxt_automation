@@ -139,6 +139,7 @@
   args:
     chdir: ../librealsense
   shell: ./scripts/patch-realsense-ubuntu-lts.sh
+  ignore_errors: yes
 - name: build librealsense(cmake)
   args:
     chdir: ../librealsense
