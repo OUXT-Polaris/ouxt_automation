@@ -20,8 +20,6 @@ jobs:
             - name: ansible
               run: |
                   ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become
-            - name: Setup tmate session
-              uses: mxschmitt/action-tmate@v1
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:

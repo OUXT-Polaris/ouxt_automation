@@ -134,11 +134,20 @@
   args:
     chdir: ../librealsense
   shell: ./scripts/setup_udev_rules.sh
-#- name: install librealsense
-#  become: yes
-#  args:
-#    chdir: ../librealsense
-#  shell: ./scripts/patch-realsense-ubuntu-lts.sh
+- name: install librealsense
+  become: yes
+  args:
+    chdir: ../librealsense
+  shell: ./scripts/patch-realsense-ubuntu-lts.sh
+- name: build librealsense(cmake)
+  args:
+    chdir: ../librealsense
+  shell: cmake .
+- name: install librealsense(cmake)
+  args:
+    chdir: ../librealsense
+  shell: make install
+  become: yes
 
 # Description Packages
 - name: clone wamv_description

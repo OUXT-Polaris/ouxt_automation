@@ -3,6 +3,6 @@
   roles: 
     - ros2
     - core
-#    - additional
-#    - build
-#    - docker
+    - additional
+    - build
+    - docker
