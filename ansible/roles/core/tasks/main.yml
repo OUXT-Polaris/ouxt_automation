@@ -129,16 +129,16 @@
       - libgl1-mesa-dev
       - libglu1-mesa-dev
   become: yes
-- name: install librealsense
+- name: setup librealsense rule
   become: yes
   args:
     chdir: ../librealsense
   shell: ./scripts/setup_udev_rules.sh
-- name: install librealsense
-  become: yes
-  args:
-    chdir: ../librealsense
-  shell: ./scripts/patch-realsense-ubuntu-lts.sh
+#- name: install librealsense
+#  become: yes
+#  args:
+#    chdir: ../librealsense
+#  shell: ./scripts/patch-realsense-ubuntu-lts.sh
 
 # Description Packages
 - name: clone wamv_description
