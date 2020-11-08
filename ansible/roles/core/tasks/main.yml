@@ -108,24 +108,37 @@
     dest: ../robotx_ws/src/drivers/realsense_ros
     version: eloquent
     accept_hostkey: yes
-- name: setup librealsense keys
-  become: yes
-  shell: apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
-- name: setup librealsense repo
-  apt_repository:
-    repo: deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo bionic main
-    state: present
-- name: install librealsense
+- name : clone librealsense
+  git:
+    repo: https://github.com/IntelRealSense/librealsense.git
+    dest: ../librealsense
+    version: master
+    accept_hostkey: yes
+- name: install depends
   apt:
     name: "{{ packages }}"
     state: present
     update_cache: yes
-    allow_unauthenticated: yes
   vars:
     packages:
-      - librealsense2-dkms
-      - librealsense2-utils
+      - libssl-dev
+      - libusb-1.0-0-dev
+      - pkg-config
+      - libgtk-3-dev
+      - libglfw3-dev
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
   become: yes
+- name: install librealsense
+  become: yes
+  args:
+    chdir: ../librealsense
+  shell: ./scripts/setup_udev_rules.sh
+- name: install librealsense
+  become: yes
+  args:
+    chdir: ../librealsense
+  shell: ./scripts/patch-realsense-ubuntu-lts.sh
 
 # Description Packages
 - name: clone wamv_description
