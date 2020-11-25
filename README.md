@@ -19,7 +19,7 @@ sudo apt install ansible
 ### install in local host (full package)
 
 ```
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-sudo-pass
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
 ```
 
 ### install to test docker image
