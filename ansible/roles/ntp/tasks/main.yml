@@ -1,0 +1,58 @@
+---
+- name: install chrony
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+    - chrony
+  ignore_errors: true
+
+- name: check backup chrony config exists
+  stat:
+    path: /etc/chrony/chrony.conf.old
+  register: chrony_backup_stat
+
+- name: backup chrony config
+  copy:
+    src: /etc/chrony/chrony.conf
+    dest: /etc/chrony/chrony.conf.old
+  when: not chrony_backup_stat.stat.exists
+  become: true
+
+- name: remove old config
+  file:
+    path: /etc/chrony/chrony.conf
+    state: absent
+  become: true
+  ignore_errors: true
+
+- name: touch old config
+  file:
+    path: /etc/chrony/chrony.conf
+    state: touch
+  become: true
+
+- name: setup chrony server config
+  lineinfile:
+    dest: /etc/chrony/chrony.conf
+    line: "server ntp.nict.jp iburst\n\nallow 192.168/16"
+  when: ntp_server
+  become: true
+
+- name: setup chrony client config
+  lineinfile:
+    dest: /etc/chrony/chrony.conf
+    line: "server {{ master_ip }} iburst\n\nallow 192.168/16"
+  when: not ntp_server
+  become: true
+
+- name: restart chronyd
+  shell: systemctl restart chronyd
+  become: true
+
+- name: sync time
+  shell: chronyc -a makestep
+  become: true

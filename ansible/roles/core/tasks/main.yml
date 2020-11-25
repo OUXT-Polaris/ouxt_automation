@@ -3,31 +3,31 @@
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
-    dest: ../robotx_ws/src/perception/pcl_apps
+    dest: "{{workspace_path}}/src/perception/pcl_apps"
     version: master
     accept_hostkey: yes
 - name : clone pointcloud_to_laserscan
   git:
     repo: https://github.com/OUXT-Polaris/pointcloud_to_laserscan.git
-    dest: ../robotx_ws/src/perception/pointcloud_to_laserscan
+    dest: "{{workspace_path}}/src/perception/pointcloud_to_laserscan"
     version: eloquent-devel
     accept_hostkey: yes
 - name : clone image_processing_utils
   git:
     repo: https://github.com/OUXT-Polaris/image_processing_utils.git
-    dest: ../robotx_ws/src/perception/image_processing_utils
+    dest: "{{workspace_path}}/src/perception/image_processing_utils"
     version: master
     accept_hostkey: yes
 - name : clone scan_segmentation
   git:
     repo: https://github.com/OUXT-Polaris/scan_segmentation.git
-    dest: ../robotx_ws/src/perception/scan_segmentation
+    dest: "{{workspace_path}}/src/perception/scan_segmentation"
     version: master
     accept_hostkey: yes
 - name : clone preception_bringup
   git:
     repo: https://github.com/OUXT-Polaris/perception_bringup.git
-    dest: ../robotx_ws/src/perception/perception_bringup
+    dest: "{{workspace_path}}/src/perception/perception_bringup"
     version: master
     accept_hostkey: yes
 
@@ -35,19 +35,19 @@
 - name : clone hermite_path_planner
   git:
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
-    dest: ../robotx_ws/src/planning/hermite_path_planner
+    dest: "{{workspace_path}}/src/planning/hermite_path_planner"
     version: master
     accept_hostkey: yes
 - name: clone behavior_tree_action_builder
   git:
     repo: https://github.com/OUXT-Polaris/behavior_tree_action_builder.git
-    dest: ../robotx_ws/src/planning/behavior_tree_action_builder
+    dest: "{{workspace_path}}/src/planning/behavior_tree_action_builder"
     version: master
     accept_hostkey: yes
 - name: clone robotx_behavior_tree
   git:
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
-    dest: ../robotx_ws/src/planning/robotx_behavior_tree
+    dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
     accept_hostkey: yes
 
@@ -55,31 +55,31 @@
 - name: clone color_names
   git:
     repo: https://github.com/OUXT-Polaris/color_names.git
-    dest: ../robotx_ws/src/utils/color_names
+    dest: "{{workspace_path}}/src/utils/color_names"
     version: master
     accept_hostkey: yes
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
-    dest: ../robotx_ws/src/utils/quaternion_operation
+    dest: "{{workspace_path}}/src/utils/quaternion_operation"
     version: ros2
     accept_hostkey: yes
 - name: clone data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
-    dest: ../robotx_ws/src/utils/data_buffer
+    dest: "{{workspace_path}}/src/utils/data_buffer"
     version: ros2
     accept_hostkey: yes
 - name: clone geometry_msgs_data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
-    dest: ../robotx_ws/src/utils/geometry_msgs_data_buffer
+    dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
     version: ros2
     accept_hostkey: yes
 - name: clone document_generator
   git:
     repo: https://github.com/OUXT-Polaris/document_generator.git
-    dest: ../robotx_ws/src/utils/document_generator
+    dest: "{{workspace_path}}/src/utils/document_generator"
     version: master
     accept_hostkey: yes
 
@@ -87,27 +87,41 @@
 - name: clone velodyne
   git:
     repo: https://github.com/ros-drivers/velodyne.git
-    dest: ../robotx_ws/src/drivers/velodyne
+    dest: "{{workspace_path}}/src/drivers/velodyne"
     version: dashing-devel
     accept_hostkey: yes
 - name: clone nmea_msgs
   git:
     repo: https://github.com/ros-drivers/nmea_msgs.git
-    dest: ../robotx_ws/src/drivers/nmea_msgs
+    dest: "{{workspace_path}}/src/drivers/nmea_msgs"
     version: ros2
     accept_hostkey: yes
 - name: clone nmea_gps_driver
   git:
     repo: https://github.com/OUXT-Polaris/nmea_gps_driver.git
-    dest: ../robotx_ws/src/drivers/nmea_gps_driver
+    dest: "{{workspace_path}}/src/drivers/nmea_gps_driver"
     version: master
     accept_hostkey: yes
+
+- name: clone raspicam
+  git:
+    repo: https://github.com/OUXT-Polaris/raspicam.git
+    dest: "{{workspace_path}}/src/drivers/raspicam"
+    version: master
+- name: clone raspicam driver
+  git:
+    repo: https://github.com/OUXT-Polaris/raspicam_driver.git
+    dest: "{{workspace_path}}/src/drivers/raspicam_driver"
+    version: master
+    accept_hostkey: yes
+    
 - name : clone realsense driver
   git :
     repo: https://github.com/IntelRealSense/realsense-ros.git
     dest: ../robotx_ws/src/drivers/realsense_ros
     version: eloquent
     accept_hostkey: yes
+    
 - name : clone librealsense
   git:
     repo: https://github.com/IntelRealSense/librealsense.git
@@ -154,7 +168,7 @@
 - name: clone wamv_description
   git:
     repo: https://github.com/OUXT-Polaris/wamv_description.git
-    dest: ../robotx_ws/src/description/wamv_description
+    dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
 
@@ -162,30 +176,30 @@
 - name: clone geographic_info
   git:
     repo: https://github.com/OUXT-Polaris/geographic_info.git
-    dest: ../robotx_ws/src/localization/geographic_info
+    dest: "{{workspace_path}}/src/localization/geographic_info"
     version: ros2
     accept_hostkey: yes
 - name: clone geographic_conversion
   git:
     repo: https://github.com/OUXT-Polaris/geographic_conversion.git
-    dest: ../robotx_ws/src/localization/geographic_conversion
+    dest: "{{workspace_path}}/src/localization/geographic_conversion"
     version: ros2
     accept_hostkey: yes
 - name: clone nmea_to_geopose
   git:
     repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
-    dest: ../robotx_ws/src/localization/nmea_to_geopose
+    dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
     version: ros2
     accept_hostkey: yes
 - name: clone pf_localization
   git:
     repo: https://github.com/OUXT-Polaris/pf_localization.git
-    dest: ../robotx_ws/src/localization/pf_localization
+    dest: "{{workspace_path}}/src/localization/pf_localization"
     version: ros2
     accept_hostkey: yes 
 - name: clone odom_frame_publisher
   git:
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
-    dest: ../robotx_ws/src/localization/odom_frame_publisher
+    dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
     version: ros2
     accept_hostkey: yes

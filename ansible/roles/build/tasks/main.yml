@@ -12,19 +12,22 @@
 - name: rosdep init
   shell: rosdep init
   become: yes
+  ignore_errors: true
 
 - name: rosdep update
   command: rosdep update
   become: yes
+  ignore_errors: true
 
 - name: install depends
-  command: rosdep install -y -r -i --from-paths ../robotx_ws/src --ignore-src --rosdistro eloquent
+  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro eloquent
   become: yes
 
-#- name: load env variable & build
-#  shell: |-
-#    cd ../robotx_ws
-#    source /opt/ros/eloquent/setup.bash
-#    colcon build --symlink-install
-#  args:
-#    executable: /bin/bash
+- name: load env variable & build
+  shell: |-
+    cd {{ workspace_path }}
+    source /opt/ros/eloquent/setup.bash
+    colcon build --symlink-install
+  args:
+    executable: /bin/bash
+

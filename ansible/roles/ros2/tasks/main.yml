@@ -35,8 +35,10 @@
   shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
   
 - name: update apt-get repo and cache
+  apt:
+    update_cache: yes
   become: yes
-  shell: apt update
+  ignore_errors: true
 
 - name: install ros2 eloquent/colcon/vcs
   become: yes
@@ -55,17 +57,30 @@
       - python3-rosdep
       - python3-argcomplete
       - ros-eloquent-ament-cmake
+      - ca-certificates
 
 - name: make workspace
-  file: path={{ansible_env.PWD}}/../robotx_ws
+  file: path={{workspace_path}}
         state=directory
 
-- name: make src dir
-  file: path={{ansible_env.PWD}}/../robotx_ws/src
+- name: make src dir from workspace_path
+  file: path={{workspace_path}}/src
         state=directory
 
 - name: add setup.bash to .bashrc
-  shell: echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: "source /opt/ros/eloquent/setup.bash"
 
 - name: add local_setup.bash to .bashrc
-  shell: echo "source {{ansible_env.PWD}}/../robotx_ws/install/local_setup.bash" >> ~/.bashrc
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: "source {{ workspace_path }}/install/local_setup.bash"
+
+- name: load env variable & build
+  shell: |-
+    cd {{ workspace_path }}
+    source /opt/ros/eloquent/setup.bash
+    colcon build --symlink-install
+  args:
+    executable: /bin/bash
