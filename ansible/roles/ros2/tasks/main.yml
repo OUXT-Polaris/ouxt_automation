@@ -40,7 +40,7 @@
   become: yes
   ignore_errors: true
 
-- name: install ros2 eloquent/colcon/vcs
+- name: install ros2 foxy/colcon/vcs
   become: yes
   apt:
     name: "{{ packages }}"
@@ -56,7 +56,7 @@
       - python3-catkin-pkg 
       - python3-rosdep
       - python3-argcomplete
-      - ros-eloquent-ament-cmake
+      - ros-foxy-ament-cmake
       - ca-certificates
 
 - name: make workspace
@@ -70,17 +70,19 @@
 - name: add setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
-    line: "source /opt/ros/eloquent/setup.bash"
+    line: "source /opt/ros/foxy/setup.bash"
+    create: yes
 
 - name: add local_setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: "source {{ workspace_path }}/install/local_setup.bash"
+    create: yes
 
 - name: load env variable & build
   shell: |-
     cd {{ workspace_path }}
-    source /opt/ros/eloquent/setup.bash
+    source /opt/ros/foxy/setup.bash
     colcon build --symlink-install
   args:
     executable: /bin/bash
