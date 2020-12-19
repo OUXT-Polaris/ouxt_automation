@@ -1,5 +1,5 @@
 ---
-ros_package_name: ros-eloquent-desktop
+ros_package_name: ros-foxy-desktop
 workspace_path: "{{ansible_env.PWD}}/../robotx_ws"
 ansible_python_interpreter : "/usr/bin/python3"
 ansible_connection: local
