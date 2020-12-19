@@ -36,7 +36,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
     dest: "{{workspace_path}}/src/planning/hermite_path_planner"
-    version: master
+    version: ros2-foxy
     accept_hostkey: yes
 - name: clone behavior_tree_action_builder
   git:
@@ -56,8 +56,18 @@
   git:
     repo: https://github.com/OUXT-Polaris/color_names.git
     dest: "{{workspace_path}}/src/utils/color_names"
-    version: master
+    version: ros2-foxy
     accept_hostkey: yes
+
+- name: install dependency of color_names
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - python3-sphinx-rtd-theme 
+
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
