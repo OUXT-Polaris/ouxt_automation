@@ -62,7 +62,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
     dest: "{{workspace_path}}/src/utils/quaternion_operation"
-    version: ros2
+    version: ros2_eloquent
     accept_hostkey: yes
 - name: clone data_buffer
   git:
@@ -147,12 +147,12 @@
   become: yes
   args:
     chdir: ../librealsense
-  shell: ./scripts/setup_udev_rules.sh
+  shell: echo y | ./scripts/setup_udev_rules.sh
 - name: install librealsense
   become: yes
   args:
     chdir: ../librealsense
-  shell: ./scripts/patch-realsense-ubuntu-lts.sh
+  shell: echo y | ./scripts/patch-realsense-ubuntu-lts.sh
   ignore_errors: yes
 - name: build librealsense(cmake)
   args:
