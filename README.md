@@ -5,10 +5,11 @@
 ### Base Environments
 
 ```
-Ubuntu 18.04
+Ubuntu 20.04
 ```
+If your ubuntu version is older than 20.04, you can use docker environment.  
 
-ansible task install ROS2 eloquent, so you do not necessary to setup ROS2
+ansible task install ROS2 foxy, so you do not necessary to setup ROS2
 
 before you run ansible-script, you have to install ansible via apt
 
@@ -27,5 +28,5 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connect
 ```
 cd docker
 sh run.sh
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_full.yml
+ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
 ```
