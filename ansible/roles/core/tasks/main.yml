@@ -122,7 +122,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/raspicam_driver.git
     dest: "{{workspace_path}}/src/drivers/raspicam_driver"
-    version: master
+    version: opencv-4
     accept_hostkey: yes
     
 - name : clone realsense driver
