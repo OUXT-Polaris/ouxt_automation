@@ -1,0 +1,22 @@
+version: "2"
+services:
+  robotx:
+    environment:
+      # to transport X11 application window
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      # to use devices
+      - /dev:/dev
+      # to tansport X11 application (require xhost local:)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # ros catkin dir
+      - ./robotx_ws:/root/robotx_ws
+      - ./ansible:/root/ansible
+    ports:
+      - "2022:22"
+    build: docker
+    container_name: robotx_container
+    privileged: true
+    # network_mode: host
+    # command: /bin/bash
