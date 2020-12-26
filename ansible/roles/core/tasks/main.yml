@@ -36,7 +36,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
     dest: "{{workspace_path}}/src/planning/hermite_path_planner"
-    version: ros2-foxy
+    version: master
     accept_hostkey: yes
 - name: clone behavior_tree_action_builder
   git:
@@ -56,7 +56,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/color_names.git
     dest: "{{workspace_path}}/src/utils/color_names"
-    version: ros2-foxy
+    version: master
     accept_hostkey: yes
 
 - name: install dependency of color_names
@@ -66,7 +66,7 @@
     update_cache: yes
   vars:
     packages:
-    - python3-sphinx-rtd-theme 
+    - python3-sphinx-rtd-theme
 
 - name: clone quaternion_operation
   git:
@@ -86,11 +86,45 @@
     dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
     version: ros2
     accept_hostkey: yes
-- name: clone document_generator
+
+# Description Packages
+- name: clone wamv_description
   git:
-    repo: https://github.com/OUXT-Polaris/document_generator.git
-    dest: "{{workspace_path}}/src/utils/document_generator"
+    repo: https://github.com/OUXT-Polaris/wamv_description.git
+    dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
+    accept_hostkey: yes
+
+# Localization Packages
+- name: clone geographic_info
+  git:
+    repo: https://github.com/OUXT-Polaris/geographic_info.git
+    dest: "{{workspace_path}}/src/localization/geographic_info"
+    version: ros2
+    accept_hostkey: yes
+- name: clone geographic_conversion
+  git:
+    repo: https://github.com/OUXT-Polaris/geographic_conversion.git
+    dest: "{{workspace_path}}/src/localization/geographic_conversion"
+    version: ros2
+    accept_hostkey: yes
+- name: clone nmea_to_geopose
+  git:
+    repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
+    dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
+    version: ros2
+    accept_hostkey: yes
+- name: clone pf_localization
+  git:
+    repo: https://github.com/OUXT-Polaris/pf_localization.git
+    dest: "{{workspace_path}}/src/localization/pf_localization"
+    version: ros2
+    accept_hostkey: yes 
+- name: clone odom_frame_publisher
+  git:
+    repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
+    dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
+    version: ros2
     accept_hostkey: yes
 
 # Driver Packages
@@ -122,7 +156,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/raspicam_driver.git
     dest: "{{workspace_path}}/src/drivers/raspicam_driver"
-    version: opencv-4
+    version: master
     accept_hostkey: yes
     
 - name : clone realsense driver
@@ -173,43 +207,3 @@
     chdir: ../librealsense
   shell: make install
   become: yes
-
-# Description Packages
-- name: clone wamv_description
-  git:
-    repo: https://github.com/OUXT-Polaris/wamv_description.git
-    dest: "{{workspace_path}}/src/description/wamv_description"
-    version: master
-    accept_hostkey: yes
-
-# Localization Packages
-- name: clone geographic_info
-  git:
-    repo: https://github.com/OUXT-Polaris/geographic_info.git
-    dest: "{{workspace_path}}/src/localization/geographic_info"
-    version: ros2
-    accept_hostkey: yes
-- name: clone geographic_conversion
-  git:
-    repo: https://github.com/OUXT-Polaris/geographic_conversion.git
-    dest: "{{workspace_path}}/src/localization/geographic_conversion"
-    version: ros2
-    accept_hostkey: yes
-- name: clone nmea_to_geopose
-  git:
-    repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
-    dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
-    version: ros2
-    accept_hostkey: yes
-- name: clone pf_localization
-  git:
-    repo: https://github.com/OUXT-Polaris/pf_localization.git
-    dest: "{{workspace_path}}/src/localization/pf_localization"
-    version: ros2
-    accept_hostkey: yes 
-- name: clone odom_frame_publisher
-  git:
-    repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
-    dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
-    version: ros2
-    accept_hostkey: yes
