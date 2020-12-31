@@ -72,7 +72,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
     dest: "{{workspace_path}}/src/utils/quaternion_operation"
-    version: ros2_eloquent
+    version: ros2
     accept_hostkey: yes
 - name: clone data_buffer
   git:
