@@ -78,11 +78,3 @@
     dest: /home/{{ ansible_user }}/.bashrc
     line: "source {{ workspace_path }}/install/local_setup.bash"
     create: yes
-
-- name: load env variable & build
-  shell: |-
-    cd {{ workspace_path }}
-    source /opt/ros/foxy/setup.bash
-    colcon build --symlink-install
-  args:
-    executable: /bin/bash
