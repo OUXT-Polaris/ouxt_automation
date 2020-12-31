@@ -1,10 +1,7 @@
 ---
 - hosts: all
   roles: 
-    - ros2
-    - realsense
     - core
     - additional
     - build
-    - docker
     - ntp
