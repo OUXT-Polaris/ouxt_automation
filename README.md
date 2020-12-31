@@ -19,6 +19,12 @@ sudo apt install ansible
 
 ### install in local host (full package)
 
+first time
+```
+ansible-playbook -i ansible/hosts/localhost.ini ansible/initial_setup_full.yml --connection local --ask-become-pass
+```
+
+not first time
 ```
 ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
 ```
