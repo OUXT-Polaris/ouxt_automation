@@ -59,15 +59,6 @@
     version: master
     accept_hostkey: yes
 
-- name: install dependency of color_names
-  become: yes
-  apt:
-    name: "{{ packages }}"
-    update_cache: yes
-  vars:
-    packages:
-    - python3-sphinx-rtd-theme
-
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
