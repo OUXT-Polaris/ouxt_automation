@@ -149,10 +149,3 @@
     dest: "{{workspace_path}}/src/drivers/raspicam_driver"
     version: master
     accept_hostkey: yes
-    
-- name : clone realsense driver
-  git :
-    repo: https://github.com/IntelRealSense/realsense-ros.git
-    dest: ../robotx_ws/src/drivers/realsense_ros
-    version: foxy
-    accept_hostkey: yes

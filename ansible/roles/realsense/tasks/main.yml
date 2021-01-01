@@ -19,3 +19,16 @@
     - librealsense2-utils
     - librealsense2-dev
     - librealsense2-dbg
+- name : clone realsense driver
+  git :
+    repo: https://github.com/IntelRealSense/realsense-ros.git
+    dest: ../robotx_ws/src/drivers/realsense_ros
+    version: foxy
+    accept_hostkey: yes
+- name: load env variable & build
+  shell: |-
+    cd {{ workspace_path }}
+    source /opt/ros/foxy/setup.bash
+    colcon build --symlink-install
+  args:
+    executable: /bin/bash
