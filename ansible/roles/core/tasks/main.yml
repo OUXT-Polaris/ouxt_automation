@@ -59,15 +59,6 @@
     version: master
     accept_hostkey: yes
 
-- name: install dependency of color_names
-  become: yes
-  apt:
-    name: "{{ packages }}"
-    update_cache: yes
-  vars:
-    packages:
-    - python3-sphinx-rtd-theme
-
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
@@ -157,11 +148,4 @@
     repo: https://github.com/OUXT-Polaris/raspicam_driver.git
     dest: "{{workspace_path}}/src/drivers/raspicam_driver"
     version: master
-    accept_hostkey: yes
-    
-- name : clone realsense driver
-  git :
-    repo: https://github.com/IntelRealSense/realsense-ros.git
-    dest: ../robotx_ws/src/drivers/realsense_ros
-    version: eloquent
     accept_hostkey: yes

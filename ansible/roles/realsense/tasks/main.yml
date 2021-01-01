@@ -1,41 +1,34 @@
-- name : clone librealsense
-  git:
-    repo: https://github.com/IntelRealSense/librealsense.git
-    dest: ../librealsense
-    version: master
-    accept_hostkey: yes
-- name: install depends
+- name: setup key
+  become: yes
+  shell: apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+- name: setup key
+  become: yes
+  shell: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+- name: add repository
+  become: yes
+  shell: add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo focal main" -u
+- name: install realsense packages via apt
+  become: yes
   apt:
     name: "{{ packages }}"
-    state: present
+    cache_valid_time: 3600
     update_cache: yes
   vars:
     packages:
-      - libssl-dev
-      - libusb-1.0-0-dev
-      - pkg-config
-      - libgtk-3-dev
-      - libglfw3-dev
-      - libgl1-mesa-dev
-      - libglu1-mesa-dev
-  become: yes
-- name: setup librealsense rule
-  become: yes
+    - librealsense2-dkms
+    - librealsense2-utils
+    - librealsense2-dev
+    - librealsense2-dbg
+- name : clone realsense driver
+  git :
+    repo: https://github.com/IntelRealSense/realsense-ros.git
+    dest: ../robotx_ws/src/drivers/realsense_ros
+    version: foxy
+    accept_hostkey: yes
+- name: load env variable & build
+  shell: |-
+    cd {{ workspace_path }}
+    source /opt/ros/foxy/setup.bash
+    colcon build --symlink-install
   args:
-    chdir: ../librealsense
-  shell: echo y | ./scripts/setup_udev_rules.sh
-- name: install librealsense
-  become: yes
-  args:
-    chdir: ../librealsense
-  shell: echo y | ./scripts/patch-realsense-ubuntu-lts.sh
-  ignore_errors: yes
-- name: build librealsense(cmake)
-  args:
-    chdir: ../librealsense
-  shell: cmake .
-- name: install librealsense(cmake)
-  args:
-    chdir: ../librealsense
-  shell: make install
-  become: yes
+    executable: /bin/bash
