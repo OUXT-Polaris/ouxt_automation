@@ -13,4 +13,4 @@
 # Driver Packages
 |  name  |  Github  |  Badge   | Documentation  |
 | ---- | ---- | ---- | ---- |
-| nmea_gps_driver | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/nmea_gps_driver) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/ROS2-Foxy/badge.svg) | https://ouxt-polaris.github.io/nmea_gps_driver/ |
+| nmea_gps_driver | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/nmea_gps_driver) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/ROS2-Foxy/badge.svg) | [URL](https://ouxt-polaris.github.io/nmea_gps_driver/) |
