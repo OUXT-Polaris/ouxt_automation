@@ -1,0 +1,30 @@
+name: Documentation
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+  push:
+
+jobs:
+    job1:
+        name: Generate Documentation
+        runs-on: ubuntu-18.04
+        steps:
+        - uses: actions/checkout@v2-beta
+        - name: Set up Python
+          uses: actions/setup-python@v1
+          with:
+            python-version: '3.6.12'
+        - name: Install 
+          run: |
+            cd docs
+            pip3 install -r requirements.txt
+        - name: Build documentation
+          run: |
+            cd docs
+            mkdocs build
+        - name: Deploy Document
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: docs/site
