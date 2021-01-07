@@ -1,6 +1,6 @@
-repo_url: https://github.com/OUXT-Polaris/nmea_gps_driver .git
+repo_url: https://github.com/OUXT-Polaris/robotx_setup
 site_name: Polaris Documentation
-site_description: Documentation of nmea_gps_driver package
+site_description: Documentation of robotx_setup package
 site_author: Masaya Kataoka
 theme: 
   name: material
