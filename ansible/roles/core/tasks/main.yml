@@ -6,12 +6,6 @@
     dest: "{{workspace_path}}/src/perception/pcl_apps"
     version: master
     accept_hostkey: yes
-- name : clone pointcloud_to_laserscan
-  git:
-    repo: https://github.com/OUXT-Polaris/pointcloud_to_laserscan.git
-    dest: "{{workspace_path}}/src/perception/pointcloud_to_laserscan"
-    version: eloquent-devel
-    accept_hostkey: yes
 - name : clone image_processing_utils
   git:
     repo: https://github.com/OUXT-Polaris/image_processing_utils.git
