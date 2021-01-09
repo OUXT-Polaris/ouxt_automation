@@ -390,9 +390,11 @@ If your ubuntu version is older than 20.04, you can use docker environment.  </p
 <p>before you run ansible-script, you have to install ansible via apt</p>
 <div class="highlight"><pre><span></span><code>sudo apt install ansible
 </code></pre></div>
+
 <h3 id="build-this-documentation-locally">build this documentation locally<a class="headerlink" href="#build-this-documentation-locally" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
 </code></pre></div>
+
 <h3 id="install-in-local-host-full-package">install in local host (full package)<a class="headerlink" href="#install-in-local-host-full-package" title="Permanent link">#</a></h3>
 <p>first time
 <div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
