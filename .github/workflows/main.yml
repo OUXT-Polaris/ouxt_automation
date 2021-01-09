@@ -3,7 +3,7 @@ name: robotx_setup
 on:
   schedule:
   - cron: 0 0 * * *
-  push:
+  pull_request:
 
 jobs:
     job1:

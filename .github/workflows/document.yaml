@@ -1,0 +1,27 @@
+name: documentat
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+  push:
+
+jobs:
+  job1:
+    name: build document
+    runs-on: ubuntu-20.04
+    steps:
+      - name: basic install
+        run: |
+            sudo apt install make ansible
+      - name: ansible version
+        run: |
+              ansible-playbook --version
+      - uses: actions/checkout@v2-beta
+      - name: ansible
+        run: |
+            ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --become
+      - name: Deploy Document
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/site
