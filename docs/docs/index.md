@@ -21,6 +21,12 @@ before you run ansible-script, you have to install ansible via apt
 sudo apt install ansible
 ```
 
+### build this documentation locally
+```
+ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
+```
+
+
 ### install in local host (full package)
 
 first time
