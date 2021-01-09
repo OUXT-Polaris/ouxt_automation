@@ -1,7 +1,7 @@
 repo_url: https://github.com/OUXT-Polaris/robotx_setup
 site_name: OUXT Polaris Environment Setup Tool Documentation
 site_description: Documentation of robotx_setup package
-site_author: Masaya Kataoka
+site_author: OUXT Polaris
 theme: 
   name: material
   feature:
@@ -50,3 +50,4 @@ nav:
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
   - Packages/BuildStatus: packages.md
+  - LICENSE: license.md
