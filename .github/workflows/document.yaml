@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2-beta
       - name: ansible
         run: |
-            ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_document.yml --connection local --become
+            ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --become
       - name: Deploy Document
         uses: peaceiris/actions-gh-pages@v3
         with:

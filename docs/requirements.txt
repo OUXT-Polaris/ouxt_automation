@@ -1,8 +1,0 @@
-mkdocs
-mkdocs-material
-pymdown-extensions
-mdx_unimoji
-fontawesome_markdown
-markdown>=3.2.1
-python-markdown-math
-plantuml-markdown
