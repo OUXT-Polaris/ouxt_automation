@@ -11,13 +11,21 @@
   pip:
     name: markdown
     version: 3.2.1
-- name: install other depends via pip
+- name: install mkdocs via pip
   pip:
     name:
       - mkdocs
+  become: yes
+- name: install other depends via pip
+  pip:
+    name:
       - mkdocs-material
       - pymdown-extensions
       - mdx_unimoji
       - fontawesome_markdown
       - python-markdown-math
       - plantuml-markdown
+- name: build documentation
+  shell: mkdocs build
+  args:
+    chdir: ../docs
