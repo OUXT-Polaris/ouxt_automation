@@ -213,73 +213,65 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
     <a href="." class="md-nav__link md-nav__link--active">
       Home
     </a>
     
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
+  </li>
+
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#how-to-use" class="md-nav__link">
-    How to use
-  </a>
+      
+      
+
+
+
   
-    <nav class="md-nav" aria-label="How to use">
-      <ul class="md-nav__list">
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    
+    <label class="md-nav__link" for="nav-2">
+      Tutorials
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
         
-          <li class="md-nav__item">
-  <a href="#base-environments" class="md-nav__link">
-    Base Environments
-  </a>
-  
-</li>
         
-          <li class="md-nav__item">
-  <a href="#build-this-documentation-locally" class="md-nav__link">
-    build this documentation locally
-  </a>
-  
-</li>
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="tutorials/supported_platforms/" class="md-nav__link">
+      Supported Platform
+    </a>
+  </li>
+
         
-          <li class="md-nav__item">
-  <a href="#install-in-local-host-full-package" class="md-nav__link">
-    install in local host (full package)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-to-test-docker-image" class="md-nav__link">
-    install to test docker image
-  </a>
-  
-</li>
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="tutorials/build_instraction/" class="md-nav__link">
+      Build Instractions
+    </a>
+  </li>
+
         
       </ul>
     </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -291,7 +283,7 @@
 
   <li class="md-nav__item">
     <a href="packages/" class="md-nav__link">
-      Packages
+      Packages/BuildStatus
     </a>
   </li>
 
@@ -314,55 +306,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-use" class="md-nav__link">
-    How to use
-  </a>
-  
-    <nav class="md-nav" aria-label="How to use">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base-environments" class="md-nav__link">
-    Base Environments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-this-documentation-locally" class="md-nav__link">
-    build this documentation locally
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-in-local-host-full-package" class="md-nav__link">
-    install in local host (full package)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-to-test-docker-image" class="md-nav__link">
-    install to test docker image
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -379,34 +322,12 @@
                 
                 
                 <h1 id="ouxt-polaris-environment-setup-tool">OUXT Polaris Environment Setup Tool<a class="headerlink" href="#ouxt-polaris-environment-setup-tool" title="Permanent link">#</a></h1>
-<p><img alt="robotx_setup" src="https://github.com/OUXT-Polaris/robotx_setup/workflows/robotx_setup/badge.svg" /></p>
-<p><img alt="Documentation" src="https://github.com/OUXT-Polaris/robotx_setup/workflows/Documentation/badge.svg" /></p>
-<h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">#</a></h2>
-<h3 id="base-environments">Base Environments<a class="headerlink" href="#base-environments" title="Permanent link">#</a></h3>
-<p><div class="highlight"><pre><span></span><code>Ubuntu 20.04
-</code></pre></div>
-If your ubuntu version is older than 20.04, you can use docker environment.  </p>
-<p>ansible task install ROS2 foxy, so you do not necessary to setup ROS2</p>
-<p>before you run ansible-script, you have to install ansible via apt</p>
-<div class="highlight"><pre><span></span><code>sudo apt install ansible
-</code></pre></div>
-
-<h3 id="build-this-documentation-locally">build this documentation locally<a class="headerlink" href="#build-this-documentation-locally" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
-</code></pre></div>
-
-<h3 id="install-in-local-host-full-package">install in local host (full package)<a class="headerlink" href="#install-in-local-host-full-package" title="Permanent link">#</a></h3>
-<p>first time
-<div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
-</code></pre></div></p>
-<p>not first time
-<div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connection local --ask-become-pass
-</code></pre></div></p>
-<h3 id="install-to-test-docker-image">install to test docker image<a class="headerlink" href="#install-to-test-docker-image" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>cd docker
-sh run.sh
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
-</code></pre></div>
+<p><img alt="robotx_setup" src="https://github.com/OUXT-Polaris/robotx_setup/workflows/robotx_setup/badge.svg" />
+<img alt="documentat" src="https://github.com/OUXT-Polaris/robotx_setup/workflows/documentat/badge.svg" /></p>
+<p><a href="https://www.youtube.com/watch?v=nkrm7e8vdPg"><img alt="" src="https://img.youtube.com/vi/nkrm7e8vdPg/maxresdefault.jpg" /></a></p>
+<h1 id="what-is-it">What is it<a class="headerlink" href="#what-is-it" title="Permanent link">#</a></h1>
+<p>This tool supports to build our software and deploy them into local_machine and real robot.<br />
+This tool works on <a href="https://docs.ansible.com/">ansible</a>.</p>
                 
               
               
@@ -426,13 +347,13 @@ ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
         
-          <a href="packages/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="tutorials/supported_platforms/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Packages
+                Supported Platform
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
