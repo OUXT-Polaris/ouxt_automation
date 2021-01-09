@@ -14,3 +14,9 @@
 |  name  |  Github  |  Badge   | Documentation  |
 | ---- | ---- | ---- | ---- |
 | nmea_gps_driver | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/nmea_gps_driver) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/ROS2-Foxy/badge.svg) | [URL](https://ouxt-polaris.github.io/nmea_gps_driver/) |
+| realsense_ros | [:fa-github: Github Repo](https://github.com/IntelRealSense/realsense-ros.git) | [![Build Status](https://travis-ci.org/IntelRealSense/realsense-ros.svg?branch=foxy)](https://travis-ci.org/IntelRealSense/realsense-ros) | [URL](https://github.com/IntelRealSense/realsense-ros/blob/foxy/README.md) |
+
+# Localization Packages
+|  name  |  Github  |  Badge   | Documentation  |
+| ---- | ---- | ---- | ---- |
+| geographic_conversion | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/geographic_conversion) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/wamv_description/workflows/ROS2-Foxy/badge.svg) |    |
