@@ -19,4 +19,7 @@
 # Localization Packages
 |  name  |  Github  |  Badge   | Documentation  |
 | ---- | ---- | ---- | ---- |
-| geographic_conversion | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/geographic_conversion) | ![ROS2-foxy](https://github.com/OUXT-Polaris/geographic_conversion/workflows/ROS2-foxy/badge.svg) |    |
+| geographic_conversion | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/geographic_conversion) | ![ROS2-foxy](https://github.com/OUXT-Polaris/geographic_conversion/workflows/ROS2-Foxy/badge.svg) |    |
+| nmea_to_geopose | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/nmea_to_geopose) | ![ROS2-foxy](https://github.com/OUXT-Polaris/nmea_to_geopose/workflows/ROS2-Foxy/badge.svg) |    |
+| odom_frame_publisher | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/odom_frame_publisher) | ![ROS2-foxy](https://github.com/OUXT-Polaris/odom_frame_publisher/workflows/ROS2-Foxy/badge.svg) |    |
+| pf_localization | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/pf_localization) | ![ROS2-foxy](https://github.com/OUXT-Polaris/pf_localization/workflows/ROS2-Foxy/badge.svg) |    |
