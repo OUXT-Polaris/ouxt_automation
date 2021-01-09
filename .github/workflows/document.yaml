@@ -20,3 +20,8 @@ jobs:
             - name: ansible
               run: |
                   ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_document.yml --connection local --become
+            - name: Deploy Document
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: docs/site
