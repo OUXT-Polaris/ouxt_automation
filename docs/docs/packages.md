@@ -19,4 +19,4 @@
 # Localization Packages
 |  name  |  Github  |  Badge   | Documentation  |
 | ---- | ---- | ---- | ---- |
-| geographic_conversion | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/geographic_conversion) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/geographic_conversion/workflows/ROS2-Foxy/badge.svg) |    |
+| geographic_conversion | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/geographic_conversion) | ![ROS2-foxy](https://github.com/OUXT-Polaris/geographic_conversion/workflows/ROS2-foxy/badge.svg) |    |
