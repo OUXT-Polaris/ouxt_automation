@@ -48,4 +48,5 @@ nav:
   - Tutorials: 
     - tutorials/supported_platforms.md
     - tutorials/build_instraction.md
+    - tutorials/navigation_demo.md
   - Packages/BuildStatus: packages.md
