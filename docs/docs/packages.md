@@ -30,3 +30,4 @@
 | ---- | ---- | ---- | ---- |
 | image_processing_utils | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/image_processing_utils) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/image_processing_utils/workflows/ROS2-Foxy/badge.svg) |    |
 | pcl_apps | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/pcl_apps) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/pcl_apps/workflows/ROS2-Foxy/badge.svg) | [URL](https://pcl-apps.readthedocs.io/en/latest/) |
+| perception_bringup | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/perception_bringup) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/perception_bringup/workflows/ROS2-Foxy/badge.svg) |    |
