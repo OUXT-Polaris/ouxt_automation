@@ -26,5 +26,6 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connec
 ```
 cd docker
 sh run.sh
+cd ../
 ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
 ```
