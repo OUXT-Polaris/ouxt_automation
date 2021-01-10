@@ -1,6 +1,6 @@
-# Build document
+# Build Document
 
-Documentation is robotx_setup is automatically deployed (here)[https://ouxt-polaris.github.io/robotx_setup/].  
+Documentation is robotx_setup is automatically deployed [here](https://ouxt-polaris.github.io/robotx_setup/).  
 But if you want to build documentation manually, please check here.  
 
 ## only first time
