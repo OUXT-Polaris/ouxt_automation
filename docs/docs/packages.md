@@ -29,3 +29,4 @@
 |  name  |  Github  |  Badge   | Documentation  |
 | ---- | ---- | ---- | ---- |
 | image_processing_utils | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/image_processing_utils) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/image_processing_utils/workflows/ROS2-Foxy/badge.svg) |    |
+| pcl_apps | [:fa-github: Github Repo](https://github.com/OUXT-Polaris/pcl_apps) | ![ROS2-Foxy](https://github.com/OUXT-Polaris/pcl_apps/workflows/ROS2-Foxy/badge.svg) | [URL](https://pcl-apps.readthedocs.io/en/latest/) |
