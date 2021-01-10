@@ -39,7 +39,7 @@ jobs:
                 password: ${{ secrets.CR_PAT }}
             - name: uplpad image
               run: |
-                  docker push ghcr.io/OUXT-Polaris/robotx_full:latest
+                  docker push robotx_full:latest
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:
