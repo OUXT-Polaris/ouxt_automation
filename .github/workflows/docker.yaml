@@ -27,19 +27,6 @@ jobs:
                   sh run.sh
                   cd ../
                   ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
-            - name: stop container and build image
-              run: |
-                  docker stop robotx_container
-                  docker commit robotx_container robotx_full:latest
-            - name: login to GitHub Container Registry
-              uses: docker/login-action@v1
-              with:
-                registry: ghcr.io
-                username: hakuturu583
-                password: ${{ secrets.CR_PAT }}
-            - name: uplpad image
-              run: |
-                  docker push robotx_full:latest
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:
