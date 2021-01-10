@@ -1,4 +1,4 @@
-name: robotx_setup
+name: build_docker
 
 on:
   schedule:
@@ -18,9 +18,15 @@ jobs:
               run: |
                    ansible-playbook --version
             - uses: actions/checkout@v2-beta
-            - name: ansible
+            - name: run ansible and install docker
               run: |
-                  ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become
+            - name: build docker container
+              run: |
+                  cd docker
+                  sh run.sh
+                  cd ../
+                  ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:
