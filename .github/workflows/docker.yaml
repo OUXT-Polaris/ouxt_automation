@@ -1,0 +1,39 @@
+name: build_docker
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  push:
+
+jobs:
+    job1:
+        name: setup
+        runs-on: ubuntu-20.04
+        steps:
+            - name: basic install
+              run: |
+                  sudo apt install make ansible
+            - name: ansible version
+              run: |
+                   ansible-playbook --version
+            - uses: actions/checkout@v2-beta
+            - name: run ansible and install docker
+              run: |
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become
+            - name: build docker container
+              run: |
+                  cd docker
+                  sh run.sh
+                  cd ../
+                  ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
+            - name: stop container and build image
+              run: |
+                  docker stop robotx_container
+                  docker commit robotx_container robotx_full:latest
+            - name: Slack Notification
+              uses: 8398a7/action-slack@v2
+              with:
+                status: ${{ job.status }}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
