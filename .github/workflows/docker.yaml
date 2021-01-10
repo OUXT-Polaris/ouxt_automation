@@ -30,6 +30,15 @@ jobs:
               run: |
                   docker stop robotx_container
                   docker commit robotx_container robotx_full:latest
+            - name: login to GitHub Container Registry
+                uses: docker/login-action@v1
+                with:
+                  registry: ghcr.io
+                  username: ${{ github.repository_owner }}
+                  password: ${{ secrets.CR_PAT }}
+            - name: uplpad image
+              run: |
+                  docker push ghcr.io/OUXT-Polaris/robotx_setup/robotx_full:latest
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:
