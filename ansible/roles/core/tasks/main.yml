@@ -71,6 +71,12 @@
     dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
     version: ros2
     accept_hostkey: yes
+- name: clone message_synchronizer
+  git:
+    repo: https://github.com/OUXT-Polaris/message_synchronizer.git
+    dest: "{{workspace_path}}/src/utils/message_synchronizer"
+    version: master
+    accept_hostkey: yes
 
 # Description Packages
 - name: clone wamv_description
