@@ -131,3 +131,9 @@
     dest: "{{workspace_path}}/src/drivers/miniv_control"
     version: master
     accept_hostkey: yes
+- name: clone tcp_sender
+  git:
+    repo: https://github.com/OUXT-Polaris/tcp_sender.git
+    dest: "{{workspace_path}}/src/drivers/tcp_sender"
+    version: master
+    accept_hostkey: yes
