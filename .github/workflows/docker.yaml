@@ -20,6 +20,7 @@ jobs:
             - uses: actions/checkout@v2-beta
             - name: run ansible and install docker
               run: |
+                  ansible-galaxy install rarrais.ros2
                   ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become
             - name: build docker container
               run: |

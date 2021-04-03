@@ -1,7 +1,17 @@
 ---
-- hosts: all
-  roles: 
-    - ros2
+- hosts: localhost
+  gather_facts: yes
+  vars:
+    ros2_user:
+      name: "{{ username }}"
+      group: "{{ username }}"
+    ros2_configuration: desktop
+    ros2_distribution: foxy
+    dev_ws: robotx_ws
+    install_argcomplete: true
+    ros2_domain_id: "{{ domain_id }}"
+  roles:
+    - { role: rarrais.ros2, become: yes } 
     - core
     - additional
     - build
