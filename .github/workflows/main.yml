@@ -21,7 +21,7 @@ jobs:
             - name: ansible
               run: |
                   ansible-galaxy install rarrais.ros2
-                  ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become -e username=$USER -e domain_id=0
             - name: Slack Notification
               uses: 8398a7/action-slack@v2
               with:

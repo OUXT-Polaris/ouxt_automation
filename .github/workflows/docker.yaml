@@ -21,7 +21,7 @@ jobs:
             - name: run ansible and install docker
               run: |
                   ansible-galaxy install rarrais.ros2
-                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become -e username=$USER -e domain_id=0
             - name: build docker container
               run: |
                   cd docker

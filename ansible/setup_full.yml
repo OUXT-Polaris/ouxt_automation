@@ -7,7 +7,7 @@
       group: "{{ username }}"
     ros2_configuration: desktop
     ros2_distribution: foxy
-    dev_ws: robotx_ws
+    dev_ws: "{{ workspace_path }}"
     install_argcomplete: true
     ros2_domain_id: "{{ domain_id }}"
   roles:
