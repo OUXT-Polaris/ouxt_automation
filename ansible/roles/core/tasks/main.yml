@@ -125,3 +125,9 @@
     dest: "{{workspace_path}}/src/drivers/nmea_gps_driver"
     version: master
     accept_hostkey: yes
+- name: clone miniv_control
+  git:
+    repo: https://github.com/OUXT-Polaris/miniv_control.git
+    dest: "{{workspace_path}}/src/drivers/miniv_control"
+    version: master
+    accept_hostkey: yes
