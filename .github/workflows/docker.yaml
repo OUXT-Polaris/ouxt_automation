@@ -20,7 +20,7 @@ jobs:
             - uses: actions/checkout@v2-beta
             - name: run ansible and install docker
               run: |
-                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become
+                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become -e ansible_user=ubuntu
             - name: build docker container
               run: |
                   cd docker
