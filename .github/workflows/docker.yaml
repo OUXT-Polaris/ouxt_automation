@@ -27,10 +27,3 @@ jobs:
                   sh run.sh
                   cd ../
                   ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
-            - name: Slack Notification
-              uses: 8398a7/action-slack@v2
-              with:
-                status: ${{ job.status }}
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}

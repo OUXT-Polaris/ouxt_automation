@@ -21,10 +21,3 @@ jobs:
             - name: ansible
               run: |
                   ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --become -e ansible_user=ubuntu
-            - name: Slack Notification
-              uses: 8398a7/action-slack@v2
-              with:
-                status: ${{ job.status }}
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
