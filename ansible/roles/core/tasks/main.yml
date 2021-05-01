@@ -125,3 +125,9 @@
     dest: "{{workspace_path}}/src/drivers/nmea_gps_driver"
     version: master
     accept_hostkey: yes
+- name: clone dynamixel_hardware_interface
+  git:
+    repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
+    dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
+    version: master
+    accept_hostkey: yes
