@@ -135,5 +135,9 @@
   git:
     repo: https://github.com/OUXT-Polaris/tcp_sender.git
     dest: "{{workspace_path}}/src/drivers/tcp_sender"
+- name: clone dynamixel_hardware_interface
+  git:
+    repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
+    dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
     version: master
     accept_hostkey: yes
