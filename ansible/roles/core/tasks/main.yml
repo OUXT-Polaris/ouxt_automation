@@ -85,6 +85,12 @@
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
+- name: clone miniv_description
+  git:
+    repo: https://github.com/OUXT-Polaris/miniv_description.git
+    dest: "{{workspace_path}}/src/description/miniv_description"
+    version: master
+    accept_hostkey: yes
 
 # Localization Packages
 - name: clone geographic_info
@@ -135,6 +141,8 @@
   git:
     repo: https://github.com/OUXT-Polaris/tcp_sender.git
     dest: "{{workspace_path}}/src/drivers/tcp_sender"
+    version: master
+    accept_hostkey: yes
 - name: clone dynamixel_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
