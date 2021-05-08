@@ -149,3 +149,11 @@
     dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
     version: master
     accept_hostkey: yes
+
+# Control Package
+- name: clone usv_controller package
+  git:
+    repo: https://github.com/OUXT-Polaris/usv_controller.git
+    dest: "{{workspace_path}}/src/drivers/usv_controller"
+    version: master
+    accept_hostkey: yes
