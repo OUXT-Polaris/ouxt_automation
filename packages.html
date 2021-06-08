@@ -13,19 +13,19 @@
         <meta name="author" content="OUXT Polaris">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
     
     
       
-        <title>Build Instractions - OUXT Polaris Environment Setup Tool Documentation</title>
+        <title>Packages/BuildStatus - OUXT Polaris Environment Setup Tool Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -61,7 +61,7 @@
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="lime">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#build-instractions" class="md-skip">
+        <a href="#control-packages" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="OUXT Polaris Environment Setup Tool Documentation" class="md-header__button md-logo" aria-label="OUXT Polaris Environment Setup Tool Documentation" data-md-component="logo">
+    <a href="index.html" title="OUXT Polaris Environment Setup Tool Documentation" class="md-header__button md-logo" aria-label="OUXT Polaris Environment Setup Tool Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Build Instractions
+              Packages/BuildStatus
             
           </span>
         </div>
@@ -173,7 +173,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="OUXT Polaris Environment Setup Tool Documentation" class="md-nav__button md-logo" aria-label="OUXT Polaris Environment Setup Tool Documentation" data-md-component="logo">
+    <a href="index.html" title="OUXT Polaris Environment Setup Tool Documentation" class="md-nav__button md-logo" aria-label="OUXT Polaris Environment Setup Tool Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
@@ -205,7 +205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -218,14 +218,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       <label class="md-nav__link" for="__nav_2">
         Tutorials
@@ -243,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../supported_platforms/" class="md-nav__link">
+      <a href="tutorials/supported_platforms.html" class="md-nav__link">
         Supported Platform
       </a>
     </li>
@@ -255,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../build_document/" class="md-nav__link">
+      <a href="tutorials/build_document.html" class="md-nav__link">
         Build Document
       </a>
     </li>
@@ -265,65 +263,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Build Instractions
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="tutorials/build_instraction.html" class="md-nav__link">
         Build Instractions
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#build-this-documentation-locally" class="md-nav__link">
-    build this documentation locally
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-in-local-host-full-package" class="md-nav__link">
-    install in local host (full package)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-to-test-docker-image" class="md-nav__link">
-    install to test docker image
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -333,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../navigation_demo/" class="md-nav__link">
+      <a href="tutorials/navigation_demo.html" class="md-nav__link">
         Navigation Demo
       </a>
     </li>
@@ -352,11 +296,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../packages/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="packages.html" class="md-nav__link md-nav__link--active">
         Packages/BuildStatus
       </a>
+      
     </li>
   
 
@@ -369,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../license/" class="md-nav__link">
+      <a href="license.html" class="md-nav__link">
         LICENSE
       </a>
     </li>
@@ -395,35 +349,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#build-this-documentation-locally" class="md-nav__link">
-    build this documentation locally
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-in-local-host-full-package" class="md-nav__link">
-    install in local host (full package)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-to-test-docker-image" class="md-nav__link">
-    install to test docker image
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -434,31 +359,154 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/OUXT-Polaris/robotx_setup/edit/master/docs/tutorials/build_instraction.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/OUXT-Polaris/robotx_setup/edit/master/docs/packages.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="build-instractions">Build Instractions<a class="headerlink" href="#build-instractions" title="Permanent link">#</a></h1>
-<p>If you want to know about supported platfroms, please see also <a href="../supported_platforms/">this page</a>.</p>
-<h2 id="build-this-documentation-locally">build this documentation locally<a class="headerlink" href="#build-this-documentation-locally" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
-</code></pre></div>
-
-<h2 id="install-in-local-host-full-package">install in local host (full package)<a class="headerlink" href="#install-in-local-host-full-package" title="Permanent link">#</a></h2>
-<p>first time
-<div class="highlight"><pre><span></span><code>sudo apt install ansible
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
-</code></pre></div></p>
-<p>not first time
-<div class="highlight"><pre><span></span><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connection local --ask-become-pass
-</code></pre></div></p>
-<h2 id="install-to-test-docker-image">install to test docker image<a class="headerlink" href="#install-to-test-docker-image" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>cd docker
-sh run.sh
-cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
-</code></pre></div>
+                <h1 id="control-packages">Control Packages<a class="headerlink" href="#control-packages" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Github</th>
+<th>Badge</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>joy_to_twist</td>
+<td><a href="https://github.com/OUXT-Polaris/joy_to_twist"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/joy_to_twist/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="description-packages">Description Packages<a class="headerlink" href="#description-packages" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Github</th>
+<th>Badge</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wamv_description</td>
+<td><a href="https://github.com/OUXT-Polaris/wamv_description"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/wamv_description/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="driver-packages">Driver Packages<a class="headerlink" href="#driver-packages" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Github</th>
+<th>Badge</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nmea_gps_driver</td>
+<td><a href="https://github.com/OUXT-Polaris/nmea_gps_driver"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/ROS2-Foxy/badge.svg" /></td>
+<td><a href="https://ouxt-polaris.github.io/nmea_gps_driver/">URL</a></td>
+</tr>
+<tr>
+<td>realsense_ros</td>
+<td><a href="https://github.com/IntelRealSense/realsense-ros.git"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><a href="https://travis-ci.org/IntelRealSense/realsense-ros"><img alt="Build Status" src="https://travis-ci.org/IntelRealSense/realsense-ros.svg?branch=foxy" /></a></td>
+<td><a href="https://github.com/IntelRealSense/realsense-ros/blob/foxy/README.md">URL</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="localization-packages">Localization Packages<a class="headerlink" href="#localization-packages" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Github</th>
+<th>Badge</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geographic_conversion</td>
+<td><a href="https://github.com/OUXT-Polaris/geographic_conversion"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-foxy" src="https://github.com/OUXT-Polaris/geographic_conversion/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>geographic_info</td>
+<td><a href="https://github.com/OUXT-Polaris/geographic_info"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-foxy" src="https://github.com/OUXT-Polaris/geographic_info/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>nmea_to_geopose</td>
+<td><a href="https://github.com/OUXT-Polaris/nmea_to_geopose"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-foxy" src="https://github.com/OUXT-Polaris/nmea_to_geopose/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>odom_frame_publisher</td>
+<td><a href="https://github.com/OUXT-Polaris/odom_frame_publisher"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-foxy" src="https://github.com/OUXT-Polaris/odom_frame_publisher/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>pf_localization</td>
+<td><a href="https://github.com/OUXT-Polaris/pf_localization"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-foxy" src="https://github.com/OUXT-Polaris/pf_localization/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="perception-packages">Perception Packages<a class="headerlink" href="#perception-packages" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>Github</th>
+<th>Badge</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_processing_utils</td>
+<td><a href="https://github.com/OUXT-Polaris/image_processing_utils"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/image_processing_utils/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>pcl_apps</td>
+<td><a href="https://github.com/OUXT-Polaris/pcl_apps"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/pcl_apps/workflows/ROS2-Foxy/badge.svg" /></td>
+<td><a href="https://pcl-apps.readthedocs.io/en/latest/">URL</a></td>
+</tr>
+<tr>
+<td>perception_bringup</td>
+<td><a href="https://github.com/OUXT-Polaris/perception_bringup"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/perception_bringup/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+<tr>
+<td>scan_segmentation</td>
+<td><a href="https://github.com/OUXT-Polaris/scan_segmentation"><i class="fa fa-github"></i> Github Repo</a></td>
+<td><img alt="ROS2-Foxy" src="https://github.com/OUXT-Polaris/scan_segmentation/workflows/ROS2-Foxy/badge.svg" /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -478,7 +526,7 @@ ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../build_document/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Build Document" rel="prev">
+        <a href="tutorials/navigation_demo.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Navigation Demo" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -487,20 +535,20 @@ ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
               <span class="md-footer__direction">
                 Previous
               </span>
-              Build Document
+              Navigation Demo
             </div>
           </div>
         </a>
       
       
         
-        <a href="../navigation_demo/" class="md-footer__link md-footer__link--next" aria-label="Next: Navigation Demo" rel="next">
+        <a href="license.html" class="md-footer__link md-footer__link--next" aria-label="Next: LICENSE" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Navigation Demo
+              LICENSE
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -533,10 +581,10 @@ ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
       
         <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
