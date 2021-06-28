@@ -155,6 +155,12 @@
     dest: "{{workspace_path}}/src/drivers/librealsense_vendor"
     version: master
     accept_hostkey: yes
+- name: clone joystick_drivers
+  git:
+    repo: https://github.com/OUXT-Polaris/joystick_drivers.git
+    dest: "{{workspace_path}}/src/drivers/joystick_drivers"
+    version: ros2
+    accept_hostkey: yes
 
 # Control Package
 - name: clone usv_controller package
