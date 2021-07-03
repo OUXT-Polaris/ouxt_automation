@@ -44,6 +44,18 @@
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
     accept_hostkey: yes
+- name: clone lua_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/lua_vendor.git
+    dest: "{{workspace_path}}/src/planning/lua_vendor"
+    version: main
+    accept_hostkey: yes
+- name: clone sol_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/sol_vendor.git
+    dest: "{{workspace_path}}/src/planning/sol_vendor"
+    version: main
+    accept_hostkey: yes
 
 # Utility Packages
 - name: clone color_names
