@@ -4,6 +4,9 @@ on:
   schedule:
   - cron: 0 0 * * *
   pull_request:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -27,3 +30,7 @@ jobs:
                   sh run.sh
                   cd ../
                   ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
+            - name: push docker image
+              run: |
+                  docker login -u hakuturu583 -p ${{ secrets.DOCKERHUB_SECRET }}
+                  docker push hakuturu583/robotx_container:latest
