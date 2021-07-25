@@ -2,5 +2,6 @@
 - hosts: all
   roles: 
     - ros2
+    - create_workspace
     - core
     - build
