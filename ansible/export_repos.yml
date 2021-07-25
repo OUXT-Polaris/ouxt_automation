@@ -1,0 +1,7 @@
+---
+- hosts: all
+  roles: 
+    - create_workspace
+    - core
+    - additional
+    - export_repos
