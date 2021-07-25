@@ -1,7 +1,14 @@
 ---
+- name: setup ros2 keys
+  become: yes
+  apt_key:
+    url: "https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc"
+    state: present
+
 - name: setup ros2 sources
   become: yes
   shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+
 - name: install ros2 vcs
   become: yes
   apt:
