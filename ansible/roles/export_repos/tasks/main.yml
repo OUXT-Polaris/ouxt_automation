@@ -1,4 +1,7 @@
 ---
+- name: setup ros2 sources
+  become: yes
+  shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 - name: install ros2 vcs
   become: yes
   apt:
