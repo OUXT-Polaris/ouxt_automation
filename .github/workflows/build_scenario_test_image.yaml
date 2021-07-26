@@ -15,3 +15,12 @@ jobs:
       with:
         name: packages.repos
         path: docker/scenario_test/packages.repos
+    - name: Build Docker Image
+      uses: docker/build-push-action@v1
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        tags: latest
+        no-cache: true
+        build_args: BUILDKIT_INLINE_CACHE=1
+        push: false
