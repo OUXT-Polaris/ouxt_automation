@@ -8,7 +8,7 @@ on:
 
 jobs:
   export_repos:
-    name: setup
+    name: export_repos
     runs-on: ubuntu-20.04
     steps:
       - name: basic install
