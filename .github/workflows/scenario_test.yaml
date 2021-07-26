@@ -43,3 +43,4 @@ jobs:
         no-cache: true
         build_args: BUILDKIT_INLINE_CACHE=1
         push: false
+        file: docker/scenario_test/Dockerfile
