@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  export_repos:
     name: setup
     runs-on: ubuntu-20.04
     steps:
@@ -25,3 +25,20 @@ jobs:
         with:
           name: packages.repos
           path: ansible/packages.repos
+  build_scenario_test_image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2-beta
+    - uses: actions/download-artifact@v2
+      with:
+        name: packages.repos
+        path: docker/scenario_test/packages.repos
+    - name: Build Docker Image
+      uses: docker/build-push-action@v1
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        tags: latest
+        no-cache: true
+        build_args: BUILDKIT_INLINE_CACHE=1
+        push: false

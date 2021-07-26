@@ -15,7 +15,7 @@ services:
       - ./ansible:/root/ansible
     ports:
       - "2022:22"
-    build: docker
+    build: docker/build_test
     container_name: robotx_container
     privileged: true
     # network_mode: host
