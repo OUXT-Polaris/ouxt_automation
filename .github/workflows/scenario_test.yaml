@@ -34,8 +34,6 @@ jobs:
       with:
         name: packages.repos
         path: docker/scenario_test/packages.repos
-    - name: unzip artifact
-      run: unzip /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos
     - name: check repos file
       run: cat /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos/packages.repos
     - name: Build Docker Image
