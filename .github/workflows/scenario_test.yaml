@@ -34,6 +34,8 @@ jobs:
       with:
         name: packages.repos
         path: docker/scenario_test/packages.repos
+    - name: check repos file
+      run: cat /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos
     - name: Build Docker Image
       uses: docker/build-push-action@v2
       env:
