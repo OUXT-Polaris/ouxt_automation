@@ -42,7 +42,7 @@ jobs:
         DOCKER_BUILDKIT: 1
       with:
         tags: latest
-        context: .
+        context: docker/scenario_test
         no-cache: true
         build_args: BUILDKIT_INLINE_CACHE=1
         push: false
