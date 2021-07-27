@@ -24,7 +24,7 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connec
 ## install to test docker image
 
 ```
-cd docker
+cd docker/build_test
 sh run.sh
 cd ../
 ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml

@@ -5,3 +5,4 @@ robotx_tools
 log
 private.yml
 librealsense
+docker/scenario_test/packages.repos

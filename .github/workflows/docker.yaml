@@ -7,23 +7,23 @@ on:
   workflow_dispatch:
 
 jobs:
-    job1:
-        name: setup
-        runs-on: ubuntu-20.04
-        steps:
-            - name: basic install
-              run: |
-                  sudo apt install make ansible
-            - name: ansible version
-              run: |
-                   ansible-playbook --version
-            - uses: actions/checkout@v2-beta
-            - name: run ansible and install docker
-              run: |
-                  ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become -e ansible_user=ubuntu
-            - name: build docker container
-              run: |
-                  cd docker
-                  sh run.sh
-                  cd ../
-                  ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
+  job1:
+    name: setup
+    runs-on: ubuntu-20.04
+    steps:
+      - name: basic install
+        run: |
+            sudo apt install make ansible
+      - name: ansible version
+        run: |
+              ansible-playbook --version
+      - uses: actions/checkout@v2-beta
+      - name: run ansible and install docker
+        run: |
+            ansible-playbook -i ansible/hosts/localhost.ini ansible/install_docker.yml --connection local --become -e ansible_user=ubuntu
+      - name: build docker container
+        run: |
+            cd docker/build_test
+            sh run.sh
+            cd ../../
+            ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
