@@ -1,11 +1,6 @@
 name: scenario_test
 
 on:
-  schedule:
-  - cron: 0 0 * * *
-  push:
-    branches: [ master ]
-  workflow_dispatch:
   pull_request:
 
 jobs:
@@ -31,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: export_repos
     outputs:
-      git_branch: "${{ steps.tag.outputs.branch }}"
+      git_branch: ${{github.head_ref}}
       image_tag: ${{ steps.findandreplace.outputs.value }}
     steps:
     - uses: actions/checkout@v2-beta
@@ -41,19 +36,8 @@ jobs:
         path: docker/scenario_test
     - name: check repos file
       run: cat /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: tag
     - uses: mad9000/actions-find-and-replace-string@2
       if: ${{ github.event_name != 'pull_request'}}
-      with:
-        source: "${{ steps.tag.outputs.branch }}"
-        find: '/'
-        replace: '_'
-      id: findandreplace
-    - uses: mad9000/actions-find-and-replace-string@2
-      if: ${{ github.event_name == 'pull_request'}}
       with:
         source: ${{github.head_ref}}
         find: '/'
@@ -64,8 +48,7 @@ jobs:
       with:
         username: hakuturu583
         password: ${{ secrets.DOCKERHUB_SECRET }}
-    - name: Build Docker Image with branch name tag
-      if: ${{ github.event_name == 'pull_request'}}
+    - name: Build and Push Docker Image
       uses: docker/build-push-action@v2
       env:
         DOCKER_BUILDKIT: 1
@@ -75,16 +58,3 @@ jobs:
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
         file: docker/scenario_test/Dockerfile
-    - name: Build Docker Image with latest tag
-      if: ${{ github.event_name != 'pull_request' && github.event.ref == 'master'}}
-      uses: docker/build-push-action@v2
-      env:
-        DOCKER_BUILDKIT: 1
-      with:
-        tags: hakuturu583/robotx_scenario_test:${{ steps.findandreplace.outputs.value }}
-        context: docker/scenario_test
-        build_args: BUILDKIT_INLINE_CACHE=1
-        push: true
-        file: docker/scenario_test/Dockerfile
-    - name: Image digest
-      run: echo ${{ steps.docker_build.outputs.digest }}
