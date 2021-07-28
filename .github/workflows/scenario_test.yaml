@@ -43,7 +43,6 @@ jobs:
     - name: check repos file
       run: cat /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos
     - uses: mad9000/actions-find-and-replace-string@2
-      if: ${{ github.event_name != 'pull_request'}}
       with:
         source: ${{github.head_ref}}
         find: '/'
