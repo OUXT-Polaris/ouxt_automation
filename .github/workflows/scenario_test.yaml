@@ -59,7 +59,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: hakuturu583/robotx_scenario_test:${{ steps.tag.outputs.branch }}
+        tags: hakuturu583/robotx_scenario_test:${{ steps.findandreplace.outputs.value }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
