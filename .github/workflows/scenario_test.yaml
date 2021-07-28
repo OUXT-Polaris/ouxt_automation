@@ -53,7 +53,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: ouxt-polaris/robotx_setup/scenario_test/${{ steps.tag.outputs.branch }}
+        tags: ouxt-polaris/robotx_setup/scenario_test:${{ steps.tag.outputs.branch }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
