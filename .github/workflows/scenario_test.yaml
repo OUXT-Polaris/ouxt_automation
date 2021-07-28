@@ -28,7 +28,7 @@ jobs:
           name: packages.repos
           path: ansible/packages.repos
   build_scenario_test_image_for_pull_request:
-    if: ${{ github.event_name != 'pull_request'}}
+    if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
     needs: export_repos
     outputs:
