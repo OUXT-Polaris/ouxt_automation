@@ -45,15 +45,14 @@ jobs:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
-        registry: ghcr.io
-        username: ouxt-polaris
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: hakuturu583
+        password: ${{ secrets.DOCKERHUB_SECRET }}
     - name: Build Docker Image
       uses: docker/build-push-action@v2
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: ouxt-polaris/robotx_setup/scenario_test:${{ steps.tag.outputs.branch }}
+        tags: hakuturu583/robotx_scenario_test:${{ steps.tag.outputs.branch }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
