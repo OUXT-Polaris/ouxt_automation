@@ -4,6 +4,7 @@ on:
   schedule:
   - cron: 0 0 * * *
   push:
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
@@ -54,7 +55,19 @@ jobs:
       with:
         username: hakuturu583
         password: ${{ secrets.DOCKERHUB_SECRET }}
-    - name: Build Docker Image
+    - name: Build Docker Image with branch name tag
+      if: ${{ github.event_name == 'pull_request'}}
+      uses: docker/build-push-action@v2
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        tags: hakuturu583/robotx_scenario_test:${{ steps.findandreplace.outputs.value }}
+        context: docker/scenario_test
+        build_args: BUILDKIT_INLINE_CACHE=1
+        push: true
+        file: docker/scenario_test/Dockerfile
+    - name: Build Docker Image with latest tag
+      if: ${{ github.event_name != 'pull_request' && github.event.ref == 'master'}}
       uses: docker/build-push-action@v2
       env:
         DOCKER_BUILDKIT: 1
