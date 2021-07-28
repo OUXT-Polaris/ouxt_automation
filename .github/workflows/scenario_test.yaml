@@ -53,8 +53,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        repository: ${{ github.repository }}
-        tags: "${{ steps.tag.outputs.branch }}"
+        tags: ouxt-polaris/${{ github.repository }}/${{ steps.tag.outputs.branch }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
