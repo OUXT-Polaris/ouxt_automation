@@ -29,7 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: export_repos
     outputs:
-      image_tag: "${{ steps.tag.outputs.branch }}"
+      git_branch: "${{ steps.tag.outputs.branch }}"
+      image_tag: ${{ steps.findandreplace.outputs.value }}
     steps:
     - uses: actions/checkout@v2-beta
     - uses: actions/download-artifact@v2
@@ -42,6 +43,12 @@ jobs:
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: tag
+    - uses: mad9000/actions-find-and-replace-string@2
+      with:
+        source: "${{ steps.tag.outputs.branch }}"
+        find: '/'
+        replace: '_'
+      id: findandreplace
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
       with:
