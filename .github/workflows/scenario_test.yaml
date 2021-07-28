@@ -46,8 +46,16 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: tag
     - uses: mad9000/actions-find-and-replace-string@2
+      if: ${{ github.event_name != 'pull_request'}}
       with:
         source: "${{ steps.tag.outputs.branch }}"
+        find: '/'
+        replace: '_'
+      id: findandreplace
+    - uses: mad9000/actions-find-and-replace-string@2
+      if: ${{ github.event_name == 'pull_request'}}
+      with:
+        source: ${{github.head_ref}}
         find: '/'
         replace: '_'
       id: findandreplace
