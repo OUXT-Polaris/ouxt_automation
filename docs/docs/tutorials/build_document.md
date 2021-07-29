@@ -13,7 +13,7 @@ mkdocs and other dependency was resolved by this playbook.
 ## build document
 ```
 cd (directory of robotx_setup)
-sudo ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
+ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
 cd docs
 mkdocs serve
 ```

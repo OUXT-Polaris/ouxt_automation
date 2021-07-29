@@ -22,8 +22,6 @@ markdown_extensions:
     - mdx_unimoji
     - fontawesome_markdown
     - pymdownx.arithmatex
-    - pymdownx.emoji :
-        emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - codehilite:
         guess_lang: false
     - mdx_math
@@ -50,5 +48,5 @@ nav:
     - tutorials/build_document.md
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
-  - Packages/BuildStatus: packages.md
+  - Packages/BuildStatus: report.md
   - LICENSE: license.md

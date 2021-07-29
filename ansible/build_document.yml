@@ -1,4 +1,6 @@
 ---
 - hosts: all
+  vars_files:
+    - vars/github_token.yaml
   roles: 
     - documentation
