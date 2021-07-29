@@ -41,6 +41,10 @@
   shell: python3 report.py {{ github_token }} packages.yaml true
   args:
     chdir: ../repository_manager
+- name: move report to docs directory
+  shell: mv ../../repository_manager/docs/report.md .
+  args:
+    chdir: ../docs/docs
 - name: build documentation
   shell: mkdocs build
   args:

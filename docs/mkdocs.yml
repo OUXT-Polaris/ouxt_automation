@@ -48,5 +48,5 @@ nav:
     - tutorials/build_document.md
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
-  - Packages/BuildStatus: packages.md
+  - Packages/BuildStatus: report.md
   - LICENSE: license.md
