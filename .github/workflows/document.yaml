@@ -7,6 +7,7 @@ on:
     branches:
       - master
   workflow_dispatch:
+  pull_request:
 
 jobs:
   job1:
@@ -25,7 +26,14 @@ jobs:
       - name: ansible
         run: |
             ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --become
+      - name: Sace Document as Artifact
+        if: ${{ github.event_name == 'pull_request'}}
+        uses: actions/download-artifact@v2
+        with:
+          name: site
+          path: docs/site
       - name: Deploy Document
+        if: ${{ github.event_name != 'pull_request'}}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
