@@ -1,0 +1,110 @@
+ros:
+  OUXT-Polaris:
+    pcl_apps:
+      rosdistro:
+        - foxy
+        - galactic
+    image_processing_utils:
+    scan_segmentation:
+      rosdistro:
+        - foxy
+        - galactic
+    perception_bringup:
+      rosdistro:
+        - foxy
+        - galactic
+    hermite_path_planner:
+      rosdistro:
+        - foxy
+        - galactic
+    behavior_tree_action_builder:
+      rosdistro:
+        - foxy
+        - galactic
+    robotx_behavior_tree:
+      rosdistro:
+        - foxy
+        - galactic
+    color_names:
+      rosdistro:
+        - foxy
+        - galactic
+    quaternion_operation:
+      rosdistro:
+        - foxy
+        - galactic
+    data_buffer:
+    geometry_msgs_data_buffer:
+      rosdistro:
+        - foxy
+        - galactic
+    wamv_description:
+    geographic_info:
+    geographic_conversion:
+      rosdistro:
+        - foxy
+        - galactic
+    nmea_to_geopose:
+      rosdistro:
+        - foxy
+        - galactic
+      documentation:
+    pf_localization:
+      rosdistro:
+        - foxy
+        - galactic
+    odom_frame_publisher:
+      rosdistro:
+        - foxy
+        - galactic
+    nmea_gps_driver:
+      rosdistro:
+        - foxy
+        - galactic
+    embree_vendor:
+      rosdistro:
+        - foxy
+        - galactic
+    navi_sim:
+      rosdistro:
+        - foxy
+        - galactic
+    joy_to_twist:
+      rosdistro:
+        - foxy
+        - galactic
+    message_synchronizer:
+    ouxt_behavior_descriptor_v1:
+      rosdistro:
+        - foxy
+        - galactic
+    miniv_control:
+      rosdistro:
+        - foxy
+        - galactic
+    miniv_description:
+      rosdistro:
+        - foxy
+        - galactic
+    dynamixel_hardware_interface:
+      rosdistro:
+        - foxy
+        - galactic
+    tcp_sender:
+    usv_controller:
+      rosdistro:
+        - foxy
+        - galactic
+    librealsense_vendor:
+    sol_vendor:
+    lua_vendor:
+    playstation_controller_drivers:
+      rosdistro:
+        - foxy
+        - galactic
+    realsense_hardware_interface:
+      rosdistro:
+        - foxy
+others:
+  OUXT-Polaris:
+    robotx_setup:
