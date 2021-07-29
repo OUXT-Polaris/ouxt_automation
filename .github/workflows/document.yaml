@@ -19,6 +19,8 @@ jobs:
       - name: ansible version
         run: |
               ansible-playbook --version
+      - name: save ansible vault path
+        run: echo ${{ secrets.ANSIBLE_VAULT_PASS }} > ~/password.txt
       - uses: actions/checkout@v2-beta
       - name: ansible
         run: |
