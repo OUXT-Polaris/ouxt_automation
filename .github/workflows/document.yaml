@@ -29,7 +29,7 @@ jobs:
             ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --become
       - name: Sace Document as Artifact
         if: ${{ github.event_name == 'pull_request'}}
-        uses: actions/download-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: site
           path: docs/site
