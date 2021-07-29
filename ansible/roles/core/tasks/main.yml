@@ -161,12 +161,6 @@
     dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
     version: master
     accept_hostkey: yes
-- name: clone librealsense_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
-    dest: "{{workspace_path}}/src/drivers/librealsense_vendor"
-    version: master
-    accept_hostkey: yes
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
