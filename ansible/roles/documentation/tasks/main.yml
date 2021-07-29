@@ -19,12 +19,28 @@
 - name: install other depends via pip
   pip:
     name:
-      - mkdocs-material
-      - pymdown-extensions
-      - mdx_unimoji
+      - argparse
+      - datetime
       - fontawesome_markdown
-      - python-markdown-math
+      - GitPython
+      - mdx_unimoji
+      - mkdocs
+      - mkdocs-material
+      - pandas
       - plantuml-markdown
+      - pymdown-extensions
+      - python-markdown-math
+      - pytz
+      - PyYAML
+      - tabulate
+      - termcolor
+      - tzlocal
+- name: install PyGithub
+  shell: pip3 install git+https://github.com/PyGithub/PyGithub.git
+- name: generate report
+  shell: python3 report.py {{ github_token }} packages.yaml true
+  args:
+    chdir: ../repository_manager
 - name: build documentation
   shell: mkdocs build
   args:
