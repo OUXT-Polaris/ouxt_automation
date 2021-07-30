@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/ouxt-polaris/robotx_setup/scenario_test:latest
+FROM hakuturu583/robotx_scenario_test:master
 
 SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive

@@ -60,7 +60,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: docker.pkg.github.com/ouxt-polaris/robotx_setup/scenario_test:${{ steps.findandreplace.outputs.value }}
+        tags: ghcr.io/${{ github.repository_owner }}/scenario_test:${{ steps.findandreplace.outputs.value }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
@@ -71,7 +71,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: docker.pkg.github.com/ouxt-polaris/robotx_setup/scenario_test:${{ steps.findandreplace.outputs.value }}
+        tags: ghcr.io/${{ github.repository_owner }}/scenario_test:${{ steps.findandreplace.outputs.value }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
@@ -112,7 +112,7 @@ jobs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        tags: docker.pkg.github.com/ouxt-polaris/robotx_setup/scenario_test:${{ steps.findandreplace.outputs.value }}
+        tags: ghcr.io/${{ github.repository_owner }}/scenario_test:${{ steps.findandreplace.outputs.value }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
