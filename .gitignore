@@ -5,3 +5,4 @@ robotx_tools
 log
 private.yml
 docker/scenario_test/packages.repos
+docker/scenario_test_runtime/packages.repos
