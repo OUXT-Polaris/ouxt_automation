@@ -61,7 +61,7 @@ jobs:
         tags: hakuturu583/robotx_scenario_test:${{ steps.findandreplace.outputs.value }}
         context: docker/scenario_test
         build_args: BUILDKIT_INLINE_CACHE=1
-        push: false
+        push: true
         file: docker/scenario_test_runtime/Dockerfile
   build_scenario_test_image:
     if: ${{ github.event_name != 'pull_request'}}
