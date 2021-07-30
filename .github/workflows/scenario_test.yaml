@@ -54,6 +54,7 @@ jobs:
         username: hakuturu583
         password: ${{ secrets.DOCKERHUB_SECRET }}
     - name: Build and Push Docker Image
+      if: ${{ github.event.label.name != 'clean_build' }}
       uses: docker/build-push-action@v2
       env:
         DOCKER_BUILDKIT: 1
@@ -63,6 +64,17 @@ jobs:
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
         file: docker/scenario_test_runtime/Dockerfile
+    - name: Build and Push Docker Image Clean
+      if: ${{ github.event.label.name == 'clean_build' }}
+      uses: docker/build-push-action@v2
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        tags: hakuturu583/robotx_scenario_test:${{ steps.findandreplace.outputs.value }}
+        context: docker/scenario_test
+        build_args: BUILDKIT_INLINE_CACHE=1
+        push: true
+        file: docker/scenario_test/Dockerfile
   build_scenario_test_image:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
