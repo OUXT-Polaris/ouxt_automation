@@ -4,7 +4,9 @@ SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS=yes
 
+RUN mkdir -p /colcon_ws/src
 WORKDIR /colcon_ws
+
 COPY packages.repos /colcon_ws
 RUN vcs import src < packages.repos
 RUN source /opt/ros/foxy/setup.bash && rosdep install -iry --from-paths src --rosdistro foxy
