@@ -25,7 +25,7 @@ jobs:
             ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
       - uses: actions/upload-artifact@v2
         with:
-          name: packages.repos
+          name: packages
           path: ansible/packages.repos
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
@@ -36,23 +36,16 @@ jobs:
       image_tag: ${{ steps.findandreplace.outputs.value }}
     steps:
     - uses: actions/checkout@v2-beta
-    - uses: actions/download-artifact@v2
-      with:
-        name: packages.repos
-        path: docker/scenario_test
-    - name: check repos file
-      run: cat /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos
-    - name: Copy and rename repos file
-      run: cp /home/runner/work/robotx_setup/robotx_setup/docker/scenario_test/packages.repos packages.repos
     - name: Run ros integration test action
-      uses: OUXT-Polaris/ros-integration-test-action@0.0.4
+      uses: OUXT-Polaris/ros-integration-test-action@0.0.6
       with:
         base_image: hakuturu583/robotx_scenario_test
         tag: master
         rosdistro: foxy
         test_command: ls /colcon_ws/src
         check_result_command: ls /colcon_ws/src
-        artifact_name: scenario_test_artifact
+        artifact_name: packages
+        repos_filename: packages.repos
       env:
         ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         ACTIONS_RUNTIME_URL: ${{ env.ACTIONS_RUNTIME_URL }}
