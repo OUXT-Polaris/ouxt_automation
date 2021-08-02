@@ -42,8 +42,8 @@ jobs:
         base_image: hakuturu583/robotx_scenario_test
         tag: master
         rosdistro: foxy
-        test_command: ls /colcon_ws/src
-        check_result_command: ls /colcon_ws/src
+        test_command: ros2 launch navi_sim with_planner.launch.py
+        check_result_command: ros2 run navi_sim check_result
         artifact_name: packages
         repos_filename: packages.repos
       env:
