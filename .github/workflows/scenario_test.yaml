@@ -56,7 +56,12 @@ jobs:
   build_base_docker_image:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
+    needs: export_repos
     steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: packages
+        path: docker/scenario_test/
     - uses: actions/checkout@v2-beta
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
