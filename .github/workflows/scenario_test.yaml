@@ -47,12 +47,29 @@ jobs:
         artifact_name: scenario_test_result
         repos_artifact_name: packages
         repos_filename: packages.repos
+        lcov_artifacts_name: lcov
       env:
         ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         ACTIONS_RUNTIME_URL: ${{ env.ACTIONS_RUNTIME_URL }}
         GITHUB_RUN_ID: ${env.GITHUB_RUN_ID}
         GITHUB_CLONE_TOKEN: ${{ secrets.WAMV_TAN_BOT_SECRET }} # access token for cloning your package in private repository.
         GITHUB_CLONE_USERNAME: wam-v-tan # username of access token
+  push_to_codecov:
+    runs-on: ubuntu-latest
+    needs: run_scenario_test
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: lcov
+        path: lcov
+    - name: publish codecov result
+      uses: codecov/codecov-action@v1.2.1
+      if: always()
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # only needed for private repos
+        files: /home/runner/lcov/lcov.total.filtered
+        flags: scenario_test
+        name: robotx_setup
   build_base_docker_image:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
