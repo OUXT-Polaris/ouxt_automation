@@ -63,6 +63,7 @@ jobs:
           git add --all
           git commit -m "Add changes" -a
         working-directory: workspace
+        continue-on-error: true
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
