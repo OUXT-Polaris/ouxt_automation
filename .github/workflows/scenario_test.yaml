@@ -67,7 +67,7 @@ jobs:
       if: always()
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # only needed for private repos
-        files: /home/runner/lcov/lcov.total.filtered
+        files: /home/runner/work/robotx_setup/robotx_setup/lcov
         flags: scenario_test
         name: robotx_setup
   build_base_docker_image:
