@@ -62,15 +62,13 @@ jobs:
           git config --local user.name "wam-v-tan"
           git add --all
           git commit -m "Add changes" -a
+          git config --global url."https://${{ secrets.WAMV_TAN_BOT_SECRET }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
         working-directory: workspace
         continue-on-error: true
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-          branch: ${BRANCH_NAME}
-          repository: OUXT-Polaris/robotx_workspace
-          directory: workspace
+      - name: push changes
+        run: |
+          git push origin HEAD
+        working-directory: workspace
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
