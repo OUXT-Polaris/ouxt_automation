@@ -13,62 +13,20 @@ jobs:
     name: export_repos
     runs-on: ubuntu-20.04
     steps:
-      - name: basic install
-        run: |
-            sudo apt install make ansible
-      - name: ansible version
-        run: |
-              ansible-playbook --version
-      - uses: actions/checkout@v2-beta
-      - name: ansible
-        run: |
-            ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
-      - uses: actions/upload-artifact@v2
-        with:
-          name: packages
-          path: ansible/packages.repos
-      - name: Extract branch name
-        if: github.event_name != 'pull_request'
-        shell: bash
-        run: echo "BRANCH_NAME={echo ${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
-        id: extract_branch
-      # extract branch name on pull request
-      - name: Print branch name
-        if: github.event_name == 'pull_request'
-        run: echo "{BRANCH_NAME}=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
-      # print branch name
-      - name: Get branch name
-        run: echo 'The branch name is' $BRANCH_NAME
-      - name: make workspace directory
-        run: mkdir workspace
-      - name: Checkout workspace repo
-        uses: actions/checkout@v2
-        with:
-          repository: OUXT-Polaris/robotx_workspace
-          path: workspace
-          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-      - name: delete .git files in workspace
-        run: |
-          find -name robotx_ws/*.git | xargs -I {} rm -rf {}
-      - name: copy to workspace
-        run: |
-          cp -r robotx_ws/src/* workspace
-      - name: checkout to target branch
-        run: |
-          git checkout -b ${BRANCH_NAME}
-        working-directory: workspace
-      - name: commit changes
-        run: |
-          git config --local user.email "ouxt.share@gmail.com"
-          git config --local user.name "wam-v-tan"
-          git add --all
-          git commit --allow-empty -m "Add changes" -a
-          git config --global url."https://${{ secrets.WAMV_TAN_BOT_SECRET }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
-        working-directory: workspace
-      - name: push changes
-        run: |
-          git push origin ${BRANCH_NAME}
-        working-directory: workspace
+    - name: basic install
+      run: |
+          sudo apt install make ansible
+    - name: ansible version
+      run: |
+            ansible-playbook --version
+    - uses: actions/checkout@v2-beta
+    - name: ansible
+      run: |
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
+    - uses: actions/upload-artifact@v2
+      with:
+        name: packages
+        path: ansible/packages.repos
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
@@ -96,24 +54,6 @@ jobs:
         GITHUB_RUN_ID: ${env.GITHUB_RUN_ID}
         GITHUB_CLONE_TOKEN: ${{ secrets.WAMV_TAN_BOT_SECRET }} # access token for cloning your package in private repository.
         GITHUB_CLONE_USERNAME: wam-v-tan # username of access token
-  push_to_codecov:
-    runs-on: ubuntu-latest
-    needs: run_scenario_test
-    steps:
-    - uses: actions/download-artifact@v2
-      with:
-        name: lcov
-        path: lcov
-    - name: publish codecov result
-      uses: codecov/codecov-action@v1.2.1
-      if: always()
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # only needed for private repos
-        files: /home/runner/work/robotx_setup/robotx_setup/lcov
-        flags: scenario_test
-        name: robotx_setup
-      env:
-        GITHUB_REPOSITORY: OUXT-Polaris/robotx_workspace
   build_base_docker_image:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
