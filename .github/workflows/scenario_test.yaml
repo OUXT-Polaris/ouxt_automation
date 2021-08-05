@@ -50,13 +50,13 @@ jobs:
       - name: delete .git files in workspace
         run: |
           find -name robotx_ws/*.git | xargs -I {} rm -rf {}
+      - name: copy to workspace
+        run: |
+          cp -r robotx_ws/src/* workspace
       - name: checkout to target branch
         run: |
           git checkout ${BRANCH_NAME}
         working-directory: workspace
-      - name: copy to workspace
-        run: |
-          cp -r robotx_ws/src/* workspace
       - name: commit changes
         run: |
           git config --local user.email "ouxt.share@gmail.com"
