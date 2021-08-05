@@ -55,7 +55,7 @@ jobs:
           cp -r robotx_ws/src/* workspace
       - name: checkout to target branch
         run: |
-          git checkout ${BRANCH_NAME}
+          git checkout -b ${BRANCH_NAME}
         working-directory: workspace
       - name: commit changes
         run: |
