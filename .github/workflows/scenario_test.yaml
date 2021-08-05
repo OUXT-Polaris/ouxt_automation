@@ -36,6 +36,8 @@ jobs:
       - name: delete .git files in workspace
         run: |
           find -name robotx_ws/*.git | xargs -I {} rm -rf {}
+      - name: make workspace directory
+        run: mkdir /workspace
       - name: checkout to target branch
         run: |
           git checkout ${BRANCH_NAME}
