@@ -29,35 +29,35 @@ jobs:
           path: ansible/packages.repos
       - uses: nelonoel/branch-name@v1.0.1
       - name: make workspace directory
-        run: mkdir /workspace
+        run: mkdir workspace
       - name: Checkout workspace repo
         uses: actions/checkout@v2
         with:
           repository: OUXT-Polaris/robotx_workspace
-          path: /workspace
+          path: workspace
       - name: delete .git files in workspace
         run: |
           find -name robotx_ws/*.git | xargs -I {} rm -rf {}
       - name: checkout to target branch
         run: |
           git checkout ${BRANCH_NAME}
-        working-directory: /workspace
+        working-directory: workspace
       - name: copy to workspace
         run: |
-          cp -r robotx_ws/src/* /workspace
+          cp -r robotx_ws/src/* workspace
       - name: commit changes
         run: |
           git config --local user.email "ouxt.share@gmail.com"
           git config --local user.name "wam-v-tan"
           git commit -m "Add changes" -a
-        working-directory: /workspace
+        working-directory: workspace
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
           branch: ${BRANCH_NAME}
           repository: OUXT-Polaris/robotx_workspace
-          directory: /workspace
+          directory: workspace
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
