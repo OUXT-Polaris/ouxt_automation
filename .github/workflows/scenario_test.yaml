@@ -46,6 +46,7 @@ jobs:
         with:
           repository: OUXT-Polaris/robotx_workspace
           path: workspace
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
       - name: delete .git files in workspace
         run: |
           find -name robotx_ws/*.git | xargs -I {} rm -rf {}
