@@ -68,7 +68,7 @@ jobs:
         continue-on-error: true
       - name: push changes
         run: |
-          git push origin HEAD
+          git push origin ${BRANCH_NAME}
         working-directory: workspace
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
@@ -113,6 +113,8 @@ jobs:
         files: /home/runner/work/robotx_setup/robotx_setup/lcov
         flags: scenario_test
         name: robotx_setup
+      env:
+        GITHUB_REPOSITORY: OUXT-Polaris/robotx_workspace
   build_base_docker_image:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
