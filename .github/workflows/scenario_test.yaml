@@ -49,6 +49,7 @@ jobs:
         run: |
           git config --local user.email "ouxt.share@gmail.com"
           git config --local user.name "wam-v-tan"
+          git add --all
           git commit -m "Add changes" -a
         working-directory: workspace
       - name: Push changes
