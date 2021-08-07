@@ -105,6 +105,10 @@ ros:
     realsense_hardware_interface:
       rosdistro:
         - foxy
+    robotx_ekf:
+      rosdistro:
+        - foxy
+        - galactic
 others:
   OUXT-Polaris:
     robotx_setup:
