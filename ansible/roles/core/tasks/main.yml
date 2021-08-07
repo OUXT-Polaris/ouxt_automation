@@ -167,6 +167,13 @@
     dest: "{{workspace_path}}/src/drivers/playstation_controller_drivers"
     version: master
     accept_hostkey: yes
+- name: clone realsense_hardware_interface
+  git:
+    repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
+    dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
+    version: master
+    accept_hostkey: yes
+
 
 # Control Package
 - name: clone usv_controller package
