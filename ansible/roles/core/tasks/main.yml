@@ -105,12 +105,6 @@
     accept_hostkey: yes
 
 # Localization Packages
-- name: clone geographic_info
-  git:
-    repo: https://github.com/OUXT-Polaris/geographic_info.git
-    dest: "{{workspace_path}}/src/localization/geographic_info"
-    version: ros2
-    accept_hostkey: yes
 - name: clone geographic_conversion
   git:
     repo: https://github.com/OUXT-Polaris/geographic_conversion.git
