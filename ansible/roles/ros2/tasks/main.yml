@@ -56,5 +56,6 @@
       - python3-catkin-pkg 
       - python3-rosdep
       - python3-argcomplete
+      - python3-pip
       - ros-foxy-ament-cmake
       - ca-certificates
