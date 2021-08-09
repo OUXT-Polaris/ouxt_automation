@@ -109,6 +109,14 @@ ros:
       rosdistro:
         - foxy
         - galactic
+    rospy2:
+      rosdistro:
+        - foxy
+        - galactic
+    rosboard:
+      rosdistro:
+        - foxy
+        - galactic
 others:
   OUXT-Polaris:
     robotx_setup:
