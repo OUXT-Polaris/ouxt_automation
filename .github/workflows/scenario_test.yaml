@@ -5,6 +5,15 @@ on:
   - cron: 0 0 * * *
   pull_request:
   workflow_dispatch:
+    inputs:
+      overwrite_package:
+        required: false
+        default: ''
+        description: 'name of the package you want to overwrite'
+      commit_hash:
+        required: false
+        default: ''
+        description: 'commit hash of overwrite package'
   push:
     branches: [ master ]
 
@@ -23,10 +32,13 @@ jobs:
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
+    - name: overwrite repos file
+      run: |
+        python3 scripts/overwrite_repos.py ansible/packages.repos packages.repos github.event.inputs.overwrite_package github.event.inputs.commit_hash
     - uses: actions/upload-artifact@v2
       with:
         name: packages
-        path: ansible/packages.repos
+        path: packages.repos
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
