@@ -2,7 +2,7 @@ import argparse
 import yaml
 import sys
 
-def overwrite(repos_filepath, overwrite_package, commit_hash):
+def overwrite(repos_filepath, output_repos_filepath, overwrite_package, commit_hash):
     yaml_value = {'repositories' : {}}
     with open(repos_filepath) as file:
         repos_yaml = yaml.safe_load(file)
@@ -15,17 +15,18 @@ def overwrite(repos_filepath, overwrite_package, commit_hash):
             else:
                 data = repos_yaml['repositories'][repository]
                 yaml_value['repositories'][repository] = data
-    with open(repos_filepath, 'w') as file:
+    with open(output_repos_filepath, 'w') as file:
         file.write(yaml.dump(yaml_value))
         file.close()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='python script for overwriting repos file')
     parser.add_argument('repos_filepath', help='path to the repos file')
+    parser.add_argument('output_repos_filepath', help='output path to the repos file')
     parser.add_argument('overwrite_package', help='target package to overwrite')
     parser.add_argument('commit_hash', help='commit hash of the target package')
     args = parser.parse_args()
     if args.overwrite_package == '':
         sys.exit(0)
     else:
-        overwrite(args.repos_filepath, args.overwrite_package, args.commit_hash)
+        overwrite(args.repos_filepath, args.output_repos_filepath, args.overwrite_package, args.commit_hash)

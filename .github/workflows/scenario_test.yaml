@@ -34,11 +34,11 @@ jobs:
           ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
     - name: overwrite repos file
       run: |
-        python3 scripts/overwrite_repos.py ansible/packages.repos github.event.inputs.overwrite_package github.event.inputs.commit_hash
+        python3 scripts/overwrite_repos.py ansible/packages.repos packages.repos github.event.inputs.overwrite_package github.event.inputs.commit_hash
     - uses: actions/upload-artifact@v2
       with:
         name: packages
-        path: ansible/packages.repos
+        path: packages.repos
   run_scenario_test:
     if: ${{ github.event_name == 'pull_request'}}
     runs-on: ubuntu-latest
