@@ -5,6 +5,15 @@ on:
   - cron: 0 0 * * *
   pull_request:
   workflow_dispatch:
+    inputs:
+      overwrite_package:
+        required: false
+        default: ''
+        description: 'name of the package you want to overwrite'
+      commit_hash:
+        required: false
+        default: ''
+        description: 'commit hash of overwrite package'
   push:
     branches: [ master ]
 
