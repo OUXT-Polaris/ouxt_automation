@@ -15,7 +15,9 @@ def overwrite(repos_filepath, overwrite_package, commit_hash):
             else:
                 data = repos_yaml['repositories'][repository]
                 yaml_value['repositories'][repository] = data
-    print(yaml_value)
+    with open(repos_filepath, 'w') as file:
+        file.write(yaml.dump(yaml_value))
+        file.close()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='python script for overwriting repos file')
