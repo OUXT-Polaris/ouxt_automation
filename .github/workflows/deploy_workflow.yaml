@@ -16,11 +16,12 @@ jobs:
         repository: [OUXT-Polaris/hermite_path_planner]
     steps:
       - uses: actions/checkout@v2-beta
-      - name: Checkout tools repo
+      - name: Checkout target git project repo
         uses: actions/checkout@v2
         with:
           repository: ${{ matrix.repository }}
           path: ./git_project
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
           template: ./workflow_templates/ScenarioTest.yaml
@@ -32,5 +33,4 @@ jobs:
           git config --local user.name "wam-v-tan"
           git checkout -b workflow/scenario_test
           git commit -m "Setup scenario test workflow" -a
-          git config --global url."https://${{ secrets.PUSH_KEY }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
           git push origin HEAD
