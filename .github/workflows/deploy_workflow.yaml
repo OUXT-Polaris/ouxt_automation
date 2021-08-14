@@ -36,13 +36,11 @@ jobs:
         with:
           template: /home/runner/templates/ScenarioTest.yaml
           project_path: ./
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
       - name: Check diff
         id: diff
         run: |
           git add --all
-          if ! git diff --exit-code --quiet
+          if git diff --exit-code --quiet
           then
             echo "DIFF_DETECTED=true" >> $GITHUB_ENV
             echo "Diff detected"
