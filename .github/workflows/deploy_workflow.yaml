@@ -36,10 +36,18 @@ jobs:
         with:
           template: /home/runner/templates/ScenarioTest.yaml
           project_path: ./
-      - uses: technote-space/get-diff-action@v5
+      - name: Check diff
         id: diff
+        run: |
+          git add --all
+          if ! git diff --exit-code --quiet
+          then
+            echo "DIFF_DETECTED=true" >> $GITHUB_ENV
+          else
+            echo "DIFF_DETECTED=false" >> $GITHUB_ENV
+          fi
       - name: Commit files and push
-        if: steps.diff.outputs.diff
+        if: ${{ env.DIFF_DETECTED == true }}
         run: |
           git config --local user.email "ouxt-share@gmail.com"
           git config --local user.name "wam-v-tan"
@@ -47,7 +55,7 @@ jobs:
           git commit -m "Setup scenario test workflow" -a
           git push origin HEAD
       - uses: peter-evans/create-pull-request@v3
-        if: steps.diff.outputs.diff
+        if: ${{ env.DIFF_DETECTED == true }}
         with:
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
           commit-message: Update report
