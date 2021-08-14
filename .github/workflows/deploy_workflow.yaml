@@ -19,7 +19,7 @@ jobs:
       - name: Checkout tools repo
         uses: actions/checkout@v2
         with:
-          repository: OUXT-Polaris/hermite_path_planner
+          repository: ${{ matrix.repository }}
           path: ./git_project
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
@@ -37,3 +37,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: workflow/scenario_test
           directory: ./git_project
+          repository: ${{ matrix.repository }}
