@@ -43,8 +43,10 @@ jobs:
           if ! git diff --exit-code --quiet
           then
             echo "DIFF_DETECTED=true" >> $GITHUB_ENV
+            echo "Diff detected"
           else
             echo "DIFF_DETECTED=false" >> $GITHUB_ENV
+            echo "Diff does not detected"
           fi
       - name: Commit files and push
         if: ${{ env.DIFF_DETECTED == true }}
