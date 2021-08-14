@@ -18,6 +18,7 @@ jobs:
           name: templates
           path: ./workflow_templates/ScenarioTest.yaml
   deploy_scenario_workflow:
+    needs: get_template
     runs-on: ubuntu-20.04
     strategy:
       matrix:
