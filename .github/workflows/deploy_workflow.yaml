@@ -31,10 +31,10 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: templates
-          path: /templates
+          path: ~/templates
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
-          template: /templates/ScenarioTest.yaml
+          template: ~/templates/ScenarioTest.yaml
           project_path: ./
       - uses: technote-space/get-diff-action@v5
         id: diff
