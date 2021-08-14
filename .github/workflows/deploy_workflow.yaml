@@ -32,6 +32,8 @@ jobs:
         with:
           name: templates
           path: ~/templates
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
           template: ~/templates/ScenarioTest.yaml
