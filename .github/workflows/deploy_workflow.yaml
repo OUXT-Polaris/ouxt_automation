@@ -30,7 +30,6 @@ jobs:
         id: diff
         with:
           PATTERNS: ./git_project
-        
       - name: Commit files and push
         if: steps.diff.outputs.diff
         run: |
