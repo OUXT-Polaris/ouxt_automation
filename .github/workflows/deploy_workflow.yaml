@@ -32,5 +32,5 @@ jobs:
           git config --local user.name "wam-v-tan"
           git checkout -b workflow/scenario_test
           git commit -m "Setup scenario test workflow" -a
-          git config --global url."https://${{ secrets.WAMV_TAN_BOT_SECRET }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ secrets.PUSH_KEY }}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
           git push origin HEAD
