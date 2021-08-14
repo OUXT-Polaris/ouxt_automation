@@ -16,24 +16,22 @@ jobs:
         repository: [OUXT-Polaris/hermite_path_planner]
     steps:
       - uses: actions/checkout@v2-beta
+        with:
+          path: ./robotx_setup
       - name: Checkout target git project repo
         uses: actions/checkout@v2
         with:
           repository: ${{ matrix.repository }}
-          path: ./git_project
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
-          template: ./workflow_templates/ScenarioTest.yaml
-          project_path: ./git_project
+          template: ./robotx_setup/workflow_templates/ScenarioTest.yaml
+          project_path: ./
       - uses: technote-space/get-diff-action@v5
         id: diff
-        with:
-          RELATIVE: ./git_project
       - name: Commit files and push
         if: steps.diff.outputs.diff
         run: |
-          cd ./git_project
           git config --local user.email "ouxt-share@gmail.com"
           git config --local user.name "wam-v-tan"
           git checkout -b workflow/scenario_test
