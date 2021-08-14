@@ -1,0 +1,28 @@
+name: deploy_workflow
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  pull_request:
+  workflow_dispatch:
+  push:
+    # branches: [ master ]
+
+jobs:
+  export_repos:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        repository: [OUXT-Polaris/hermite_path_planner]
+    steps:
+      - uses: actions/checkout@v2-beta
+      - name: Checkout tools repo
+        uses: actions/checkout@v2
+        with:
+          repository: OUXT-Polaris/hermite_path_planner
+          path: ./git_project
+      - uses: OUXT-Polaris/setup-workflow-action@0.0.1
+        with:
+          template: ./workflow_templates/ScenarioTest.yaml
+          project_path: ./git_project
+    
