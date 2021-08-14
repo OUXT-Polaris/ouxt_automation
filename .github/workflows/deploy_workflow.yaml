@@ -29,7 +29,7 @@ jobs:
       - uses: technote-space/get-diff-action@v5
         id: diff
         with:
-          PATTERNS: ./git_project
+          RELATIVE: ./git_project
       - name: Commit files and push
         if: steps.diff.outputs.diff
         run: |
