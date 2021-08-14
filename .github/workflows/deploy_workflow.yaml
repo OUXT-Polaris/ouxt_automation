@@ -25,4 +25,13 @@ jobs:
         with:
           template: ./workflow_templates/ScenarioTest.yaml
           project_path: ./git_project
-    
+      - name: Commit files
+        run: |
+          git config --local user.email "ouxt-share@gmail.com"
+          git config --local user.name "wam-v-tan"
+          git commit -m "Setup scenario test workflow" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: workflow/scenario_test
