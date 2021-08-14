@@ -9,23 +9,31 @@ on:
     # branches: [ master ]
 
 jobs:
-  export_repos:
+  get_template:
+    runs-on: ubuntu-20.04
+    steps:  
+      - uses: actions/checkout@v2-beta
+      - uses: actions/upload-artifact@v2
+        with:
+          name: templates
+          path: ./workflow_templates/ScenarioTest.yaml
+  deploy_scenario_workflow:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         repository: [OUXT-Polaris/hermite_path_planner]
     steps:
-      - uses: actions/checkout@v2-beta
-        with:
-          path: ../robotx_setup
-      - name: Checkout target git project repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           repository: ${{ matrix.repository }}
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: templates
+          path: /templates
       - uses: OUXT-Polaris/setup-workflow-action@0.0.1
         with:
-          template: ../robotx_setup/workflow_templates/ScenarioTest.yaml
+          template: /templates/ScenarioTest.yaml
           project_path: ./
       - uses: technote-space/get-diff-action@v5
         id: diff
