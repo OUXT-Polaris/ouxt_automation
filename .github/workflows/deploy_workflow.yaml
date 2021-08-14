@@ -27,6 +27,7 @@ jobs:
           project_path: ./git_project
       - name: Commit files
         run: |
+          cd ./git_project
           git config --local user.email "ouxt-share@gmail.com"
           git config --local user.name "wam-v-tan"
           git commit -m "Setup scenario test workflow" -a
@@ -35,3 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: workflow/scenario_test
+          directory: ./git_project
