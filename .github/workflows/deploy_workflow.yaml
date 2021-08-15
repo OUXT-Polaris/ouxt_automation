@@ -46,7 +46,7 @@ jobs:
           git add -N .
           echo "::set-output name=count::$(git diff --name-only | wc -l)"
       - name: Commit files and push
-        if: steps.check_branch.outputs.exist == 0
+        if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
         run: |
           git config --local user.email "ouxt-share@gmail.com"
           git config --local user.name "wam-v-tan"
