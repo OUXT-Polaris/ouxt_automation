@@ -1,0 +1,84 @@
+name: deploy_workflow
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  pull_request:
+  workflow_dispatch:
+  push:
+    # branches: [ master ]
+
+jobs:
+  get_template:
+    runs-on: ubuntu-20.04
+    steps:  
+      - uses: actions/checkout@v2-beta
+      - uses: actions/upload-artifact@v2
+        with:
+          name: templates
+          path: ./workflow_templates/ScenarioTest.yaml
+  deploy_scenario_workflow:
+    needs: get_template
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        repository: [
+          OUXT-Polaris/hermite_path_planner,
+          OUXT-Polaris/pcl_apps,
+          OUXT-Polaris/navi_sim
+        ]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ matrix.repository }}
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: templates
+          path: ~/templates
+      - uses: OUXT-Polaris/setup-workflow-action@0.0.1
+        with:
+          template: /home/runner/templates/ScenarioTest.yaml
+          project_path: ./
+      - name: Check branch exist
+        id: check_branch
+        run: |
+          echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.repository }}.git workflow/scenario_test | wc -l)"
+      - name: Count changes
+        id: changes
+        run: |
+          git add -N .
+          echo "::set-output name=count::$(git diff --name-only | wc -l)"
+      - uses: peter-evans/create-pull-request@v3
+        id: create_pull_request
+        if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
+        with:
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+          commit-message: Setup scenario test workflow
+          committer: wam-v-tan <ouxt.share@gmail.com>
+          author: wam-v-tan <ouxt.share@gmail.com>
+          signoff: false
+          branch: workflow/scenario_test
+          base: master
+          delete-branch: true
+          title: '[Bot] Update workflow'
+          body: |
+            # Description
+            Setup Scenario test workflow  
+            # How to check
+            Please check passing all CI test.
+          labels: |
+            bot
+          assignees: wam-v-tan
+          reviewers: wam-v-tan
+          team-reviewers: |
+            owners
+            maintainers
+          draft: false
+      - name: Slack Notification
+        if: steps.create_pull_request.outputs.pull-request-operation == 'created'
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          text: Deployed scenario test! Please check https://github.com/${{ matrix.repository }}/pull/${{ steps.create_pull_request.outputs.pull-request-number }}
