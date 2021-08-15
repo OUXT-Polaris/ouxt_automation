@@ -56,7 +56,8 @@ jobs:
           committer: wam-v-tan <ouxt.share@gmail.com>
           author: wam-v-tan <ouxt.share@gmail.com>
           signoff: false
-          branch: master
+          branch: workflow/scenario_test
+          base: master
           delete-branch: true
           title: '[Bot] Update workflow'
           body: |
