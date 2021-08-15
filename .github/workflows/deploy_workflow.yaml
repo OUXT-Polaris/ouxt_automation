@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/robotx_setup.git master | wc -l)"
       - name: Commit files and push
-        if: steps.check_branch.outputs.exist == 1
+        if: steps.check_branch.outputs.exist == 0
         run: |
           git config --local user.email "ouxt-share@gmail.com"
           git config --local user.name "wam-v-tan"
@@ -49,7 +49,7 @@ jobs:
           git commit -m "Setup scenario test workflow" -a
           git push origin HEAD
       - uses: peter-evans/create-pull-request@v3
-        if: steps.check_branch.outputs.exist == 1
+        if: steps.check_branch.outputs.exist == 0
         with:
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
           commit-message: Update report
