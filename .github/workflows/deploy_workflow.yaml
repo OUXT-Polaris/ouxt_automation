@@ -52,11 +52,11 @@ jobs:
         if: steps.check_branch.outputs.exist == 0
         with:
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-          commit-message: Update report
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          commit-message: Setup scenario test workflow
+          committer: wam-v-tan
+          author: ouxt.share@gmail.com
           signoff: false
-          branch: example-patches
+          branch: workflow/scenario_test
           delete-branch: true
           title: '[Bot] Update workflow'
           body: |
