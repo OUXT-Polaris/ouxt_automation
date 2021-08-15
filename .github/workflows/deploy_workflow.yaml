@@ -79,6 +79,6 @@ jobs:
         if: steps.create_pull_request.outputs.pull-request-operation == 'created'
         uses: tokorom/action-slack-incoming-webhook@main
         env:
-          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         with:
           text: Deployed scenario test! Please check https://github.com/${{ matrix.repository }}/pull/${{ steps.create_pull_request.outputs.pull-request-number }}
