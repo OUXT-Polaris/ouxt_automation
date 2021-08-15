@@ -24,7 +24,8 @@ jobs:
       matrix:
         repository: [
           OUXT-Polaris/hermite_path_planner,
-          OUXT-Polaris/pcl_apps
+          OUXT-Polaris/pcl_apps,
+          OUXT-Polaris/navi_sim
         ]
     steps:
       - uses: actions/checkout@v2
@@ -74,3 +75,10 @@ jobs:
             owners
             maintainers
           draft: false
+      - name: Slack Notification
+        if: steps.create_pull_request.outputs.pull-request-operation == 'created'
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: Deployed scenario test! Please check https://github.com/${{ matrix.repository }}/pull/${{ steps.create_pull_request.outputs.pull-request-number }}
