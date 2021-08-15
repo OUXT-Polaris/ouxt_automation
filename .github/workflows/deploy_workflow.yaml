@@ -39,7 +39,7 @@ jobs:
       - name: Check branch exist
         id: check_branch
         run: |
-          echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/robotx_setup.git master | wc -l)"
+          echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.repository }}.git workflow/scenario_test | wc -l)"
       - name: Commit files and push
         if: steps.check_branch.outputs.exist == 0
         run: |
