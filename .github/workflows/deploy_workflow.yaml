@@ -61,7 +61,10 @@ jobs:
           delete-branch: true
           title: '[Bot] Update workflow'
           body: |
-            Setup Scenario test workflow
+            # Description
+            Setup Scenario test workflow  
+            # How to check
+            Please check passing all CI test.
           labels: |
             bot
           assignees: wam-v-tan
