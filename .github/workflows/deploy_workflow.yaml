@@ -3,10 +3,7 @@ name: deploy_workflow
 on:
   schedule:
   - cron: 0 0 * * *
-  pull_request:
   workflow_dispatch:
-  push:
-    # branches: [ master ]
 
 jobs:
   get_template:
@@ -23,9 +20,17 @@ jobs:
     strategy:
       matrix:
         repository: [
-          OUXT-Polaris/hermite_path_planner,
-          OUXT-Polaris/pcl_apps,
-          OUXT-Polaris/navi_sim
+          OUXT-Polaris/joy_to_twist,
+          OUXT-Polaris/miniv_description,
+          OUXT-Polaris/wamv_description,
+          OUXT-Polaris/dynamixel_hardware_interface,
+          OUXT-Polaris/miniv_control,
+          OUXT-Polaris/nmea_gps_driver,
+          OUXT-Polaris/playstation_controller_drivers,
+          OUXT-Polaris/tcp_sender,
+          OUXT-Polaris/usv_controller,
+          OUXT-Polaris/geographic_conversion,
+          
         ]
     steps:
       - uses: actions/checkout@v2
