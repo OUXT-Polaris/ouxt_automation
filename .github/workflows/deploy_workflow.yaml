@@ -107,5 +107,9 @@ jobs:
         with:
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
           pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
+<<<<<<< HEAD
           merge-method: squash
           repository: ${{ matrix.repository }}
+=======
+          merge-method: squash
+>>>>>>> ad0c3cbe77eca7b22c1f20cfdb57137c007e7af0
