@@ -71,6 +71,10 @@ jobs:
         run: |
           git add -N .
           echo "::set-output name=count::$(git diff --name-only | wc -l)"
+      - name: Check default branch
+        id: check_default_branch
+        run: |
+          echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
       - uses: peter-evans/create-pull-request@v3
         id: create_pull_request
         if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
@@ -81,7 +85,7 @@ jobs:
           author: wam-v-tan <ouxt.share@gmail.com>
           signoff: false
           branch: workflow/scenario_test
-          base: master
+          base: ${{ steps.check_default_branch.outputs.default_branch }}
           delete-branch: true
           title: '[Bot] Update workflow'
           body: |
