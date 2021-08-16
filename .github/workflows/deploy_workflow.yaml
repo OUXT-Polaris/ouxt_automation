@@ -101,10 +101,10 @@ jobs:
             owners
             maintainers
           draft: false
-      - name: Slack Notification
+      - name: Enable Pull Request Automerge
         if: steps.create_pull_request.outputs.pull-request-operation == 'created'
-        uses: tokorom/action-slack-incoming-webhook@main
-        env:
-          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        uses: peter-evans/enable-pull-request-automerge@v1
         with:
-          text: Deployed scenario test! Please check https://github.com/${{ matrix.repository }}/pull/${{ steps.create_pull_request.outputs.pull-request-number }}
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+          pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
+          merge-method: squash
