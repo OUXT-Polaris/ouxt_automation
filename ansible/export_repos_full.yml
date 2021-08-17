@@ -3,5 +3,6 @@
   roles: 
     - create_workspace
     - core
+    - perception_array
     - additional
     - export_repos
