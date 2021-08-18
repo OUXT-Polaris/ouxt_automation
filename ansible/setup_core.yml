@@ -4,4 +4,5 @@
     - ros2
     - create_workspace
     - core
+    - perception_array
     - build

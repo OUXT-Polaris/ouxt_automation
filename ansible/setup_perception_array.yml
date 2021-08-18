@@ -3,9 +3,7 @@
   roles: 
     - ros2
     - create_workspace
-    - core
     - perception_array
-    - additional
     - build
     - docker
     - ntp
