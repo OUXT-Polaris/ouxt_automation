@@ -1,4 +1,5 @@
 FROM ros:foxy
+ARG FLAGS
 
 SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
@@ -11,4 +12,4 @@ WORKDIR /colcon_ws
 COPY packages.repos /colcon_ws
 RUN vcs import src < packages.repos
 RUN source /opt/ros/foxy/setup.bash && rosdep install -iry --from-paths src --rosdistro foxy
-RUN source /opt/ros/foxy/setup.bash && colcon build --symlink-install --cmake-args --ament-cmake-args -DCMAKE_CXX_FLAGS="-fprofile-arcs -ftest-coverage -DCOVERAGE_RUN=1" --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+RUN source /opt/ros/foxy/setup.bash && colcon build $FLAGS

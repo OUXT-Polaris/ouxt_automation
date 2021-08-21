@@ -108,6 +108,9 @@ jobs:
       with:
         tags: hakuturu583/robotx_scenario_test:master
         context: docker/scenario_test
-        build_args: BUILDKIT_INLINE_CACHE=1
+        build_args: BUILDKIT_INLINE_CACHE=1,
+          FLAGS=--symlink-install --cmake-args --ament-cmake-args
+          -DCMAKE_CXX_FLAGS=\"-fprofile-arcs -ftest-coverage -DCOVERAGE_RUN=1\"
+          --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
         push: true
         file: docker/scenario_test/Dockerfile
