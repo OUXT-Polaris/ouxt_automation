@@ -111,3 +111,19 @@ jobs:
         build_args: BUILDKIT_INLINE_CACHE=1
         push: true
         file: docker/scenario_test/Dockerfile
+  check_workflow_deployment:
+    runs-on: ubuntu-latest
+    needs: export_repos_full
+    steps:
+    - uses: actions/checkout@v2-beta
+    - uses: actions/download-artifact@v2
+      with:
+        name: packages
+        path: scripts
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: check package deployment
+      run: |
+        python3 scripts/check_workflow_deployment.py
