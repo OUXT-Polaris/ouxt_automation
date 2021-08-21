@@ -24,3 +24,6 @@ jobs:
     - name: check package deployment
       run: |
         python3 scripts/check_workflow_deployment.py packages.repos ROS2-Foxy
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: OUXT-Polaris/robotx_setup
