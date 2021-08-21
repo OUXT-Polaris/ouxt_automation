@@ -9,16 +9,28 @@ jobs:
   check_ros2_foxx_workflow_deployment:
     runs-on: ubuntu-20.04
     steps:
-    - name: download repos file
-      run: gh run download -n packages
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GH_REPO: OUXT-Polaris/robotx_setup
     - uses: actions/checkout@v2-beta
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - name: install depends
+      run: pip3 install pyyaml
+    - name: download repos file
+      run: gh run download -n packages
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: OUXT-Polaris/robotx_setup
     - name: check package deployment
       run: |
-        python3 scripts/check_workflow_deployment.py
+        python3 scripts/check_workflow_deployment.py packages.repos ROS2-Foxy
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_REPO: OUXT-Polaris/robotx_setup
+    - name: Slack Notification on Failure
+      uses: rtCamp/action-slack-notify@v2.0.2
+      if: failure()
+      env:
+        SLACK_CHANNEL: ci
+        SLACK_TITLE: Problem was found in checking ROS2-Foxy workflow
+        SLACK_COLOR: danger
