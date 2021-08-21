@@ -84,6 +84,7 @@ markdown_extensions:
   - attr_list
   - toc:
       permalink: ⚓︎
+      toc_depth: 3
 
 nav:
   - Home: index.md
@@ -94,4 +95,5 @@ nav:
     - tutorials/navigation_demo.md
   - Hardware documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
   - Packages/BuildStatus: report.md
+  - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md
