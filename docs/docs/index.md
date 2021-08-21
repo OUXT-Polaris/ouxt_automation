@@ -1,4 +1,4 @@
-# OUXT Polaris Environment Setup Tool 
+# OUXT Polaris Development Automation Tool
 
 ![robotx_setup](https://github.com/OUXT-Polaris/robotx_setup/workflows/robotx_setup/badge.svg)
 ![documentat](https://github.com/OUXT-Polaris/robotx_setup/workflows/documentat/badge.svg)
