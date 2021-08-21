@@ -1,5 +1,5 @@
 # Project information
-site_name: OUXT RobotX Setup Tool
+site_name: OUXT Polaris Development Automation Tool
 site_url: https://ouxt-polaris.github.io/robotx_setup/
 site_author: Sanada Tatsuya
 site_description: ''
@@ -12,7 +12,6 @@ edit_uri: ''
 
 theme:
   name: material
-  custom_dir: overrides
   language: en
   features:
     - navigation.tabs
