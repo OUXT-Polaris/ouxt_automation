@@ -86,7 +86,7 @@ jobs:
         GITHUB_RUN_ID: ${env.GITHUB_RUN_ID}
         GITHUB_CLONE_TOKEN: ${{ secrets.WAMV_TAN_BOT_SECRET }} # access token for cloning your package in private repository.
         GITHUB_CLONE_USERNAME: wam-v-tan # username of access token
-  build_base_docker_image:
+  build_base_docker_image_with_symbol:
     if: ${{ github.event_name != 'pull_request'}}
     runs-on: ubuntu-latest
     needs: export_repos_full
@@ -108,6 +108,35 @@ jobs:
       with:
         tags: hakuturu583/robotx_scenario_test:master
         context: docker/scenario_test
-        build_args: BUILDKIT_INLINE_CACHE=1
+        build_args: BUILDKIT_INLINE_CACHE=1,
+          FLAGS=--symlink-install --cmake-args --ament-cmake-args
+          -DCMAKE_CXX_FLAGS=\"-fprofile-arcs -ftest-coverage -DCOVERAGE_RUN=1\"
+          --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        push: true
+        file: docker/scenario_test/Dockerfile
+  build_base_docker_image:
+    if: ${{ github.event_name != 'pull_request'}}
+    runs-on: ubuntu-latest
+    needs: export_repos_full
+    steps:
+    - uses: actions/checkout@v2-beta
+    - uses: actions/download-artifact@v2
+      with:
+        name: packages
+        path: docker/scenario_test/
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        username: hakuturu583
+        password: ${{ secrets.DOCKERHUB_SECRET }}
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v2
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        tags: hakuturu583/robotx_scenario_test:release_build
+        context: docker/scenario_test
+        build_args: BUILDKIT_INLINE_CACHE=1,
+          FLAGS=--symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
         push: true
         file: docker/scenario_test/Dockerfile
