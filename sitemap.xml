@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/license/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/report/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/tutorials/build_document/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/tutorials/build_instraction/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/tutorials/navigation_demo/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://ouxt-polaris.github.io/robotx_setup/tutorials/supported_platforms/</loc>
          <lastmod>2021-08-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
