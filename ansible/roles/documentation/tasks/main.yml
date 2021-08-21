@@ -26,6 +26,7 @@
       - mdx_unimoji
       - mkdocs
       - mkdocs-material
+      - mkdocs-mermaid2-plugin
       - pandas
       - plantuml-markdown
       - pymdown-extensions
@@ -35,6 +36,7 @@
       - tabulate
       - termcolor
       - tzlocal
+      - mike
 - name: install PyGithub
   shell: pip3 install git+https://github.com/PyGithub/PyGithub.git
 - name: generate report

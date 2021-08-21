@@ -1,49 +1,94 @@
+# Project information
+site_name: OUXT RobotX Setup Tool
+site_url: https://ouxt-polaris.github.io/robotx_setup/
+site_author: Sanada Tatsuya
+site_description: ''
+copyright: Copyright &copy; 2021 - OUXT Polaris
+
+# Repository
+repo_name: OUXT-Polaris/robotx_setup
 repo_url: https://github.com/OUXT-Polaris/robotx_setup
-site_name: OUXT Polaris Environment Setup Tool Documentation
-site_description: Documentation of robotx_setup package
-site_author: OUXT Polaris
-theme: 
+edit_uri: ''
+
+theme:
   name: material
-  feature:
-    tabs: true
-    features:
+  custom_dir: overrides
+  language: en
+  features:
     - navigation.tabs
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    #- header.autohide
   palette:
-    primary: blue
-    accent: lime
-    scheme: slate
-  icon:
-    logo: material/robot
-    repo: fontawesome/brands/github
-copyright: 'Copyright &copy; 2020- OUXT Polaris'
-markdown_extensions:
-    - pymdownx.highlight
-    - pymdownx.superfences
-    - mdx_unimoji
-    - fontawesome_markdown
-    - pymdownx.arithmatex
-    - codehilite:
-        guess_lang: false
-    - mdx_math
-    - plantuml_markdown:
-        server: http://www.plantuml.com/plantuml
-    - toc:
-        permalink: "#"
-extra_css:
-    - "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
-extra_javascript: 
-  - http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-extra:
+    scheme: default
   font:
-    text: "Noto Sans JP"
-    code: "Consolas"
-  search:
-    language: en
+    text: Roboto
+    code: Roboto Mono
+  favicon: images/favicon.png
+  icon:
+    logo: fontawesome/solid/robot
+    repo: fontawesome/brands/github
+
+# Plugins
 plugins:
-    - search
+  - search
+  - mermaid2:
+      arguments:
+        theme: base
+        themeVariables:
+          fontFamily: verdana
+          fontSize: 12px
+          darkMode: false
+          background: "#fff"
+          primaryColor: "#DEDFEF"
+          #secondaryColor: "#000"
+          #mainBkg: "#0000"  # affect node bkg
+          nodeBorder: "#000"
+          clusterBkg: "#fff"
+          clusterBorder: "#000"
+          #titleColor: "#808080"
+          edgeLabelBackground: "#eee"
+        logLevel: 5
+        securityLevel: loose
+        startOnLoad: true
+        arrowMarkerAbsolute: false
+        flowchart:
+          diagramPadding: 8
+          nodeSpacing: 50
+          rankSpacing: 50
+          useMaxWidth: false
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/OUXT_Polaris
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<ouxt.polaris.robotx@gmail.com>
+
+extra_css:
+  - stylesheets/extra.css
+  - https://use.fontawesome.com/releases/v5.15.0/css/all.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+  - http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# Extensions
+markdown_extensions:
+  - mdx_math:
+      enable_dollar_delimiter: true
+  - fontawesome_markdown
+  - admonition
+  - footnotes
+  - attr_list
+  - toc:
+      permalink: ⚓︎
+
 nav:
   - Home: index.md
-  - Tutorials: 
+  - Tutorials:
     - tutorials/supported_platforms.md
     - tutorials/build_document.md
     - tutorials/build_instraction.md
