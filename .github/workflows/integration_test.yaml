@@ -78,4 +78,24 @@ jobs:
         export ROS_VERSION=2
         colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
       working-directory: robotx_ws
-
+  run_scenario_test:
+    name: run_scenario_test
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+    - uses: ros-tooling/setup-ros@v0.2
+    - uses: actions/cache@v2
+      id: cache_workspace
+      with:
+        path: robotx_ws
+        key: workspace
+    - uses: actions/cache@v2
+      id: cache_foxy_env
+      with:
+        path: /opt/ros/foxy
+        key: foxy_env
+    - name: install depends packages
+      run: |
+        vcs import src < packages.repos
+        rosdep update
+        rosdep install -iry --from-paths src --rosdistro foxy
