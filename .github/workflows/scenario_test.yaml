@@ -32,9 +32,12 @@ jobs:
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
-    - name: overwrite repos file
-      run: |
-        python3 scripts/overwrite_repos.py ansible/packages.repos packages.repos github.event.inputs.overwrite_package github.event.inputs.commit_hash
+    - uses: OUXT-Polaris/update-repos-action@0.0.1
+      with:
+        input_repos_file: ansible/packages.repos
+        output_repos_file: packages.repos
+        package_name: github.event.inputs.overwrite_package
+        target_version: github.event.inputs.commit_hash
     - uses: actions/upload-artifact@v2
       with:
         name: packages
