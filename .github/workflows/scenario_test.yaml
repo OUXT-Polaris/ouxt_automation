@@ -58,7 +58,7 @@ jobs:
         base_image: hakuturu583/robotx_scenario_test
         tag: rel_with_deb_info
         rosdistro: foxy
-        test_command: ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=/artifacts/rosbag
+        test_command: ros2 launch navi_sim with_planner.launch.py
         check_result_command: ros2 run navi_sim check_result
         artifact_name: scenario_test_result
         repos_artifact_name: packages
@@ -77,7 +77,7 @@ jobs:
         base_image: ros
         tag: foxy
         rosdistro: foxy
-        test_command: ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=/artifacts/rosbag
+        test_command: ros2 launch navi_sim with_planner.launch.py
         check_result_command: ros2 run navi_sim check_result
         artifact_name: scenario_test_result
         repos_artifact_name: packages
