@@ -63,6 +63,7 @@ jobs:
     - name: build packages
       run: |
         vcs import src < packages.repos
+        rosdep update
         rosdep install -iry --from-paths src --rosdistro foxy
         colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
       working-directory: robotx_ws
