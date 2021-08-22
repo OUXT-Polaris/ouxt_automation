@@ -75,4 +75,7 @@ jobs:
         export ROS_VERSION=2
         colcon bundle --packages-skip rosboard rospy2
       working-directory: robotx_ws
-
+    - uses: actions/upload-artifact@v2
+      with:
+        name: bundle
+        path: robotx_ws/bundle/output.tar
