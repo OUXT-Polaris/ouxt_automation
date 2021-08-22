@@ -45,6 +45,7 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-20.04
+    needs: export_repos_full
     steps:
     - uses: ros-tooling/setup-ros@v0.2
     - name: make workspace
