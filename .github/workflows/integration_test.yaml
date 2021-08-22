@@ -82,3 +82,22 @@ jobs:
       with:
         name: bundle
         path: robotx_ws/bundle/output.tar
+  run_integration_test:
+    name: run_integration_test
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: bundle
+        path: bundle
+    - name: extract tarbor
+      run: |
+        tar -xvf bundle/output.tar
+        mkdir -p dependencies
+        tar -zxvf dependencies.tar.gz -C dependencies/
+        mkdir -p workspace
+        tar -zxvf workspace.tar.gz -C workspace/
+        BUNDLE_CURRENT_PREFIX=$PWD/dependencies source $PWD/dependencies/setup.sh
+        BUNDLE_CURRENT_PREFIX=$PWD/workspace source $PWD/workspace/setup.sh
+        which roslaunch
