@@ -96,6 +96,5 @@ jobs:
         key: foxy_env
     - name: install depends packages
       run: |
-        vcs import src < packages.repos
         rosdep update
         rosdep install -iry --from-paths src --rosdistro foxy
