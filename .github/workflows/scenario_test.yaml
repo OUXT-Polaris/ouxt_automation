@@ -56,7 +56,7 @@ jobs:
       uses: OUXT-Polaris/ros-integration-test-action@0.0.12
       with:
         base_image: hakuturu583/robotx_scenario_test
-        tag: release_build
+        tag: rel_with_deb_info
         rosdistro: foxy
         test_command: ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=/artifacts/rosbag
         check_result_command: ros2 run navi_sim check_result
@@ -64,7 +64,6 @@ jobs:
         repos_artifact_name: packages
         repos_filename: packages.repos
         with_lcov: false
-        colcon_args: --symlink-install
       env:
         ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         ACTIONS_RUNTIME_URL: ${{ env.ACTIONS_RUNTIME_URL }}
@@ -84,7 +83,6 @@ jobs:
         repos_artifact_name: packages
         repos_filename: packages.repos
         with_lcov: false
-        colcon_args: --symlink-install
       env:
         ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
         ACTIONS_RUNTIME_URL: ${{ env.ACTIONS_RUNTIME_URL }}
