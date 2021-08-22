@@ -48,6 +48,8 @@ jobs:
     needs: export_repos_full
     steps:
     - uses: ros-tooling/setup-ros@v0.2
+      with:
+        required-ros-distributions: foxy
     - name: make workspace
       run: |
         mkdir -p robotx_ws/src
