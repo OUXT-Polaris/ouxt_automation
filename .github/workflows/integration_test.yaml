@@ -56,11 +56,6 @@ jobs:
       with:
         path: robotx_ws
         key: workspace
-    - uses: actions/cache@v2
-      id: cache_foxy_env
-      with:
-        path: /opt/ros/foxy
-        key: foxy_env
     - uses: actions/download-artifact@v2
       with:
         name: packages
@@ -69,32 +64,15 @@ jobs:
       run: |
         vcs import src < packages.repos
         rosdep update
-        rosdep install -iry --from-paths src --rosdistro foxy
+        apt-get install -y python3-apt python3-pip
+        pip3 install -U setuptools pip
+        pip3 install colcon-ros-bundle
       working-directory: robotx_ws
-    - name: build packages
+    - name: build bundle
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
         export ROS_VERSION=2
-        colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+        colcon bundle --packages-skip rosboard rospy2
       working-directory: robotx_ws
-  run_scenario_test:
-    name: run_scenario_test
-    runs-on: ubuntu-20.04
-    needs: build
-    steps:
-    - uses: ros-tooling/setup-ros@v0.2
-    - uses: actions/cache@v2
-      id: cache_workspace
-      with:
-        path: robotx_ws
-        key: workspace
-    - uses: actions/cache@v2
-      id: cache_foxy_env
-      with:
-        path: /opt/ros/foxy
-        key: foxy_env
-    - name: install depends packages
-      run: |
-        rosdep update
-        rosdep install -iry --from-paths src --rosdistro foxy
+
