@@ -58,7 +58,7 @@ jobs:
         base_image: hakuturu583/robotx_scenario_test
         tag: master
         rosdistro: foxy
-        test_command: ros2 launch navi_sim with_planner.launch.py record:=True && mv go_straight.yaml /artifacts
+        test_command: ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=/artifacts/rosbag
         check_result_command: ros2 run navi_sim check_result
         artifact_name: scenario_test_result
         repos_artifact_name: packages
@@ -77,7 +77,7 @@ jobs:
         base_image: ros/foxy
         tag: master
         rosdistro: foxy
-        test_command: ros2 launch navi_sim with_planner.launch.py record:=True && mv go_straight.yaml /artifacts
+        test_command: ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=/artifacts/rosbag
         check_result_command: ros2 run navi_sim check_result
         artifact_name: scenario_test_result
         repos_artifact_name: packages
