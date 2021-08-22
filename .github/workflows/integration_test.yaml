@@ -56,15 +56,23 @@ jobs:
         name: packages
         path: robotx_ws
     - uses: actions/cache@v2
-      id: chache_workspace
+      id: cache_workspace
       with:
         path: robotx_ws
         key: workspace
-    - name: build packages
+    - name: install depends packages
       run: |
         vcs import src < packages.repos
         rosdep update
         rosdep install -iry --from-paths src --rosdistro foxy
+        - name: install depends packages
+    - uses: actions/cache@v2
+      id: cache_foxy_env
+      with:
+        path: /opt/ros/foxy
+        key: foxy_env
+    - name: build packages
+      run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
         export ROS_VERSION=2
