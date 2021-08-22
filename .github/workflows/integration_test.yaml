@@ -42,3 +42,27 @@ jobs:
       with:
         name: packages
         path: packages.repos
+  build:
+    name: build
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: ros-tooling/setup-ros@v0.2
+    - name: make workspace
+      run: |
+        mkdir -p robotx_ws/src
+    - uses: actions/download-artifact@v2
+      with:
+        name: packages
+        path: robotx_ws
+    - uses: actions/cache@v2
+      id: chache_workspace
+      with:
+        path: robotx_ws
+        key: workspace
+    - name: build packages
+      run: |
+        vcs import src < packages.repos
+        rosdep install -iry --from-paths src --rosdistro foxy
+        colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+      working-directory: robotx_ws
+
