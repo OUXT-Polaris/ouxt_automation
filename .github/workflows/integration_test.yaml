@@ -64,9 +64,9 @@ jobs:
       run: |
         vcs import src < packages.repos
         rosdep update
-        apt-get install -y python3-apt python3-pip
-        pip3 install -U setuptools pip
-        pip3 install colcon-ros-bundle
+        sudo apt-get install -y python3-apt python3-pip
+        sudo pip3 install -U setuptools pip
+        sudo pip3 install colcon-ros-bundle
       working-directory: robotx_ws
     - name: build bundle
       run: |
