@@ -1,0 +1,44 @@
+name: integration_test
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      overwrite_package:
+        required: false
+        default: ''
+        description: 'name of the package you want to overwrite'
+      commit_hash:
+        required: false
+        default: ''
+        description: 'commit hash of overwrite package'
+  push:
+    branches: [ master ]
+
+jobs:
+  export_repos_full:
+    name: export_repos_full
+    runs-on: ubuntu-20.04
+    steps:
+    - name: basic install
+      run: |
+          sudo apt install make ansible
+    - name: ansible version
+      run: |
+            ansible-playbook --version
+    - uses: actions/checkout@v2-beta
+    - name: ansible
+      run: |
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
+    - uses: OUXT-Polaris/update-repos-action@0.0.1
+      with:
+        input_repos_file: ansible/packages.repos
+        output_repos_file: packages.repos
+        package_name: github.event.inputs.overwrite_package
+        target_version: github.event.inputs.commit_hash
+    - uses: actions/upload-artifact@v2
+      with:
+        name: packages
+        path: packages.repos
