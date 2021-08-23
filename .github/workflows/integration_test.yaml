@@ -105,3 +105,4 @@ jobs:
         tar -zxvf workspace.tar.gz -C workspace/
         BUNDLE_CURRENT_PREFIX=$PWD/dependencies source $PWD/dependencies/setup.sh
         BUNDLE_CURRENT_PREFIX=$PWD/workspace source $PWD/workspace/setup.sh
+        ros2 launch navi_sim with_planner.launch.py
