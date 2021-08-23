@@ -92,19 +92,14 @@ jobs:
     runs-on: ubuntu-20.04
     needs: build
     steps:
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.13.8'
     - uses: actions/download-artifact@v2
       with:
         name: bundle
         path: bundle
-    - name: extract tarbor
-      run: |
-        tar -xvf bundle/output.tar
-        mkdir -p dependencies
-        tar -zxvf dependencies.tar.gz -C dependencies/
-        mkdir -p workspace
-        tar -zxvf workspace.tar.gz -C workspace/
     - name : run test command
       run: |
-        BUNDLE_CURRENT_PREFIX=$PWD/dependencies source $PWD/dependencies/setup.sh
-        BUNDLE_CURRENT_PREFIX=$PWD/workspace source $PWD/workspace/setup.sh
-        ros2 launch navi_sim with_planner.launch.py
+        GO111MODULE=on go run github.com/aws-robotics/aws-robomaker-bundle-support-library/cmd/cli --bundle output.tar
+      working-directory: bundle/bundle
