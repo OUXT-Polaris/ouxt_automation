@@ -1,0 +1,14 @@
+---
+# Python tools
+- name: clone rospy2
+  git:
+    repo: https://github.com/OUXT-Polaris/rospy2.git
+    dest: "{{workspace_path}}/src/utils/rospy2"
+    version: main
+    accept_hostkey: yes
+- name: clone rosboard
+  git:
+    repo: https://github.com/OUXT-Polaris/rosboard.git
+    dest: "{{workspace_path}}/src/utils/rosboard"
+    version: main
+    accept_hostkey: yes

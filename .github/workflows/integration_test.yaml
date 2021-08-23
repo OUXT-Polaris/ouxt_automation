@@ -53,11 +53,11 @@ jobs:
     - name: make workspace
       run: |
         mkdir -p robotx_ws/src
-    - uses: actions/cache@v2
-      id: cache_workspace
-      with:
-        path: robotx_ws
-        key: workspace
+    # - uses: actions/cache@v2
+    #  id: cache_workspace
+    #  with:
+    #    path: robotx_ws
+    #    key: workspace
     - uses: actions/download-artifact@v2
       with:
         name: packages
@@ -68,7 +68,7 @@ jobs:
         rosdep update
         rosdep install -iry --from-paths src --rosdistro foxy
         sudo apt-get install -y python3-apt python3-pip
-        pip3 install -U git+https://github.com/OUXT-Polaris/colcon-bundle git+https://github.com/ros-infrastructure/rosdep
+        pip3 install -U git+https://github.com/colcon/colcon-bundle git+https://github.com/ros-infrastructure/rosdep
       working-directory: robotx_ws
     - name: build bundle
       run: |

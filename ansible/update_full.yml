@@ -4,5 +4,6 @@
     - core
     - perception_array
     - additional
+    - python-tools
     - build
     - ntp
