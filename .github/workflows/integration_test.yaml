@@ -91,9 +91,6 @@ jobs:
     runs-on: ubuntu-20.04
     needs: build
     steps:
-    - uses: ros-tooling/setup-ros@v0.2
-      with:
-        required-ros-distributions: foxy
     - uses: actions/download-artifact@v2
       with:
         name: bundle
@@ -107,4 +104,3 @@ jobs:
         tar -zxvf workspace.tar.gz -C workspace/
         BUNDLE_CURRENT_PREFIX=$PWD/dependencies source $PWD/dependencies/setup.sh
         BUNDLE_CURRENT_PREFIX=$PWD/workspace source $PWD/workspace/setup.sh
-        which roslaunch
