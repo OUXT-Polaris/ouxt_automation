@@ -61,7 +61,7 @@ jobs:
       id: cache_workspace
       with:
         path: robotx_ws
-        key: workspace-${{ hashFiles(packages.repos) }}
+        key: workspace-${{ hashFiles('packages.repos') }}
     - name: move repos file
       run: |
         mv packages.repos robotx_ws/packages.repos
