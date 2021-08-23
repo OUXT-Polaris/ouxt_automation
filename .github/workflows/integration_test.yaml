@@ -47,9 +47,6 @@ jobs:
     runs-on: ubuntu-20.04
     needs: export_repos_full
     steps:
-    - uses: ros-tooling/setup-ros@v0.2
-      with:
-        required-ros-distributions: foxy
     - name: make workspace
       run: |
         mkdir -p robotx_ws/src
@@ -65,7 +62,12 @@ jobs:
     - name: move repos file
       run: |
         mv packages.repos robotx_ws/packages.repos
+    - uses: ros-tooling/setup-ros@v0.2
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
+      with:
+        required-ros-distributions: foxy
     - name: install depends packages
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
@@ -74,6 +76,7 @@ jobs:
         pip3 install -U git+https://github.com/colcon/colcon-bundle git+https://github.com/ros-infrastructure/rosdep
       working-directory: robotx_ws
     - name: build bundle
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
