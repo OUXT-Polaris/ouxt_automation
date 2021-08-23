@@ -79,8 +79,6 @@ jobs:
         export ROS_DISTRO=foxy
         export ROS_VERSION=2
         colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
-        wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-        colcon bundle --packages-skip rosboard rospy2
       working-directory: robotx_ws
     - uses: actions/upload-artifact@v2
       with:
