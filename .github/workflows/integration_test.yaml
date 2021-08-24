@@ -86,7 +86,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: bundle
-        path: robotx_ws/output.tar
+        path: robotx_ws/bundle/output.tar
   run_integration_test:
     name: run_integration_test
     runs-on: ubuntu-20.04
