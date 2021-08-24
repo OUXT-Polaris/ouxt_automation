@@ -86,7 +86,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: bundle
-        path: robotx_ws/bundle
+        path: robotx_ws/output.tar
   run_integration_test:
     name: run_integration_test
     runs-on: ubuntu-20.04
@@ -99,7 +99,6 @@ jobs:
       with:
         name: bundle
         path: bundle
-    - name : run test command
       run: |
         GO111MODULE=on go run github.com/aws-robotics/aws-robomaker-bundle-support-library/cmd/cli --bundle output.tar
-      working-directory: bundle/bundle
+      working-directory: bundle
