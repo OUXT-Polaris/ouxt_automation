@@ -99,6 +99,7 @@ jobs:
       with:
         name: bundle
         path: bundle
+    - name: set path of the bundle
       run: |
         GO111MODULE=on go run github.com/aws-robotics/aws-robomaker-bundle-support-library/cmd/cli --bundle output.tar
       working-directory: bundle
