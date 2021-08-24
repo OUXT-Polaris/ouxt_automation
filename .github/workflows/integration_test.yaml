@@ -63,11 +63,11 @@ jobs:
       run: |
         mv packages.repos robotx_ws/packages.repos
     - uses: ros-tooling/setup-ros@v0.2
-      if: steps.cache_workspace.outputs.cache-hit != 'true'
+      # if: steps.cache_workspace.outputs.cache-hit != 'true'
       with:
         required-ros-distributions: foxy
     - name: install depends packages
-      if: steps.cache_workspace.outputs.cache-hit != 'true'
+      # if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
@@ -76,12 +76,12 @@ jobs:
         pip3 install -U git+https://github.com/colcon/colcon-bundle git+https://github.com/ros-infrastructure/rosdep
       working-directory: robotx_ws
     - name: build bundle
-      if: steps.cache_workspace.outputs.cache-hit != 'true'
+      # if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
         export ROS_VERSION=2
-        colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+        colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release --include-sources
       working-directory: robotx_ws
     - uses: actions/upload-artifact@v2
       with:
