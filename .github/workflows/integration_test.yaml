@@ -63,11 +63,11 @@ jobs:
       run: |
         mv packages.repos robotx_ws/packages.repos
     - uses: ros-tooling/setup-ros@v0.2
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
       with:
         required-ros-distributions: foxy
     - name: install depends packages
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
@@ -76,7 +76,7 @@ jobs:
         pip3 install -U git+https://github.com/colcon/colcon-bundle git+https://github.com/ros-infrastructure/rosdep
       working-directory: robotx_ws
     - name: build bundle
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
@@ -98,13 +98,17 @@ jobs:
       with:
         name: bundle
         path: bundle
-    - name: set path of the bundle
+    - name: untar bundle
       run: |
         tar -xvf output.tar
         mkdir -p dependencies
         tar -zxvf dependencies.tar.gz -C dependencies/
         mkdir -p workspace
         tar -zxvf workspace.tar.gz -C workspace/
+      working-directory: bundle
+    - name: set path to bundle
+      run: |
         source dependencies/setup.sh
         source workspace/setup.sh
+        which ros2
       working-directory: bundle
