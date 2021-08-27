@@ -108,7 +108,7 @@ jobs:
       working-directory: bundle
     - name: set path to bundle
       run: |
-        source dependencies/setup.sh
-        source workspace/setup.sh
+        source dependencies/setup.bash
+        source workspace/setup.bash
         which ros2
       working-directory: bundle
