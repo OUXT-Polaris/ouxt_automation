@@ -49,10 +49,6 @@ ros:
         - foxy
         - galactic
       documentation:
-    pf_localization:
-      rosdistro:
-        - foxy
-        - galactic
     odom_frame_publisher:
       rosdistro:
         - foxy

@@ -123,12 +123,6 @@
     dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
     version: ros2
     accept_hostkey: yes
-- name: clone pf_localization
-  git:
-    repo: https://github.com/OUXT-Polaris/pf_localization.git
-    dest: "{{workspace_path}}/src/localization/pf_localization"
-    version: ros2
-    accept_hostkey: yes 
 - name: clone odom_frame_publisher
   git:
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
