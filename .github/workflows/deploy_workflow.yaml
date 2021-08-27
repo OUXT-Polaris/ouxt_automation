@@ -36,7 +36,6 @@ jobs:
           OUXT-Polaris/geographic_conversion,
           OUXT-Polaris/nmea_to_geopose,
           OUXT-Polaris/odom_frame_publisher,
-          OUXT-Polaris/pf_localization,
           OUXT-Polaris/image_processing_utils,
           OUXT-Polaris/pcl_apps,
           OUXT-Polaris/perception_bringup,
