@@ -54,20 +54,20 @@ jobs:
       with:
         name: packages
         path: .
-    # - uses: actions/cache@v2
-    #  id: cache_workspace
-    #  with:
-    #    path: robotx_ws
-    #    key: workspace-${{ hashFiles('packages.repos') }}
+    - uses: actions/cache@v2
+      id: cache_workspace
+      with:
+        path: robotx_ws
+        key: workspace-${{ hashFiles('packages.repos') }}
     - name: move repos file
       run: |
         mv packages.repos robotx_ws/packages.repos
     - uses: ros-tooling/setup-ros@v0.2
-    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       with:
         required-ros-distributions: foxy
     - name: install depends packages
-    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
@@ -76,7 +76,7 @@ jobs:
         pip3 install -U colcon-bundle colcon-ros-bundle
       working-directory: robotx_ws
     - name: build bundle
-    #  if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
