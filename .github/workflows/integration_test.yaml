@@ -63,11 +63,11 @@ jobs:
       run: |
         mv packages.repos robotx_ws/packages.repos
     - uses: ros-tooling/setup-ros@v0.2
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       with:
         required-ros-distributions: foxy
     - name: install depends packages
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
@@ -76,14 +76,11 @@ jobs:
         pip3 install -U colcon-bundle colcon-ros-bundle
       working-directory: robotx_ws
     - name: build bundle
-      # if: steps.cache_workspace.outputs.cache-hit != 'true'
+      if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         source /opt/ros/foxy/setup.bash
         export ROS_DISTRO=foxy
         export ROS_VERSION=2
-        rm -rf build
-        rm -rf install
-        rm -rf bundle
         colcon build --symlink-install --packages-ignore navi_sim --cmake-args -DCMAKE_BUILD_TYPE=Release
         colcon build --symlink-install --packages-select navi_sim --cmake-args -DCMAKE_BUILD_TYPE=Debug
         wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
