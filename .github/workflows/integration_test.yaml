@@ -115,6 +115,7 @@ jobs:
         ros2 run navi_sim check_result
       working-directory: bundle
     - uses: actions/upload-artifact@v2
+      if: ${{ always() }}
       with:
         name: rosbag
         path: bundle/rosbag
