@@ -106,9 +106,10 @@ jobs:
         mkdir -p workspace
         tar -zxvf workspace.tar.gz -C workspace/
       working-directory: bundle
-    - name: set path to bundle
+    - name: run test
       run: |
         source dependencies/setup.bash
         source workspace/setup.bash
         ros2 launch navi_sim with_planner.launch.py
+        ros2 run navi_sim check_result
       working-directory: bundle
