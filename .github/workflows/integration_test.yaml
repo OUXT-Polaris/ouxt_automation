@@ -108,7 +108,6 @@ jobs:
       working-directory: bundle
     - name: run test
       run: |
-        mkdir rosbag
         source dependencies/setup.bash
         source workspace/setup.bash
         ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=rosbag
