@@ -106,8 +106,6 @@ jobs:
         mkdir -p workspace
         tar -zxvf workspace.tar.gz -C workspace/
       working-directory: bundle
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
     - name: run test
       run: |
         source dependencies/setup.bash
