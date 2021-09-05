@@ -39,4 +39,4 @@ jobs:
         project_path: ./
         parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
     - name: Check workflow
-      run: cat ./.github/BuildTest.yaml
+      run: cat /home/runner/work/robotx_setup/robotx_setup/${{ matrix.repository }}/.github/BuildTest.yaml
