@@ -1,4 +1,4 @@
-name: ROS2-Foxy
+name: BuildTest
 
 on:
   schedule:
