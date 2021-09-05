@@ -112,7 +112,12 @@ jobs:
       run: |
         source dependencies/setup.bash
         source workspace/setup.bash
-        ros2 launch navi_sim with_planner.launch.py record:=True rosbag_directory:=rosbag
+        ros2 launch navi_sim with_planner.launch.py \
+          record:=True \
+          rosbag_directory:=rosbag \
+          planner_launch_prefix:='taskset -c 0' \
+          perception_launch_prefix:='taskset -c 1' \
+          simulation_launch_prefix:='taskset -c 0'
         ros2 run navi_sim check_result
       working-directory: bundle
     - uses: actions/upload-artifact@v2
