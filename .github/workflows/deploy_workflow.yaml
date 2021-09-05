@@ -38,5 +38,50 @@ jobs:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
         parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
-    - name: Check workflow
-      run: cat /home/runner/work/robotx_setup/robotx_setup/${{ matrix.repository }}/.github/BuildTest.yaml
+    - name: Check branch exist
+      id: check_branch
+      run: |
+        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.repository }}.git workflow/scenario_test | wc -l)"
+    - name: Count changes
+      id: changes
+      run: |
+        git add -N .
+        echo "::set-output name=count::$(git diff --name-only | wc -l)"
+    - name: Check default branch
+      id: check_default_branch
+      run: |
+        echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+    - uses: peter-evans/create-pull-request@v3
+      id: create_pull_request
+      if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
+      with:
+        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+        commit-message: Setup build test workflow
+        committer: wam-v-tan <ouxt.share@gmail.com>
+        author: wam-v-tan <ouxt.share@gmail.com>
+        signoff: false
+        branch: workflow/build_test
+        base: ${{ steps.check_default_branch.outputs.default_branch }}
+        delete-branch: true
+        title: '[Bot] Update workflow'
+        body: |
+          # Description
+          Setup Build test workflow  
+          # How to check
+          Please check passing all CI test.
+        labels: |
+          bot
+        assignees: wam-v-tan
+        reviewers: wam-v-tan
+        team-reviewers: |
+          owners
+          maintainers
+        draft: false
+    - name: Enable Pull Request Automerge
+      if: steps.create_pull_request.outputs.pull-request-operation == 'created'
+      uses: peter-evans/enable-pull-request-automerge@v1
+      with:
+        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+        pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
+        merge-method: squash
+        repository: ${{ matrix.repository }}
