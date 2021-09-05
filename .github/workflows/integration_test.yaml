@@ -111,8 +111,6 @@ jobs:
         source dependencies/setup.bash
         source workspace/setup.bash
         ros2 launch navi_sim with_planner.launch.py \
-          record:=True \
-          rosbag_directory:=rosbag \
           planner_launch_prefix:='taskset -c 0' \
           perception_launch_prefix:='taskset -c 1' \
           simulation_launch_prefix:='taskset -c 0'
