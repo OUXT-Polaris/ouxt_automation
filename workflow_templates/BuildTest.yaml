@@ -23,4 +23,19 @@ jobs:
         run: |
             mkdir -p ~/ros2_ws/src
             cp -rf . ~/ros2_ws/src
-        
+      - uses: ros-tooling/action-ros-ci@v0.2
+        with:
+          package-name: $parameter.package_name
+          target-ros2-distro: galactic
+          colcon-defaults: |
+            {
+              "build": {
+                "mixin": ["coverage-gcc", "coverage-pytest"]
+              },
+              "test": {
+                "mixin": ["coverage-pytest"]
+              }
+            }
+          # If possible, pin the repository in the workflow to a specific commit to avoid
+          # changes in colcon-mixin-repository from breaking your tests.
+          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml
