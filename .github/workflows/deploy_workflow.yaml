@@ -34,3 +34,5 @@ jobs:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
         parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
+    - name: Check workflow
+      run: cat .github/BuildTest.yaml
