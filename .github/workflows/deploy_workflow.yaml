@@ -5,7 +5,7 @@ on:
   - cron: 0 0 * * *
   workflow_dispatch:
   push:
-  
+
 jobs:
   get_template:
     runs-on: ubuntu-20.04
@@ -24,9 +24,13 @@ jobs:
           OUXT-Polaris/joy_to_twist
         ]
     steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ matrix.repository }}
+        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
     - name: Deploy foxy workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
-        template: /home/runner/templates/ROS2-Foxy.yaml
+        template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"foxy\", \"action-name\" : \"example\" }"
+        parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"

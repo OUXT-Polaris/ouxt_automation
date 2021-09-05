@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        rosdistro : [
-          $parameter.rosdistro
-        ]
+        rosdistro : [$parameter.rosdistro]
     steps:
       - name: Setup ROS2 ${{ matrix.rosdistro }} environment
         uses: ros-tooling/setup-ros@v0.2
@@ -23,6 +21,6 @@ jobs:
       - uses: actions/checkout@v2-beta
       - name: Copy repository
         run: |
-            mkdir -p ~/ros2_ws/src/$parameter.package_name
-            cp -rf . ~/ros2_ws/src/$parameter.package_name
+            mkdir -p ~/ros2_ws/src
+            cp -rf . ~/ros2_ws/src
         
