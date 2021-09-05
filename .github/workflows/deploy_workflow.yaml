@@ -17,98 +17,19 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: templates
-          path: ./workflow_templates/ScenarioTest.yaml
-  deploy_scenario_workflow:
+          path: ./workflow_templates/*.yaml
+  deploy_build_test_workflow:
     needs: get_template
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         repository: [
-          OUXT-Polaris/joy_to_twist,
-          OUXT-Polaris/miniv_description,
-          OUXT-Polaris/wamv_description,
-          OUXT-Polaris/dynamixel_hardware_interface,
-          OUXT-Polaris/miniv_control,
-          OUXT-Polaris/nmea_gps_driver,
-          OUXT-Polaris/playstation_controller_drivers,
-          OUXT-Polaris/tcp_sender,
-          OUXT-Polaris/usv_controller,
-          OUXT-Polaris/geographic_conversion,
-          OUXT-Polaris/nmea_to_geopose,
-          OUXT-Polaris/odom_frame_publisher,
-          OUXT-Polaris/image_processing_utils,
-          OUXT-Polaris/pcl_apps,
-          OUXT-Polaris/perception_bringup,
-          OUXT-Polaris/scan_segmentation,
-          OUXT-Polaris/behavior_tree_action_builder,
-          OUXT-Polaris/hermite_path_planner,
-          OUXT-Polaris/lua_vendor,
-          OUXT-Polaris/robotx_behavior_tree,
-          OUXT-Polaris/sol_vendor,
-          OUXT-Polaris/navi_sim,
-          OUXT-Polaris/color_names,
-          OUXT-Polaris/data_buffer,
-          OUXT-Polaris/geometry_msgs_data_buffer,
-          OUXT-Polaris/message_synchronizer,
-          OUXT-Polaris/quaternion_operation
+          OUXT-Polaris/joy_to_twist
         ]
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: ${{ matrix.repository }}
-          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-      - uses: actions/download-artifact@v2
-        with:
-          name: templates
-          path: ~/templates
-      - uses: OUXT-Polaris/setup-workflow-action@0.0.1
-        with:
-          template: /home/runner/templates/ScenarioTest.yaml
-          project_path: ./
-      - name: Check branch exist
-        id: check_branch
-        run: |
-          echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.repository }}.git workflow/scenario_test | wc -l)"
-      - name: Count changes
-        id: changes
-        run: |
-          git add -N .
-          echo "::set-output name=count::$(git diff --name-only | wc -l)"
-      - name: Check default branch
-        id: check_default_branch
-        run: |
-          echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
-      - uses: peter-evans/create-pull-request@v3
-        id: create_pull_request
-        if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
-        with:
-          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-          commit-message: Setup scenario test workflow
-          committer: wam-v-tan <ouxt.share@gmail.com>
-          author: wam-v-tan <ouxt.share@gmail.com>
-          signoff: false
-          branch: workflow/scenario_test
-          base: ${{ steps.check_default_branch.outputs.default_branch }}
-          delete-branch: true
-          title: '[Bot] Update workflow'
-          body: |
-            # Description
-            Setup Scenario test workflow  
-            # How to check
-            Please check passing all CI test.
-          labels: |
-            bot
-          assignees: wam-v-tan
-          reviewers: wam-v-tan
-          team-reviewers: |
-            owners
-            maintainers
-          draft: false
-      - name: Enable Pull Request Automerge
-        if: steps.create_pull_request.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v1
-        with:
-          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-          pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
-          merge-method: squash
-          repository: ${{ matrix.repository }}
+    - name: Deploy foxy workflow
+      uses: OUXT-Polaris/setup-workflow-action@0.0.1
+      with:
+        template: /home/runner/templates/ROS2-Foxy.yaml
+        project_path: ./
+        parameters: "{ \"rosdistro\" : \"foxy\", \"action-name\" : \"example\" }"
