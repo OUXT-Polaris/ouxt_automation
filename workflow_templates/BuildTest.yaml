@@ -14,6 +14,12 @@ jobs:
       matrix:
         rosdistro : [$parameter.rosdistro]
     steps:
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: dependency-${{ matrix.rosdistro }}.repos
+          allow_failure: false
       - name: Setup ROS2 ${{ matrix.rosdistro }} environment
         uses: ros-tooling/setup-ros@v0.2
         with:
@@ -23,12 +29,6 @@ jobs:
         run: |
             mkdir -p ~/ros2_ws/src
             cp -rf . ~/ros2_ws/src
-      - name: Check file existence
-        id: check_files
-        uses: andstor/file-existence-action@v1
-        with:
-          files: dependency-${{ matrix.rosdistro }}.repos
-          allow_failure: false
       - name: Run ros-tooling/action-ros-ci@v0.2 with dependency-${{ matrix.rosdistro }}.repos
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_files.outputs.files_exists == 'true'
