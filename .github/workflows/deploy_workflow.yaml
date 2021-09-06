@@ -23,8 +23,9 @@ jobs:
         package_name: [
           joy_to_twist,
           miniv_description,
-          
-          tcp_sender
+
+          tcp_sender,
+          miniv_control
         ]
     steps:
     - uses: actions/download-artifact@v2
