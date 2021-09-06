@@ -14,6 +14,7 @@ jobs:
       matrix:
         rosdistro : [$parameter.rosdistro]
     steps:
+      - uses: actions/checkout@v2-beta
       - name: Check dependency-${{ matrix.rosdistro }}.repos existence
         id: check_rosdistro_repos_files
         uses: andstor/file-existence-action@v1
@@ -30,7 +31,6 @@ jobs:
         uses: ros-tooling/setup-ros@v0.2
         with:
           required-ros-distributions: ${{ matrix.rosdistro }}
-      - uses: actions/checkout@v2-beta
       - name: Copy repository
         run: |
             mkdir -p ~/ros2_ws/src
