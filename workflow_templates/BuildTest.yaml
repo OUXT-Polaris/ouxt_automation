@@ -55,8 +55,7 @@ jobs:
           vcs-repo-file-url: dependency-${{ matrix.rosdistro }}.repos
       - name: Run ros-tooling/action-ros-ci@v0.2 with dependency.repos
         uses: ros-tooling/action-ros-ci@v0.2
-        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' \
-          && steps.check_repos_files.outputs.files_exists == 'true'
+        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' && steps.check_repos_files.outputs.files_exists == 'true'
         with:
           target-ros2-distro: galactic
           colcon-defaults: |
@@ -74,8 +73,7 @@ jobs:
           vcs-repo-file-url: dependency.repos
       - name: Run ros-tooling/action-ros-ci@v0.2 without repos
         uses: ros-tooling/action-ros-ci@v0.2
-        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' \
-          && steps.check_repos_files.outputs.files_exists == 'false'
+        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' && steps.check_repos_files.outputs.files_exists == 'false'
         with:
           target-ros2-distro: galactic
           colcon-defaults: |
