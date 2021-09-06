@@ -28,7 +28,7 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
           files: dependency-${{ matrix.rosdistro }}.repos
-          allow_failure: true
+          allow_failure: false
       - name: Run ros-tooling/action-ros-ci@v0.2 with dependency-${{ matrix.rosdistro }}.repos
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_files.outputs.files_exists == 'true'
