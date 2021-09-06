@@ -95,7 +95,12 @@
     dest: "{{workspace_path}}/src/utils/rosboard"
     version: main
     accept_hostkey: yes
-
+- name: clone ouxt_common
+  git:
+    repo: https://github.com/OUXT-Polaris/ouxt_common.git
+    dest: "{{workspace_path}}/src/utils/ouxt_common"
+    version: master
+    accept_hostkey: yes
 # Description Packages
 - name: clone wamv_description
   git:
