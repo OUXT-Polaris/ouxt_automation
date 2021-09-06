@@ -15,7 +15,7 @@ jobs:
         rosdistro : [$parameter.rosdistro]
     steps:
       - name: Check dependency-${{ matrix.rosdistro }}.repos existence
-        id: check_${{ matrix.rosdistro }}_repos_files
+        id: check_rosdistro_repos_files
         uses: andstor/file-existence-action@v1
         with:
           files: dependency-${{ matrix.rosdistro }}.repos
@@ -37,7 +37,7 @@ jobs:
             cp -rf . ~/ros2_ws/src
       - name: Run ros-tooling/action-ros-ci@v0.2 with dependency-${{ matrix.rosdistro }}.repos
         uses: ros-tooling/action-ros-ci@v0.2
-        if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'true'
+        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'true'
         with:
           target-ros2-distro: galactic
           colcon-defaults: |
@@ -55,7 +55,7 @@ jobs:
           vcs-repo-file-url: dependency-${{ matrix.rosdistro }}.repos
       - name: Run ros-tooling/action-ros-ci@v0.2 with dependency.repos
         uses: ros-tooling/action-ros-ci@v0.2
-        if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'false' \
+        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' \
           && steps.check_repos_files.outputs.files_exists == 'true'
         with:
           target-ros2-distro: galactic
@@ -74,7 +74,7 @@ jobs:
           vcs-repo-file-url: dependency.repos
       - name: Run ros-tooling/action-ros-ci@v0.2 without repos
         uses: ros-tooling/action-ros-ci@v0.2
-        if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'false' \
+        if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' \
           && steps.check_repos_files.outputs.files_exists == 'false'
         with:
           target-ros2-distro: galactic
