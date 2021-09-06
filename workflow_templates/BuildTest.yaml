@@ -40,7 +40,7 @@ jobs:
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_rosdistro_repos_files.outputs.files_exists == 'true'
         with:
-          target-ros2-distro: galactic
+          target-ros2-distro: ${{ matrix.rosdistro }}
           colcon-defaults: |
             {
               "build": {
@@ -58,7 +58,7 @@ jobs:
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' && steps.check_repos_files.outputs.files_exists == 'true'
         with:
-          target-ros2-distro: galactic
+          target-ros2-distro: ${{ matrix.rosdistro }}
           colcon-defaults: |
             {
               "build": {
@@ -76,7 +76,7 @@ jobs:
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_rosdistro_repos_files.outputs.files_exists == 'false' && steps.check_repos_files.outputs.files_exists == 'false'
         with:
-          target-ros2-distro: galactic
+          target-ros2-distro: ${{ matrix.rosdistro }}
           colcon-defaults: |
             {
               "build": {
