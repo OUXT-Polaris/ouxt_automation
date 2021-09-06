@@ -21,7 +21,8 @@ jobs:
     strategy:
       matrix:
         package_name: [
-          joy_to_twist
+          joy_to_twist,
+          miniv_description
         ]
     steps:
     - uses: actions/download-artifact@v2
