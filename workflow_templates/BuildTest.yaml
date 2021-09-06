@@ -11,6 +11,7 @@ jobs:
     name: Build
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
         rosdistro : [$parameter.rosdistro]
     steps:
