@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         rosdistro : [$parameter.rosdistro]
-        packages: [$parameter.packages]
     steps:
       - name: Check dependency-${{ matrix.rosdistro }}.repos existence
         id: check_${{ matrix.rosdistro }}_repos_files
@@ -40,7 +39,6 @@ jobs:
         uses: ros-tooling/action-ros-ci@v0.2
         if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'true'
         with:
-          package-name: ${{ matrix.packages }}
           target-ros2-distro: galactic
           colcon-defaults: |
             {
@@ -60,7 +58,6 @@ jobs:
         if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'false' \
           && steps.check_repos_files.outputs.files_exists == 'true'
         with:
-          package-name: ${{ matrix.packages }}
           target-ros2-distro: galactic
           colcon-defaults: |
             {
@@ -80,7 +77,6 @@ jobs:
         if: steps.check_${{ matrix.rosdistro }}_repos_files.outputs.files_exists == 'false' \
           && steps.check_repos_files.outputs.files_exists == 'false'
         with:
-          package-name: ${{ matrix.packages }}
           target-ros2-distro: galactic
           colcon-defaults: |
             {

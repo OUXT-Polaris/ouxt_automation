@@ -37,7 +37,7 @@ jobs:
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"foxy,galactic\", \"packages\" : \"${{ matrix.package_name }}\"}"
+        parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
     - name: Check branch exist
       id: check_branch
       run: |
