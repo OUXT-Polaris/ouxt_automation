@@ -32,7 +32,7 @@ jobs:
           image_processing_utils,
           joy_to_twist,
           lua_vendor,
-          message_synchronizer
+          message_synchronizer,
           miniv_control,
           miniv_description,
           navi_sim,
