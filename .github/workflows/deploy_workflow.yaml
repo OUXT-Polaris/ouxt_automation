@@ -25,7 +25,8 @@ jobs:
           miniv_description,
 
           tcp_sender,
-          miniv_control
+          miniv_control,
+          ouxt_common
         ]
     steps:
     - uses: actions/download-artifact@v2
