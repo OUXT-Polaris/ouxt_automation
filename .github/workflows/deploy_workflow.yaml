@@ -38,6 +38,10 @@ jobs:
           lua_vendor,
           robotx_behavior_tree,
           sol_vendor,
+          #navi_sim,
+          color_names,
+          data_buffer,
+          geometry_msgs_data_buffer,
 
           geographic_info,
           realsense_hardware_interface,
