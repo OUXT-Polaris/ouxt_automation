@@ -37,18 +37,6 @@
       - termcolor
       - tzlocal
       - mike
-- name: install PyGithub
-  shell: pip3 install git+https://github.com/PyGithub/PyGithub.git
-- name: generate report
-  shell: python3 report.py {{ github_token }} packages.yaml true
-  args:
-    chdir: ../repository_manager
-  ignore_errors: yes
-- name: move report to docs directory
-  shell: mv ../../repository_manager/docs/report.md .
-  args:
-    chdir: ../docs/docs
-  ignore_errors: yes
 - name: build documentation
   shell: mkdocs build
   args:

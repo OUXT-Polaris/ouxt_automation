@@ -6,7 +6,6 @@ on:
   pull_request:    
     paths-ignore:
       - "docs/**"
-      - "repository_manager/**"
       - "mkdocs.yml"
       - "README.md"
   workflow_dispatch:
