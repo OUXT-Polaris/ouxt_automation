@@ -28,7 +28,10 @@ jobs:
           playstation_controller_drivers,
           geographic_conversion,
           nmea_to_geopose,
-          
+          odom_frame_publisher,
+          image_processing_utils,
+          pcl_apps,
+
           geographic_info,
           realsense_hardware_interface,
           tcp_sender,
