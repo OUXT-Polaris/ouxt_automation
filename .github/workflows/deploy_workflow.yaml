@@ -25,6 +25,10 @@ jobs:
           miniv_description,
           dynamixel_hardware_interface,
           nmea_gps_driver,
+          playstation_controller_drivers,
+          geographic_conversion,
+          nmea_to_geopose,
+
 
           realsense_hardware_interface,
           tcp_sender,
