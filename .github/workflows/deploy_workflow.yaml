@@ -27,6 +27,7 @@ jobs:
           realsense_hardware_interface,
           tcp_sender,
           miniv_control,
+          quaternion_operation,
           ouxt_common
         ]
     steps:
