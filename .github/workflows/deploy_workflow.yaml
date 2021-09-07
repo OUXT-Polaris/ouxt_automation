@@ -24,6 +24,7 @@ jobs:
           joy_to_twist,
           miniv_description,
 
+          realsense_hardware_interface,
           tcp_sender,
           miniv_control,
           ouxt_common
