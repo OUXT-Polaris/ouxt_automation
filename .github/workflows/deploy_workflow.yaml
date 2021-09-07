@@ -41,7 +41,8 @@ jobs:
           tcp_sender,
           miniv_control,
           quaternion_operation,
-          ouxt_common
+          ouxt_common,
+          message_synchronizer
         ]
     steps:
     - uses: actions/download-artifact@v2
