@@ -23,6 +23,7 @@ jobs:
         package_name: [
           joy_to_twist,
           miniv_description,
+          dynamixel_hardware_interface,
 
           realsense_hardware_interface,
           tcp_sender,
