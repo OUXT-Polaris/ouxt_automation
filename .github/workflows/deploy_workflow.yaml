@@ -8,7 +8,7 @@ on:
     branches:
       - "master"
     paths:
-      - ./workflow_templates/*.yaml
+      - ./workflow_templates/**
       - ./.github/workflows/deploy_workflow.yaml
 
 jobs:
