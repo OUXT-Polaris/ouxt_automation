@@ -18,7 +18,7 @@ jobs:
       - uses: Tiryoh/actions-mkdocs@v0.7.0
         with:
           mkdocs_version: 'latest'
-          # requirements: 'docs/requirements.txt'
+          requirements: 'docs/requirements.txt'
           configfile: 'docs/mkdocs.yml'
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'pull_request'}}
