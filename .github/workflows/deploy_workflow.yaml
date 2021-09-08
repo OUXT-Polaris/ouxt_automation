@@ -9,6 +9,7 @@ on:
       - "master"
     paths:
       - ./workflow_templates/*.yaml
+      - ./.github/workflows/deploy_workflow.yaml
 
 jobs:
   get_template:
@@ -50,6 +51,7 @@ jobs:
           quaternion_operation,
           realsense_hardware_interface,
           robotx_behavior_tree,
+          robotx_ekf,
           scan_segmentation,
           sol_vendor,
           tcp_sender,
