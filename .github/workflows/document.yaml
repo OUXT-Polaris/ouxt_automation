@@ -15,21 +15,18 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2-beta
-      - name: Build
-        uses: Tiryoh/actions-mkdocs@v0.7.0
+      - uses: Tiryoh/actions-mkdocs@v0.7.0
         with:
           mkdocs_version: 'latest'
           requirements: 'docs/requirements.txt'
           configfile: 'docs/mkdocs.yml'
-      - name: Sace Document as Artifact
+      - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'pull_request'}}
-        uses: actions/upload-artifact@v2
         with:
           name: site
           path: docs/site
-      - name: Deploy Document
+      - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name != 'pull_request'}}
-        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/site

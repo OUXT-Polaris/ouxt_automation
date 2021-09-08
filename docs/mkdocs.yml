@@ -9,6 +9,7 @@ copyright: Copyright &copy; 2021 - OUXT Polaris
 repo_name: OUXT-Polaris/robotx_setup
 repo_url: https://github.com/OUXT-Polaris/robotx_setup
 edit_uri: ''
+docs_dir: docs
 
 theme:
   name: material
