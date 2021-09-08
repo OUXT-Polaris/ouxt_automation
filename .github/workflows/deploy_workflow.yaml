@@ -5,6 +5,10 @@ on:
   - cron: 0 0 * * *
   workflow_dispatch:
   push:
+    branches:
+      - "master"
+    paths:
+      - ./workflow_templates/*.yaml
 
 jobs:
   get_template:
