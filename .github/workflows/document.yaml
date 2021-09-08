@@ -10,7 +10,7 @@ on:
   pull_request:
 
 jobs:
-  job1:
+  document:
     name: build document
     runs-on: ubuntu-20.04
     steps:
@@ -23,10 +23,12 @@ jobs:
       - name: save ansible vault path
         run: echo ${{ secrets.ANSIBLE_VAULT_PASS }} > ~/password.txt
       - uses: actions/checkout@v2-beta
-      - name: ansible
-        run: |
-            export ANSIBLE_VAULT_PASSWORD_FILE=~/password.txt
-            ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --become
+      - name: Build
+        uses: Tiryoh/actions-mkdocs@latest
+        with:
+          mkdocs_version: 'latest'
+          requirements: 'docs/requirements.txt'
+          configfile: 'docs/mkdocs.yml'
       - name: Sace Document as Artifact
         if: ${{ github.event_name == 'pull_request'}}
         uses: actions/upload-artifact@v2
