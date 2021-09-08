@@ -1,2 +1,0 @@
-python-markdown-math
-mkdocs-mermaid2-plugin

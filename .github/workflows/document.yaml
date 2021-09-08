@@ -15,11 +15,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2-beta
-      - uses: Tiryoh/actions-mkdocs@v0.7.0
+      - name: Set up Python
+        uses: actions/setup-python@v1
         with:
-          mkdocs_version: 'latest'
-          requirements: 'docs/requirements.txt'
-          configfile: 'docs/mkdocs.yml'
+          python-version: "3.6.14"
+      - name: Install
+        run: pip3 install mkdocs mkdocs-material fontawesome_markdown mdx_unimoji mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math
+      - name: Generate documentation
+        run: mkdocs build
+        working-directory: docs
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'pull_request'}}
         with:
