@@ -139,6 +139,12 @@
     dest: "{{workspace_path}}/src/localization/geographic_info"
     version: ros2
     accept_hostkey: yes
+- name: clone robotx_ekf
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_ekf.git
+    dest: "{{workspace_path}}/src/localization/robotx_ekf"
+    version: master
+    accept_hostkey: yes
 # Driver Packages
 - name: clone nmea_gps_driver
   git:
