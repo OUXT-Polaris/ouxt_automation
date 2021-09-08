@@ -9,6 +9,7 @@ on:
       - "master"
     paths:
       - ./workflow_templates/**
+      - ./.github/workflows/deploy_workflow.yaml
 
 jobs:
   get_template:
