@@ -14,17 +14,9 @@ jobs:
     name: build document
     runs-on: ubuntu-20.04
     steps:
-      - name: basic install
-        run: |
-            sudo apt install make ansible
-      - name: ansible version
-        run: |
-              ansible-playbook --version
-      - name: save ansible vault path
-        run: echo ${{ secrets.ANSIBLE_VAULT_PASS }} > ~/password.txt
       - uses: actions/checkout@v2-beta
       - name: Build
-        uses: Tiryoh/actions-mkdocs@latest
+        uses: Tiryoh/actions-mkdocs@v0.7.0
         with:
           mkdocs_version: 'latest'
           requirements: 'docs/requirements.txt'
