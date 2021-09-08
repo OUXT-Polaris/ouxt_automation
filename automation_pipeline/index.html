@@ -174,11 +174,6 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tutorials/build_document/">
-        Build Document
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../tutorials/build_instraction/">
         Build Instractions
       </a>
@@ -258,7 +253,7 @@ So, we developing integration pipeline for operating complex software stacks and
 <p>Integration pipeline is deployed at github actions in each repositories.</p>
 <h3 id="actions-in-robotx_setup-package">Actions in robotx_setup package<a class="headerlink" href="#actions-in-robotx_setup-package" title="Permanent link">⚓︎</a></h3>
 <p>You can see acions tatus <a href="https://github.com/OUXT-Polaris/robotx_setup/actions">here</a>.</p>
-<h4>robotx_setup</h4>
+<h4 id="robotx_setup">robotx_setup<a class="headerlink" href="#robotx_setup" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/robotx_setup.yml"><img alt="robotx_setup" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/robotx_setup.yml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt;robotx_setup
@@ -272,7 +267,7 @@ So, we developing integration pipeline for operating complex software stacks and
     click robotx_setup "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
 </div>
 <p>robotx_setup workflow runs ansible with setup-full playbook and check the setup tool works well. </p>
-<h4>build_docker</h4>
+<h4 id="build_docker">build_docker<a class="headerlink" href="#build_docker" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/docker.yaml"><img alt="build_docker" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/docker.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt;robotx_setup
@@ -286,7 +281,7 @@ So, we developing integration pipeline for operating complex software stacks and
     click robotx_setup "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
 </div>
 <p>build_docker workflow runs ansible with setup-docker playbook and check the setup tool works well with docker.</p>
-<h4>scenario_test</h4>
+<h4 id="scenario_test">scenario_test<a class="headerlink" href="#scenario_test" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/scenario_test.yaml"><img alt="scenario_test" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/scenario_test.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt; robotx_setup
@@ -312,7 +307,7 @@ So, we developing integration pipeline for operating complex software stacks and
 <a href="https://github.com/OUXT-Polaris/ros-integration-test-action">ros-integration-test-action</a> requires, base docker image, so when the pull request merged into master branch, base image is automatically update.<br/>
 <a href="https://hub.docker.com/r/hakuturu583/robotx_scenario_test"><img alt="dockeri.co" src="https://dockeri.co/image/hakuturu583/robotx_scenario_test"/></a></p>
 <p>Generated repos file in this workflow was uploaded as artifact and used in <a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/check_workflow.yaml">check_workflow_deployment</a> workflow.</p>
-<h4>document</h4>
+<h4 id="document">document<a class="headerlink" href="#document" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/document.yaml"><img alt="document" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/document.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt;robotx_setup
@@ -331,7 +326,7 @@ So, we developing integration pipeline for operating complex software stacks and
     click github_pages "https://ouxt-polaris.github.io/robotx_setup/" "github pages"
 </div>
 <p>documentation workflow generate this documentation site and deploy it into github pages.</p>
-<h4>deploy_workflow</h4>
+<h4 id="deploy_workflow">deploy_workflow<a class="headerlink" href="#deploy_workflow" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/deploy_workflow.yaml"><img alt="deploy_workflow" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/deploy_workflow.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     developer --manual hook--&gt;robotx_setup
@@ -346,7 +341,7 @@ So, we developing integration pipeline for operating complex software stacks and
 </div>
 <p>deploy_workflow helps maintainers to deploy and maintain workflows for each pacakges.
 currently, over 25 packages are maintained by this workflow.</p>
-<h4>check_workflow_deployment</h4>
+<h4 id="check_workflow_deployment">check_workflow_deployment<a class="headerlink" href="#check_workflow_deployment" title="Permanent link">⚓︎</a></h4>
 <p><a href="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/check_workflow.yaml"><img alt="check_workflow_deployment" src="https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/check_workflow.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     developer --manual hook--&gt;robotx_setup
