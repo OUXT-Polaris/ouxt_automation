@@ -24,6 +24,7 @@ jobs:
     needs: get_template
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
         package_name: [
           behavior_tree_action_builder,
