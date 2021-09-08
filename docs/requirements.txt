@@ -1,8 +1,0 @@
-fontawesome_markdown
-mdx_unimoji
-mkdocs-mermaid2-plugin
-plantuml-markdown
-pymdown-extensions
-python-markdown-math
-tzlocal
-mike
