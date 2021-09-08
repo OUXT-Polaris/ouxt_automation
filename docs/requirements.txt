@@ -1,7 +1,5 @@
 fontawesome_markdown
 mdx_unimoji
-mkdocs
-mkdocs-material
 mkdocs-mermaid2-plugin
 plantuml-markdown
 pymdown-extensions
