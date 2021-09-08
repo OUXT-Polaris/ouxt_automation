@@ -90,7 +90,6 @@ nav:
   - Home: index.md
   - Tutorials:
     - tutorials/supported_platforms.md
-    - tutorials/build_document.md
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
   - Hardware documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
