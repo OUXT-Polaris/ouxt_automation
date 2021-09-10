@@ -56,6 +56,7 @@ jobs:
           scan_segmentation,
           sol_vendor,
           tcp_sender,
+          usv_controller,
         ]
     steps:
     - uses: actions/download-artifact@v2
