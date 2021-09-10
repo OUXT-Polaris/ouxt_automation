@@ -20,7 +20,7 @@ jobs:
         with:
           name: templates
           path: ./workflow_templates/*.yaml
-  deploy_build_test_workflow:
+  deploy_workflow:
     needs: get_template
     runs-on: ubuntu-20.04
     strategy:
@@ -66,16 +66,22 @@ jobs:
       with:
         repository: OUXT-Polaris/${{ matrix.package_name }}
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-    - name: Deploy foxy workflow
+    - name: Deploy build test workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
         parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
+    - name: Deploy release workflow
+      uses: OUXT-Polaris/setup-workflow-action@0.0.1
+      with:
+        template: /home/runner/templates/Release.yaml
+        project_path: ./
+        parameters: "{}"
     - name: Check branch exist
       id: check_branch
       run: |
-        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.package_name }}.git workflow/scenario_test | wc -l)"
+        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.package_name }}.git workflow/sync | wc -l)"
     - name: Count changes
       id: changes
       run: |
@@ -90,11 +96,11 @@ jobs:
       if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
       with:
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-        commit-message: Setup build test workflow
+        commit-message: Setup workflow
         committer: wam-v-tan <ouxt.share@gmail.com>
         author: wam-v-tan <ouxt.share@gmail.com>
         signoff: false
-        branch: workflow/build_test
+        branch: workflow/sync
         base: ${{ steps.check_default_branch.outputs.default_branch }}
         delete-branch: true
         title: '[Bot] Update workflow'
