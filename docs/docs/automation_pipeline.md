@@ -13,7 +13,7 @@ Integration pipeline is deployed at github actions in each repositories.
 You can see acions tatus [here](https://github.com/OUXT-Polaris/robotx_setup/actions).
 
 #### robotx_setup
-[![robotx_setup](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/robotx_setup.yml/badge.svg)](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/robotx_setup.yml)
+[![robotx_setup](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/ansible.yaml/badge.svg)](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/ansible.yaml)
 
 ```mermaid
 graph TB
@@ -28,10 +28,8 @@ graph TB
     click robotx_setup "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
 ```
 
-robotx_setup workflow runs ansible with setup-full playbook and check the setup tool works well. 
+robotx_setup job runs ansible with setup-full playbook and check the setup tool works well. 
 
-#### build_docker
-[![build_docker](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/docker.yaml/badge.svg)](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/docker.yaml)
 ```mermaid
 graph TB
     pull_request --send -->robotx_setup
@@ -45,37 +43,7 @@ graph TB
     click robotx_setup "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
 ```
 
-build_docker workflow runs ansible with setup-docker playbook and check the setup tool works well with docker.
-
-#### scenario_test
-[![scenario_test](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/scenario_test.yaml/badge.svg)](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/scenario_test.yaml)
-```mermaid
-graph TB
-    pull_request --send --> robotx_setup
-    pull_request --merged --> robotx_setup
-    developer --manual hook--> robotx_setup
-    daily_hook --> robotx_setup
-    robotx_setup --push base image--> dockerhub
-    dockerhub -- pull base image --> robotx_setup
-    robotx_setup --generate repos file--> artifact
-
-    linkStyle 0 stroke-width:2px,fill:none,stroke:blue;
-    linkStyle 1 stroke-width:2px,fill:none,stroke:red;
-    linkStyle 2 stroke-width:2px,fill:none,stroke:blue;
-    linkStyle 3 stroke-width:2px,fill:none,stroke:blue;
-    linkStyle 4 stroke-width:2px,fill:none,stroke:red;
-    linkStyle 5 stroke-width:2px,fill:none,stroke:blue;
-    linkStyle 6 stroke-width:2px,fill:none,stroke:red;
-
-    click robotx_setup "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
-    click dockerhub "https://github.com/OUXT-Polaris/robotx_setup" "robotx_setup repository"
-```
-
-scenario_test workflow use [ros-integration-test-action](https://github.com/OUXT-Polaris/ros-integration-test-action) and run test case with [navi-sim](https://github.com/OUXT-Polaris/navi_sim).
-[ros-integration-test-action](https://github.com/OUXT-Polaris/ros-integration-test-action) requires, base docker image, so when the pull request merged into master branch, base image is automatically update.  
-[![dockeri.co](https://dockeri.co/image/hakuturu583/robotx_scenario_test)](https://hub.docker.com/r/hakuturu583/robotx_scenario_test)
-
-Generated repos file in this workflow was uploaded as artifact and used in [check_workflow_deployment](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/check_workflow.yaml) workflow.
+build_docker job runs ansible with setup-docker playbook and check the setup tool works well with docker.
 
 #### document
 [![document](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/document.yaml/badge.svg)](https://github.com/OUXT-Polaris/robotx_setup/actions/workflows/document.yaml)
