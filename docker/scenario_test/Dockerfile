@@ -1,4 +1,4 @@
-FROM ros:foxy
+FROM ros:galactic
 ARG FLAGS
 
 SHELL ["/bin/bash", "-c"]
@@ -11,5 +11,5 @@ RUN mkdir -p /colcon_ws/src
 WORKDIR /colcon_ws
 COPY packages.repos /colcon_ws
 RUN vcs import src < packages.repos
-RUN source /opt/ros/foxy/setup.bash && rosdep install -iry --from-paths src --rosdistro foxy
-RUN source /opt/ros/foxy/setup.bash && colcon build $FLAGS
+RUN source /opt/ros/galactic/setup.bash && rosdep install -iry --from-paths src --rosdistro galactic
+RUN source /opt/ros/galactic/setup.bash && colcon build $FLAGS
