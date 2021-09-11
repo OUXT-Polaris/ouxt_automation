@@ -185,17 +185,16 @@
     version: master
     accept_hostkey: yes
 
-
 # Control Package
 - name: clone usv_controller package
   git:
     repo: https://github.com/OUXT-Polaris/usv_controller.git
-    dest: "{{workspace_path}}/src/drivers/usv_controller"
+    dest: "{{workspace_path}}/src/control/usv_controller"
     version: master
     accept_hostkey: yes
 - name: clone usv_controller package
   git:
     repo: https://github.com/ros-controls/ros2_control.git
-    dest: "{{workspace_path}}/src/drivers/ros2_control"
+    dest: "{{workspace_path}}/src/control/ros2_control"
     version: 0.8.0
     accept_hostkey: yes
