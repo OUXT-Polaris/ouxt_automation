@@ -10,7 +10,7 @@
 - name: add setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
-    line: "source /opt/ros/foxy/setup.bash"
+    line: "source /opt/ros/galactic/setup.bash"
     create: yes
 
 - name: add local_setup.bash to .bashrc

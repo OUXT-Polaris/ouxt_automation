@@ -58,7 +58,6 @@
     dest: "{{workspace_path}}/src/utils/color_names"
     version: master
     accept_hostkey: yes
-
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
@@ -81,6 +80,12 @@
   git:
     repo: https://github.com/OUXT-Polaris/message_synchronizer.git
     dest: "{{workspace_path}}/src/utils/message_synchronizer"
+    version: master
+    accept_hostkey: yes
+- name: clone ouxt_common
+  git:
+    repo: https://github.com/OUXT-Polaris/ouxt_common.git
+    dest: "{{workspace_path}}/src/utils/ouxt_common"
     version: master
     accept_hostkey: yes
 
@@ -116,6 +121,18 @@
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
     dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
     version: ros2
+    accept_hostkey: yes
+- name: clone geographic_info
+  git:
+    repo: https://github.com/OUXT-Polaris/geographic_info.git
+    dest: "{{workspace_path}}/src/localization/geographic_info"
+    version: ros2
+    accept_hostkey: yes
+- name: clone robotx_ekf
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_ekf.git
+    dest: "{{workspace_path}}/src/localization/robotx_ekf"
+    version: master
     accept_hostkey: yes
 
 # Driver Packages
@@ -156,11 +173,16 @@
     version: master
     accept_hostkey: yes
 
-
 # Control Package
 - name: clone usv_controller package
   git:
     repo: https://github.com/OUXT-Polaris/usv_controller.git
-    dest: "{{workspace_path}}/src/drivers/usv_controller"
+    dest: "{{workspace_path}}/src/control/usv_controller"
     version: master
+    accept_hostkey: yes
+- name: clone usv_controller package
+  git:
+    repo: https://github.com/ros-controls/ros2_control.git
+    dest: "{{workspace_path}}/src/control/ros2_control"
+    version: 0.8.0
     accept_hostkey: yes

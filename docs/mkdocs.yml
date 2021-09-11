@@ -9,6 +9,7 @@ copyright: Copyright &copy; 2021 - OUXT Polaris
 repo_name: OUXT-Polaris/robotx_setup
 repo_url: https://github.com/OUXT-Polaris/robotx_setup
 edit_uri: ''
+docs_dir: docs
 
 theme:
   name: material
@@ -90,10 +91,8 @@ nav:
   - Home: index.md
   - Tutorials:
     - tutorials/supported_platforms.md
-    - tutorials/build_document.md
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
   - Hardware documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
-  - Packages/BuildStatus: report.md
   - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md
