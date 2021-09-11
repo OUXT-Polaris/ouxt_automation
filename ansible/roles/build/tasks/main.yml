@@ -20,13 +20,13 @@
   ignore_errors: true
 
 - name: install depends
-  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro foxy
+  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro galactic
   become: yes
 
 - name: load env variable & build
   shell: |-
     cd {{ workspace_path }}
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/galactic/setup.bash
     colcon build --symlink-install
   args:
     executable: /bin/bash
