@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         workflow_name : [
-          ROS2-Foxy,
-          ScenarioTests
+          BuildTest,
+          Release
         ]
     steps:
     - uses: actions/checkout@v2-beta
