@@ -65,21 +65,21 @@ jobs:
     - uses: ros-tooling/setup-ros@v0.2
       if: steps.cache_workspace.outputs.cache-hit != 'true'
       with:
-        required-ros-distributions: foxy
+        required-ros-distributions: galactic
     - name: install depends packages
       if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
         vcs import src < packages.repos
         rosdep update
-        rosdep install -iry --from-paths src --rosdistro foxy
+        rosdep install -iry --from-paths src --rosdistro galactic
         sudo apt-get install -y python3-apt python3-pip
         pip3 install -U colcon-bundle colcon-ros-bundle
       working-directory: robotx_ws
     - name: build bundle
       if: steps.cache_workspace.outputs.cache-hit != 'true'
       run: |
-        source /opt/ros/foxy/setup.bash
-        export ROS_DISTRO=foxy
+        source /opt/ros/galactic/setup.bash
+        export ROS_DISTRO=galactic
         export ROS_VERSION=2
         colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
         wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
