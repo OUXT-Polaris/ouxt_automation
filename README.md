@@ -10,8 +10,9 @@ Automation pipeline for Maritime RobotX Challenge
 - Setting and manage CI toolchain to the target repository.
 - Generating documentation. etc...
 
+If you want to know more?
+Please read [here.](https://ouxt-polaris.github.io/ouxt_automation/)
+
 Developed by [OUXT-Polaris](https://www.ouxt.jp/)
 
 <img src="docs/image/icon.png" width=5%>
-
-Documentation about this tools is [here.](https://ouxt-polaris.github.io/ouxt_automation/)
