@@ -1,13 +1,13 @@
 # Project information
 site_name: OUXT Polaris Development Automation Tool
-site_url: https://ouxt-polaris.github.io/robotx_setup/
+site_url: https://ouxt-polaris.github.io/ouxt_automation/
 site_author: Sanada Tatsuya
 site_description: ''
 copyright: Copyright &copy; 2021 - OUXT Polaris
 
 # Repository
-repo_name: OUXT-Polaris/robotx_setup
-repo_url: https://github.com/OUXT-Polaris/robotx_setup
+repo_name: OUXT-Polaris/ouxt_automation
+repo_url: https://github.com/OUXT-Polaris/ouxt_automation
 edit_uri: ''
 docs_dir: docs
 
