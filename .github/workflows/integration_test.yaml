@@ -108,8 +108,8 @@ jobs:
       working-directory: bundle
     - name: run test
       run: |
-        sh dependencies/setup.sh
-        sh workspace/setup.sh
+        source dependencies/setup.bash
+        source workspace/setup.bash
         ros2 launch navi_sim with_planner.launch.py \
           planner_launch_prefix:='taskset -c 0' \
           perception_launch_prefix:='taskset -c 1' \
