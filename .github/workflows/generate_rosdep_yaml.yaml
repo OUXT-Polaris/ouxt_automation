@@ -1,0 +1,41 @@
+ 
+name: generate_rosdep_yaml
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  generate_rosdep_yaml:
+    name: export_repos_full
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        rosdistro : [foxy, galactic, dashing]
+    steps:
+    - name: basic install
+      run: |
+          sudo apt install make ansible
+    - name: ansible version
+      run: |
+            ansible-playbook --version
+    - name: Setup ROS2 ${{ matrix.rosdistro }} environment
+      uses: ros-tooling/setup-ros@v0.2
+      with:
+        required-ros-distributions: ${{ matrix.rosdistro }}
+    - uses: actions/checkout@v2-beta
+    - name: run ansible
+      run: |
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
+    - name: run script
+      run: |
+        python3 generate_rosdep_yaml.py ../robotx_ws/src/
+      working-directory: scripts
+    - uses: actions/upload-artifact@v2
+      with:
+        name: rosdep_yaml_${{ matrix.rosdistro }}
+        path: scripts/rosdep.yaml
