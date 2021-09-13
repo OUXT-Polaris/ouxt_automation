@@ -1,4 +1,4 @@
-name: robotx_setup
+name: ansible
 
 on:
   schedule:
