@@ -13,7 +13,7 @@ Integration pipeline is deployed at github actions in each repositories.
 You can see acions tatus [here](https://github.com/OUXT-Polaris/ouxt_automation/actions).
 
 #### ansible
-[![ansible](https://github.com/OUXT-Polaris/ansible/actions/workflows/ansible.yaml/badge.svg)](https://github.com/OUXT-Polaris/ansible/actions/workflows/ansible.yaml)
+[![ansible](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml/badge.svg)](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml)
 
 ```mermaid
 graph TB
