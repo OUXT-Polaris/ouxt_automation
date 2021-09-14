@@ -9,7 +9,7 @@ on:
 
 jobs:
   generate_rosdep_yaml:
-    name: export_repos_full
+    name: generate_rosdep_yaml
     runs-on: ubuntu-20.04
     steps:
     - name: basic install
