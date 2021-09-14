@@ -12,10 +12,6 @@ jobs:
   generate_rosdep_yaml:
     name: export_repos_full
     runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        rosdistro : [foxy, galactic, dashing]
     steps:
     - name: basic install
       run: |
@@ -23,10 +19,10 @@ jobs:
     - name: ansible version
       run: |
             ansible-playbook --version
-    - name: Setup ROS2 ${{ matrix.rosdistro }} environment
+    - name: Setup ROS2 galactic environment
       uses: ros-tooling/setup-ros@v0.2
       with:
-        required-ros-distributions: ${{ matrix.rosdistro }}
+        required-ros-distributions: galactic
     - uses: actions/checkout@v2-beta
     - name: run ansible
       run: |
@@ -37,5 +33,5 @@ jobs:
       working-directory: scripts
     - uses: actions/upload-artifact@v2
       with:
-        name: rosdep_yaml_${{ matrix.rosdistro }}
+        name: rosdep_yaml
         path: scripts/rosdep.yaml
