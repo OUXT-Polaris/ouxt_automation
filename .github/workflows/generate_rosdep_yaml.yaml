@@ -39,6 +39,10 @@ jobs:
     name: deploy_to_ouxt_distro
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: OUXT-Polaris/ouxt_distro
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
       - uses: actions/download-artifact@v2
         with:
           name: rosdep_yaml
