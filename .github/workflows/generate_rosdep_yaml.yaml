@@ -38,6 +38,7 @@ jobs:
   deploy_to_ouxt_distro:
     name: deploy_to_ouxt_distro
     runs-on: ubuntu-20.04
+    needs: generate_rosdep_yaml
     steps:
       - uses: actions/checkout@v2
         with:
