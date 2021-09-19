@@ -5,6 +5,12 @@
     dest: "{{workspace_path}}/src/simulation/navi_sim"
     version: master
     accept_hostkey: yes
+- name: clone unisim_ros2_control
+  git:
+    repo: https://github.com/OUXT-Polaris/unisim_ros2_control.git
+    dest: "{{workspace_path}}/src/simulation/unisim_ros2_control"
+    version: master
+    accept_hostkey: yes
 - name : clone joy_to_twist
   git:
     repo: https://github.com/OUXT-Polaris/joy_to_twist.git
