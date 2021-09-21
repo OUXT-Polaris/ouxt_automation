@@ -6,7 +6,7 @@
   vars:
     - github_account: wam-v-tan
     - github_owner: OUXT-Polaris
-    - github_repo: miniv_deployment
+    - github_repo: ouxt_deployment
     - runner_org: no
     - runner_name: mini-v
     - runner_version: 2.283.1
