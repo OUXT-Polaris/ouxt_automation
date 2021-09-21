@@ -10,5 +10,6 @@
     - runner_org: no
     - runner_name: mini-v
     - runner_version: 2.283.1
+    - runner_pkg_tempdir: ~/actions_runner
   roles:
     - role: monolithprojects.github_actions_runner
