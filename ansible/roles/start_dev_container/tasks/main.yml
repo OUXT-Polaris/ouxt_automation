@@ -1,0 +1,6 @@
+---
+- name : start dev-container
+  become: yes
+  shell : docker-compose up -d
+  args:
+    chdir: ../docker/build_test/

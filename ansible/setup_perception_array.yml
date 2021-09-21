@@ -1,9 +1,0 @@
----
-- hosts: all
-  roles: 
-    - ros2
-    - create_workspace
-    - perception_array
-    - build
-    - docker
-    - ntp

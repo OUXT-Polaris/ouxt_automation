@@ -1,6 +1,0 @@
----
-- hosts: all
-  roles: 
-    - clone_packages
-    - build
-    - ntp

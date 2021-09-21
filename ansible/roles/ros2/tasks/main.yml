@@ -2,14 +2,17 @@
 - name : generate locale
   become: yes
   shell : locale-gen en_US en_US.UTF-8
+  tags: [setup_ros2]
 
 - name : setup locale
   become: yes
   shell : update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+  tags: [setup_ros2]
 
 - name : export locale
   become: yes
   shell : export LANG=en_US.UTF-8
+  tags: [setup_ros2]
 
 - name: install depends via apt
   become: yes
@@ -23,22 +26,26 @@
     - gnupg2
     - lsb-release
     - git
+  tags: [setup_ros2]
 
 - name: setup ros2 keys
   become: yes
   apt_key:
     url: "https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc"
     state: present
+  tags: [setup_ros2]
 
 - name: setup ros2 sources
   become: yes
   shell: sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+  tags: [setup_ros2]
   
 - name: update apt-get repo and cache
   apt:
     update_cache: yes
   become: yes
   ignore_errors: true
+  tags: [setup_ros2]
 
 - name: install ros2 galactic/colcon/vcs
   become: yes
@@ -59,3 +66,4 @@
       - python3-pip
       - ros-galactic-ament-cmake
       - ca-certificates
+  tags: [setup_ros2]

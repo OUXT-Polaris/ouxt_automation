@@ -18,7 +18,7 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.ym
 
 not first time
 ```
-ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connection local --ask-become-pass
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass --skip-tags create_workspace --skip-tags setup_ros2
 ```
 
 ## setup develop container

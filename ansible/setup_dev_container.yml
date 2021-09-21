@@ -1,6 +1,5 @@
 ---
 - hosts: all
   roles: 
-    - ros2
-    - clone_packages
-    - build
+    - docker
+    - start_dev_container
