@@ -229,7 +229,7 @@
     version: master
     accept_hostkey: yes
   tags: [control]
-- name: clone usv_controller package
+- name: clone ros2_control package
   git:
     repo: https://github.com/ros-controls/ros2_control.git
     dest: "{{workspace_path}}/src/control/ros2_control"
