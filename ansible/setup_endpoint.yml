@@ -12,5 +12,6 @@
     - runner_version: 2.283.1
     - runner_pkg_tempdir: /home/{{ ansible_hostname }}/actions_runner
     - hide_sensitive_logs: no
+    - runner_labels: [mini-v]
   roles:
     - role: monolithprojects.github_actions_runner
