@@ -5,12 +5,12 @@ If you want to know about supported platfroms, please see also [this page](suppo
 ## setup develop environment (full package)
 
 first time
-```
+```shell
 sh setup.sh
 ```
 
 not first time (skip installing ros2)
-```
+```shell
 sh update.sh
 ```
 
