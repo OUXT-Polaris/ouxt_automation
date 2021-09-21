@@ -9,5 +9,6 @@
     - github_repo: miniv_deployment
     - runner_org: no
     - runner_name: mini-v
+    - runner_version: v2.283.1
   roles:
     - role: monolithprojects.github_actions_runner
