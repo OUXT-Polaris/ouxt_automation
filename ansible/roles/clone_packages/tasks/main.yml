@@ -6,18 +6,28 @@
     dest: "{{workspace_path}}/src/perception/pcl_apps"
     version: master
     accept_hostkey: yes
+  tags: [perception]
 - name : clone scan_segmentation
   git:
     repo: https://github.com/OUXT-Polaris/scan_segmentation.git
     dest: "{{workspace_path}}/src/perception/scan_segmentation"
     version: master
     accept_hostkey: yes
+  tags: [perception]
 - name : clone preception_bringup
   git:
     repo: https://github.com/OUXT-Polaris/perception_bringup.git
     dest: "{{workspace_path}}/src/perception/perception_bringup"
     version: master
     accept_hostkey: yes
+  tags: [perception]
+- name : clone image_processing_utils
+  git:
+    repo: https://github.com/OUXT-Polaris/image_processing_utils.git
+    dest: "{{workspace_path}}/src/perception/image_processing_utils"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -26,30 +36,35 @@
     dest: "{{workspace_path}}/src/planning/hermite_path_planner"
     version: master
     accept_hostkey: yes
+  tags: [planning]
 - name: clone behavior_tree_action_builder
   git:
     repo: https://github.com/OUXT-Polaris/behavior_tree_action_builder.git
     dest: "{{workspace_path}}/src/planning/behavior_tree_action_builder"
     version: master
     accept_hostkey: yes
+  tags: [planning]
 - name: clone robotx_behavior_tree
   git:
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
     accept_hostkey: yes
+  tags: [planning]
 - name: clone lua_vendor
   git:
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
     dest: "{{workspace_path}}/src/planning/lua_vendor"
     version: main
     accept_hostkey: yes
+  tags: [planning]
 - name: clone sol_vendor
   git:
     repo: https://github.com/OUXT-Polaris/sol_vendor.git
     dest: "{{workspace_path}}/src/planning/sol_vendor"
     version: main
     accept_hostkey: yes
+  tags: [planning]
 
 # Utility Packages
 - name: clone color_names
@@ -58,48 +73,56 @@
     dest: "{{workspace_path}}/src/utils/color_names"
     version: master
     accept_hostkey: yes
+  tags: [utility]
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
     dest: "{{workspace_path}}/src/utils/quaternion_operation"
     version: ros2
     accept_hostkey: yes
+  tags: [utility]
 - name: clone data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
     dest: "{{workspace_path}}/src/utils/data_buffer"
     version: ros2
     accept_hostkey: yes
+  tags: [utility]
 - name: clone geometry_msgs_data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
     dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
     version: ros2
     accept_hostkey: yes
+  tags: [utility]
 - name: clone message_synchronizer
   git:
     repo: https://github.com/OUXT-Polaris/message_synchronizer.git
     dest: "{{workspace_path}}/src/utils/message_synchronizer"
     version: master
     accept_hostkey: yes
+  tags: [utility]
 - name: clone rospy2
   git:
     repo: https://github.com/OUXT-Polaris/rospy2.git
     dest: "{{workspace_path}}/src/utils/rospy2"
     version: main
     accept_hostkey: yes
+  tags: [utility]
 - name: clone rosboard
   git:
     repo: https://github.com/OUXT-Polaris/rosboard.git
     dest: "{{workspace_path}}/src/utils/rosboard"
     version: main
     accept_hostkey: yes
+  tags: [utility]
 - name: clone ouxt_common
   git:
     repo: https://github.com/OUXT-Polaris/ouxt_common.git
     dest: "{{workspace_path}}/src/utils/ouxt_common"
     version: master
     accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -108,12 +131,14 @@
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
+  tags: [description]
 - name: clone miniv_description
   git:
     repo: https://github.com/OUXT-Polaris/miniv_description.git
     dest: "{{workspace_path}}/src/description/miniv_description"
     version: master
     accept_hostkey: yes
+  tags: [description]
 
 # Localization Packages
 - name: clone geographic_conversion
@@ -122,30 +147,35 @@
     dest: "{{workspace_path}}/src/localization/geographic_conversion"
     version: ros2
     accept_hostkey: yes
+  tags: [localization]
 - name: clone nmea_to_geopose
   git:
     repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
     dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
     version: ros2
     accept_hostkey: yes
+  tags: [localization]
 - name: clone odom_frame_publisher
   git:
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
     dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
     version: ros2
     accept_hostkey: yes
+  tags: [localization]
 - name: clone geographic_info
   git:
     repo: https://github.com/OUXT-Polaris/geographic_info.git
     dest: "{{workspace_path}}/src/localization/geographic_info"
     version: ros2
     accept_hostkey: yes
+  tags: [localization]
 - name: clone robotx_ekf
   git:
     repo: https://github.com/OUXT-Polaris/robotx_ekf.git
     dest: "{{workspace_path}}/src/localization/robotx_ekf"
     version: master
     accept_hostkey: yes
+  tags: [localization]
 
 # Driver Packages
 - name: clone nmea_gps_driver
@@ -154,36 +184,42 @@
     dest: "{{workspace_path}}/src/drivers/nmea_gps_driver"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 - name: clone miniv_control
   git:
     repo: https://github.com/OUXT-Polaris/miniv_control.git
     dest: "{{workspace_path}}/src/drivers/miniv_control"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 - name: clone tcp_sender
   git:
     repo: https://github.com/OUXT-Polaris/tcp_sender.git
     dest: "{{workspace_path}}/src/drivers/tcp_sender"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 - name: clone dynamixel_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
     dest: "{{workspace_path}}/src/drivers/playstation_controller_drivers"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 - name: clone realsense_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
     version: master
     accept_hostkey: yes
+  tags: [driver]
 
 # Control Package
 - name: clone usv_controller package
@@ -192,9 +228,34 @@
     dest: "{{workspace_path}}/src/control/usv_controller"
     version: master
     accept_hostkey: yes
+  tags: [control]
 - name: clone usv_controller package
   git:
     repo: https://github.com/ros-controls/ros2_control.git
     dest: "{{workspace_path}}/src/control/ros2_control"
     version: 0.8.0
     accept_hostkey: yes
+  tags: [control]
+- name : clone joy_to_twist
+  git:
+    repo: https://github.com/OUXT-Polaris/joy_to_twist.git
+    dest: "{{workspace_path}}/src/control/joy_to_twist"
+    version: master
+    accept_hostkey: yes
+  tags: [control]
+
+# Simulation Package
+- name : clone navi_sim
+  git:
+    repo: https://github.com/OUXT-Polaris/navi_sim.git
+    dest: "{{workspace_path}}/src/simulation/navi_sim"
+    version: master
+    accept_hostkey: yes
+  tags: [simulation]
+- name: clone unisim_ros2_control
+  git:
+    repo: https://github.com/OUXT-Polaris/unisim_ros2_control.git
+    dest: "{{workspace_path}}/src/simulation/unisim_ros2_control"
+    version: master
+    accept_hostkey: yes
+  tags: [simulation]

@@ -2,19 +2,23 @@
 - name: make workspace
   file: path={{workspace_path}}
         state=directory
+  tags: [create_workspace]
 
 - name: make src dir from workspace_path
   file: path={{workspace_path}}/src
         state=directory
+  tags: [create_workspace]
 
 - name: add setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: "source /opt/ros/galactic/setup.bash"
     create: yes
+  tags: [create_workspace]
 
 - name: add local_setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: "source {{ workspace_path }}/install/local_setup.bash"
     create: yes
+  tags: [create_workspace]

@@ -3,6 +3,5 @@
   roles: 
     - ros2
     - create_workspace
-    - core
-    - perception_array
+    - clone_packages
     - build
