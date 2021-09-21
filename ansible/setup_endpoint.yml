@@ -1,0 +1,11 @@
+---
+- name: Install GitHub Actions Runner
+  hosts: all
+  user: ansible
+  become: yes
+  vars:
+    - github_account: my_awesome_org
+    - runner_org: yes
+    - runner_on_ghes: yes
+  roles:
+    - role: monolithprojects.github_actions_runner

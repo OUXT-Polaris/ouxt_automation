@@ -1,4 +1,5 @@
 ---
+- name: Setup and start container
 - hosts: all
   roles: 
     - docker
