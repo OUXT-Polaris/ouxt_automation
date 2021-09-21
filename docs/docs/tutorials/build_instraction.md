@@ -8,7 +8,7 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --con
 ```
 
 
-## install in local host (full package)
+## setup develop environment (full package)
 
 first time
 ```
@@ -21,11 +21,11 @@ not first time
 ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connection local --ask-become-pass
 ```
 
-## install to test docker image
+## setup develop container
 
 ```
 cd docker/build_test
 sh run.sh
 cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
+ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_container.yml
 ```
