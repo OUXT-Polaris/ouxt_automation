@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_ansible:
-    name: run_ansible
+  setup_dev_environment:
+    name: setup_dev_environment
     runs-on: ubuntu-20.04
     steps:
     - name: basic install
@@ -29,8 +29,8 @@ jobs:
       with:
         name: robotx.repos
         path: robotx.repos
-  run_ansible_with_docker:
-    name: run_ansible_with_docker
+  setup_dev_container:
+    name: setup_dev_container
     runs-on: ubuntu-20.04
     steps:
       - name: basic install
