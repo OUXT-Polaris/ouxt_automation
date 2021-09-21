@@ -6,13 +6,12 @@ If you want to know about supported platfroms, please see also [this page](suppo
 
 first time
 ```
-sudo apt install ansible
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass
+sh setup.sh
 ```
 
-not first time
+not first time (skip installing ros2)
 ```
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass --skip-tags create_workspace --skip-tags setup_ros2
+sh update.sh
 ```
 
 ## setup develop container
