@@ -194,13 +194,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#install-in-local-host-full-package">
-    install in local host (full package)
+<a class="md-nav__link" href="#setup-develop-environment-full-package">
+    setup develop environment (full package)
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#install-to-test-docker-image">
-    install to test docker image
+<a class="md-nav__link" href="#setup-develop-container">
+    setup develop container
   </a>
 </li>
 </ul>
@@ -241,19 +241,19 @@
 <h2 id="build-this-documentation-locally">build this documentation locally<a class="headerlink" href="#build-this-documentation-locally" title="Permanent link">⚓︎</a></h2>
 <pre><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
 </code></pre>
-<h2 id="install-in-local-host-full-package">install in local host (full package)<a class="headerlink" href="#install-in-local-host-full-package" title="Permanent link">⚓︎</a></h2>
+<h2 id="setup-develop-environment-full-package">setup develop environment (full package)<a class="headerlink" href="#setup-develop-environment-full-package" title="Permanent link">⚓︎</a></h2>
 <p>first time</p>
 <pre><code>sudo apt install ansible
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_full.yml --connection local --ask-become-pass
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass
 </code></pre>
 <p>not first time</p>
-<pre><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/update_full.yml --connection local --ask-become-pass
+<pre><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass --skip-tags create_workspace --skip-tags setup_ros2
 </code></pre>
-<h2 id="install-to-test-docker-image">install to test docker image<a class="headerlink" href="#install-to-test-docker-image" title="Permanent link">⚓︎</a></h2>
+<h2 id="setup-develop-container">setup develop container<a class="headerlink" href="#setup-develop-container" title="Permanent link">⚓︎</a></h2>
 <pre><code>cd docker/build_test
 sh run.sh
 cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_docker.yml
+ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_container.yml
 </code></pre>
 </article>
 </div>
