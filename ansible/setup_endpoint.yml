@@ -5,6 +5,8 @@
   become: yes
   vars:
     - github_account: wam-v-tan
-    - runner_org: yes
+    - github_owner: OUXT-Polaris
+    - github_repo: miniv_deployment
+    - runner_org: no
   roles:
     - role: monolithprojects.github_actions_runner
