@@ -22,3 +22,12 @@ sh run.sh
 cd ../
 ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_container.yml
 ```
+
+## setup real robot
+
+<span style="color: red; ">_NOTE_</span> : setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.
+
+1. setup endpoint
+```
+
+```
