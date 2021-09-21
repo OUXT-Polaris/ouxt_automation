@@ -1,8 +1,0 @@
----
-# Perception Packages in perception array
-- name : clone image_processing_utils
-  git:
-    repo: https://github.com/OUXT-Polaris/image_processing_utils.git
-    dest: "{{workspace_path}}/src/perception/image_processing_utils"
-    version: master
-    accept_hostkey: yes
