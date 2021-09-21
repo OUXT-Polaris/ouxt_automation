@@ -8,5 +8,6 @@
     - github_owner: OUXT-Polaris
     - github_repo: miniv_deployment
     - runner_org: no
+    - runner_name: mini-v
   roles:
     - role: monolithprojects.github_actions_runner
