@@ -2,12 +2,6 @@
 
 If you want to know about supported platfroms, please see also [this page](supported_platforms.md).
 
-## build this documentation locally
-```
-ansible-playbook -i ansible/hosts/localhost.ini ansible/build_document.yml --connection local --ask-become-pass
-```
-
-
 ## setup develop environment (full package)
 
 first time
