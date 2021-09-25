@@ -198,6 +198,11 @@
     setup develop container
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-real-robot">
+    setup real robot
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -244,8 +249,18 @@
 <pre><code>cd docker/build_test
 sh run.sh
 cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_container.yml
+ansible-playbook -i ansible/hosts/docker.ini ansible/start_dev_container.yml
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local
 </code></pre>
+<h2 id="setup-real-robot">setup real robot<a class="headerlink" href="#setup-real-robot" title="Permanent link">⚓︎</a></h2>
+<p><span style="color: red; "><em>NOTE</em></span> : setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.</p>
+<p>These operations should be run in robot.<br/>
+1. setup endpoint</p>
+<pre><code>sh ansible/setup_ansible.sh
+export PERSONAL_ACCESS_TOKEN=$(ACCESS_TOKEN_OF_WAM_V_TAN_BOT)
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_endpoint.yml --connection local --ask-become-pass
+</code></pre>
+<p>If your want to know personal access token, please read <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">this documentation</a>.</p>
 </article>
 </div>
 </div>
