@@ -52,6 +52,7 @@ jobs:
           quaternion_operation,
           realsense_hardware_interface,
           robotx_behavior_tree,
+          robotx_bt_planner,
           robotx_ekf,
           scan_segmentation,
           sol_vendor,
