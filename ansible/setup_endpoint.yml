@@ -1,0 +1,17 @@
+---
+- name: Install GitHub Actions Runner
+  hosts: all
+  user: ansible
+  become: yes
+  vars:
+    - github_account: wam-v-tan
+    - github_owner: OUXT-Polaris
+    - github_repo: ouxt_deployment
+    - runner_org: no
+    - runner_name: mini-v
+    - runner_version: 2.283.1
+    - runner_pkg_tempdir: /home/{{ ansible_hostname }}/actions_runner
+    - hide_sensitive_logs: no
+    - runner_labels: [mini-v]
+  roles:
+    - role: monolithprojects.github_actions_runner

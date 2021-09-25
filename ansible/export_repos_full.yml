@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Export repos file of development workspace
+  hosts: all
   roles: 
     - create_workspace
     - clone_packages
