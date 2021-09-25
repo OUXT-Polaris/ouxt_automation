@@ -233,7 +233,7 @@
   git:
     repo: https://github.com/ros-controls/ros2_control.git
     dest: "{{workspace_path}}/src/control/ros2_control"
-    version: 0.8.0
+    version: master
     accept_hostkey: yes
   tags: [control]
 - name : clone joy_to_twist
