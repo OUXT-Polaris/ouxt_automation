@@ -51,6 +51,13 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
+- name: clone robotx_bt_planner
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_bt_planner.git
+    dest: "{{workspace_path}}/src/planning/robotx_bt_planner"
+    version: master
+    accept_hostkey: yes
+  tags: [planning]
 - name: clone lua_vendor
   git:
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
