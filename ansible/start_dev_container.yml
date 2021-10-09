@@ -1,6 +1,8 @@
 ---
 - name: Setup and start container
   hosts: all
+  vars_files: 
+    - vars/github_token.yaml
   roles: 
     - docker
     - start_dev_container

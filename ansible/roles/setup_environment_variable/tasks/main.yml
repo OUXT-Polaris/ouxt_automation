@@ -1,0 +1,6 @@
+---
+- name : setup $GITHUB_TOKEN
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: "export GITHUB_TOKEN={{ github_token }}"
+    create: yes

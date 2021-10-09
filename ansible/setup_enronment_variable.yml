@@ -1,0 +1,7 @@
+---
+- name: Setup environment variable
+  hosts: all
+  vars_files: 
+    - vars/github_token.yaml
+  roles: 
+    - setup_environment_variable
