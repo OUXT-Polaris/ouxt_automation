@@ -25,7 +25,7 @@ jobs:
         echo ${{ secrets.VAULT_PASSWORD }} > password.txt
     - name: ansible
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --vault-password-file=password.txt --connection local --become -e ansible_user=ubuntu
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
@@ -48,4 +48,4 @@ jobs:
             ansible-playbook -i ansible/hosts/localhost.ini ansible/start_dev_container.yml --connection local --become -e ansible_user=ubuntu
       - name: build docker container
         run: |
-            ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --vault-password-file=password.txt --connection local --become -e ansible_user=ubuntu
+            ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
