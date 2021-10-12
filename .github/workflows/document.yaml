@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.6.15"
       - name: Install
-        run: pip3 install mkdocs mkdocs-material fontawesome_markdown mdx_unimoji mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math
+        run: pip3 install mkdocs mkdocs-material fontawesome_markdown mdx_unimoji mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math python-github-api mkdocs-github-dashboard
       - name: Generate documentation
         run: mkdocs build
         working-directory: docs
