@@ -21,6 +21,8 @@ jobs:
           python-version: "3.6.15"
       - name: Install
         run: pip3 install mkdocs mkdocs-material fontawesome_markdown mdx_unimoji mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math python-github-api mkdocs-github-dashboard
+      - name: Set env
+        run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
       - name: Generate documentation
         run: mkdocs build
         working-directory: docs
