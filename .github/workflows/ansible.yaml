@@ -20,6 +20,9 @@ jobs:
       run: |
             ansible-playbook --version
     - uses: actions/checkout@v2-beta
+    - name: add password file
+      run: |
+        echo ${{ secrets.VAULT_PASSWORD }} > password.txt
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
