@@ -6,10 +6,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Sanada Tatsuya" name="author"/>
-<link href="https://ouxt-polaris.github.io/ouxt_automation/automation_pipeline/" rel="canonical"/>
+<link href="https://ouxt-polaris.github.io/ouxt_automation/packages/" rel="canonical"/>
 <link href="../images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.3.3" name="generator"/>
-<title>Automation Pipeline - OUXT Polaris Development Automation Tool</title>
+<title>Software Packages - OUXT Polaris Development Automation Tool</title>
 <link href="../assets/stylesheets/main.5143246d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#automation-pipeline">
+<a class="md-skip" href="#software-packages">
           Skip to content
         </a>
 </div>
@@ -48,7 +48,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Automation Pipeline
+              Software Packages
             
           </span>
 </div>
@@ -111,7 +111,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../packages/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
       Software Packages
     </a>
 </li>
@@ -121,7 +121,7 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link" href="../automation_pipeline/">
       Automation Pipeline
     </a>
 </li>
@@ -191,24 +191,14 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../packages/">
-        Software Packages
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://ouxt-polaris.github.io/robotx-hardware-documentation/">
-        Hardware documentation
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Automation Pipeline
+          Software Packages
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Automation Pipeline
+        Software Packages
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -217,31 +207,22 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#repository-architecture">
-    Repository Architecture
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#integration-pipeline">
-    Integration Pipeline
-  </a>
-<nav aria-label="Integration Pipeline" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actions-in-ouxt_automation-package">
-    Actions in ouxt_automation package
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actions-in-each-repositories">
-    Actions in each repositories
+<a class="md-nav__link" href="#dashboard">
+    dashboard
   </a>
 </li>
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://ouxt-polaris.github.io/robotx-hardware-documentation/">
+        Hardware documentation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../automation_pipeline/">
+        Automation Pipeline
+      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../license/">
@@ -255,96 +236,212 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="automation-pipeline">Automation Pipeline<a class="headerlink" href="#automation-pipeline" title="Permanent link">⚓︎</a></h1>
-<h2 id="repository-architecture">Repository Architecture<a class="headerlink" href="#repository-architecture" title="Permanent link">⚓︎</a></h2>
-<p>OUXT-Polaris softwares are separeated in many repositories in order to run continuous integration quickly.<br/>
-So, we developing integration pipeline for operating complex software stacks and deploy it.</p>
-<h2 id="integration-pipeline">Integration Pipeline<a class="headerlink" href="#integration-pipeline" title="Permanent link">⚓︎</a></h2>
-<p>Integration pipeline is deployed at github actions in each repositories.</p>
-<h3 id="actions-in-ouxt_automation-package">Actions in ouxt_automation package<a class="headerlink" href="#actions-in-ouxt_automation-package" title="Permanent link">⚓︎</a></h3>
-<p>You can see acions tatus <a href="https://github.com/OUXT-Polaris/ouxt_automation/actions">here</a>.</p>
-<h4 id="ansible">ansible<a class="headerlink" href="#ansible" title="Permanent link">⚓︎</a></h4>
-<p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml"><img alt="ansible" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml/badge.svg"/></a></p>
-<div class="mermaid">graph TB
-    pull_request --send --&gt; ouxt_automation
-    developer --manual hook--&gt; ouxt_automation
-    daily_hook --&gt; ouxt_automation
-
-    linkStyle 0 stroke-width:2px,stroke:blue;
-    linkStyle 1 stroke-width:2px,stroke:blue;
-    linkStyle 2 stroke-width:2px,stroke:blue;
-
-    click ansible "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
-</div>
-<p>run_ansible job runs ansible with setup-full playbook and check the setup tool works well. </p>
-<div class="mermaid">graph TB
-    pull_request --send --&gt; ouxt_automation
-    developer --manual hook--&gt; ouxt_automation
-    daily_hook --&gt; ouxt_automation
-
-    linkStyle 0 stroke-width:2px,stroke:blue;
-    linkStyle 1 stroke-width:2px,stroke:blue;
-    linkStyle 2 stroke-width:2px,stroke:blue;
-
-    click ouxt_automation "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
-</div>
-<p>run_ansible_with_docker job runs ansible with setup-docker playbook and check the setup tool works well with docker.</p>
-<h4 id="document">document<a class="headerlink" href="#document" title="Permanent link">⚓︎</a></h4>
-<p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml"><img alt="document" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml/badge.svg"/></a></p>
-<div class="mermaid">graph TB
-    pull_request --send --&gt;ouxt_automation
-    developer --manual hook--&gt;ouxt_automation
-    daily_hook --&gt; ouxt_automation
-    pull_request -- merged --&gt;ouxt_automation
-    ouxt_automation -- deploy --&gt; github_pages
-
-    linkStyle 0 stroke-width:2px,stroke:blue;
-    linkStyle 1 stroke-width:2px,stroke:red;
-    linkStyle 2 stroke-width:2px,stroke:red;
-    linkStyle 3 stroke-width:2px,stroke:red;
-    linkStyle 4 stroke-width:2px,stroke:red;
-
-    click ouxt_automation "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
-    click github_pages "https://ouxt-polaris.github.io/ouxt_automation/" "github pages"
-</div>
-<p>documentation workflow generate this documentation site and deploy it into github pages.</p>
-<h4 id="deploy_workflow">deploy_workflow<a class="headerlink" href="#deploy_workflow" title="Permanent link">⚓︎</a></h4>
-<p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml"><img alt="deploy_workflow" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml/badge.svg"/></a></p>
-<div class="mermaid">graph TB
-    developer --manual hook--&gt;ouxt_automation
-    daily_hook --&gt; ouxt_automation
-    ouxt_automation -- deploy workflow --&gt; target_repository
-
-    linkStyle 0 stroke-width:2px,stroke:blue;
-    linkStyle 1 stroke-width:2px,stroke:blue;
-    linkStyle 2 stroke-width:2px,stroke:blue;
-
-    click ouxt_automation "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
-</div>
-<p>deploy_workflow helps maintainers to deploy and maintain workflows for each pacakges.
-currently, over 25 packages are maintained by this workflow.</p>
-<h4 id="check_workflow_deployment">check_workflow_deployment<a class="headerlink" href="#check_workflow_deployment" title="Permanent link">⚓︎</a></h4>
-<p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml"><img alt="check_workflow_deployment" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml/badge.svg"/></a></p>
-<div class="mermaid">graph TB
-    developer --manual hook--&gt;ouxt_automation
-    daily_hook --&gt; ouxt_automation
-    ouxt_automation -- check workflow exists --&gt; target_repository
-    ouxt_automation -- if workflow does not exist --&gt; slack
-    ouxt_automation -- request repos file --&gt; artifact
-    artifact -- send repos file --&gt; ouxt_automation
-
-    linkStyle 0 stroke-width:2px,stroke:blue;
-    linkStyle 1 stroke-width:2px,stroke:blue;
-    linkStyle 2 stroke-width:2px,stroke:blue;
-    linkStyle 3 stroke-width:2px,stroke:blue;
-    linkStyle 4 stroke-width:2px,stroke:blue;
-    linkStyle 5 stroke-width:2px,stroke:blue;
-
-    click ouxt_automation "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
-</div>
-<p>check_workflow_deployment workflow checks github repositories in downloaded repos file and if the requred workflow does not exist in the target repository, notify this infomation to the team slack.</p>
-<h3 id="actions-in-each-repositories">Actions in each repositories<a class="headerlink" href="#actions-in-each-repositories" title="Permanent link">⚓︎</a></h3>
-<p>In each repository, pull requests automatically runs build tests, unit tests and scenario test.</p>
+<h1 id="software-packages">Software Packages<a class="headerlink" href="#software-packages" title="Permanent link">⚓︎</a></h1>
+<h2 id="dashboard">dashboard<a class="headerlink" href="#dashboard" title="Permanent link">⚓︎</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">BuildTest</th>
+<th align="left">Release</th>
+<th align="left">Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/behavior_tree_action_builder">OUXT-Polaris/behavior_tree_action_builder</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/behavior_tree_action_builder/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/behavior_tree_action_builder/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/color_names">OUXT-Polaris/color_names</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/color_names/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/color_names/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/data_buffer">OUXT-Polaris/data_buffer</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/data_buffer/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/data_buffer/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/dynamixel_hardware_interface">OUXT-Polaris/dynamixel_hardware_interface</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/dynamixel_hardware_interface/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/dynamixel_hardware_interface/workflows/Release/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/dynamixel_hardware_interface/workflows/Documentation/badge.svg"/></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/geographic_conversion">OUXT-Polaris/geographic_conversion</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geographic_conversion/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geographic_conversion/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/geographic_info">OUXT-Polaris/geographic_info</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geographic_info/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geographic_info/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/geometry_msgs_data_buffer">OUXT-Polaris/geometry_msgs_data_buffer</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geometry_msgs_data_buffer/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/geometry_msgs_data_buffer/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/hermite_path_planner">OUXT-Polaris/hermite_path_planner</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/hermite_path_planner/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/hermite_path_planner/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/image_processing_utils">OUXT-Polaris/image_processing_utils</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/image_processing_utils/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/image_processing_utils/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/joy_to_twist">OUXT-Polaris/joy_to_twist</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/joy_to_twist/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/joy_to_twist/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/lua_vendor">OUXT-Polaris/lua_vendor</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/lua_vendor/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/lua_vendor/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/message_synchronizer">OUXT-Polaris/message_synchronizer</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/message_synchronizer/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/message_synchronizer/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/miniv_control">OUXT-Polaris/miniv_control</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/miniv_control/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/miniv_control/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/miniv_description">OUXT-Polaris/miniv_description</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/miniv_description/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/miniv_description/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/navi_sim">OUXT-Polaris/navi_sim</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/navi_sim/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/navi_sim/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/nmea_gps_driver">OUXT-Polaris/nmea_gps_driver</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/Release/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/nmea_gps_driver/workflows/Documentation/badge.svg"/></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/nmea_to_geopose">OUXT-Polaris/nmea_to_geopose</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/nmea_to_geopose/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/nmea_to_geopose/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/odom_frame_publisher">OUXT-Polaris/odom_frame_publisher</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/odom_frame_publisher/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/odom_frame_publisher/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/ouxt_common">OUXT-Polaris/ouxt_common</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/ouxt_common/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/ouxt_common/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/pcl_apps">OUXT-Polaris/pcl_apps</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/pcl_apps/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/pcl_apps/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/perception_bringup">OUXT-Polaris/perception_bringup</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/perception_bringup/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/perception_bringup/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/playstation_controller_drivers">OUXT-Polaris/playstation_controller_drivers</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/playstation_controller_drivers/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/playstation_controller_drivers/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/quaternion_operation">OUXT-Polaris/quaternion_operation</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/quaternion_operation/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/quaternion_operation/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/realsense_hardware_interface">OUXT-Polaris/realsense_hardware_interface</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/realsense_hardware_interface/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/realsense_hardware_interface/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/robotx_behavior_tree">OUXT-Polaris/robotx_behavior_tree</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_behavior_tree/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_behavior_tree/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/robotx_bt_planner">OUXT-Polaris/robotx_bt_planner</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_bt_planner/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_bt_planner/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/robotx_ekf">OUXT-Polaris/robotx_ekf</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_ekf/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/robotx_ekf/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/scan_segmentation">OUXT-Polaris/scan_segmentation</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/scan_segmentation/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/scan_segmentation/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/sol_vendor">OUXT-Polaris/sol_vendor</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/sol_vendor/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/sol_vendor/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/tcp_sender">OUXT-Polaris/tcp_sender</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/tcp_sender/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/tcp_sender/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/unisim_ros2_control">OUXT-Polaris/unisim_ros2_control</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/unisim_ros2_control/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/unisim_ros2_control/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/OUXT-Polaris/usv_controller">OUXT-Polaris/usv_controller</a></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/usv_controller/workflows/BuildTest/badge.svg"/></td>
+<td align="left"><img alt="Not Found" src="https://github.com/OUXT-Polaris/usv_controller/workflows/Release/badge.svg"/></td>
+<td align="left">nan</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>
@@ -355,7 +452,7 @@ currently, over 25 packages are maintained by this workflow.</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Software Packages" class="md-footer__link md-footer__link--prev" href="../packages/" rel="prev">
+<a aria-label="Previous: Navigation Demo" class="md-footer__link md-footer__link--prev" href="../tutorials/navigation_demo/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -364,17 +461,17 @@ currently, over 25 packages are maintained by this workflow.</p>
 <span class="md-footer__direction">
                 Previous
               </span>
-              Software Packages
+              Navigation Demo
             </div>
 </div>
 </a>
-<a aria-label="Next: LICENSE" class="md-footer__link md-footer__link--next" href="../license/" rel="next">
+<a aria-label="Next: Automation Pipeline" class="md-footer__link md-footer__link--next" href="../automation_pipeline/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              LICENSE
+              Automation Pipeline
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -414,28 +511,5 @@ currently, over 25 packages are maintained by this workflow.</p>
 <script src="../assets/javascripts/bundle.f89c2efe.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        fontFamily: "verdana",
-        fontSize: "12px",
-        darkMode: false,
-        background: "#fff",
-        primaryColor: "#DEDFEF",
-        nodeBorder: "#000",
-        clusterBkg: "#fff",
-        clusterBorder: "#000",
-        edgeLabelBackground: "#eee"
-    },
-    logLevel: 5,
-    securityLevel: "loose",
-    startOnLoad: true,
-    arrowMarkerAbsolute: false,
-    flowchart: {
-        diagramPadding: 8,
-        nodeSpacing: 50,
-        rankSpacing: 50,
-        useMaxWidth: false
-    }
-});</script></body>
+</body>
 </html>
