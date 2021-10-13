@@ -81,6 +81,12 @@ jobs:
         template: /home/runner/templates/Release.yaml
         project_path: ./
         parameters: "{}"
+    - name: Deploy update workflow status workflow
+      uses: OUXT-Polaris/setup-workflow-action@0.0.1
+      with:
+        template: /home/runner/templates/UpdateWorkflowStatus.yaml
+        project_path: ./
+        parameters: "{}"
     - name: Check branch exist
       id: check_branch
       run: |
