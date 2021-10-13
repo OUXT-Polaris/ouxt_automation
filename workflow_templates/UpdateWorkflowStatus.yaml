@@ -1,18 +1,18 @@
-name: Alert parent repository on push
+name: Update workflow status in outx_automation
 on:
   pull_request:
   workflow_dispatch:
-  
+
 jobs:
   build:
-    name: Dispatch to `other-repo`
+    name: Update workflow status in outx_automation
     runs-on: ubuntu-latest
     steps:
       - name: Emit repository_dispatch
         uses: mvasigh/dispatch-action@main
         with:
           # You should create a personal access token and store it in your repository
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          repo: other-repo
-          owner: mvasigh
-          event_type: sample_push
+          token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+          repo: OUXT-Polaris
+          owner: outx_automation
+          event_type: update_workflow_status
