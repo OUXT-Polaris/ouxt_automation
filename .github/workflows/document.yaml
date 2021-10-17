@@ -8,8 +8,6 @@ on:
       - master
   workflow_dispatch:
   pull_request:
-  repository_dispatch:
-    types: [update_workflow_status]
 
 jobs:
   document:
