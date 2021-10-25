@@ -28,13 +28,6 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
-- name: clone grid_map
-  git:
-    repo: https://github.com/tier4/grid_map.git
-    dest: "{{workspace_path}}/src/perception/grid_map"
-    version: tier4/ros2
-    accept_hostkey: yes
-  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -135,6 +128,13 @@
     repo: https://github.com/OUXT-Polaris/ouxt_common.git
     dest: "{{workspace_path}}/src/utils/ouxt_common"
     version: master
+    accept_hostkey: yes
+  tags: [utility]
+- name: clone grid_map
+  git:
+    repo: https://github.com/tier4/grid_map.git
+    dest: "{{workspace_path}}/src/perception/grid_map"
+    version: tier4/ros2
     accept_hostkey: yes
   tags: [utility]
 
