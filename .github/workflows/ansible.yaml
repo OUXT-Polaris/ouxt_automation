@@ -47,6 +47,7 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - uses: actions/checkout@v2-beta
       - uses: actions/cache@v2
         with:
           path: robotx_ws
@@ -57,7 +58,6 @@ jobs:
       - name: ansible version
         run: |
               ansible-playbook --version
-      - uses: actions/checkout@v2-beta
       - name: run ansible and install docker
         run: |
             ansible-playbook -i ansible/hosts/localhost.ini ansible/start_dev_container.yml --connection local --become -e ansible_user=ubuntu
