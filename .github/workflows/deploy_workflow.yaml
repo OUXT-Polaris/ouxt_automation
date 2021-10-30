@@ -27,7 +27,6 @@ jobs:
       fail-fast: false
       matrix:
         package_name: [
-          behavior_tree_action_builder,
           color_names,
           data_buffer,
           dynamixel_hardware_interface,
@@ -52,7 +51,6 @@ jobs:
           quaternion_operation,
           realsense_hardware_interface,
           robotx_behavior_tree,
-          robotx_bt_planner,
           robotx_ekf,
           scan_segmentation,
           sol_vendor,

@@ -37,24 +37,10 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
-- name: clone behavior_tree_action_builder
-  git:
-    repo: https://github.com/OUXT-Polaris/behavior_tree_action_builder.git
-    dest: "{{workspace_path}}/src/planning/behavior_tree_action_builder"
-    version: master
-    accept_hostkey: yes
-  tags: [planning]
 - name: clone robotx_behavior_tree
   git:
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
-    version: master
-    accept_hostkey: yes
-  tags: [planning]
-- name: clone robotx_bt_planner
-  git:
-    repo: https://github.com/OUXT-Polaris/robotx_bt_planner.git
-    dest: "{{workspace_path}}/src/planning/robotx_bt_planner"
     version: master
     accept_hostkey: yes
   tags: [planning]
