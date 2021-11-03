@@ -27,6 +27,7 @@ jobs:
       run: |
         echo ${{ secrets.VAULT_PASSWORD }} > password.txt
     - uses: actions/cache@v2
+      if: ${{ github.event.label.name != 'clean_build' }}
       with:
         path: robotx_ws
         key: robotx_ws-${{ steps.date.outputs.date }}
@@ -49,6 +50,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - uses: actions/checkout@v2-beta
       - uses: actions/cache@v2
+        if: ${{ github.event.label.name != 'clean_build' }}
         with:
           path: robotx_ws
           key: robotx_ws-${{ steps.date.outputs.date }}
