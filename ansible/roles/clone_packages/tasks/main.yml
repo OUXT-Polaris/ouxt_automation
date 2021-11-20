@@ -119,7 +119,7 @@
 - name: clone grid_map
   git:
     repo: https://github.com/tier4/grid_map.git
-    dest: "{{workspace_path}}/src/perception/grid_map"
+    dest: "{{workspace_path}}/src/utils/grid_map"
     version: tier4/ros2
     accept_hostkey: yes
   tags: [utility]
