@@ -10,10 +10,9 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        workflow_name : [
-          BuildTest,
-          Release
-        ]
+        workflow_name:
+        - BuildTest,
+        - Release
     steps:
     - uses: actions/checkout@v2-beta
     - name: Set up Python
@@ -23,13 +22,13 @@ jobs:
     - name: install depends
       run: pip3 install pyyaml
     - name: download repos file
-      run: gh run download -n packages
+      run: gh run download -n robotx.repos
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_REPO: OUXT-Polaris/ouxt_automation
     - name: check package deployment
       run: |
-        python3 scripts/check_workflow_deployment.py packages.repos ${{ matrix.workflow_name }}
+        python3 scripts/check_workflow_deployment.py robotx.repos ${{ matrix.workflow_name }}
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_REPO: OUXT-Polaris/ouxt_automation
