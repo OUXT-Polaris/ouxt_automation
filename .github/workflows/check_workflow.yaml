@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         workflow_name:
-        - BuildTest,
+        - BuildTest
         - Release
     steps:
     - uses: actions/checkout@v2-beta
