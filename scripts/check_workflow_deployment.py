@@ -3,15 +3,24 @@ import yaml
 import subprocess
 import sys
 
+# Our repos which don't have actions named BuildTest or Release
+ignore_list = ["description/wamv_description", "utils/rosboard", "utils/rospy2"]
+
 def check_workflow_deployment(repos_filepath, workflow_name):
     with open(repos_filepath) as file:
         repos_yaml = yaml.safe_load(file)
         for repository in repos_yaml['repositories']:
-            command = ["gh", "workflow", "view", "-R", repos_yaml['repositories'][repository]['url'], workflow_name]
-            print(command)
-            code = subprocess.call(command)
-            if code != 0:
-                sys.exit(code)
+            url = repos_yaml['repositories'][repository]['url']
+            if 'OUXT-Polaris' in url and repository in ignore_list :
+                print(f"❗  {repository} is marked ignored, so it's skipped.")
+            elif 'OUXT-Polaris' in url:
+                command = ["gh", "workflow", "view", "-R", url, workflow_name]
+                print(command)
+                code = subprocess.call(command)
+                if code != 0:
+                    sys.exit(code)
+            else:
+                print(f"❗  {url} is skipped because its origin is not us.")
         sys.exit(0)
 
 if __name__ == "__main__":
