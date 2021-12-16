@@ -10,7 +10,7 @@ Integration pipeline is deployed at github actions in each repositories.
 
 ### Actions in ouxt_automation package
 
-You can see acions tatus [here](https://github.com/OUXT-Polaris/ouxt_automation/actions).
+You can see the status of all Actions [here](https://github.com/OUXT-Polaris/ouxt_automation/actions).
 
 #### ansible
 [![ansible](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml/badge.svg)](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml)
