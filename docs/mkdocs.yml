@@ -95,6 +95,6 @@ nav:
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
   - Software Packages: packages.md
-  - Hardware documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
+  - Hardware Documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
   - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md
