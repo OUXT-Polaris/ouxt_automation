@@ -10,7 +10,7 @@
 
 [![](https://img.youtube.com/vi/nkrm7e8vdPg/maxresdefault.jpg)](https://www.youtube.com/watch?v=nkrm7e8vdPg)
 
-## What is it
+## What is this?
 This tool supports to build our software and deploy them into local_machine and real robot.  
 This tool works on [ansible](https://docs.ansible.com/) and [github actions](https://github.com/features/actions)
 
@@ -24,5 +24,5 @@ See [tutorials](tutorials/navigation_demo)
 #### If you want to know hardware specification.
 See [hardware documenation](https://ouxt-polaris.github.io/robotx-hardware-documentation/)
 
-#### If you want to know how to CI/CD pipeline works.
+#### If you want to know how our CI/CD pipeline works.
 See [automation pipelines documentation](automation)
