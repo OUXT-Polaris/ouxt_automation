@@ -4,15 +4,18 @@ import subprocess
 import sys
 
 # Our repos which don't have actions named BuildTest or Release
-ignore_list = ["description/wamv_description", "utils/rosboard", "utils/rospy2"]
+# Specify Actions by {repository_name_in_rosdep_yaml}:{name_of_actions}
+ignore_list = ["description/wamv_description:BuildTest", "description/wamv_description:Release", 
+               "utils/rosboard:Release", 
+               "utils/rospy2:BuildTest", "utils/rospy2:Release"]
 
 def check_workflow_deployment(repos_filepath, workflow_name):
     with open(repos_filepath) as file:
         repos_yaml = yaml.safe_load(file)
         for repository in repos_yaml['repositories']:
             url = repos_yaml['repositories'][repository]['url']
-            if 'OUXT-Polaris' in url and repository in ignore_list :
-                print(f"❗  {repository} is marked ignored, so it's skipped.")
+            if 'OUXT-Polaris' in url and f"{repository}:{workflow_name}" in ignore_list :
+                print(f"❗ `{workflow_name}` in {repository} is marked ignored, so it's skipped.")
             elif 'OUXT-Polaris' in url:
                 command = ["gh", "workflow", "view", "-R", url, workflow_name]
                 print(command)
