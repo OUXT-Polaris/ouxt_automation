@@ -44,13 +44,6 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
-- name: clone lua_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/lua_vendor.git
-    dest: "{{workspace_path}}/src/planning/lua_vendor"
-    version: main
-    accept_hostkey: yes
-  tags: [planning]
 - name: clone sol_vendor
   git:
     repo: https://github.com/OUXT-Polaris/sol_vendor.git
@@ -107,13 +100,6 @@
     repo: https://github.com/OUXT-Polaris/rosboard.git
     dest: "{{workspace_path}}/src/utils/rosboard"
     version: main
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone ouxt_common
-  git:
-    repo: https://github.com/OUXT-Polaris/ouxt_common.git
-    dest: "{{workspace_path}}/src/utils/ouxt_common"
-    version: master
     accept_hostkey: yes
   tags: [utility]
 - name: clone grid_map
@@ -233,13 +219,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/usv_controller.git
     dest: "{{workspace_path}}/src/control/usv_controller"
-    version: master
-    accept_hostkey: yes
-  tags: [control]
-- name: clone ros2_control package
-  git:
-    repo: https://github.com/ros-controls/ros2_control.git
-    dest: "{{workspace_path}}/src/control/ros2_control"
     version: master
     accept_hostkey: yes
   tags: [control]
