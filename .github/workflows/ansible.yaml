@@ -40,6 +40,14 @@ jobs:
       with:
         name: robotx.repos
         path: robotx.repos
+    - name: Notify Slack
+      uses: 8398a7/action-slack@v2
+      if: failure()
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   setup_dev_container:
     name: setup_dev_container
     needs: setup_dev_environment
@@ -66,3 +74,11 @@ jobs:
       - name: build docker container
         run: |
             ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+      - name: Notify Slack
+        uses: 8398a7/action-slack@v2
+        if: failure()
+        with:
+          status: ${{ job.status }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
