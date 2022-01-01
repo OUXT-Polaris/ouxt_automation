@@ -42,6 +42,7 @@ jobs:
           miniv_description,
           navi_sim,
           nmea_gps_driver,
+          nmea_hardware_interface,
           nmea_to_geopose,
           odom_frame_publisher,
           ouxt_common,
