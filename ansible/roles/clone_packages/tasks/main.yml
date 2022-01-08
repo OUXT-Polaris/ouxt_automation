@@ -28,6 +28,13 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone robotx_costmap_calculator
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_costmap_calculator.git
+    dest: "{{workspace_path}}/src/perception/robotx_costmap_calculator"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
