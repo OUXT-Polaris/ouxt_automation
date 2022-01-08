@@ -32,7 +32,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/robotx_costmap_calculator.git
     dest: "{{workspace_path}}/src/perception/robotx_costmap_calculator"
-    version: master
+    version: ros2
     accept_hostkey: yes
   tags: [perception]
 
