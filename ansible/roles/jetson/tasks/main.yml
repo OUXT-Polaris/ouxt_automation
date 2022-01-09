@@ -2,14 +2,84 @@
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: 'export PATH="$PATH:/usr/local/cuda/bin"'
+
 - name: add cuda include dir to the path
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: 'export CPATH="$CPATH:/usr/local/cuda/targets/aarch64-linux/include"'
+
 - name: add cuda library dir to the path
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
     line: 'export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"'
+
+- name: Install basic list of packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - python3-pip
+      - libopenblas-base 
+      - libopenmpi-dev
+      - libjpeg-dev zlib1g-dev
+      - libpython3-dev
+      - libavcodec-dev
+      - libavformat-dev
+      - libswscale-dev
+      - git
+  become: yes
+
+- name: instll python packages
+  pip:
+    name:
+      - numpy
+      - opencv_python
+      - loguruscikit-image
+      - tqdm
+      - Pillow
+      - thop
+      - ninja
+      - tabulate
+      - tensorboard
+      - Cython
+      - onnx==1.8.1
+      - onnxruntime==1.8.0
+      - onnx-simplifier==0.3.5
+      - git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI
+    executable: pip3
+
+- name: wget wheel
+  shell: wget https://nvidia.box.com/shared/static/p57jwntv436lfrd78inwl7iml6p13fzh.whl -O /home/{{ ansible_user }}/torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+
+- name: install wheel
+  shell: pip3 install /home/{{ ansible_user }}/torch-1.8.0-cp36-cp36m-linux_aarch64.whl
+
+- name: clone torchvision
+  git:
+    repo: https://github.com/pytorch/vision
+    dest: "/home/{{ ansible_user }}/torchvision"
+    version: 0.9.0
+    accept_hostkey: yes
+
+- name: build torchvision
+  shell: python3 /home/{{ ansible_user }}/torchvision/setup.py install --user
+  environment:
+    BUILD_VERSION: 0.9.0
+
+- name: clone yolox
+  git:
+    repo: https://github.com/Megvii-BaseDetection/YOLOX.git
+    dest: "/home/{{ ansible_user }}/YOLOX"
+
+- name: Install depends of yolox
+  pip:
+    requirements: /home/{{ ansible_user }}/YOLOX/requirements.txt
+    executable: pip3
+
+- name: build yolox
+  shell: pip3 install -v -e /home/{{ ansible_user }}/YOLOX/
 
 - name : clone image_processing_utils
   git:
