@@ -113,7 +113,7 @@
   git:
     repo: https://github.com/ANYbotics/grid_map.git
     dest: "{{workspace_path}}/src/utils/grid_map"
-    version: ros2
+    version: 7afca6c8314bd3016dc974541aecca3ed39ccab0
     accept_hostkey: yes
   tags: [utility]
 - name: clone groot
