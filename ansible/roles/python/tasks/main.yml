@@ -28,7 +28,7 @@
   pip:
     name: file://{{python_workspace_path}}/python_github
     executable: pip3
-    state: latest
+    extra_args: -e
 
 - name: clone mkdocs_github_dashboard
   git:
@@ -41,7 +41,7 @@
   pip:
     name: file://{{python_workspace_path}}/mkdocs_github_dashboard
     executable: pip3
-    state: latest
+    extra_args: -e
 
 - name: instll depends of document generation
   pip:
