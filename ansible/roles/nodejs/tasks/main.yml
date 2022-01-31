@@ -1,0 +1,35 @@
+---
+- name: check whther nodejs exists
+  stat:
+    path: "/usr/bin/nodejs"
+  register: chk_nodejs
+
+- name: install required packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+  when: chk_nodejs.stat.exists == false
+  become: true
+
+- name: setup10.x
+  shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+  when: chk_nodejs.stat.exists == false
+  become: true
+
+- name: install nodejs
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+    - nodejs
+    - build-essential
+  when: chk_nodejs.stat.exists == false
+  become: true
