@@ -1,6 +1,7 @@
 *.retry
 .vscode
 robotx_ws
+python_ws
 robotx_tools
 log
 private.yml

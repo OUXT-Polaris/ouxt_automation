@@ -1,0 +1,30 @@
+---
+- name: make workspace
+  file: 
+    path: "{{python_workspace_path}}"
+    state: directory
+  tags: [python]
+
+- name : clone python_github
+  git:
+    repo: https://github.com/OUXT-Polaris/python_github.git
+    dest: "{{python_workspace_path}}/python_github"
+    version: master
+    accept_hostkey: yes
+  tags: [python]
+
+- name : clone python_github
+  git:
+    repo: https://github.com/OUXT-Polaris/python_github.git
+    dest: "{{python_workspace_path}}/python_github"
+    version: master
+    accept_hostkey: yes
+  tags: [python]
+
+- name: clone mkdocs_github_dashboard
+  git:
+    repo: https://github.com/OUXT-Polaris/mkdocs_github_dashboard.git
+    dest: "{{python_workspace_path}}/mkdocs_github_dashboard"
+    version: master
+    accept_hostkey: yes
+  tags: [python]

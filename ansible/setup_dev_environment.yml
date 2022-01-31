@@ -2,7 +2,8 @@
 - name: Setup Development Environment
   hosts: all
   roles: 
-    - ros2
-    - create_workspace
-    - clone_packages
-    - build
+    - python
+#    - ros2
+#    - create_workspace
+#    - clone_packages
+#    - build
