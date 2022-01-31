@@ -1,0 +1,57 @@
+---
+- name: upgrade pip
+  pip:
+    name: pip
+    executable: pip3
+    state: latest
+
+- name: make workspace
+  file: 
+    path: "{{python_workspace_path}}"
+    state: directory
+
+- name : clone python_github
+  git:
+    repo: https://github.com/OUXT-Polaris/python_github.git
+    dest: "{{python_workspace_path}}/python_github"
+    version: master
+    accept_hostkey: yes
+
+- name : clone python_github
+  git:
+    repo: https://github.com/OUXT-Polaris/python_github.git
+    dest: "{{python_workspace_path}}/python_github"
+    version: master
+    accept_hostkey: yes
+
+- name: install python_github
+  pip:
+    name: file://{{python_workspace_path}}/python_github
+    executable: pip3
+    extra_args: -e
+
+- name: clone mkdocs_github_dashboard
+  git:
+    repo: https://github.com/OUXT-Polaris/mkdocs_github_dashboard.git
+    dest: "{{python_workspace_path}}/mkdocs_github_dashboard"
+    version: master
+    accept_hostkey: yes
+
+- name: install python_github
+  pip:
+    name: file://{{python_workspace_path}}/mkdocs_github_dashboard
+    executable: pip3
+    extra_args: -e
+
+- name: instll depends of document generation
+  pip:
+    name:
+      - mkdocs-material 
+      - fontawesome_markdown 
+      - mdx_unimoji 
+      - mkdocs-mermaid2-plugin 
+      - pymdown-extensions 
+      - plantuml-markdown 
+      - python-markdown-math
+      - pandas>=1.0.0
+    executable: pip3
