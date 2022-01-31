@@ -1,0 +1,26 @@
+---
+- name: make workspace
+  file: 
+    path: "{{actions_workspace_path}}"
+    state: directory
+
+- name: clone ros-integration-test-action
+  git:
+    repo: https://github.com/OUXT-Polaris/ros-integration-test-action.git
+    dest: "{{actions_workspace_path}}/ros-integration-test-action"
+    version: master
+    accept_hostkey: yes
+
+- name: clone update-repos-action
+  git:
+    repo: https://github.com/OUXT-Polaris/update-repos-action.git
+    dest: "{{actions_workspace_path}}/update-repos-action"
+    version: master
+    accept_hostkey: yes
+
+- name: clone setup-workflow-action
+  git:
+    repo: https://github.com/OUXT-Polaris/setup-workflow-action.git
+    dest: "{{actions_workspace_path}}/setup-workflow-action"
+    version: master
+    accept_hostkey: yes
