@@ -3,7 +3,7 @@
   hosts: all
   roles: 
     - python
-#    - ros2
-#    - create_workspace
-#    - clone_packages
-#    - build
+    - ros2
+    - create_workspace
+    - clone_packages
+    - build
