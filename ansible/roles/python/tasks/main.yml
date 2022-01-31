@@ -53,5 +53,5 @@
       - pymdown-extensions 
       - plantuml-markdown 
       - python-markdown-math
-      - pandas
+      - pandas>=1.0.0
     executable: pip3
