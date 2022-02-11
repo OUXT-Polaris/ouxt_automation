@@ -60,13 +60,6 @@
   tags: [planning]
 
 # Utility Packages
-- name: clone color_names
-  git:
-    repo: https://github.com/OUXT-Polaris/color_names.git
-    dest: "{{workspace_path}}/src/utils/color_names"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone quaternion_operation
   git:
     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
