@@ -24,3 +24,10 @@
     dest: "{{actions_workspace_path}}/setup-workflow-action"
     version: master
     accept_hostkey: yes
+
+- name: clone ros2-ci
+  git:
+    repo: https://github.com/OUXT-Polaris/ros2-ci.git
+    dest: "{{actions_workspace_path}}/ros2-ci"
+    version: master
+    accept_hostkey: yes
