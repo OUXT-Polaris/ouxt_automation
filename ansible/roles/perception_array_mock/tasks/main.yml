@@ -1,0 +1,40 @@
+---
+- name: install qemu
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+      - qemu-user-static
+
+- name: check jetson-nano-sd-card-image.zip exists
+  stat:
+    path: ../docker/jetson/jetson-nano-sd-card-image.zip
+  register: check_image_zip_exists
+
+- name: download image
+  get_url: 
+    url: https://developer.nvidia.com/jetson-nano-sd-card-image
+    sha256sum: 2ab9f0eaf3ea432419a8fff230659ad1e402f5c03f872097ed620924b1c14ecb
+    dest: ../docker/jetson/jetson-nano-sd-card-image.zip
+    force: false
+  when: not check_image_zip_exists.stat.exists
+
+- name: check sd-blob-b01.img exists
+  stat:
+    path: ../docker/jetson/sd-blob-b01.img
+  register: check_image_exists
+
+- name: unzip jetson-nano-sd-card-image.zip
+  unarchive:
+    src: ../docker/jetson/jetson-nano-sd-card-image.zip
+    dest: ../docker/jetson
+    remote_src: false
+  when: not check_image_exists.stat.exists
+
+- name: mount jetson image
+  become: yes
+  shell: mount -o offset=$((512*28672)) ../docker/jetson/sd-blob-b01.img ../docker/jetson/mount_point
+  ignore_errors: true
