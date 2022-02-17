@@ -43,14 +43,10 @@
   shell: mount -o offset=$((512*28672)) ../docker/jetson/sd-blob-b01.img ../docker/jetson/mount_point
   ignore_errors: true
 
-- name: add export JETPACK_ROOT= to .bashrc
-  lineinfile:
-    dest: /home/{{ ansible_user }}/.bashrc
-    line: "export JETPACK_ROOT={{ansible_env.PWD}}/../docker/jetson/mount_point/"
-    create: yes
-
 - name : start container
   become: yes
   shell : docker-compose up -d
   args:
     chdir: ../docker/jetson/docker_compose
+  environment:
+    JETPACK_ROOT: "{{ansible_env.PWD}}/../docker/jetson/mount_point/"
