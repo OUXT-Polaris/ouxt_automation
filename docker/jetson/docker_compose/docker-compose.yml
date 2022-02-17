@@ -858,4 +858,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
     volumes: *volumes
+    ports:
+      - "8080:80"
+    networks:
+      app_net:
+        ipv4_address: 192.168.0.200
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 192.168.0.200/24
