@@ -861,24 +861,12 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8080:80"
-    networks:
-      app_net:
-        ipv4_address: 192.168.100.200
-
-  front_right_camera:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: ["tail","-f","/dev/null"]
-    volumes: *volumes
-    ports:
-      - "8081:81"
+      - "8080:81"
     networks:
       app_net:
         ipv4_address: 192.168.100.201
 
-  rear_left_camera:
+  front_right_camera:
     build:
       context: .
       dockerfile: Dockerfile
@@ -890,7 +878,7 @@ services:
       app_net:
         ipv4_address: 192.168.100.202
 
-  rear_right_camera:
+  rear_left_camera:
     build:
       context: .
       dockerfile: Dockerfile
@@ -902,7 +890,7 @@ services:
       app_net:
         ipv4_address: 192.168.100.203
 
-  left_camera:
+  rear_right_camera:
     build:
       context: .
       dockerfile: Dockerfile
@@ -914,7 +902,7 @@ services:
       app_net:
         ipv4_address: 192.168.100.204
 
-  right_camera:
+  left_camera:
     build:
       context: .
       dockerfile: Dockerfile
@@ -925,6 +913,18 @@ services:
     networks:
       app_net:
         ipv4_address: 192.168.100.205
+
+  right_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8086:86"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.206
 
 networks:
   app_net:

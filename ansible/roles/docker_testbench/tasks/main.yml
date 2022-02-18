@@ -11,42 +11,42 @@
 
 - name: check jetson-nano-sd-card-image.zip exists
   stat:
-    path: ../docker/jetson/jetson-nano-sd-card-image.zip
+    path: ../docker/docker_testbench/jetson-nano-sd-card-image.zip
   register: check_image_zip_exists
 
 - name: download image
   get_url: 
     url: https://developer.nvidia.com/jetson-nano-sd-card-image
     sha256sum: 2ab9f0eaf3ea432419a8fff230659ad1e402f5c03f872097ed620924b1c14ecb
-    dest: ../docker/jetson/jetson-nano-sd-card-image.zip
+    dest: ../docker/docker_testbench/jetson-nano-sd-card-image.zip
     force: false
   when: not check_image_zip_exists.stat.exists
 
 - name: check sd-blob-b01.img exists
   stat:
-    path: ../docker/jetson/sd-blob-b01.img
+    path: ../docker/docker_testbench/sd-blob-b01.img
   register: check_image_exists
 
 - name: unzip jetson-nano-sd-card-image.zip
   unarchive:
-    src: ../docker/jetson/jetson-nano-sd-card-image.zip
-    dest: ../docker/jetson
+    src: ../docker/docker_testbench/jetson-nano-sd-card-image.zip
+    dest: ../docker/docker_testbench
     remote_src: false
   when: not check_image_exists.stat.exists
 
 - name: chmod image
-  shell: chmod 777 ../docker/jetson/mount_point
+  shell: chmod 777 ../docker/docker_testbench/mount_point
   become: true
 
 - name: mount jetson image
   become: true
-  shell: mount -o offset=$((512*28672)) ../docker/jetson/sd-blob-b01.img ../docker/jetson/mount_point
+  shell: mount -o offset=$((512*28672)) ../docker/docker_testbench/sd-blob-b01.img ../docker/docker_testbench/mount_point
   ignore_errors: true
 
 - name : start container
   become: yes
   shell : docker-compose up -d
   args:
-    chdir: ../docker/jetson/docker_compose
+    chdir: ../docker/docker_testbench/docker_compose
   environment:
-    JETPACK_ROOT: "{{ansible_env.PWD}}/../docker/jetson/mount_point/"
+    JETPACK_ROOT: "{{ansible_env.PWD}}/../docker/docker_testbench/mount_point/"
