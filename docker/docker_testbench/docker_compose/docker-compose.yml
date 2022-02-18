@@ -857,11 +857,11 @@ services:
   front_left_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8080:81"
+      - "8081:81"
     networks:
       app_net:
         ipv4_address: 192.168.100.201
@@ -869,7 +869,7 @@ services:
   front_right_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
@@ -881,7 +881,7 @@ services:
   rear_left_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
@@ -893,7 +893,7 @@ services:
   rear_right_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
@@ -905,7 +905,7 @@ services:
   left_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
@@ -917,7 +917,7 @@ services:
   right_camera:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: perception_camera/Dockerfile
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
