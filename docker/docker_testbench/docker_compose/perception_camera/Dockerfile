@@ -1,6 +1,5 @@
 FROM nvcr.io/nvidia/l4t-ml:r32.5.0-py3
 ENV DEBIAN_FRONTEND=noninteractive
-#RUN curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker" sh -s -
 
 RUN apt-get update
 RUN apt-get install -y openssh-server locales
@@ -13,5 +12,6 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
-EXPOSE 22
+ARG SSH_PORT
+EXPOSE ${SSH_PORT}
 CMD ["/usr/sbin/sshd", "-D"]

@@ -2,5 +2,5 @@
 ansible_user : jetson
 ansible_python_interpreter : '/usr/bin/python3'
 ros_package_name : ros-galactic-ros-base
-workspace_path : /home/cameramodule01/robotx_ws
+workspace_path : /home/jetson/robotx_ws
 ntp_server: false
