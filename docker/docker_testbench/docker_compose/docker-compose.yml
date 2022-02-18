@@ -861,7 +861,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8081:81"
+      - "201:201"
     networks:
       app_net:
         ipv4_address: 192.168.100.201
@@ -873,7 +873,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8082:82"
+      - "202:202"
     networks:
       app_net:
         ipv4_address: 192.168.100.202
@@ -885,7 +885,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8083:83"
+      - "203:203"
     networks:
       app_net:
         ipv4_address: 192.168.100.203
@@ -897,7 +897,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8084:84"
+      - "204:204"
     networks:
       app_net:
         ipv4_address: 192.168.100.204
@@ -909,7 +909,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8085:85"
+      - "205:205"
     networks:
       app_net:
         ipv4_address: 192.168.100.205
@@ -921,7 +921,7 @@ services:
     command: ["tail","-f","/dev/null"]
     volumes: *volumes
     ports:
-      - "8086:86"
+      - "206:206"
     networks:
       app_net:
         ipv4_address: 192.168.100.206
