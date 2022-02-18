@@ -854,7 +854,7 @@ x-volumes: &volumes
     read_only: true
 
 services:
-  jetson:
+  front_left_camera:
     build:
       context: .
       dockerfile: Dockerfile
@@ -865,6 +865,66 @@ services:
     networks:
       app_net:
         ipv4_address: 192.168.100.200
+
+  front_right_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8081:81"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.201
+
+  rear_left_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8082:82"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.202
+
+  rear_right_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8083:83"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.203
+
+  left_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8084:84"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.204
+
+  right_camera:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["tail","-f","/dev/null"]
+    volumes: *volumes
+    ports:
+      - "8085:85"
+    networks:
+      app_net:
+        ipv4_address: 192.168.100.205
 
 networks:
   app_net:
