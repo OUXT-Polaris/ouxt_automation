@@ -858,10 +858,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "201:201"
+      - "201:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.201
@@ -870,10 +870,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "202:202"
+      - "202:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.202
@@ -882,10 +882,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "203:203"
+      - "203:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.203
@@ -894,10 +894,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "204:204"
+      - "204:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.204
@@ -906,10 +906,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "205:205"
+      - "205:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.205
@@ -918,10 +918,10 @@ services:
     build:
       context: .
       dockerfile: perception_camera/Dockerfile
-    command: ["tail","-f","/dev/null"]
+    privileged: true
     volumes: *volumes
     ports:
-      - "206:206"
+      - "206:22"
     networks:
       app_net:
         ipv4_address: 192.168.100.206
