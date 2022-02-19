@@ -859,6 +859,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: front_left_camera
     volumes: *volumes
     ports:
       - "201:22"
@@ -871,6 +872,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: front_right_camera
     volumes: *volumes
     ports:
       - "202:22"
@@ -883,6 +885,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: rear_left_camera
     volumes: *volumes
     ports:
       - "203:22"
@@ -895,6 +898,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: rear_right_camera
     volumes: *volumes
     ports:
       - "204:22"
@@ -907,6 +911,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: left_camera
     volumes: *volumes
     ports:
       - "205:22"
@@ -919,6 +924,7 @@ services:
       context: .
       dockerfile: perception_camera/Dockerfile
     privileged: true
+    container_name: right_camera
     volumes: *volumes
     ports:
       - "206:22"
