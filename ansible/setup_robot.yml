@@ -1,0 +1,5 @@
+---
+- name: Setup perception_camera
+  hosts: perception_camera
+  roles: 
+    - docker
