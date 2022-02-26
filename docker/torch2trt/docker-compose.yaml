@@ -4,7 +4,7 @@ services:
     volumes:
       # mount model
       - ./model:/YOLOX/model
-      - ./modelYOLOX_outputs:/YOLOX/YOLOX_outputs
+      - ./model/YOLOX_outputs:/YOLOX/YOLOX_outputs
     build: .
     container_name: torch2trt_container
     runtime: nvidia
