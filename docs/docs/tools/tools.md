@@ -9,8 +9,7 @@
 
 ```
 cd docker/torch2trt
-docker-compose build
-docker-compose up
+sh convert.sh
 ```
 
 Output should be like below.
