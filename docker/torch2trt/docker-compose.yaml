@@ -4,7 +4,7 @@ services:
     volumes:
       # mount model
       - ./model:/YOLOX/model
-      - ./model/YOLOX_outputs:/YOLOX/YOLOX_outputs
+      - ./modelYOLOX_outputs:/YOLOX/YOLOX_outputs
     build: .
     container_name: torch2trt_container
     runtime: nvidia
@@ -12,4 +12,6 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
     privileged: true
-    command: python3 tools/trt.py -n yolox-nano  -c model/yolox_nano.pth
+    # network_mode: host
+    #command: /bin/bash -c "while :; do sleep 10; done"
+    command: python3 tools/trt.py -n yolox-nano -c model/yolox_nano.pth
