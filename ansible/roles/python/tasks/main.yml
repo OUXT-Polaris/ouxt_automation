@@ -55,17 +55,3 @@
       - python-markdown-math
       - pandas>=1.0.0
     executable: pip3
-
-- name : clone torch2trt
-  git:
-    repo: https://github.com/NVIDIA-AI-IOT/torch2trt
-    dest: "{{python_workspace_path}}/torch2trt"
-    version: master
-    accept_hostkey: yes
-
-- name: install torch2trt
-  pip:
-    name: file://{{python_workspace_path}}/torch2trt
-    executable: pip3
-    extra_args: -e --plugins
-  become: yes
