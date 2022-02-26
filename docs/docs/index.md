@@ -21,6 +21,9 @@ See [tutorials](tutorials/supported_platforms)
 #### If you want to see navigation demo in your local machine.
 See [tutorials](tutorials/navigation_demo)
 
+#### If you want to know how to use tools.
+See [tools](tools/tools.md)
+
 #### If you want to know hardware specification.
 See [hardware documenation](https://ouxt-polaris.github.io/robotx-hardware-documentation/)
 
