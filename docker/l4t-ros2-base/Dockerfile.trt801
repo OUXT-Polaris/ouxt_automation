@@ -1,0 +1,5 @@
+FROM wamvtan/ros:galactic-ros-base-l4t-r32.6
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt install -y tensorrt
+
