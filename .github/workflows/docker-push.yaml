@@ -54,5 +54,6 @@ jobs:
           context: ./docker/l4t-ros2-base
           file: ${{ matrix.dockerfile[0] }}
           tags: ${{ matrix.dockerfile[1] }}
+          platforms: linux/arm64/v8
           no-cache: true
           push: true
