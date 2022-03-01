@@ -88,6 +88,8 @@ RUN apt install -y \
   nvidia-l4t-multimedia \
   nvidia-l4t-tools \
   nvidia-l4t-multimedia-utils \
+#  nvidia-container \
+#  nvidia-container-csv-* \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && ldconfig

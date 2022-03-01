@@ -55,3 +55,6 @@ RUN mkdir -p /usr/share/egl/egl_external_platform.d/ && echo '\
 
 RUN echo "/usr/local/cuda-10.0/targets/aarch64-linux/lib" >> /etc/ld.so.conf.d/nvidia.conf
 
+#RUN apt install nvidia-container -y
+#RUN apt install nvidia-container-csv-* -y
+
