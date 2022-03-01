@@ -1,0 +1,57 @@
+FROM wamvtan/ros:galactic-ros-base-l4t-r32.6-trt
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN mkdir -p /root/perception_camera_ws/src
+WORKDIR /root/perception_camera_ws/src
+
+RUN git clone https://github.com/OUXT-Polaris/ouxt_common.git
+RUN git clone -b master https://github.com/OUXT-Polaris/image_processing_utils.git
+RUN git clone -b  kazuki0824-remove-unused https://github.com/OUXT-Polaris/tensorrt_yolox.git
+RUN git clone -b main https://github.com/tier4/tensorrt_cmake_module.git
+RUN git clone -b main https://github.com/tier4/cuda_utils.git
+RUN git clone https://github.com/tier4/tensorrt_common.git
+RUN git clone -b ros2 https://github.com/ros-perception/vision_opencv.git
+
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y libssl-dev && \
+    rosdep update && \
+    rosdep install -y -r -i --from-paths /root/perception_camera_ws/src --ignore-src --rosdistro galactic \
+    --skip-keys "libopencv-dev libopencv-contrib-dev libopencv-imgproc-dev python-opencv python3-opencv"
+
+WORKDIR /root/perception_camera_ws/
+#ENTRYPOINT ["/bin/bash", "-c", "source /opt/ros/galactic/setup.bash && colcon build --symlink-install --packages-up-to tensorrt_common"]
+#ADD entrypoint.sh /
+#RUN chmod +x /entrypoint.sh
+#ENTRYPOINT ["/entrypoint.sh"]
+
+RUN apt install g++-8 -y && \
+    rm /usr/bin/gcc /usr/bin/g++ && \
+    ln -s /usr/bin/gcc-8 /usr/bin/gcc && \
+    ln -s /usr/bin/g++-8 /usr/bin/g++
+    
+    
+RUN echo "/usr/lib/aarch64-linux-gnu/tegra" >> /etc/ld.so.conf.d/nvidia-tegra.conf && \
+    echo "/usr/lib/aarch64-linux-gnu/tegra-egl" >> /etc/ld.so.conf.d/nvidia-tegra.conf
+
+RUN rm /usr/share/glvnd/egl_vendor.d/50_mesa.json
+RUN mkdir -p /usr/share/glvnd/egl_vendor.d/ && echo '\
+{\
+    "file_format_version" : "1.0.0",\
+    "ICD" : {\
+        "library_path" : "libEGL_nvidia.so.0"\
+    }\
+}' > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+
+RUN mkdir -p /usr/share/egl/egl_external_platform.d/ && echo '\
+{\
+    "file_format_version" : "1.0.0",\
+    "ICD" : {\
+        "library_path" : "libnvidia-egl-wayland.so.1"\
+    }\
+}' > /usr/share/egl/egl_external_platform.d/nvidia_wayland.json
+
+RUN echo "/usr/local/cuda-10.0/targets/aarch64-linux/lib" >> /etc/ld.so.conf.d/nvidia.conf
+
