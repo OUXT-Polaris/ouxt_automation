@@ -27,10 +27,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: wamvtan/ros2-ci-base
           context: ./docker/ci-base
           file: ./docker/ci-base/Dockerfile.${{ matrix.rosdistro }}
-          tags: ${{ matrix.rosdistro }}
+          tags: wamvtan/ros2-ci-base:${{ matrix.rosdistro }}
           no-cache: true
           push: true
   perception-jetson:
@@ -52,10 +51,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: wamvtan/ros
           context: ./docker/l4t-ros2-base
           file: ./docker/l4t-ros2-base/${{ matrix.dockerfile[0] }}
-          tags: ${{ matrix.dockerfile[1] }}
+          tags: wamvtan/ros:${{ matrix.dockerfile[1] }}
           platforms: linux/arm64/v8
           no-cache: true
           push: true
