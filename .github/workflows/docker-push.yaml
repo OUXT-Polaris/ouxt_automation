@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: wamvtan/ros2-ci-base
           context: ./docker/ci-base
-          file: Dockerfile.${{ matrix.rosdistro }}
+          file: {context}/Dockerfile.${{ matrix.rosdistro }}
           tags: ${{ matrix.rosdistro }}
           no-cache: true
           push: true
@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: wamvtan/ros
           context: ./docker/l4t-ros2-base
-          file: ${{ matrix.dockerfile[0] }}
+          file: {context}/${{ matrix.dockerfile[0] }}
           tags: ${{ matrix.dockerfile[1] }}
           platforms: linux/arm64/v8
           no-cache: true
