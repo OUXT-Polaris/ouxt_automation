@@ -13,7 +13,7 @@ jobs:
   ros2:
     name: Publish the Basic Image
     runs-on: ubuntu-20.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     strategy:
       matrix:
         rosdistro: [foxy, galactic]
@@ -36,12 +36,14 @@ jobs:
   perception-jetson:
     name: Publish the Basic Image
     runs-on: ubuntu-20.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     strategy:
       matrix:
         dockerfile: [[Dockerfile, galactic-ros-base-l4t-r32.6], [Dockerfile.trt801, galactic-ros-base-l4t-r32.6-trt]]
     steps:
       - uses: actions/checkout@v2
+      - name: Setup QEMU user-mode emulation
+        uses: docker/setup-qemu-action@v1
       - name: Build and Push Docker Image
         if: ${{ github.event_name != 'pull_request'}}
         uses: docker/build-push-action@v2
