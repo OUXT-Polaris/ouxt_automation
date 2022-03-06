@@ -1,8 +1,5 @@
 #!/bin/bash
-ln -s /usr/include/aarch64-linux-gnu/cudnn_version_v8.h /usr/include/aarch64-linux-gnu/cudnn_version.h
-
-git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.git
-git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv_contrib.git
+# ln -s /usr/include/aarch64-linux-gnu/cudnn_version_v8.h /usr/include/aarch64-linux-gnu/cudnn_version.h
 
 cd build && \
 cmake \
