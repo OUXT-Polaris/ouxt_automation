@@ -3,11 +3,11 @@ x-volumes: &volumes
   - type: bind
     source: "${JETPACK_ROOT}/usr/include/aarch64-linux-gnu"
     target: "/usr/include/aarch64-linux-gnu"
-    read_only: false
+    read_only: true
   - type: bind
     source: "${JETPACK_ROOT}/usr/lib/aarch64-linux-gnu"
     target: "/usr/lib/aarch64-linux-gnu"
-    read_only: false
+    read_only: true
   - type: bind
     source: "${JETPACK_ROOT}/lib/firmware/tegra21x/nvhost_nvdec020_ns.fw"
     target: "/lib/firmware/tegra21x/nvhost_nvdec020_ns.fw"
@@ -54,7 +54,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:    
-        - OPENCV_VERSION=4.4.0
+        - OPENCV_VERSION=4.5.0
         - BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0
     privileged: true
     container_name: opencv_builder_container
