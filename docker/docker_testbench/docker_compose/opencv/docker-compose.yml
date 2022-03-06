@@ -46,13 +46,11 @@ x-volumes: &volumes
     read_only: true
 
 services:
-  perception_camera:
+  opencv_builder:
     build:
       context: .
       dockerfile: Dockerfile
-    command: "colcon build --symlink-install"
     privileged: true
-    container_name: perception_camera
+    container_name: opencv_builder_container
     volumes: *volumes
-    ports:
-      - "8080:80"
+    tty: true
