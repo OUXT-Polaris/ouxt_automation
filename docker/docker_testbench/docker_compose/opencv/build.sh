@@ -33,6 +33,7 @@ cmake \
     -D WITH_CUDNN=ON \
     -D WITH_GSTREAMER=ON \
     -D WITH_LIBV4L=ON \
+    -D WITH_V4L=ON \
     -D WITH_OPENGL=ON \
     -D WITH_OPENCL=OFF \
     -D WITH_IPP=OFF \
@@ -42,6 +43,7 @@ cmake \
     -D BUILD_TESTS=OFF \
 ../
 
+cat /home/ubuntu/opencv/build/CMakeFiles/CMakeError.log
 
 make -j$(nproc)
 make install
