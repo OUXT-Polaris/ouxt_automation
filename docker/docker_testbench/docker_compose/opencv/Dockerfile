@@ -99,4 +99,5 @@ RUN useradd -u $UID -m $USERNAME && \
 WORKDIR /home/$USERNAME
 
 COPY ./build.sh /
+RUN sudo chmod a+x /build.sh
 ENTRYPOINT ["/build.sh"]
