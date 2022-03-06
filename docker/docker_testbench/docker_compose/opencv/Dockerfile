@@ -108,6 +108,6 @@ RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/ope
 
 RUN mkdir /usr/include/sys/
 RUN cp /usr/local/include/opencv2/videoio/videoio_c.h /usr/include/sys/
-RUN sudo ln -s /usr/include/sys/videoio_c.h /usr/include/sys/videoio.h
+RUN ln -s /usr/include/sys/videoio_c.h /usr/include/sys/videoio.h
 
 ENTRYPOINT ["/build.sh"]
