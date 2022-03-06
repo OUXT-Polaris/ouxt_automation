@@ -101,6 +101,5 @@ WORKDIR /home/$USERNAME
 COPY ./build.sh /
 RUN chmod a+x /build.sh
 RUN mkdir build
-WORKDIR /home/$USERNAME/build
 
 ENTRYPOINT ["/build.sh"]

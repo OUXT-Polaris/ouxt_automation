@@ -4,8 +4,6 @@ ln -s /usr/include/aarch64-linux-gnu/cudnn_version_v8.h /usr/include/aarch64-lin
 git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.git
 git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv_contrib.git
 
-cd opencv && \
-mkdir build && \
 cd build && \
 cmake \
     -D CPACK_BINARY_DEB=ON \
@@ -26,7 +24,7 @@ cmake \
     -D ENABLE_NEON=ON \
     -D OPENCV_DNN_CUDA=ON \
     -D OPENCV_ENABLE_NONFREE=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=/home/ubuntu/opencv_contrib/modules \
+    -D OPENCV_EXTRA_MODULES_PATH=/home/$USER/opencv_contrib/modules \
     -D OPENCV_GENERATE_PKGCONFIG=ON \
     -D WITH_CUBLAS=ON \
     -D WITH_CUDA=ON \
@@ -40,7 +38,7 @@ cmake \
     -D BUILD_TIFF=ON \
     -D BUILD_PERF_TESTS=OFF \
     -D BUILD_TESTS=OFF \
-../
+/home/$USER/opencv
 
 make -j$(nproc)
 make install
