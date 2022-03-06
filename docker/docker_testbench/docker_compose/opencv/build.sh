@@ -9,6 +9,7 @@ cmake \
     -D BUILD_opencv_java=OFF \
     -D BUILD_opencv_python2=OFF \
     -D BUILD_opencv_python3=OFF \
+    -D BUILD_opencv_python=OFF \
     -D BUILD_opencv_world=OFF \
     -D BUILD_PERF_TESTS=OFF \
     -D BUILD_TESTS=OFF \
