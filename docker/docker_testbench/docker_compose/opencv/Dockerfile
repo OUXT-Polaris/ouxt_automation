@@ -106,4 +106,8 @@ ARG OPENCV_VERSION=4.4.0
 RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.git
 RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv_contrib.git
 
+RUN mkdir /usr/include/sys/
+RUN cp /usr/local/include/opencv2/videoio/videoio_c.h /usr/include/sys/
+RUN sudo ln -s /usr/include/sys/videoio_c.h /usr/include/sys/videoio.h
+
 ENTRYPOINT ["/build.sh"]
