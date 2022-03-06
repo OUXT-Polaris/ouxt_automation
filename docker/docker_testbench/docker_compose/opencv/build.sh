@@ -40,8 +40,8 @@ git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.gi
 	../
 
 
-cd opencv/build && make -j$(nproc)
-cd opencv/build && make install
-cd opencv/build && make package
-cd opencv/build && tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
-mv opencv/build/*.deb deb
+make -j$(nproc)
+make install
+make package
+tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
+mv *.deb /home/ubuntu/deb
