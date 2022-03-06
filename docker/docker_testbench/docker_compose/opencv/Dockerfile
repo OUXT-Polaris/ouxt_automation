@@ -27,16 +27,16 @@ WORKDIR /opt
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
-	   gfortran \
+	    gfortran \
         cmake \
         git \
-	   file \
-	   tar \
-	   python3-pip \
-	   python3-dev \
-	   python3-numpy \
-	   python3-distutils \
-	   python3-setuptools \
+	    file \
+	    tar \
+        python3-pip \
+        python3-dev \
+        python3-numpy \
+        python3-distutils \
+        python3-setuptools \
         libatlas-base-dev \
         libavcodec-dev \
         libavformat-dev \
@@ -66,8 +66,8 @@ RUN apt-get update && \
         libxine2-dev \
         libxvidcore-dev \
         libx264-dev \
-	   libgtkglext1 \
-	   libgtkglext1-dev \
+        libgtkglext1 \
+        libgtkglext1-dev \
         pkg-config \
         qv4l2 \
         v4l-utils \
