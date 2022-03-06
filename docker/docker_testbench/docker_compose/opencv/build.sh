@@ -24,7 +24,7 @@ cmake \
     -D ENABLE_NEON=ON \
     -D OPENCV_DNN_CUDA=ON \
     -D OPENCV_ENABLE_NONFREE=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=/home/$USER/opencv_contrib/modules \
+    -D OPENCV_EXTRA_MODULES_PATH=/home/ubuntu/opencv_contrib/modules \
     -D OPENCV_GENERATE_PKGCONFIG=ON \
     -D WITH_CUBLAS=ON \
     -D WITH_CUDA=ON \
@@ -38,10 +38,10 @@ cmake \
     -D BUILD_TIFF=ON \
     -D BUILD_PERF_TESTS=OFF \
     -D BUILD_TESTS=OFF \
-/home/$USER/opencv
+/home/ubuntu/opencv
 
 make -j$(nproc)
 make install
 make package
-tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
+# tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
 # mv *.deb /home/ubuntu/deb
