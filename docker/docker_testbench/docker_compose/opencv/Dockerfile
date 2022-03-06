@@ -98,12 +98,12 @@ RUN useradd -u $UID -m $USERNAME && \
 
 WORKDIR /home/$USERNAME
 
-COPY ./build.sh /
-RUN chmod a+x /build.sh
-RUN mkdir build
-
 ARG OPENCV_VERSION=4.4.0
 RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.git
 RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv_contrib.git
+
+COPY ./build.sh /
+RUN chmod a+x /build.sh
+RUN mkdir build
 
 ENTRYPOINT ["/build.sh"]

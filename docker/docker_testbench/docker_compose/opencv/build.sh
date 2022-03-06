@@ -1,6 +1,7 @@
 #!/bin/bash
 # ln -s /usr/include/aarch64-linux-gnu/cudnn_version_v8.h /usr/include/aarch64-linux-gnu/cudnn_version.h
 
+rm -rf build/*
 cd build && \
 cmake \
     -D BUILD_EXAMPLES=OFF \
@@ -35,11 +36,12 @@ cmake \
     -D WITH_OPENCL=OFF \
     -D WITH_OPENGL=ON \
     -D WITH_TBB=ON \
-    -D WITH_V4L=ON \
+    -D WITH_V4L=OFF \
+    -D WITH_LIBV4L=ON \
 /home/ubuntu/opencv
 
-make -j$(nproc)
-make install
-make package
+# make -j$(nproc)
+# make install
+# make package
 # tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
 # mv *.deb /home/ubuntu/deb
