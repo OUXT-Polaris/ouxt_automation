@@ -30,46 +30,6 @@ RUN ldconfig
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
 
-##############################
-### FIXME: NVIDIA's OpenCV ###
-##############################
-RUN wget \
-  http://ports.ubuntu.com/pool/main/libv/libvpx/libvpx5_1.7.0-3ubuntu0.18.04.1_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/f/ffmpeg/libavcodec57_3.4.8-0ubuntu0.2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/f/ffmpeg/libavformat57_3.4.8-0ubuntu0.2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/f/ffmpeg/libavutil55_3.4.8-0ubuntu0.2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/f/ffmpeg/libswresample2_3.4.8-0ubuntu0.2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/f/ffmpeg/libswscale4_3.4.8-0ubuntu0.2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/x/x264/libx264-152_0.152.2854+gite9a5903-2_arm64.deb \
-  http://ports.ubuntu.com/pool/universe/x/x265/libx265-146_2.6-3_arm64.deb && \
-  apt update && apt install -y \
-  ./libvpx5_*_arm64.deb \
-  ./libavcodec57_*_arm64.deb \
-  ./libavformat57_*_arm64.deb \
-  ./libavutil55_*_arm64.deb \
-  ./libswresample2_*_arm64.deb \
-  ./libswscale4_*_arm64.deb \
-  ./libx264-152_*_arm64.deb \
-  ./libx265-146_*_arm64.deb && \
-  rm -rf /var/lib/apt/lists/* && apt clean
-
-
-RUN apt update && \
-  apt install -y --allow-downgrades --allow-change-held-packages \
-  nvidia-opencv \
-  libopencv \
-  libopencv-dev=4.1.1-2-gd5a58aa75 \
-  libopencv-python \
-  libopencv-samples \
-  opencv-licenses && \
-  apt-mark hold libopencv-dev && \
-  apt install -y \
-  libnvvpi1 \
-  vpi1-demos \
-  vpi1-dev \
-  vpi1-samples \
-  python-vpi1
-
 #########
 ###L4T###
 #########
@@ -79,18 +39,25 @@ RUN mkdir -p /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinsta
 
 RUN wget http://ports.ubuntu.com/pool/main/libf/libffi/libffi6_3.2.1-8_arm64.deb && \
     apt install -y ./libffi6_*_arm64.deb && \
-    apt install systemd -y &&  apt -o Dpkg::Options::="--force-overwrite" install -y nvidia-l4t-init
+    apt update && apt install systemd -y &&  apt -o Dpkg::Options::="--force-overwrite" install -y nvidia-l4t-init \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
     
-RUN apt install -y \
+RUN apt update && apt install -y \
   nvidia-l4t-camera \
   nvidia-l4t-jetson-io \
   nvidia-l4t-jetson-multimedia-api \
   nvidia-l4t-multimedia \
   nvidia-l4t-tools \
   nvidia-l4t-multimedia-utils \
+  g++-8 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && ldconfig
+    && ldconfig && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8 && \
+    update-alternatives --config gcc && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8 && \
+    update-alternatives --config g++
 
 CMD ["/bin/bash"]
 
