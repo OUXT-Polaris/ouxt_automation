@@ -17,9 +17,6 @@ ENV CUDA_HOME="/usr/local/cuda"
 ENV PATH="/usr/local/cuda/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
 
-WORKDIR /opt
-
-
 #
 # OpenCV - https://github.com/mdegans/nano_build_opencv/blob/master/build_opencv.sh
 #
@@ -76,8 +73,9 @@ RUN useradd -u $UID -m $USERNAME && \
 WORKDIR /home/$USERNAME
 
 ARG OPENCV_VERSION=4.5.0
-RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.git
-RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv_contrib.git
+RUN git config --global http.sslverify false
+RUN git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.git
+RUN git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv_contrib.git
 
 COPY ./build.sh /
 RUN chmod a+x /build.sh
