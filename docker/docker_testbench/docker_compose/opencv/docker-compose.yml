@@ -44,12 +44,17 @@ x-volumes: &volumes
     source: "${JETPACK_ROOT}/lib/firmware/tegra21x"
     target: "/lib/firmware/tegra21x"
     read_only: true
+  - type: bind
+    source: "build"
+    target: "/home/ubuntu/opencv/build/"
 
 services:
   opencv_builder:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - OPENCV_VERSION=4.4
     privileged: true
     container_name: opencv_builder_container
     volumes: *volumes

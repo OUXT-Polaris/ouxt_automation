@@ -1,7 +1,7 @@
 ln -s /usr/include/aarch64-linux-gnu/cudnn_version_v8.h /usr/include/aarch64-linux-gnu/cudnn_version.h
 
-git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.git && \
-    git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv_contrib.git && \
+git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.git && \
+    git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv_contrib.git && \
     cd opencv && \
     mkdir build && \
     cd build && \
@@ -42,4 +42,4 @@ git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.
 cd opencv/build && make -j$(nproc)
 cd opencv/build && make install
 cd opencv/build && make package
-cd opencv/build && tar -czvf OpenCV-${OPENCV_VERSION}-aarch64.tar.gz *.deb
+cd opencv/build && tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb

@@ -23,7 +23,6 @@ WORKDIR /opt
 #
 # OpenCV - https://github.com/mdegans/nano_build_opencv/blob/master/build_opencv.sh
 #
-ARG OPENCV_VERSION="4.4.0"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -76,6 +75,28 @@ RUN apt-get update && \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
+
+ARG UID=1000
+ARG GID=1000
+ARG UNAME=ubuntu
+ARG HOSTNAME=docker
+ARG USERNAME=$UNAME
+ARG HOME=/home/$USERNAME
+
+RUN useradd -u $UID -m $USERNAME && \
+        echo "$USERNAME:$USERNAME" | chpasswd && \
+        usermod --shell /bin/bash $USERNAME && \
+        usermod -aG sudo $USERNAME && \
+        mkdir /etc/sudoers.d && \
+        echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME && \
+        chmod 0440 /etc/sudoers.d/$USERNAME && \
+        usermod  --uid $UID $USERNAME && \
+        groupmod --gid $GID $USERNAME && \
+        chown -R $USERNAME:$USERNAME $HOME && \
+        chmod 666 /dev/null && \
+        chmod 666 /dev/urandom
+
+WORKDIR /home/$USERNAME
 
 COPY ./build.sh /
 ENTRYPOINT ["/build.sh"]
