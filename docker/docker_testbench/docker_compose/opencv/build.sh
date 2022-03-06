@@ -12,6 +12,7 @@ git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.gi
         -D BUILD_opencv_python2=OFF \
         -D BUILD_opencv_python3=ON \
 	    -D BUILD_opencv_java=OFF \
+        -D BUILD_opencv_world=OFF \
         -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D CUDA_ARCH_BIN=5.3,6.2,7.2 \
