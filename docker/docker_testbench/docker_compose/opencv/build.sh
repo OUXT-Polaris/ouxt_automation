@@ -32,7 +32,6 @@ cmake \
     -D WITH_CUDA=ON \
     -D WITH_CUDNN=ON \
     -D WITH_GSTREAMER=ON \
-    -D WITH_LIBV4L=ON \
     -D WITH_V4L=ON \
     -D WITH_OPENGL=ON \
     -D WITH_OPENCL=OFF \
@@ -43,10 +42,8 @@ cmake \
     -D BUILD_TESTS=OFF \
 ../
 
-cat /home/ubuntu/opencv/build/CMakeFiles/CMakeError.log
-
 make -j$(nproc)
 make install
 make package
 tar -czvf OpenCV-$OPENCV_VERSION-aarch64.tar.gz *.deb
-mv *.deb /home/ubuntu/deb
+# mv *.deb /home/ubuntu/deb

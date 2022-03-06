@@ -46,7 +46,7 @@ x-volumes: &volumes
     read_only: true
   - type: bind
     source: "./build"
-    target: "/home/ubuntu/deb/"
+    target: "/home/ubuntu/build/"
 
 services:
   opencv_builder:
