@@ -45,8 +45,8 @@ x-volumes: &volumes
     target: "/lib/firmware/tegra21x"
     read_only: true
   - type: bind
-    source: "build"
-    target: "/home/ubuntu/opencv/build/"
+    source: "./build"
+    target: "/home/ubuntu/deb/"
 
 services:
   opencv_builder:
