@@ -35,4 +35,4 @@ cmake \
 
 make -j$(nproc)
 make install
-make package
+# make package
