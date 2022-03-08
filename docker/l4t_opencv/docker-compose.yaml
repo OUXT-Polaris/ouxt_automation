@@ -46,10 +46,11 @@ x-volumes: &volumes
     read_only: true
   - type: bind
     source: "./build"
-    target: "/home/ubuntu/build/"
+    target: "/home/ubuntu/opencv/build"
+    read_only: false
 
 services:
-  opencv_builder:
+  l4t_opencv_builder:
     build:
       context: .
       dockerfile: Dockerfile
@@ -57,6 +58,6 @@ services:
         - OPENCV_VERSION=4.5.0
         - BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0
     privileged: true
-    container_name: opencv_builder_container
+    container_name: l4t_opencv_builder_container
     volumes: *volumes
     tty: true
