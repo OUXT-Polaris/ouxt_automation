@@ -1,0 +1,6 @@
+---
+- name: Setup perception array mock
+  hosts: all
+  roles: 
+#    - docker
+    - docker_testbench

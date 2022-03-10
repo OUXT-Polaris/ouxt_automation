@@ -1,3 +1,8 @@
 mount_point
+<<<<<<< HEAD
+*.img
+*.zip
+=======
 *.zip
 *.img
+>>>>>>> d6a0919862788d0fefbc05b443636688b20eb874

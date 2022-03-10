@@ -27,7 +27,7 @@
     dest: "{{workspace_path}}/src/perception/image_processing_utils"
     version: master
     accept_hostkey: yes
-  tags: [perception]
+  tags: [perception, perception_camera]
 - name: clone robotx_costmap_calculator
   git:
     repo: https://github.com/OUXT-Polaris/robotx_costmap_calculator.git
