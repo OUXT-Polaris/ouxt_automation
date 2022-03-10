@@ -1,49 +1,4 @@
-# 
-# This is a Dockerfile for building OpenCV debian packages
-# with CUDA, cuDNN, GStreamer, ect enabled.  You can then take
-# the output .deb packages and install them into other containers.
-#
-# See scripts/docker_build_opencv.sh to run it
-#
-
-ARG BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0
-FROM ${BASE_IMAGE}
-
-#
-# setup environment
-#
-ENV DEBIAN_FRONTEND=noninteractive
-ENV CUDA_HOME="/usr/local/cuda"
-ENV PATH="/usr/local/cuda/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
-
-#
-# OpenCV - https://github.com/mdegans/nano_build_opencv/blob/master/build_opencv.sh
-#
-
-ARG UID=1000
-ARG GID=1000
-ARG UNAME=ubuntu
-ARG HOSTNAME=docker
-ARG USERNAME=$UNAME
-ARG HOME=/home/$USERNAME
-
-RUN useradd -u $UID -m $USERNAME && \
-        echo "$USERNAME:$USERNAME" | chpasswd && \
-        usermod --shell /bin/bash $USERNAME && \
-        usermod -aG sudo $USERNAME && \
-        mkdir /etc/sudoers.d && \
-        echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME && \
-        chmod 0440 /etc/sudoers.d/$USERNAME && \
-        usermod  --uid $UID $USERNAME && \
-        groupmod --gid $GID $USERNAME && \
-        chown -R $USERNAME:$USERNAME $HOME && \
-        chmod 666 /dev/null && \
-        chmod 666 /dev/urandom
-
-WORKDIR /home/$USERNAME
-
-ARG OPENCV_VERSION="4.4.0"
+FROM nvcr.io/nvidia/l4t-base:r32.5.0
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -96,14 +51,62 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-RUN git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv.git && \
-    git clone --depth 1 --branch ${OPENCV_VERSION} https://github.com/opencv/opencv_contrib.git
+ARG OPENCV_VERSION="4.5.0"
 
-WORKDIR /home/$USERNAME/opencv
-RUN mkdir build
+RUN git config --global http.sslVerify false && \
+    git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv.git && \
+    git clone --depth 1 --branch $OPENCV_VERSION https://github.com/opencv/opencv_contrib.git
 
-WORKDIR /home/$USERNAME/opencv/build
+WORKDIR /opencv
+RUN mkdir /opencv/build
+WORKDIR /opencv/build
 
-ADD entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-# ENTRYPOINT ["/bin/sh", "-c", "/entrypoint.sh"]
+RUN cmake \
+  -D BUILD_BUILD_JASPER=OFF \
+  -D BUILD_DOCS=OFF \
+  -D BUILD_EXAMPLES=OFF \
+  -D BUILD_JPEG=ON \
+  -D BUILD_opencv_apps=OFF \
+  -D BUILD_opencv_cudev=OFF \
+  -D BUILD_opencv_world=OFF \
+  -D BUILD_opencv_python2=OFF \
+  -D BUILD_opencv_python3=OFF \
+  -D BUILD_PERF_TESTS=OFF \
+  -D BUILD_PNG=ON \
+  -D BUILD_TESTS=OFF \
+  -D BUILD_TIFF=ON \
+  -D BUILD_ZLIB=ON \
+  -D CMAKE_BUILD_TYPE=RELEASE \
+  -D EIGEN_INCLUDE_PATH=/usr/include/eigen3 \
+  -D FORCE_VTK=OFF \
+  -D opencv_cudev=OFF \
+  -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+  -D WITH_CAROTENE=OFF \
+  -D WITH_CUDA=OFF \
+  -D WITH_FFMPEG=OFF \
+  -D WITH_GDAL=OFF \
+  -D WITH_IPP=OFF \
+  -D WITH_ITT=OFF \
+  -D WITH_JASPER=OFF \
+  -D WITH_LAPACK=OFF \
+  -D WITH_OPENCL=OFF \
+  -D WITH_OPENCLAMDBLAS=OFF \
+  -D WITH_OPENCLAMDFFT=OFF \
+  -D WITH_OPENEXR=OFF \
+  -D WITH_OPENGL=OFF \
+  -D WITH_PNG=ON \
+  -D WITH_QT=OFF \
+  -D WITH_TBB=OFF \
+  -D WITH_TIFF=ON \
+  -D WITH_VA_INTEL=OFF \
+  -D WITH_WEBP=OFF \
+  -D WITH_XINE=OFF \
+  -D OPENCV_ENABLE_NONFREE=ON \
+../ && \
+  make -j$(nproc) && \
+  make install && \
+  cd ../ && \
+  rm -rf opencv opencv_contrib
+
+WORKDIR /
+RUN rm -rf opencv opencv_contrib
