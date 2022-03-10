@@ -104,9 +104,7 @@ RUN cmake \
   -D OPENCV_ENABLE_NONFREE=ON \
 ../ && \
   make -j$(nproc) && \
-  make install && \
-  cd ../ && \
-  rm -rf opencv opencv_contrib
+  make install
 
 WORKDIR /
 RUN rm -rf opencv opencv_contrib
