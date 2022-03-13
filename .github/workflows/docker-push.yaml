@@ -41,7 +41,7 @@ jobs:
   l4t_opencv:
     name: Publish the Basic Image
     runs-on: ubuntu-20.04
-    timeout-minutes: 40
+    timeout-minutes: 90
     strategy:
       matrix:
         opencv_version: ["4.4.0", "4.5.0"]
