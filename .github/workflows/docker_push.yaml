@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           context: ./docker/ci_base
           file: ./docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
-          tags: wamvtan/ros2-ci_base:${{ matrix.rosdistro }}
+          tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
           no-cache: true
           push: true
   l4t_opencv:
