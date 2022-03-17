@@ -1,4 +1,4 @@
-name: Publish ROS2 CI Base Image
+name: build_and_push_docker
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
     types: [published]
 jobs:
   ros2:
-    name: Publish the Basic Image
+    name: build and push wamvtan/ros2-ci_base image
     runs-on: ubuntu-20.04
     timeout-minutes: 40
     strategy:
@@ -33,15 +33,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/ci-base
-          file: ./docker/ci-base/Dockerfile.${{ matrix.rosdistro }}
-          tags: wamvtan/ros2-ci-base:${{ matrix.rosdistro }}
+          context: ./docker/ci_base
+          file: ./docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
+          tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
           no-cache: true
           push: true
   l4t_opencv:
-    name: Publish the Basic Image
+    name: build and push wamvtan/l4t_opencv
     runs-on: ubuntu-20.04
-    timeout-minutes: 90
+    timeout-minutes: 360
     strategy:
       matrix:
         opencv_version: ["4.4.0", "4.5.0"]
@@ -70,7 +70,7 @@ jobs:
           no-cache: true
           push: true
   perception-jetson:
-    name: Publish the Basic Image
+    name: build and push wamvtan/ros image
     runs-on: ubuntu-20.04
     timeout-minutes: 40
     strategy:
@@ -94,8 +94,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/l4t-ros2-base
-          file: ./docker/l4t-ros2-base/${{ matrix.dockerfile[0] }}
+          context: ./docker/l4t_ros2_base
+          file: ./docker/l4t_ros2_base/${{ matrix.dockerfile[0] }}
           tags: wamvtan/ros:${{ matrix.dockerfile[1] }}
           platforms: linux/arm64/v8
           no-cache: true
