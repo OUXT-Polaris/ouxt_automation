@@ -51,22 +51,8 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
-- name: clone sol_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/sol_vendor.git
-    dest: "{{workspace_path}}/src/planning/sol_vendor"
-    version: main
-    accept_hostkey: yes
-  tags: [planning]
 
 # Utility Packages
-- name: clone quaternion_operation
-  git:
-    repo: https://github.com/OUXT-Polaris/quaternion_operation.git
-    dest: "{{workspace_path}}/src/utils/quaternion_operation"
-    version: ros2
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
