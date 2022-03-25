@@ -1,4 +1,10 @@
 ---
+# Update colcon defaults
+- name : copy colcon defaults
+  copy:
+    src: colcon_defaults/dev_environment/defaults.yaml
+    dest: "{{workspace_path}}"
+    mode: 0577
 # Perception Packages
 - name : clone pcl_apps
   git:
