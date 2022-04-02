@@ -1,4 +1,10 @@
 ---
+# Update colcon defaults
+- name : copy colcon defaults
+  copy:
+    src: colcon_defaults/dev_environment/defaults.yaml
+    dest: "{{workspace_path}}"
+    mode: 0577
 # Perception Packages
 - name : clone pcl_apps
   git:
@@ -51,22 +57,8 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
-- name: clone sol_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/sol_vendor.git
-    dest: "{{workspace_path}}/src/planning/sol_vendor"
-    version: main
-    accept_hostkey: yes
-  tags: [planning]
 
 # Utility Packages
-- name: clone quaternion_operation
-  git:
-    repo: https://github.com/OUXT-Polaris/quaternion_operation.git
-    dest: "{{workspace_path}}/src/utils/quaternion_operation"
-    version: ros2
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
@@ -121,6 +113,13 @@
     repo: https://github.com/OUXT-Polaris/hungarian_solver.git
     dest: "{{workspace_path}}/src/utils/hungarian_solver"
     version: ros2
+    accept_hostkey: yes
+  tags: [utility]
+- name: clone robotx_communication
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_communication.git
+    dest: "{{workspace_path}}/src/utils/robotx_communication"
+    version: master
     accept_hostkey: yes
   tags: [utility]
 
