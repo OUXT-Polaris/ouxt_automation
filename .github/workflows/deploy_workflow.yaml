@@ -34,6 +34,7 @@ jobs:
           geographic_info,
           geometry_msgs_data_buffer,
           hermite_path_planner,
+          hungarian_solver,
           image_processing_utils,
           joy_to_twist,
           lua_vendor,

@@ -116,6 +116,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone hungarian_solver
+  git:
+    repo: https://github.com/OUXT-Polaris/hungarian_solver.git
+    dest: "{{workspace_path}}/src/utils/hungarian_solver"
+    version: ros2
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
