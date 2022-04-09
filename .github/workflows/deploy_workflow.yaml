@@ -49,6 +49,7 @@ jobs:
           ouxt_common,
           pcl_apps,
           perception_bringup,
+          perception_camera_driver,
           playstation_controller_drivers,
           quaternion_operation,
           realsense_hardware_interface,
