@@ -41,6 +41,13 @@
     version: ros2
     accept_hostkey: yes
   tags: [perception]
+- name: clone perception_msgs
+  git:
+    repo: https://github.com/OUXT-Polaris/perception_msgs.git
+    dest: "{{workspace_path}}/src/perception/perception_msgs"
+    version: ros2
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
