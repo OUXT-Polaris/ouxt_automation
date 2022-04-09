@@ -226,6 +226,13 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
+- name: clone perception_camera_driver
+  git:
+    repo: https://github.com/OUXT-Polaris/perception_camera_driver.git
+    dest: "{{workspace_path}}/src/drivers/perception_camera_driver"
+    version: master
+    accept_hostkey: yes
+  tags: [driver]
 
 # Control Package
 - name: clone usv_controller package
