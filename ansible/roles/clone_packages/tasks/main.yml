@@ -45,7 +45,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/perception_msgs.git
     dest: "{{workspace_path}}/src/perception/perception_msgs"
-    version: ros2
+    version: master
     accept_hostkey: yes
   tags: [perception]
 
