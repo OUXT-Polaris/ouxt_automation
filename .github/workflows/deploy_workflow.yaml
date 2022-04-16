@@ -50,6 +50,7 @@ jobs:
           pcl_apps,
           perception_bringup,
           perception_camera_driver,
+          perception_msgs,
           playstation_controller_drivers,
           quaternion_operation,
           realsense_hardware_interface,
