@@ -27,7 +27,7 @@
   shell: |-
     cd {{ workspace_path }}
     source /opt/ros/galactic/setup.bash
-    colcon build --symlink-install
+    colcon build
   args:
     executable: /bin/bash
 
