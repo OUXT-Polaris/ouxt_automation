@@ -48,7 +48,6 @@
     name:
       - mkdocs-material 
       - fontawesome_markdown 
-      - mdx_unimoji 
       - mkdocs-mermaid2-plugin 
       - pymdown-extensions 
       - plantuml-markdown 
