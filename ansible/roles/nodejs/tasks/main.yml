@@ -17,10 +17,16 @@
   when: chk_nodejs.stat.exists == false
   become: true
 
-- name: setup10.x
-  shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-  when: chk_nodejs.stat.exists == false
-  become: true
+- name: fetch nodejs setup script
+  uri:
+    url: https://deb.nodesource.com/setup_10.x
+    return_content: yes
+  register: nodejs_installer
+
+- name: setup nodejs
+  shell:
+    cmd: bash
+    stdin: "{{ nodejs_installer.content }}"
 
 - name: install nodejs
   apt:
