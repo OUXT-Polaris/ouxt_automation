@@ -268,9 +268,9 @@
 <h2 id="setup-develop-container">setup develop container<a class="headerlink" href="#setup-develop-container" title="Permanent link">⚓︎</a></h2>
 <pre><code>cd docker/build_test
 sh run.sh
-cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/start_dev_container.yml
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local
+cd ../../
+ansible-playbook -i ansible/hosts/docker.ini ansible/start_dev_container.yml --connection local
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml
 </code></pre>
 <h2 id="setup-real-robot">setup real robot<a class="headerlink" href="#setup-real-robot" title="Permanent link">⚓︎</a></h2>
 <p><span style="color: red; "><em>NOTE</em></span> : setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.</p>
