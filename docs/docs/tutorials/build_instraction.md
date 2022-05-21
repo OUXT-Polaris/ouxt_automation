@@ -19,9 +19,9 @@ sh update.sh
 ```
 cd docker/build_test
 sh run.sh
-cd ../
-ansible-playbook -i ansible/hosts/docker.ini ansible/start_dev_container.yml
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local
+cd ../../
+ansible-playbook -i ansible/hosts/docker.ini ansible/start_dev_container.yml --connection local
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml
 ```
 
 ## setup real robot
