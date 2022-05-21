@@ -1,4 +1,10 @@
 ---
+- name: install git
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
 - name: make workspace
   file: 
     path: "{{actions_workspace_path}}"
