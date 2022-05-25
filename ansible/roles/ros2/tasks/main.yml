@@ -55,7 +55,7 @@
   ignore_errors: true
   tags: [setup_ros2]
 
-- name: install ros2 galactic/colcon/vcs
+- name: install ros2 humble/colcon/vcs
   become: yes
   apt:
     name: "{{ packages }}"
@@ -72,6 +72,6 @@
       - python3-rosdep
       - python3-argcomplete
       - python3-pip
-      - ros-galactic-ament-cmake
+      - ros-humble-ament-cmake
       - ca-certificates
   tags: [setup_ros2]
