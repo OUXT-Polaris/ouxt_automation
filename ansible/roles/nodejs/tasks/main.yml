@@ -27,6 +27,7 @@
   shell:
     cmd: bash
     stdin: "{{ nodejs_installer.content }}"
+  become: true
 
 - name: install nodejs
   apt:
