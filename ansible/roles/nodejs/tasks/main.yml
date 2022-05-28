@@ -19,7 +19,7 @@
 
 - name: fetch nodejs setup script
   uri:
-    url: https://deb.nodesource.com/setup_10.x
+    url: https://deb.nodesource.com/setup_16.x
     return_content: yes
   register: nodejs_installer
 
