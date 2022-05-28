@@ -103,9 +103,9 @@
   tags: [utility]
 - name: clone grid_map
   git:
-    repo: https://github.com/ANYbotics/grid_map.git
+    repo: https://github.com/tier4/grid_map.git
     dest: "{{workspace_path}}/src/utils/grid_map"
-    version: 7afca6c8314bd3016dc974541aecca3ed39ccab0
+    version: prepare/humble
     accept_hostkey: yes
   tags: [utility]
 - name: clone groot
@@ -223,7 +223,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
 - name: clone nmea_hardware_interface
@@ -237,7 +237,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/perception_camera_driver.git
     dest: "{{workspace_path}}/src/drivers/perception_camera_driver"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
 
@@ -272,3 +272,39 @@
     version: master
     accept_hostkey: yes
   tags: [simulation]
+
+- name: clone navigation2
+  git:
+    repo: https://github.com/tier4/navigation2.git
+    dest: "{{workspace_path}}/src/apt-missing/navigation2"
+    version: prepare/humble
+    accept_hostkey: yes
+  tags: [wait for apt support]
+- name: clone lua_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/lua_vendor.git
+    dest: "{{workspace_path}}/src/apt-missing/lua_vendor"
+    version: main
+    accept_hostkey: yes
+  tags: [wait for apt support]
+- name: clone quotanion_operation
+  git:
+    repo: https://github.com/OUXT-Polaris/quaternion_operation.git
+    dest: "{{workspace_path}}/src/apt-missing/quaternion_operation"
+    version: ros2
+    accept_hostkey: yes
+  tags: [wait for apt support]
+- name: clone zmqpp_vendor
+  git:
+    repo: https://github.com/tier4/zmqpp_vendor.git
+    dest: "{{workspace_path}}/src/apt-missing/zmqpp_vendor"
+    version: main
+    accept_hostkey: yes
+  tags: [wait for apt support]
+- name: librealsense_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
+    dest: "{{workspace_path}}/src/apt-missing/librealsense_vendor"
+    version: master
+    accept_hostkey: yes
+  tags: [wait for apt support]
