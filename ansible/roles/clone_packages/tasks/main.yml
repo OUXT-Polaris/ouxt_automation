@@ -129,6 +129,12 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone tcp_sender
+  git:
+    repo: https://github.com/OUXT-Polaris/tcp_sender.git
+    dest: "{{workspace_path}}/src/utils/tcp_sender"
+    version: master
+    accept_hostkey: yes
 
 # Description Packages
 - name: clone wamv_description
