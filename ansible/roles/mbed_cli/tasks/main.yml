@@ -1,0 +1,56 @@
+---
+- name: install depends
+  become: true
+  apt:
+    name: python3-pip cmake ninja-build
+    state: latest
+    update_cache: yes
+
+- name: upgrade pip
+  pip:
+    name: pip
+    executable: pip3
+    state: latest
+
+- name: instll mbed-tools
+  pip:
+    name:
+      - mbed-tools
+    executable: pip3
+
+
+- name: make mbed workspace
+  file: 
+    path: "{{mbed_workspace_path}}"
+    state: directory
+
+- name: make toolchain directory in mbed workspace
+  file: 
+    path: "{{mbed_workspace_path}}/toolchain"
+    state: directory
+
+- name: download toolchain
+  get_url: 
+    url: https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+    sha256sum: 97dbb4f019ad1650b732faffcc881689cedc14e2b7ee863d390e0a41ef16c9a3
+    dest: "{{mbed_workspace_path}}/toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2"
+    force: false
+  when: not mbed_toolchain.stat.exists
+
+- name: untar toolchain
+  ansible.builtin.unarchive:
+    src: "{{mbed_workspace_path}}/toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2"
+    dest: "{{mbed_workspace_path}}/toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux"
+
+- name: add toolchain directory path to the .bashrc
+  lineinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    line: PATH="$PATH:{{mbed_workspace_path}}/toolchain/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/bin"
+    create: yes
+
+- name: clone firmware
+  git:
+    repo: https://github.com/OUXT-Polaris/firmware.git
+    dest: "{{mbed_workspace_path}}/firmware"
+    version: master
+    accept_hostkey: yes
