@@ -63,6 +63,7 @@ jobs:
           tcp_sender,
           unisim_ros2_control,
           usv_controller,
+          wamv_control,
         ]
     steps:
     - uses: actions/download-artifact@v2
