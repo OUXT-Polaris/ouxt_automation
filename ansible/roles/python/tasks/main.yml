@@ -50,7 +50,7 @@
     executable: pip3
     extra_args: -e
 
-- name: instll depends of document generation
+- name: install depends of document generation
   pip:
     name:
       - mkdocs-material 
