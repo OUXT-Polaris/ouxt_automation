@@ -31,8 +31,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: .
-          file: Dockerfile
+          context: ./.github/workflows/docker/l4t_opencv
+          file: ./.github/workflows/docker/l4t_opencv/Dockerfile
           tags: wamvtan/l4t_opencv:${{ matrix.opencv_version }}
           platforms: linux/arm64/v8
           no-cache: true
@@ -55,12 +55,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: .
-          file: docker/yolox
+          context: ./.github/workflows/docker/yolox
+          file: ./.github/workflows/docker/yolox/Dockerfile
           tags: wamvtan/yolox
           no-cache: true
           push: true
-  ros2:
+  ci_base:
     name: build and push wamvtan/ros2-ci_base image
     runs-on: ubuntu-20.04
     timeout-minutes: 40
@@ -81,8 +81,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/ci_base
-          file: ./docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
+          context: ./.github/workflows/docker/ci_base
+          file: ./.github/workflows/docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
           tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
           no-cache: true
           push: true
