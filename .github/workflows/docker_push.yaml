@@ -10,29 +10,53 @@ on:
   release:
     types: [published]
 jobs:
-  train_yolox:
-    name: build and push wamvtan/train_yolox image
+  l4t_opencv:
+    name: build and push wamvtan/yolox
     runs-on: ubuntu-20.04
-    timeout-minutes: 40
-    steps:
+    timeout-minutes: 360
       - uses: actions/checkout@v2
+      - name: Setup QEMU user-mode emulation
+        uses: docker/setup-qemu-action@v1
       - name: Login to Docker Hub
-        if: success() && github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and Push Docker Image
-        if: ${{ github.event_name != 'pull_request'}}
+        if: ${{ github.event_name != 'push'}}
         uses: docker/build-push-action@v2
         env:
           DOCKER_BUILDKIT: 1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/train_yolox
-          file: ./docker/train_yolox/Dockerfile
-          tags: wamvtan/train_yolox:latest
+          context: .
+          file: Dockerfile
+          tags: wamvtan/l4t_opencv:${{ matrix.opencv_version }}
+          platforms: linux/arm64/v8
+          no-cache: true
+          push: true
+  yolox:
+    name: build and push wamvtan/yolox
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: .
+          file: docker/yolox
+          tags: wamvtan/yolox
           no-cache: true
           push: true
   ros2:
@@ -45,13 +69,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to Docker Hub
-        if: success() && github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and Push Docker Image
-        if: ${{ github.event_name != 'pull_request'}}
         uses: docker/build-push-action@v2
         env:
           DOCKER_BUILDKIT: 1
