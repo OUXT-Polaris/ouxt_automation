@@ -11,9 +11,10 @@ on:
     types: [published]
 jobs:
   l4t_opencv:
-    name: build and push wamvtan/yolox
+    name: build and push wamvtan/l4t_opencv
     runs-on: ubuntu-20.04
     timeout-minutes: 360
+    steps:
       - uses: actions/checkout@v2
       - name: Setup QEMU user-mode emulation
         uses: docker/setup-qemu-action@v1
