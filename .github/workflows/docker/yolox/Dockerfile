@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+FROM nvcr.io/nvidia/pytorch:21.09-py3
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt-get update && \
