@@ -76,7 +76,7 @@ jobs:
     timeout-minutes: 40
     strategy:
       matrix:
-        rosdistro: [foxy, galactic]
+        rosdistro: [foxy, galactic, humble]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
