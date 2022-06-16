@@ -3,3 +3,4 @@
 ## Currently works with
 - foxy
 - galactic
+- humble
