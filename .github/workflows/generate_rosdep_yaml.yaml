@@ -65,7 +65,7 @@ jobs:
         if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
         with:
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-          commit-message: Setup workflow
+          commit-message: Update rosdep.yaml
           committer: wam-v-tan <ouxt.share@gmail.com>
           author: wam-v-tan <ouxt.share@gmail.com>
           signoff: false
@@ -75,7 +75,7 @@ jobs:
           title: '[Bot] Update workflow'
           body: |
             # Description
-            Setup Build test workflow  
+            Update rosdep.yaml
             # How to check
             Please check passing all CI test.
           labels: |
