@@ -95,7 +95,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           context: ./.github/workflows/docker/debian_package_builder
           file: ./.github/workflows/docker/debian_package_builder/Dockerfile
-          tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
+          tags: wamvtan/debian_package_builder:${{ matrix.rosdistro }}
           build-args: |
             ROS_DISTRO=${{ matrix.rosdistro }}
           no-cache: false
