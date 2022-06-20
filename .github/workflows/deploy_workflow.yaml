@@ -27,6 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         package_name: [
+          boost_geometry_util,
           color_names,
           data_buffer,
           dynamixel_hardware_interface,

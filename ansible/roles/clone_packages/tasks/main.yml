@@ -129,6 +129,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone boost_geometry_util
+  git:
+    repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
+    dest: "{{workspace_path}}/src/utils/boost_geometry_util"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
