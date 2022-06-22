@@ -6,7 +6,7 @@ RUN apt-get update && \
   apt-get -y clean && \
   rm -rf /var/lib/apt/lists/*
 RUN python3 -m pip install nvidia-pyindex packaging && \
-  python3 -m pip install nvidia-tensorrt=8.2.1.8
+  python3 -m pip install nvidia-tensorrt==8.2.1.8
 WORKDIR /
 RUN git clone https://github.com/NVIDIA-AI-IOT/torch2trt.git
 WORKDIR /torch2trt
