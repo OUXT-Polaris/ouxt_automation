@@ -1,6 +1,6 @@
 FROM nvcr.io/nvidia/pytorch:21.09-py3
 RUN python3 -m pip install nvidia-pyindex packaging && \
-  python3 -m pip install --upgrade nvidia-tensorrt
+  python3 -m pip install nvidia-tensorrt==8.2.1.8
 RUN apt-get update && \
   apt-get install -y git libgl1-mesa-dev && \
   apt-get -y clean && \
