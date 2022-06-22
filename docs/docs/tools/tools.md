@@ -1,5 +1,74 @@
 # Tools
 
+## Train yolox model
+### Requirement
+- docker
+- docker-compose
+- nvidia-docker
+- nvidia-gpu (hardware)
+
+```
+cd docker/train_yolox/checkpoints
+wget https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.pth
+cd ../datasets
+```
+
+download datasets via [this link](https://drive.google.com/file/d/16N3u36ycNd70m23IM7vMuRQXejAJY9Fs/view?usp=sharing).
+
+```
+docker-compose up --build
+```
+
+While training, you can see output like below.
+
+```
+100%|##########| 1/1 [00:00<00:00,  4.69it/s]
+train_yolox_container | Running per image evaluation...
+train_yolox_container | Evaluate annotation type *bbox*
+train_yolox_container | COCOeval_opt.evaluate() finished in 0.01 seconds.
+train_yolox_container | Accumulating evaluation results...
+train_yolox_container | 2022-06-03 04:51:11 | INFO     | pycocotools.coco:366 - index created!
+train_yolox_container | 2022-06-03 04:51:11 | INFO     | yolox.core.trainer:342 - 
+train_yolox_container | Average forward time: 0.00 ms, Average NMS time: 0.00 ms, Average inference time: 0.00 ms
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+train_yolox_container | 
+train_yolox_container | 2022-06-03 04:51:11 | INFO     | yolox.core.trainer:352 - Save weights to ./YOLOX_outputs/yolox_s
+train_yolox_container | 2022-06-03 04:51:11 | INFO     | yolox.core.trainer:352 - Save weights to ./YOLOX_outputs/yolox_s
+train_yolox_container | 2022-06-03 04:51:12 | INFO     | yolox.core.trainer:203 - ---> start train epoch272
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | yolox.core.trainer:352 - Save weights to ./YOLOX_outputs/yolox_s
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | yolox.evaluators.coco_evaluator:235 - Evaluate in main process...
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | yolox.evaluators.coco_evaluator:268 - Loading and preparing results...
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | yolox.evaluators.coco_evaluator:268 - DONE (t=0.00s)
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | pycocotools.coco:366 - creating index...
+train_yolox_container | 2022-06-03 04:51:15 | INFO     | pycocotools.coco:366 - index created!
+train_yolox_container | 2022-06-03 04:51:16 | INFO     | yolox.core.trainer:342 - 
+train_yolox_container | Average forward time: 0.00 ms, Average NMS time: 0.00 ms, Average inference time: 0.00 ms
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+train_yolox_container |  Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.000
+train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.000
+```
+
+
 ## Convert yolox pytorch model into tensorrt model.
 ### Requirement
 - docker

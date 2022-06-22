@@ -16,8 +16,8 @@
 
 - name: download image
   get_url: 
-    url: https://developer.nvidia.com/jetson-nano-sd-card-image
-    sha256sum: 2ab9f0eaf3ea432419a8fff230659ad1e402f5c03f872097ed620924b1c14ecb
+    url: https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/jp_4.6.1_b110_sd_card/jeston_nano/jetson-nano-jp461-sd-card-image.zip
+    sha256sum: 735fea3df2509436ce43e480f2e70d633f0adfe84007ed9ce7f43910e3814168
     dest: ../docker/docker_testbench/jetson-nano-sd-card-image.zip
     force: false
   when: not check_image_zip_exists.stat.exists
@@ -45,7 +45,7 @@
 
 - name : start container
   become: yes
-  shell : docker-compose up -d
+  shell : docker-compose up --build -d
   args:
     chdir: ../docker/docker_testbench/docker_compose
   environment:

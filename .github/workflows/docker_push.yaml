@@ -10,34 +10,6 @@ on:
   release:
     types: [published]
 jobs:
-  ros2:
-    name: build and push wamvtan/ros2-ci_base image
-    runs-on: ubuntu-20.04
-    timeout-minutes: 40
-    strategy:
-      matrix:
-        rosdistro: [foxy, galactic]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to Docker Hub
-        if: success() && github.event_name != 'pull_request'
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Build and Push Docker Image
-        if: ${{ github.event_name != 'pull_request'}}
-        uses: docker/build-push-action@v2
-        env:
-          DOCKER_BUILDKIT: 1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/ci_base
-          file: ./docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
-          tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
-          no-cache: true
-          push: true
   l4t_opencv:
     name: build and push wamvtan/l4t_opencv
     runs-on: ubuntu-20.04
@@ -47,56 +19,147 @@ jobs:
         opencv_version: ["4.4.0", "4.5.0"]
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
       - name: Setup QEMU user-mode emulation
         uses: docker/setup-qemu-action@v1
       - name: Login to Docker Hub
-        if: success() && github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and Push Docker Image
-        if: ${{ github.event_name != 'pull_request'}}
         uses: docker/build-push-action@v2
         env:
           DOCKER_BUILDKIT: 1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/l4t_opencv
-          file: ./docker/l4t_opencv/Dockerfile
+          context: ./.github/workflows/docker/l4t_opencv
+          file: ./.github/workflows/docker/l4t_opencv/Dockerfile
           tags: wamvtan/l4t_opencv:${{ matrix.opencv_version }}
           platforms: linux/arm64/v8
-          no-cache: true
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/l4t_opencv:${{ matrix.opencv_version }}-buildcache
+          cache-to: type=registry,ref=wamvtan/l4t_opencv:${{ matrix.opencv_version }}-buildcache,mode=max
           push: true
-  perception-jetson:
-    name: build and push wamvtan/ros image
+  yolox:
+    name: build and push wamvtan/yolox
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/yolox
+          file: ./.github/workflows/docker/yolox/Dockerfile
+          tags: wamvtan/yolox:latest
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/yolox:buildcache
+          cache-to: type=registry,ref=wamvtan/yolox:buildcache,mode=max
+          push: true
+  debian_package_builder:
+    name: build and push wamvtan/debian_package_builder image
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        rosdistro: [foxy, galactic, humble]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/debian_package_builder
+          file: ./.github/workflows/docker/debian_package_builder/Dockerfile
+          tags: wamvtan/debian_package_builder:${{ matrix.rosdistro }}
+          build-args: |
+            ROS_DISTRO=${{ matrix.rosdistro }}
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/debian_package_builder:${{ matrix.rosdistro }}-buildcache
+          cache-to: type=registry,ref=wamvtan/debian_package_builder:${{ matrix.rosdistro }}-buildcache,mode=max
+          push: true
+  ci_base:
+    name: build and push wamvtan/ros2-ci_base image
     runs-on: ubuntu-20.04
     timeout-minutes: 40
     strategy:
       matrix:
-        dockerfile: [[Dockerfile, galactic-ros-base-l4t-r32.6], [Dockerfile.trt801, galactic-ros-base-l4t-r32.6-trt]]
+        rosdistro: [foxy, galactic, humble]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup QEMU user-mode emulation
-        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
       - name: Login to Docker Hub
-        if: success() && github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and Push Docker Image
-        if: ${{ github.event_name != 'pull_request'}}
         uses: docker/build-push-action@v2
         env:
           DOCKER_BUILDKIT: 1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          context: ./docker/l4t_ros2_base
-          file: ./docker/l4t_ros2_base/${{ matrix.dockerfile[0] }}
-          tags: wamvtan/ros:${{ matrix.dockerfile[1] }}
-          platforms: linux/arm64/v8
-          no-cache: true
+          context: ./.github/workflows/docker/ci_base
+          file: ./.github/workflows/docker/ci_base/Dockerfile.${{ matrix.rosdistro }}
+          tags: wamvtan/ros2_ci_base:${{ matrix.rosdistro }}
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/ros2_ci_base:${{ matrix.rosdistro }}-buildcache
+          cache-to: type=registry,ref=wamvtan/ros2_ci_base:${{ matrix.rosdistro }}-buildcache,mode=max
           push: true
+#  perception-jetson:
+#    name: build and push wamvtan/ros image
+#    runs-on: ubuntu-20.04
+#    timeout-minutes: 40
+#    strategy:
+#      matrix:
+#        dockerfile: [[Dockerfile, galactic-ros-base-l4t-r32.6], [Dockerfile.trt801, galactic-ros-base-l4t-r32.6-trt]]
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Setup QEMU user-mode emulation
+#        uses: docker/setup-qemu-action@v1
+#      - name: Login to Docker Hub
+#        if: success() && github.event_name != 'pull_request'
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKER_USERNAME }}
+#          password: ${{ secrets.DOCKER_PASSWORD }}
+#      - name: Build and Push Docker Image
+#        if: ${{ github.event_name != 'pull_request'}}
+#        uses: docker/build-push-action@v2
+#        env:
+#          DOCKER_BUILDKIT: 1
+#        with:
+#          username: ${{ secrets.DOCKER_USERNAME }}
+#          password: ${{ secrets.DOCKER_PASSWORD }}
+#          context: ./docker/l4t_ros2_base
+#          file: ./docker/l4t_ros2_base/${{ matrix.dockerfile[0] }}
+#          tags: wamvtan/ros:${{ matrix.dockerfile[1] }}
+#          platforms: linux/arm64/v8
+#          no-cache: true
+#          push: true
