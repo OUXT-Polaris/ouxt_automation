@@ -1,0 +1,53 @@
+version: '3.4' # to use volumes type bind
+x-volumes: &volumes
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/include/aarch64-linux-gnu"
+    target: "/usr/include/aarch64-linux-gnu"
+    read_only: false
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/aarch64-linux-gnu"
+    target: "/usr/lib/aarch64-linux-gnu"
+    read_only: false
+  - type: bind
+    source: "${JETPACK_ROOT}/lib/firmware/tegra21x/nvhost_nvdec020_ns.fw"
+    target: "/lib/firmware/tegra21x/nvhost_nvdec020_ns.fw"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/libvisionworks_sfm.so.0.90.4"
+    target: "/usr/lib/libvisionworks_sfm.so.0.90.4"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/libvisionworks.so.1.6.0"
+    target: "/usr/lib/libvisionworks.so.1.6.0"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/libvisionworks_tracking.so.0.88.2"
+    target: "/usr/lib/libvisionworks_tracking.so.0.88.2"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/python3.6/dist-packages/tensorrt"
+    target: "/usr/lib/python3.6/dist-packages/tensorrt"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/python3.6/dist-packages/graphsurgeon"
+    target: "/usr/lib/python3.6/dist-packages/graphsurgeon"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/lib/python3.6/dist-packages/uff"
+    target: "/usr/lib/python3.6/dist-packages/uff"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/usr/src/tensorrt"
+    target: "/usr/src/tensorrt"
+    read_only: true
+  - type: bind
+    source: "${JETPACK_ROOT}/lib/firmware/tegra21x"
+    target: "/lib/firmware/tegra21x"
+    read_only: true
+
+services:
+  jetson_container:
+    image: nvcr.io/nvidia/l4t-ml:r32.5.0-py3
+    privileged: true
+    container_name: jetson_container
+    volumes: *volumes
