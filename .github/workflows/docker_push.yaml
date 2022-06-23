@@ -9,6 +9,7 @@ on:
       - master
   release:
     types: [published]
+  pull_request:
 jobs:
   jetson_image_builder:
     name: build and push wamvtan/jetson_image_builder
