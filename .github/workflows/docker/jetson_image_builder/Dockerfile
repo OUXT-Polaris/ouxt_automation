@@ -18,5 +18,5 @@ ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 # build jetson image
+WORKDIR /
 RUN docker-compose build
-ENTRYPOINT ["/entrypoint.sh"]
