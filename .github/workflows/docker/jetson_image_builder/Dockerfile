@@ -16,5 +16,8 @@ ENV JETPACK_ROOT /jetpack_root
 ADD docker-compose.yaml /
 
 # build jetson image
+RUN ls
+RUN pwd
 WORKDIR /
+RUN ls
 RUN docker-compose build
