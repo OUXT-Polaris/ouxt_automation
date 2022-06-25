@@ -14,7 +14,6 @@ ENV JETPACK_ROOT /jetpack_root
 
 # copy docker-compose.yaml and entrypoint
 ADD docker-compose.yaml /
-RUN chmod +x /entrypoint.sh
 
 # build jetson image
 WORKDIR /
