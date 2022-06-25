@@ -38,6 +38,8 @@ jobs:
           context: ./.github/workflows/docker/l4t_opencv
           file: ./.github/workflows/docker/l4t_opencv/Dockerfile
           tags: wamvtan/l4t_opencv:${{ matrix.opencv_version }}
+          build-args: |
+            OPENCV_VERSION=${{ matrix.OPENCV_VERSION }}
           platforms: linux/arm64/v8
           no-cache: false
           cache-from: type=registry,ref=wamvtan/l4t_opencv:${{ matrix.opencv_version }}-buildcache
