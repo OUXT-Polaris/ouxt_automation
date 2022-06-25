@@ -1,4 +1,4 @@
-FROM docker/compose:1.29.2
+FROM docker/compose:debian-1.29.2
 
 # install qemu
 RUN apt-get update && \
