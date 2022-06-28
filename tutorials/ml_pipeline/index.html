@@ -6,10 +6,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Sanada Tatsuya" name="author"/>
-<link href="https://ouxt-polaris.github.io/ouxt_automation/tutorials/supported_platforms/" rel="canonical"/>
+<link href="https://ouxt-polaris.github.io/ouxt_automation/tutorials/ml_pipeline/" rel="canonical"/>
 <link href="../../images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.0, mkdocs-material-8.2.11" name="generator"/>
-<title>Supported Platform - OUXT Polaris Development Automation Tool</title>
+<title>ML Pipeline - OUXT Polaris Development Automation Tool</title>
 <link href="../../assets/stylesheets/main.8c5ef100.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.9647289d.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#supported-platform">
+<a class="md-skip" href="#ml-pipeline">
           Skip to content
         </a>
 </div>
@@ -48,7 +48,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Supported Platform
+              ML Pipeline
             
           </span>
 </div>
@@ -183,24 +183,14 @@
         Build Instractions
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ml_pipeline/">
-        ML Pipeline
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../navigation_demo/">
-        Navigation Demo
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Supported Platform
+          ML Pipeline
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Supported Platform
+        ML Pipeline
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -209,12 +199,27 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ubuntu-2004">
-    ubuntu 20.04
+<a class="md-nav__link" href="#what-we-can-do">
+    What we can do?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install">
+    Install
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../navigation_demo/">
+        Navigation Demo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../supported_platforms/">
+        Supported Platform
+      </a>
 </li>
 </ul>
 </nav>
@@ -251,12 +256,12 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="supported-platform">Supported Platform<a class="headerlink" href="#supported-platform" title="Permanent link">⚓︎</a></h1>
-<h2 id="ubuntu-2004">ubuntu 20.04<a class="headerlink" href="#ubuntu-2004" title="Permanent link">⚓︎</a></h2>
-<p>If your ubuntu version is older than 20.04, you can use docker environment.  </p>
-<p>ansible task install ROS2 foxy, so you do not necessary to setup ROS2</p>
-<p>before you run ansible-script, you have to install ansible via apt</p>
-<pre><code>sudo apt install ansible
+<h1 id="ml-pipeline">ML Pipeline<a class="headerlink" href="#ml-pipeline" title="Permanent link">⚓︎</a></h1>
+<h2 id="what-we-can-do">What we can do?<a class="headerlink" href="#what-we-can-do" title="Permanent link">⚓︎</a></h2>
+<p>We can train / convert yolox model automatically.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">⚓︎</a></h2>
+<pre><code>ansible-galaxy install -fr ansible/roles/requirements.yml
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --ask-become-pass
 </code></pre>
 </article>
 </div>
@@ -268,7 +273,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Navigation Demo" class="md-footer__link md-footer__link--prev" href="../navigation_demo/" rel="prev">
+<a aria-label="Previous: Build Instractions" class="md-footer__link md-footer__link--prev" href="../build_instraction/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -277,17 +282,17 @@
 <span class="md-footer__direction">
                 Previous
               </span>
-              Navigation Demo
+              Build Instractions
             </div>
 </div>
 </a>
-<a aria-label="Next: Software Packages" class="md-footer__link md-footer__link--next" href="../../packages/" rel="next">
+<a aria-label="Next: Navigation Demo" class="md-footer__link md-footer__link--next" href="../navigation_demo/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Software Packages
+              Navigation Demo
             </div>
 </div>
 <div class="md-footer__button md-icon">

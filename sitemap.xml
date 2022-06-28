@@ -31,6 +31,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/ml_pipeline/</loc>
+         <lastmod>2022-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/navigation_demo/</loc>
          <lastmod>2022-06-28</lastmod>
          <changefreq>daily</changefreq>
