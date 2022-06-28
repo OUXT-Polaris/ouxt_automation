@@ -1,0 +1,4 @@
+---
+- name: gantsign.minikube
+  src: https://github.com/gantsign/ansible_role_minikube.git
+  version: master

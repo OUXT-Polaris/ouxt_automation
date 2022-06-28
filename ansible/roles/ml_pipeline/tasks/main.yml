@@ -1,0 +1,18 @@
+---
+- name: install required packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  vars:
+    packages:
+    - curl
+  become: true
+
+- name: download binary
+  become: yes
+  get_url:
+    url: https://github.com/argoproj/argo/releases/download/v2.9.2/argo-linux-amd64
+    checksum: sha256:88a95a00741455e22970517d9b6ca714307189814c74424408b956cdd36d8450
+    dest: /usr/local/bin/argo
+    mode: +x
