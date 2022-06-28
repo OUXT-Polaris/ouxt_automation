@@ -20,4 +20,4 @@ RUN ls
 RUN pwd
 WORKDIR /
 RUN ls
-RUN docker-compose build
+#RUN docker-compose build

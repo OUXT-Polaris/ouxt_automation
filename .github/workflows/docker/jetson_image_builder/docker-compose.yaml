@@ -50,4 +50,4 @@ services:
     image: nvcr.io/nvidia/l4t-ml:r32.5.0-py3
     privileged: true
     container_name: jetson_container
-    volumes: *volumes
+#    volumes: *volumes
