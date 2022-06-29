@@ -7,12 +7,32 @@
   vars:
     packages:
     - curl
+    - tar
   become: true
 
-- name: download binary
+- name: download argo workflow binary
   become: yes
   get_url:
     url: https://github.com/argoproj/argo/releases/download/v2.9.2/argo-linux-amd64
     checksum: sha256:88a95a00741455e22970517d9b6ca714307189814c74424408b956cdd36d8450
     dest: /usr/local/bin/argo
+    mode: +x
+
+- name: download helm binary
+  become: yes
+  get_url:
+    url: https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz
+    checksum: sha256:1484ffb0c7a608d8069470f48b88d729e88c41a1b6602f145231e8ea7b43b50a
+    dest: /tmp
+
+- name: untar helm binary
+  unarchive:
+    src: /tmp/helm-v3.9.0-linux-amd64.tar.gz
+    dest: /tmp
+
+- name: install binady
+  become: yes
+  copy:
+    src: /tmp/linux-amd64/helm
+    dest: /usr/local/bin/helm
     mode: +x
