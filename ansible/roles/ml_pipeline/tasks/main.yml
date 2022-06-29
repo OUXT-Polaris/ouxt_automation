@@ -8,7 +8,16 @@
     packages:
     - curl
     - tar
+    - apt-transport-https
   become: true
+
+- name: download kubectl binary
+  become: yes
+  get_url:
+    url: https://storage.googleapis.com/kubernetes-release/release/v1.24.0/bin/linux/amd64/kubectl
+    checksum: sha256:94d686bb6772f6fb59e3a32beff908ab406b79acdfb2427abdc4ac3ce1bb98d7
+    dest: /usr/local/bin/kubectl
+    mode: +x
 
 - name: download argo workflow binary
   become: yes
