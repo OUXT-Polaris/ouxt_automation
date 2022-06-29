@@ -45,3 +45,11 @@
     src: /tmp/linux-amd64/helm
     dest: /usr/local/bin/helm
     mode: +x
+
+- name: Install minio client
+  get_url:
+    url: https://dl.min.io/client/mc/release/linux-amd64/mc
+    dest: /usr/local/bin/mc
+    checksum: sha256:74651bd78262a24e52cff870f69f8377cfc8896552e2c51dd5a8bd6ba031394d
+    mode: +x
+  become: yes
