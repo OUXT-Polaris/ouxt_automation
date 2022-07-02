@@ -1,42 +1,25 @@
 ---
-- name: check whther nodejs exists
-  stat:
-    path: "/usr/bin/nodejs"
-  register: chk_nodejs
-
 - name: install required packages
   apt:
     name: "{{ packages }}"
     state: latest
-    update_cache: yes
   vars:
     packages:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-  when: chk_nodejs.stat.exists == false
-  become: true
+    - gnupg
 
-- name: fetch nodejs setup script
-  uri:
-    url: https://deb.nodesource.com/setup_16.x
-    return_content: yes
-  register: nodejs_installer
+- name: add nodejs apt key
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
 
-- name: setup nodejs
-  shell:
-    cmd: bash
-    stdin: "{{ nodejs_installer.content }}"
-  become: true
+- name: add nodejs repository
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_16.x {{ ansible_lsb.codename }} main
+    state: present
+    update_cache: yes
 
 - name: install nodejs
   apt:
-    name: "{{ packages }}"
-    state: latest
-    update_cache: yes
-  vars:
-    packages:
-    - nodejs
-    - build-essential
-  when: chk_nodejs.stat.exists == false
+    name: nodejs
+    state: present
   become: true
