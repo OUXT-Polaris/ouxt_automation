@@ -45,7 +45,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/perception_msgs.git
     dest: "{{workspace_path}}/src/perception/perception_msgs"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [perception]
 
@@ -94,13 +94,15 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
-- name: clone rosboard
-  git:
-    repo: https://github.com/OUXT-Polaris/rosboard.git
-    dest: "{{workspace_path}}/src/utils/rosboard"
-    version: main
-    accept_hostkey: yes
-  tags: [utility]
+
+# - name: clone rosboard
+#   git:
+#     repo: https://github.com/dheera/rosboard.git
+#     dest: "{{workspace_path}}/src/utils/rosboard"
+#     version: main
+#     accept_hostkey: yes
+  # tags: [utility]
+
 - name: clone grid_map
   git:
     repo: https://github.com/tier4/grid_map.git
