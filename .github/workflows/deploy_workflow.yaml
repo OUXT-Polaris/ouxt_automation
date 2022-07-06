@@ -65,6 +65,7 @@ jobs:
           unisim_ros2_control,
           usv_controller,
           wamv_control,
+          wamv_description,
         ]
     steps:
     - uses: actions/download-artifact@v2
@@ -80,7 +81,7 @@ jobs:
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
+        parameters: "{ \"rosdistro\" : \"galactic\" }"
     - name: Deploy release workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
