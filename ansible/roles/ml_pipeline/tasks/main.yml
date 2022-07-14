@@ -81,3 +81,13 @@
     checksum: sha256:0ebda31d421bc205ad6718e4056546a13cfa024be7c3b7b94f3466a1de829b8d
     mode: +x
   become: yes
+
+- name: Source .bashrc
+  shell: source /home/{{ ansible_env.USER }}/.bashrc
+  args:
+    executable: /bin/bash
+    
+- name: Install minio Operator
+  shell: kubectl krew install minio
+  args:
+    executable: /bin/bash
