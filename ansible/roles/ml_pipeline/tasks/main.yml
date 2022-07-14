@@ -38,6 +38,15 @@
     dest: /usr/local/bin/krew
     mode: +x
 
+- name: install krew plugin
+  shell: krew install krew
+
+- name: add krew path to .bashrc
+  lineinfile:
+    dest: /home/{{ ansible_env.USER }}/.bashrc
+    line: export PATH="${PATH}:${HOME}/.krew/bin"
+    create: yes
+
 - name: download argo workflow binary
   become: yes
   get_url:
