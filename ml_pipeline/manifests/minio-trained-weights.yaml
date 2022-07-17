@@ -1,12 +1,12 @@
 apiVersion: minio.min.io/v2
 kind: Tenant
 metadata:
-  creationTimestamp: "2022-07-14T15:34:32Z"
+  creationTimestamp: "2022-07-14T16:39:46Z"
   generation: 1
   name: minio-trained-weights
   namespace: minio-trained-weights
-  resourceVersion: "41502"
-  uid: 1a21f1a0-5e24-4d29-9626-d6410d4b7dbd
+  resourceVersion: "47892"
+  uid: b9fdd1bb-beb6-4122-9245-dc5b892f300e
 scheduler:
   name: ""
 spec:
@@ -94,9 +94,19 @@ spec:
   - name: minio-trained-weights-user-0
 status:
   availableReplicas: 0
-  certificates: {}
-  currentState: ""
-  pools: null
+  certificates:
+    autoCertEnabled: true
+  currentState: Waiting for Pods to be ready
+  drivesOnline: 4
+  healthStatus: green
+  pools:
+  - legacySecurityContext: false
+    ssName: minio-trained-weights-pool-0
+    state: PoolInitialized
   revision: 0
-  syncVersion: ""
-  usage: {}
+  syncVersion: v4.3.0
+  usage:
+    capacity: 7648657014784
+    rawCapacity: 1099511627776
+    rawUsage: 92608593920
+  writeQuorum: 4

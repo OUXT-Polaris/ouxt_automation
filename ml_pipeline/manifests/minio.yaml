@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: minio-pod
+spec:
+  containers:
+    - name: minio-container
+      image: minio/minio:latest
+      ports:
+      - containerPort: 9000
+      env:
+      - name: MINIO_ACCESS_KEY
+        value: minio
+      - name: MINIO_SECRET_KEY
+        value: minio123

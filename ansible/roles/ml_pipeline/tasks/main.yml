@@ -9,6 +9,7 @@
     - curl
     - tar
     - apt-transport-https
+    - awscli
   become: true
 
 - name: download kubectl binary
@@ -91,3 +92,11 @@
   shell: kubectl krew install minio
   args:
     executable: /bin/bash
+
+- name: Install kompose
+  get_url:
+    url: https://github.com/kubernetes/kompose/releases/download/v1.26.1/kompose-linux-amd64
+    dest: /usr/local/bin/kompose
+    checksum: sha256:cd85b8c205dc63985e9bde4911b15c8556029e09671599919ed81bff8453a36f
+    mode: +x
+  become: yes
