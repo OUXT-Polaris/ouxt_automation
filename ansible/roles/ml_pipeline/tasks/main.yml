@@ -93,7 +93,7 @@
   args:
     executable: /bin/bash
   environment:
-    PATH: "{{ansible_env.PATH}}:${HOME}/.krew/bin"
+    PATH: "{{ansible_env.PATH}}:${HOME}/.krew/bin:/usr/local/bin"
 
 - name: Install kompose
   get_url:
