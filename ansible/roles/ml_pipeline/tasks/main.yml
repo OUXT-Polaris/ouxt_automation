@@ -20,34 +20,6 @@
     dest: /usr/local/bin/kubectl
     mode: +x
 
-- name: download krew binary
-  become: yes
-  get_url:
-    url: https://github.com/kubernetes-sigs/krew/releases/download/v0.4.3/krew-linux_amd64.tar.gz
-    checksum: sha256:5df32eaa0e888a2566439c4ccb2ef3a3e6e89522f2f2126030171e2585585e4f
-    dest: /tmp
-
-- name: untar krew binary
-  unarchive:
-    src: /tmp/krew-linux_amd64.tar.gz
-    dest: /tmp
-
-- name: install krew binary
-  become: yes
-  copy:
-    src: /tmp/krew-linux_amd64
-    dest: /usr/local/bin/krew
-    mode: +x
-
-- name: install krew plugin
-  shell: krew install krew
-
-- name: add krew path to .bashrc
-  lineinfile:
-    dest: /home/{{ ansible_env.USER }}/.bashrc
-    line: export PATH="${PATH}:${HOME}/.krew/bin"
-    create: yes
-
 - name: download argo workflow binary
   become: yes
   get_url:
@@ -87,13 +59,6 @@
   shell: source /home/{{ ansible_env.USER }}/.bashrc
   args:
     executable: /bin/bash
-    
-- name: Install minio Operator
-  shell: kubectl krew install minio
-  args:
-    executable: /bin/bash
-  environment:
-    PATH: "{{ansible_env.PATH}}:${HOME}/.krew/bin:/usr/local/bin"
 
 - name: Install kompose
   get_url:
