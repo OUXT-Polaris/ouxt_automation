@@ -19,3 +19,4 @@ RUN python3 -m pip install -r requirements.txt &&\
   python3 setup.py develop
 ENV PATH="${PATH}:/opt/hpcx/ompi/bin"
 ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/hpcx/ompi/lib"
+RUN mkdir model
