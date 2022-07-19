@@ -79,7 +79,7 @@
   get_url:
     url: https://dl.min.io/client/mc/release/linux-amd64/mc
     dest: /usr/local/bin/mc
-    checksum: sha256:0ebda31d421bc205ad6718e4056546a13cfa024be7c3b7b94f3466a1de829b8d
+    checksum: sha256:971683c7a81c2cdd3d7016f928988f244a314702ed230d3348243afc21e06734
     mode: +x
   become: yes
 
