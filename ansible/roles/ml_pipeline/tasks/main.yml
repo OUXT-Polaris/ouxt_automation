@@ -55,11 +55,6 @@
     mode: +x
   become: yes
 
-- name: Source .bashrc
-  shell: source /home/{{ ansible_env.USER }}/.bashrc
-  args:
-    executable: /bin/bash
-
 - name: Install kompose
   get_url:
     url: https://github.com/kubernetes/kompose/releases/download/v1.26.1/kompose-linux-amd64
