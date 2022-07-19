@@ -92,6 +92,8 @@
   shell: kubectl krew install minio
   args:
     executable: /bin/bash
+  environment:
+    PATH: "{{ansible_env.PATH}}:${HOME}/.krew/bin"
 
 - name: Install kompose
   get_url:
