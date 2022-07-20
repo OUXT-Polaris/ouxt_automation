@@ -1,0 +1,1 @@
+kubectl port-forward svc/minio 9001:9001
