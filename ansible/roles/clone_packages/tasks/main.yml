@@ -48,6 +48,13 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone perception_server
+  git:
+    repo: https://github.com/OUXT-Polaris/perception_server.git
+    dest: "{{workspace_path}}/src/perception/perception_server"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
