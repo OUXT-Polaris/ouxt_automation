@@ -26,6 +26,7 @@
     - gnupg2
     - lsb-release
     - git
+    - apt-utils
   tags: [setup_ros2]
 
 - name: setup ros2 keys
@@ -54,6 +55,10 @@
   become: yes
   ignore_errors: true
   tags: [setup_ros2]
+
+# - name: fix errors
+#   shell: apt-get -y update && apt-get -y upgrade && apt-get --with-new-pkgs -y upgrade && aptitude -y full-upgrade && apt-get -y update && apt-get -y upgrade
+#   become: yes
 
 - name: install ros2 humble/colcon/vcs
   become: yes
