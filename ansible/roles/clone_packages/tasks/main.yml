@@ -70,7 +70,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
     dest: "{{workspace_path}}/src/utils/data_buffer"
-    version: ros2
+    version: prepare/humble
     accept_hostkey: yes
   tags: [utility]
 - name: clone geometry_msgs_data_buffer
