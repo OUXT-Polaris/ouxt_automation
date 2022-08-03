@@ -5,18 +5,20 @@
     state: latest
   vars:
     packages:
-    - gnupg
+      - gnupg
 
 - name: add nodejs apt key
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     state: present
+  become: true
 
 - name: add nodejs repository
   apt_repository:
     repo: deb https://deb.nodesource.com/node_18.x {{ ansible_lsb.codename }} main
     state: present
     update_cache: yes
+  become: true
 
 - name: install nodejs
   apt:
