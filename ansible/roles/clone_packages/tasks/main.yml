@@ -48,6 +48,13 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone perception_server
+  git:
+    repo: https://github.com/OUXT-Polaris/perception_server.git
+    dest: "{{workspace_path}}/src/perception/perception_server"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -129,6 +136,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone boost_geometry_util
+  git:
+    repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
+    dest: "{{workspace_path}}/src/utils/boost_geometry_util"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -198,6 +212,12 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
+- name: clone wamv_control
+  git:
+    repo: https://github.com/OUXT-Polaris/wamv_control.git
+    dest: "{{workspace_path}}/src/drivers/wamv_control"
+    version: master
+    accept_hostkey: yes
 - name: clone tcp_sender
   git:
     repo: https://github.com/OUXT-Polaris/tcp_sender.git

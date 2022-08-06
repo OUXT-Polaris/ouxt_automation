@@ -82,3 +82,53 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+  setup_docker_testbench:
+    name: setup_docker_testbench
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - uses: actions/checkout@v2-beta
+    - uses: actions/cache@v2
+      if: ${{ github.event.label.name != 'clean_build' }}
+      with:
+        path: docker/docker_testbench/mount_point/
+        key: sd-card-image-${{ steps.date.outputs.date }}
+    - name: basic install
+      run: |
+          sudo apt install make ansible
+    - name: ansible version
+      run: |
+            ansible-playbook --version
+    - name: run ansible and install docker
+      run: |
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_docker_testbench.yml --connection local --become -e ansible_user=ubuntu
+    - name: Notify Slack
+      uses: 8398a7/action-slack@v2
+      if: failure()
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+  setup_ml_pipeline:
+    name: setup_ml_pipeline
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2-beta
+    - name: basic install
+      run: |
+          sudo apt install ansible
+    - name: run ansible and install docker
+      run: |
+          ansible-galaxy install -fr ansible/roles/requirements.yml
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --become -e ansible_user=ubuntu
+    - name: Notify Slack
+      uses: 8398a7/action-slack@v2
+      if: failure()
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}

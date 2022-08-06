@@ -1,0 +1,32 @@
+FROM ros:humble
+ARG distro=humble
+
+ENV CCACHE_DIR=/tmp/.ccache
+ENV USE_CCACHE=1
+ENV DEBIAN_FRONTEND=noninteractive
+
+# fetch
+WORKDIR /_build_ws/src
+RUN git clone https://github.com/ANYbotics/grid_map.git --single-branch -b ros2
+
+# deps
+WORKDIR /_build_ws
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt update && apt install ccache -y && \
+    rosdep install -i -y --from-paths ./src
+    
+# build
+ARG build_options
+RUN --mount=type=cache,target=/tmp/.ccache \
+    . /opt/ros/${distro}/setup.sh && \
+    colcon build --cmake-args --mixin ccache --merge-install --install-base /preinstalled ${build_options} --continue-on-error
+RUN . /opt/ros/${distro}/setup.sh && colcon test --merge-install --install-base /preinstalled && rm -r ./*
+    
+# cleanup
+RUN apt clean
+
+WORKDIR /
+COPY enable-preinstalled.sh /
+RUN chmod +x enable-preinstalled.sh
+ENTRYPOINT ["/enable-preinstalled.sh"]
+CMD ["bash"]

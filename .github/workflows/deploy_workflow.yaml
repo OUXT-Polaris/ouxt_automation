@@ -27,6 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         package_name: [
+          boost_geometry_util,
           color_names,
           data_buffer,
           dynamixel_hardware_interface,
@@ -51,6 +52,7 @@ jobs:
           perception_bringup,
           perception_camera_driver,
           perception_msgs,
+          perception_server,
           playstation_controller_drivers,
           quaternion_operation,
           realsense_hardware_interface,
@@ -63,6 +65,8 @@ jobs:
           tcp_sender,
           unisim_ros2_control,
           usv_controller,
+          wamv_control,
+          wamv_description,
         ]
     steps:
     - uses: actions/download-artifact@v2
@@ -78,7 +82,7 @@ jobs:
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
+        parameters: "{ \"rosdistro\" : \"galactic\" }"
     - name: Deploy release workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
