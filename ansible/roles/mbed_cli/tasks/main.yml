@@ -1,7 +1,17 @@
 ---
+- name: make mbed workspace directory
+  file: 
+    path: "{{mbed_workspace_path}}"
+    state: directory
+    recurse: yes
 - name: clone firmware
   git:
     repo: https://github.com/OUXT-Polaris/firmware.git
     dest: "{{mbed_workspace_path}}/firmware"
     version: master
     accept_hostkey: yes
+- name: build firmware
+  shell: |-
+    sh {{mbed_workspace_path}}/firmware/build.sh
+  args:
+    executable: /bin/bash
