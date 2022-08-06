@@ -208,6 +208,11 @@
     setup real robot
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-firmware-development-environment">
+    setup firmware development environment
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -286,6 +291,13 @@ export PERSONAL_ACCESS_TOKEN=$(ACCESS_TOKEN_OF_WAM_V_TAN_BOT)
 ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_endpoint.yml --connection local --ask-become-pass
 </code></pre>
 <p>If your want to know personal access token, please read <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">this documentation</a>.</p>
+<h2 id="setup-firmware-development-environment">setup firmware development environment<a class="headerlink" href="#setup-firmware-development-environment" title="Permanent link">⚓︎</a></h2>
+<p>This playbook includes three steps.
+1. Install Docker
+1. Clone firmware package
+1. Build firmware with docker</p>
+<pre><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --ask-become-pass
+</code></pre>
 </article>
 </div>
 </div>
