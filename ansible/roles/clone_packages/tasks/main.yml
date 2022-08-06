@@ -267,6 +267,22 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
+- name: add apt key for microsoft repository
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  tags: [driver,launcher]
+- name: Add apt repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/ubuntu/20.04/prod {{ ansible_distribution_release }} stable"
+  become: yes
+- name: clone azure_kinect_ros_driver
+  git:
+    repo: https://github.com/microsoft/Azure_Kinect_ROS_Driver.git
+    dest: "{{workspace_path}}/src/drivers/azure_kinect_ros_driver"
+    version: foxy-devel
+    accept_hostkey: yes
+  tags: [driver,launcher]
 
 # Control Package
 - name: clone usv_controller package
