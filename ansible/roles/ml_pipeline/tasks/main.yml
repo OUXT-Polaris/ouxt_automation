@@ -47,13 +47,13 @@
     dest: /usr/local/bin/helm
     mode: +x
 
-- name: Install minio client
-  get_url:
-    url: https://dl.min.io/client/mc/release/linux-amd64/mc
-    dest: /usr/local/bin/mc
-    checksum: sha256:55140582f715d0eb174096207d9983d86369b634166fe8e7f74a9dfae0175943
-    mode: +x
-  become: yes
+#- name: Install minio client
+#  get_url:
+#    url: https://dl.min.io/client/mc/release/linux-amd64/mc
+#    dest: /usr/local/bin/mc
+#    checksum: sha256:55140582f715d0eb174096207d9983d86369b634166fe8e7f74a9dfae0175943
+#    mode: +x
+#  become: yes
 
 - name: Install kompose
   get_url:
