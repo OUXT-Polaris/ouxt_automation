@@ -95,13 +95,13 @@
     accept_hostkey: yes
   tags: [utility]
 
-# - name: clone rosboard
-#   git:
-#     repo: https://github.com/dheera/rosboard.git
-#     dest: "{{workspace_path}}/src/utils/rosboard"
-#     version: main
-#     accept_hostkey: yes
-  # tags: [utility]
+- name: clone rosboard
+  git:
+    repo: https://github.com/dheera/rosboard.git
+    dest: "{{workspace_path}}/src/utils/rosboard"
+    version: main
+    accept_hostkey: yes
+  tags: [utility]
 
 - name: clone grid_map
   git:
@@ -288,13 +288,6 @@
     accept_hostkey: yes
   tags: [simulation]
 
-# - name: clone navigation2
-#   git:
-#     repo: https://github.com/tier4/navigation2.git
-#     dest: "{{workspace_path}}/src/apt-missing/navigation2"
-#     version: prepare/humble
-#     accept_hostkey: yes
-#   tags: [wait for apt support]
 - name: clone lua_vendor
   git:
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
@@ -302,20 +295,6 @@
     version: main
     accept_hostkey: yes
   tags: [wait for apt support]
-# - name: clone quotanion_operation
-#   git:
-#     repo: https://github.com/OUXT-Polaris/quaternion_operation.git
-#     dest: "{{workspace_path}}/src/apt-missing/quaternion_operation"
-#     version: ros2
-#     accept_hostkey: yes
-#   tags: [wait for apt support]
-# - name: clone zmqpp_vendor
-#   git:
-#     repo: https://github.com/tier4/zmqpp_vendor.git
-#     dest: "{{workspace_path}}/src/apt-missing/zmqpp_vendor"
-#     version: main
-#     accept_hostkey: yes
-  # tags: [wait for apt support]
 - name: librealsense_vendor
   git:
     repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
