@@ -11,7 +11,8 @@
     version: master
     accept_hostkey: yes
 - name: build firmware
-  shell: |-
-    sh {{mbed_workspace_path}}/firmware/build.sh
+  shell: 
+    cmd: sh {{mbed_workspace_path}}/firmware/build.sh
+    chdir: "{{mbed_workspace_path}}/firmware"
   args:
     executable: /bin/bash
