@@ -55,6 +55,13 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone ndt_omp
+  git:
+    repo: https://github.com/tier4/ndt_omp.git
+    dest: "{{workspace_path}}/src/perception/ndt_omp"
+    version: tier4/main
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
