@@ -1,0 +1,6 @@
+---
+- name: Setup ml pipeline
+  hosts: all
+  roles: 
+    - docker
+    - firmware
