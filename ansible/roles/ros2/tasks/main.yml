@@ -1,4 +1,19 @@
 ---
+- name: install depends via apt
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+    - curl
+    - gnupg2
+    - lsb-release
+    - git
+    - locales
+  tags: [setup_ros2]
+  
 - name : generate locale
   become: yes
   shell : locale-gen en_US en_US.UTF-8
@@ -12,20 +27,6 @@
 - name : export locale
   become: yes
   shell : export LANG=en_US.UTF-8
-  tags: [setup_ros2]
-
-- name: install depends via apt
-  become: yes
-  apt:
-    name: "{{ packages }}"
-    cache_valid_time: 3600
-    update_cache: yes
-  vars:
-    packages:
-    - curl
-    - gnupg2
-    - lsb-release
-    - git
   tags: [setup_ros2]
 
 - name: setup ros2 keys
