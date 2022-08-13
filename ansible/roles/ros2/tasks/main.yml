@@ -1,19 +1,4 @@
 ---
-- name : generate locale
-  become: yes
-  shell : locale-gen en_US en_US.UTF-8
-  tags: [setup_ros2]
-
-- name : setup locale
-  become: yes
-  shell : update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-  tags: [setup_ros2]
-
-- name : export locale
-  become: yes
-  shell : export LANG=en_US.UTF-8
-  tags: [setup_ros2]
-
 - name: install depends via apt
   become: yes
   apt:
@@ -27,6 +12,21 @@
     - lsb-release
     - git
     - locales
+  tags: [setup_ros2]
+  
+- name : generate locale
+  become: yes
+  shell : locale-gen en_US en_US.UTF-8
+  tags: [setup_ros2]
+
+- name : setup locale
+  become: yes
+  shell : update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+  tags: [setup_ros2]
+
+- name : export locale
+  become: yes
+  shell : export LANG=en_US.UTF-8
   tags: [setup_ros2]
 
 - name: setup ros2 keys
