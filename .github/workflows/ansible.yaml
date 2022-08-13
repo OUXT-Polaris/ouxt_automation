@@ -13,6 +13,7 @@ jobs:
   setup_dev_environment:
     name: setup_dev_environment
     runs-on: ubuntu-20.04
+    container: ubuntu:20.04
     steps:
     - name: Get current date
       id: date
