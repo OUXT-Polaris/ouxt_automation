@@ -124,6 +124,9 @@ jobs:
       run: |
           ansible-galaxy install -fr ansible/roles/requirements.yml
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --become -e ansible_user=ubuntu
+    - name: Setup tmate session
+      if: failure()
+      uses: mxschmitt/action-tmate@v3
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
