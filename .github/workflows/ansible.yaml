@@ -20,7 +20,7 @@ jobs:
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - name: basic install
       run: |
-          apt install make ansible
+          apt-get install -y ansible
     - name: ansible version
       run: |
             ansible-playbook --version
