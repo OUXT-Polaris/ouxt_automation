@@ -35,6 +35,9 @@ jobs:
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+    - name: Setup tmate session
+      if: failure()
+      uses: mxschmitt/action-tmate@v3
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
@@ -125,9 +128,6 @@ jobs:
       run: |
           ansible-galaxy install -fr ansible/roles/requirements.yml
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --become -e ansible_user=ubuntu
-    - name: Setup tmate session
-      if: failure()
-      uses: mxschmitt/action-tmate@v3
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
