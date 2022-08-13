@@ -26,6 +26,7 @@
     - gnupg2
     - lsb-release
     - git
+    - locales
   tags: [setup_ros2]
 
 - name: setup ros2 keys
