@@ -12,7 +12,7 @@
 
 - name: make dataset directory
   file: 
-    path: "{{dataset_path}}"
+    path: "{{dataset_path}}/dataset"
     state: directory
     recurse: yes
 
@@ -25,7 +25,7 @@
   shell: wget https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip --no-clobber -O "{{dataset_path}}"/dataset.zip
   when: not dataset_exists.stat.exists
 
-- name: unzip adachin.zip
+- name: unzip dataset.zip
   unarchive:
     src: "{{dataset_path}}/dataset.zip"
     dest: "{{dataset_path}}/dataset"
