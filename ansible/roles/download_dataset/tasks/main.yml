@@ -13,6 +13,18 @@
     - git
   become: true
 
+- name: upgrade pip
+  pip:
+    name: pip
+    executable: pip3
+    state: latest
+
+- name: install gdown
+  pip:
+    name:
+      - gdown
+    executable: pip3
+
 - name: make dataset directory
   file: 
     path: "{{dataset_path}}/dataset"
@@ -35,7 +47,7 @@
   shell: gdown 1FMCPw5fD9Sl-0eTXhb6FS6YBDkaSIyTB -O "{{dataset_path}}"/images.zip
   when: not dataset_exists.stat.exists
 
-- name: unzip dataset.zip
+- name: unzip images.zip
   unarchive:
     src: "{{dataset_path}}/images.zip"
     dest: "{{dataset_path}}/dataset"
