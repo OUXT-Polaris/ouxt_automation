@@ -7,7 +7,8 @@
     update_cache: yes
   vars:
     packages:
-    - wget
+    - python3
+    - python3-pip
     - labelme
     - git
   become: true
@@ -27,14 +28,14 @@
 
 - name: check dataset exists
   stat:
-    path: "{{dataset_path}}/dataset.zip"
+    path: "{{dataset_path}}/images.zip"
   register: dataset_exists
 
 - name: download datasets
-  shell: wget https://www.dropbox.com/s/ziukz43486df23t/images.zip --no-clobber -O "{{dataset_path}}"/dataset.zip
+  shell: gdown 1FMCPw5fD9Sl-0eTXhb6FS6YBDkaSIyTB -O "{{dataset_path}}"/images.zip
   when: not dataset_exists.stat.exists
 
 - name: unzip dataset.zip
   unarchive:
-    src: "{{dataset_path}}/dataset.zip"
+    src: "{{dataset_path}}/images.zip"
     dest: "{{dataset_path}}/dataset"
