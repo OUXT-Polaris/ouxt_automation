@@ -8,6 +8,7 @@
   vars:
     packages:
     - wget
+    - labelme
   become: true
 
 - name: make dataset directory
