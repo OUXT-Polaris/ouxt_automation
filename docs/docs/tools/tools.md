@@ -193,7 +193,7 @@ torch2trt_torch2trt_1 exited with code 0
 
 ## Download dataset
 
-you can download dataset via [dropbox](https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip?dl=0) by running this command.
+you can download dataset via [dropbox](https://www.dropbox.com/s/ziukz43486df23t/images.zip?dl=0) by running this command.
 ```
 ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --ask-become-pass
 ```

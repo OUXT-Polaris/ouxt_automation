@@ -8,6 +8,8 @@
   vars:
     packages:
     - wget
+    - labelme
+    - git
   become: true
 
 - name: make dataset directory
@@ -16,17 +18,23 @@
     state: directory
     recurse: yes
 
+- name : clone annotation data
+  git:
+    repo: https://github.com/OUXT-Polaris/dataset_annotations.git
+    dest: "{{dataset_path}}/dataset/images"
+    version: master
+    accept_hostkey: yes
+
 - name: check dataset exists
   stat:
     path: "{{dataset_path}}/dataset.zip"
   register: dataset_exists
 
 - name: download datasets
-  shell: wget https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip --no-clobber -O "{{dataset_path}}"/dataset.zip
+  shell: wget https://www.dropbox.com/s/ziukz43486df23t/images.zip --no-clobber -O "{{dataset_path}}"/dataset.zip
   when: not dataset_exists.stat.exists
 
 - name: unzip dataset.zip
   unarchive:
     src: "{{dataset_path}}/dataset.zip"
     dest: "{{dataset_path}}/dataset"
-    remote_src: yes
