@@ -1,0 +1,6 @@
+---
+- name: Setup dataset
+  hosts: all
+  roles: 
+#    - docker
+    - dataset

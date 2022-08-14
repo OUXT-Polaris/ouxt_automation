@@ -190,3 +190,10 @@ torch2trt_1  | 2022-02-26 09:33:48.565 | INFO     | __main__:main:71 - Converted
 torch2trt_1  | 2022-02-26 09:33:48.581 | INFO     | __main__:main:79 - Converted TensorRT model engine file is saved for C++ inference.
 torch2trt_torch2trt_1 exited with code 0
 ```
+
+## Download dataset
+
+you can download dataset via [dropbox](https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip?dl=0) by running this command.
+```
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local
+```
