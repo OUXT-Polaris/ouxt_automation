@@ -9,6 +9,7 @@
     packages:
     - wget
     - labelme
+    - git
   become: true
 
 - name: make dataset directory
@@ -16,6 +17,13 @@
     path: "{{dataset_path}}/dataset"
     state: directory
     recurse: yes
+
+- name : clone annotation data
+  git:
+    repo: https://github.com/OUXT-Polaris/dataset_annotations.git
+    dest: "{{dataset_path}}/dataset/images"
+    version: master
+    accept_hostkey: yes
 
 - name: check dataset exists
   stat:
@@ -30,4 +38,3 @@
   unarchive:
     src: "{{dataset_path}}/dataset.zip"
     dest: "{{dataset_path}}/dataset"
-    remote_src: yes
