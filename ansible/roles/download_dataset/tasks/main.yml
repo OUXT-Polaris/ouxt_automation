@@ -21,5 +21,5 @@
   register: dataset_exists
 
 - name: download datasets
-  shell: wget https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip -O "{{dataset_path}}"/dataset.zip
+  shell: wget https://www.dropbox.com/s/7h2fthyznfpjtcj/dataset.zip --no-clobber -O "{{dataset_path}}"/dataset.zip
   when: not dataset_exists.stat.exists
