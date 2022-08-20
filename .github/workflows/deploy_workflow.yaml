@@ -60,6 +60,7 @@ jobs:
           robotx_communication,
           robotx_costmap_calculator,
           robotx_ekf,
+          robotx_planner_bringup,
           scan_segmentation,
           sol_vendor,
           tcp_sender,

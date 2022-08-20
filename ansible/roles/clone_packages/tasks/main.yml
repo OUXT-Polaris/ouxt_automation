@@ -78,6 +78,13 @@
     version: master
     accept_hostkey: yes
   tags: [planning]
+- name: clone robotx_behavior_tree
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
+    dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
+    version: master
+    accept_hostkey: yes
+  tags: [planning]
 
 # Utility Packages
 - name: clone data_buffer
