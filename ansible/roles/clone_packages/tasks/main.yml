@@ -281,14 +281,7 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
-- name: clone serial
-  git:
-    repo: https://github.com/OUXT-Polaris/serial.git
-    dest: "{{workspace_path}}/src/drivers/serial"
-    version: ros2
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone serial
+- name: clone ros_kvh1750 package
   git:
     repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
     dest: "{{workspace_path}}/src/drivers/ros_kvh1750"

@@ -64,7 +64,6 @@ jobs:
           robotx_planner_bringup,
           ros_kvh1750,
           scan_segmentation,
-          serial,
           sol_vendor,
           tcp_sender,
           unisim_ros2_control,
