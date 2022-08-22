@@ -106,7 +106,7 @@ jobs:
     - name: Count changes
       id: changes
       run: |
-        git add -N .
+        git add --all
         echo "::set-output name=count::$(git diff --name-only | wc -l)"
     - name: Check default branch
       id: check_default_branch
