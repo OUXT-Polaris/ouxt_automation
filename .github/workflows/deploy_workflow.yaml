@@ -112,6 +112,12 @@ jobs:
       id: check_default_branch
       run: |
         echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+    - name: Show default branch
+      run: |
+        echo ${{ steps.check_default_branch.outputs.default_branch }}
+    - name: Show diff count
+      run: |
+        echo ${{ steps.changes.outputs.count }}
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
       if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
