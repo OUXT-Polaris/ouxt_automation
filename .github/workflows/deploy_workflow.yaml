@@ -102,7 +102,7 @@ jobs:
     - name: Check branch exist
       id: check_branch
       run: |
-        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.package_name }}.git workflow/sync | wc -l)"
+        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)"
     - name: Count changes
       id: changes
       run: |
