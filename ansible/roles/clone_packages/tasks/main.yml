@@ -288,6 +288,13 @@
     version: ros2
     accept_hostkey: yes
   tags: [driver]
+- name: clone serial
+  git:
+    repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
+    dest: "{{workspace_path}}/src/drivers/ros_kvh1750"
+    version: ros2
+    accept_hostkey: yes
+  tags: [driver]
 
 # Control Package
 - name: clone usv_controller package
