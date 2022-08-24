@@ -109,6 +109,49 @@ jobs:
           no-cache: false
           cache-from: type=registry,ref=wamvtan/yolox:buildcache
           push: false
+  yolox_trainer:
+    name: build and push wamvtan/yolox_trainer
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+    needs: yolox
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        if: ${{ github.event_name != 'pull_request'}}
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/yolox_trainer
+          file: ./.github/workflows/docker/yolox_trainer/Dockerfile
+          tags: wamvtan/yolox_trainer:latest
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
+          cache-to: type=registry,ref=wamvtan/yolox_trainer:buildcache,mode=max
+          push: true
+      - name: Build Docker Image
+        if: ${{ github.event_name == 'pull_request'}}
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/yolox_trainer
+          file: ./.github/workflows/docker/yolox_trainer/Dockerfile
+          tags: wamvtan/yolox_trainer:latest
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
+          push: false
   debian_package_builder:
     name: build and push wamvtan/debian_package_builder image
     runs-on: ubuntu-20.04
