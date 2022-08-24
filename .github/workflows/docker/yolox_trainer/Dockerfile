@@ -7,14 +7,10 @@ ENV DEBCONF_NOWARNINGS=yes
 # arguments
 ARG os
 ARG runner_version
-ARG github_token
 
 # install curl
 RUN apt-get update -y
 RUN apt-get install curl jq -y
-
-# pass github token
-ENV GITHUB_TOKEN=${github_token}
 
 # setup entry point
 COPY entrypoint.sh /entrypoint.sh

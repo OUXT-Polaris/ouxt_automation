@@ -141,7 +141,6 @@ jobs:
           build-args: |
             "os=${{ matrix.os }}"
             "runner_version=${{ matrix.runner_version }}"
-            "github_token=${{ secrets.GITHUB_TOKEN }}"
           no-cache: false
           cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
           cache-to: type=registry,ref=wamvtan/yolox_trainer:buildcache,mode=max
@@ -160,7 +159,6 @@ jobs:
           build-args: |
             "os=${{ matrix.os }}"
             "runner_version=${{ matrix.runner_version }}"
-            "github_token=${{ secrets.GITHUB_TOKEN }}"
           no-cache: false
           cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
           push: false
