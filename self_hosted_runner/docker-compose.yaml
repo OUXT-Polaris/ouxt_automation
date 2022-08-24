@@ -12,5 +12,6 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
     privileged: true
     restart: always
