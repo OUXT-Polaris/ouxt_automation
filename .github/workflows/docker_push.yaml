@@ -114,6 +114,10 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 30
     needs: yolox
+    strategy:
+      matrix:
+        os: [linux-x64]
+        runner_version: [2.283.1]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
@@ -134,6 +138,10 @@ jobs:
           context: ./.github/workflows/docker/yolox_trainer
           file: ./.github/workflows/docker/yolox_trainer/Dockerfile
           tags: wamvtan/yolox_trainer:latest
+          build-args: |
+            "os=${{ matrix.os }}"
+            "runner_version=${{ matrix.runner_version }}"
+            "github_token=${{ secrets.GITHUB_TOKEN }}"
           no-cache: false
           cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
           cache-to: type=registry,ref=wamvtan/yolox_trainer:buildcache,mode=max
@@ -149,6 +157,10 @@ jobs:
           context: ./.github/workflows/docker/yolox_trainer
           file: ./.github/workflows/docker/yolox_trainer/Dockerfile
           tags: wamvtan/yolox_trainer:latest
+          build-args: |
+            "os=${{ matrix.os }}"
+            "runner_version=${{ matrix.runner_version }}"
+            "github_token=${{ secrets.GITHUB_TOKEN }}"
           no-cache: false
           cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
           push: false
