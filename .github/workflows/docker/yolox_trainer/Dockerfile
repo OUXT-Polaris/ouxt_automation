@@ -33,7 +33,10 @@ RUN groupadd --gid $GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # install cacched library
-RUN apt-get update && apt-get install -y libboost-all-dev debconf-utils keyboard-configuration
+RUN apt-get update && \
+  apt-get install -y libboost-all-dev debconf-utils keyboard-configuration && \
+  apt-get -y clean && \
+  rm -rf /var/lib/apt/lists/*
 
 USER $USERNAME
 WORKDIR /home/$USERNAME/
