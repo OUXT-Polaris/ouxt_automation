@@ -33,7 +33,7 @@ RUN groupadd --gid $GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # install cacched library
-RUN apt-get update && apt-get install -y libboost-all-dev debconf-utils keyboard-configuration ros-$ROS_DISTRO-desktop
+RUN apt-get update && apt-get install -y libboost-all-dev debconf-utils keyboard-configuration
 
 USER $USERNAME
 WORKDIR /home/$USERNAME/
