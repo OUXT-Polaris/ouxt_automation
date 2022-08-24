@@ -1,0 +1,16 @@
+version: '2.3'
+services:
+  train_yolox:
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 16000000000 # ~16gb
+    image: wamvtan/yolox_trainer
+    container_name: train_yolox_container
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    privileged: true
+    restart: always
