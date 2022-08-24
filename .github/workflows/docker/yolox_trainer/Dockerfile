@@ -4,10 +4,6 @@ FROM wamvtan/yolox
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS=yes
 
-# arguments
-ARG os
-ARG runner_version
-
 # install curl
 RUN apt-get update -y
 RUN apt-get install curl jq -y
@@ -36,9 +32,15 @@ RUN apt-get update && \
 
 USER $USERNAME
 WORKDIR /home/$USERNAME/
+
 # make directory for runner
 RUN mkdir actions-runner
 WORKDIR /home/$USERNAME/actions-runner
+
+# arguments
+ARG os
+ARG runner_version
+
 # untar runner
 RUN curl -o actions-runner-${os}-${runner_version}.tar.gz -L https://github.com/actions/runner/releases/download/v${runner_version}/actions-runner-${os}-${runner_version}.tar.gz
 RUN tar -xzf ./actions-runner-${os}-${runner_version}.tar.gz

@@ -6,7 +6,8 @@ services:
         target: /dev/shm
         tmpfs:
           size: 16000000000 # ~16gb
-    image: wamvtan/yolox_trainer
+    #image: wamvtan/yolox_trainer:latest
+    image: yolox_trainer
     container_name: train_yolox_container
     runtime: nvidia
     environment:
