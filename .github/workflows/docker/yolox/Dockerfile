@@ -2,7 +2,7 @@ FROM nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
 ENV DEBIAN_FRONTEND noninteractive
 #RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt-get update && \
-  apt-get install -y git libgl1-mesa-dev libopencv-dev python3 python3-pip && \
+  apt-get install -y git libgl1-mesa-dev libopencv-dev python3 python3-pip wget unzip && \
   apt-get -y clean && \
   rm -rf /var/lib/apt/lists/*
 #RUN python3 -m pip install nvidia-pyindex packaging && \
