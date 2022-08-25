@@ -86,7 +86,7 @@ Output should be like below.
 docker-compose build
 
 Building torch2trt
-Step 1/12 : FROM nvcr.io/nvidia/pytorch:21.09-py3
+Step 1/12 : FROM nvcr.io/nvidia/pytorch:22.07-py3
  ---> 74d53f84c686
 Step 2/12 : RUN python3 -m pip install nvidia-pyindex packaging &&   python3 -m pip install --upgrade nvidia-tensorrt
  ---> Using cache
