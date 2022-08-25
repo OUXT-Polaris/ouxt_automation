@@ -11,6 +11,7 @@ on:
     paths:
       - "docker/**"
       - ".github/workflows/docker/**"
+      - ".github/workflows/docker_push.yaml"
   release:
     types: [published]
 jobs:
@@ -117,7 +118,7 @@ jobs:
     strategy:
       matrix:
         os: [linux-x64]
-        runner_version: [2.283.1]
+        runner_version: [2.295.0]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
