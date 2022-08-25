@@ -11,6 +11,7 @@ on:
     paths:
       - "docker/**"
       - ".github/workflows/docker/**"
+      - ".github/workflows/docker_push.yaml"
   release:
     types: [published]
 jobs:
