@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:22.07-py3
+FROM nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
 ENV DEBIAN_FRONTEND noninteractive
 #RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt-get update && \
@@ -10,6 +10,7 @@ RUN apt-get update && \
 RUN  python3 -m pip install cython && \
   python3 -m pip install opencv-python==4.5.5.64 && \
   python3 -m pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+  python3 -m pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 WORKDIR /
 #RUN git clone https://github.com/NVIDIA-AI-IOT/torch2trt.git
 #WORKDIR /torch2trt
