@@ -2,9 +2,9 @@
 
 ## Train yolox model
 ### Requirement
-- docker
+- [docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
 - docker-compose
-- nvidia-docker
+- [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit)
 - nvidia-gpu (hardware)
 
 ```
@@ -71,9 +71,9 @@ train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large 
 
 ## Convert yolox pytorch model into tensorrt model.
 ### Requirement
-- docker
+- [docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
 - docker-compose
-- nvidia-docker
+- [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit)
 - nvidia-gpu (hardware)
 
 ```
