@@ -295,13 +295,13 @@
     version: main
     accept_hostkey: yes
   tags: [wait for apt support]
-- name: librealsense_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
-    dest: "{{workspace_path}}/src/apt-missing/librealsense_vendor"
-    version: master
-    accept_hostkey: yes
-  tags: [wait for apt support]
+# - name: librealsense_vendor
+#   git:
+#     repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
+#     dest: "{{workspace_path}}/src/apt-missing/librealsense_vendor"
+#     version: master
+#     accept_hostkey: yes
+#   tags: [wait for apt support]
 
 - name: ros2_control
   git:
