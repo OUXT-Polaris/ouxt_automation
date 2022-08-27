@@ -2,8 +2,6 @@
 - name: Setup Development Environment
   hosts: all
   roles:
-    - nodejs
-    - actions
     - python
     - ros2
     - create_workspace
