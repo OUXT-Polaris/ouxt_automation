@@ -234,13 +234,13 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
-- name: clone realsense_hardware_interface
-  git:
-    repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
-    dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
-    version: prepare/humble
-    accept_hostkey: yes
-  tags: [driver]
+# - name: clone realsense_hardware_interface
+#   git:
+#     repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
+#     dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
+#     version: prepare/humble
+#     accept_hostkey: yes
+#   tags: [driver]
 - name: clone nmea_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
