@@ -2,9 +2,9 @@
 
 ## Train yolox model
 ### Requirement
-- docker
+- [docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
 - docker-compose
-- nvidia-docker
+- [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit)
 - nvidia-gpu (hardware)
 
 ```
@@ -71,9 +71,9 @@ train_yolox_container |  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large 
 
 ## Convert yolox pytorch model into tensorrt model.
 ### Requirement
-- docker
+- [docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
 - docker-compose
-- nvidia-docker
+- [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#setting-up-nvidia-container-toolkit)
 - nvidia-gpu (hardware)
 
 ```
@@ -86,7 +86,7 @@ Output should be like below.
 docker-compose build
 
 Building torch2trt
-Step 1/12 : FROM nvcr.io/nvidia/pytorch:21.09-py3
+Step 1/12 : FROM nvcr.io/nvidia/pytorch:22.07-py3
  ---> 74d53f84c686
 Step 2/12 : RUN python3 -m pip install nvidia-pyindex packaging &&   python3 -m pip install --upgrade nvidia-tensorrt
  ---> Using cache
@@ -189,4 +189,11 @@ torch2trt_1  | [02/26/2022-09:33:48] [TRT] [I] [MemUsageChange] TensorRT-managed
 torch2trt_1  | 2022-02-26 09:33:48.565 | INFO     | __main__:main:71 - Converted TensorRT model done.
 torch2trt_1  | 2022-02-26 09:33:48.581 | INFO     | __main__:main:79 - Converted TensorRT model engine file is saved for C++ inference.
 torch2trt_torch2trt_1 exited with code 0
+```
+
+## Download dataset
+
+you can download dataset via [google drive](https://drive.google.com/file/d/1FMCPw5fD9Sl-0eTXhb6FS6YBDkaSIyTB/view?usp=sharing) by running this command.
+```
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --ask-become-pass
 ```

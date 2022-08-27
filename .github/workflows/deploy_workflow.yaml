@@ -29,6 +29,7 @@ jobs:
         package_name: [
           boost_geometry_util,
           color_names,
+          copto_ros,
           data_buffer,
           dynamixel_hardware_interface,
           geographic_conversion,
@@ -60,6 +61,8 @@ jobs:
           robotx_communication,
           robotx_costmap_calculator,
           robotx_ekf,
+          robotx_planner_bringup,
+          ros_kvh1750,
           scan_segmentation,
           sol_vendor,
           tcp_sender,
@@ -98,7 +101,7 @@ jobs:
     - name: Check branch exist
       id: check_branch
       run: |
-        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.package_name }}.git workflow/sync | wc -l)"
+        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)"
     - name: Count changes
       id: changes
       run: |

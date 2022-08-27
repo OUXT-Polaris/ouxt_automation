@@ -1,0 +1,53 @@
+---
+- name: install required packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+    - python3
+    - python3-pip
+    - git
+  become: true
+
+- name: upgrade pip
+  pip:
+    name: pip
+    executable: pip3
+    state: latest
+
+- name: install gdown
+  pip:
+    name:
+      - gdown
+      - labelme==3.16.7
+    executable: pip3
+
+- name: make dataset directory
+  file: 
+    path: "{{dataset_path}}/dataset"
+    state: directory
+    recurse: yes
+
+- name : clone annotation data
+  git:
+    repo: https://github.com/OUXT-Polaris/dataset_annotations.git
+    dest: "{{dataset_path}}/dataset/images"
+    version: master
+    accept_hostkey: yes
+
+- name: check dataset exists
+  stat:
+    path: "{{dataset_path}}/images.zip"
+  register: dataset_exists
+
+- name: download datasets
+  shell: gdown 1FMCPw5fD9Sl-0eTXhb6FS6YBDkaSIyTB -O "{{dataset_path}}"/images.zip
+  when: not dataset_exists.stat.exists
+
+- name: unzip images.zip
+  unarchive:
+    src: "{{dataset_path}}/images.zip"
+    dest: "{{dataset_path}}/dataset"

@@ -1,5 +1,5 @@
 ---
-- name: check whther nodejs exists
+- name: check whether nodejs exists
   stat:
     path: "/usr/bin/nodejs"
   register: chk_nodejs

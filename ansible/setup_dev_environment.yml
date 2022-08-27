@@ -3,8 +3,6 @@
   hosts: all
   roles:
     - docker
-    - nodejs
-    - actions
     - python
     - ros2
     - create_workspace
