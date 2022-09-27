@@ -62,6 +62,12 @@
     version: tier4/main
     accept_hostkey: yes
   tags: [perception]
+- name: clone lidar_camera_fusion
+  git:
+    repo: https://github.com/OUXT-Polaris/lidar_camera_fusion.git
+    dest: "{{workspace_path}}/src/perception/lidar_camera_fusion"
+    version: master
+    accept_hostkey: yes
 
 # Planning Packages
 - name : clone hermite_path_planner

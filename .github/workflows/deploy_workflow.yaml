@@ -39,6 +39,7 @@ jobs:
           hungarian_solver,
           image_processing_utils,
           joy_to_twist,
+          lidar_camera_fusion,
           lua_vendor,
           message_synchronizer,
           miniv_control,
