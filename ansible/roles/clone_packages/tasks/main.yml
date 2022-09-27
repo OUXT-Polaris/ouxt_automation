@@ -68,6 +68,7 @@
     dest: "{{workspace_path}}/src/perception/lidar_camera_fusion"
     version: master
     accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
