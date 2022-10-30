@@ -136,13 +136,13 @@
     version: 7afca6c8314bd3016dc974541aecca3ed39ccab0
     accept_hostkey: yes
   tags: [utility]
-#- name: clone groot
-#  git:
-#    repo: https://github.com/BehaviorTree/Groot.git
-#    dest: "{{workspace_path}}/src/utils/groot"
-#    version: master
-#    accept_hostkey: yes
-#  tags: [utility]
+- name: clone groot
+  git:
+    repo: https://github.com/BehaviorTree/Groot.git
+    dest: "{{workspace_path}}/src/utils/groot"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 - name: clone hungarian_solver
   git:
     repo: https://github.com/OUXT-Polaris/hungarian_solver.git
