@@ -140,7 +140,7 @@
   git:
     repo: https://github.com/BehaviorTree/Groot.git
     dest: "{{workspace_path}}/src/utils/groot"
-    version: master
+    version: 2515530df24715b9fc961d87723561abf88f7668
     accept_hostkey: yes
   tags: [utility]
 - name: clone hungarian_solver
