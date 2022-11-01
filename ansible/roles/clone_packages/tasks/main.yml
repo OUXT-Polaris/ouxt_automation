@@ -137,12 +137,12 @@
     accept_hostkey: yes
   tags: [utility]
 # Groot is necessary?
-- name: clone groot
-  git:
-    repo: https://github.com/BehaviorTree/Groot.git
-    dest: "{{workspace_path}}/src/utils/groot"
-    version: master
-    accept_hostkey: yes
+#- name: clone groot
+#  git:
+#    repo: https://github.com/BehaviorTree/Groot.git
+#    dest: "{{workspace_path}}/src/utils/groot"
+#    version: master
+#    accept_hostkey: yes
   tags: [utility]
 - name: clone hungarian_solver
   git:
