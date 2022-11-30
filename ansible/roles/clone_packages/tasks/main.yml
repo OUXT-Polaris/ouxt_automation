@@ -291,6 +291,15 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
+
+- name: clone copto_ros
+  git:
+    repo: https://github.com/OUXT-Polaris/copto_ros.git
+    dest: "{{workspace_path}}/src/drivers/copto_ros"
+    version: master
+    accept_hostkey: yes
+  tags: [driver]
+
 - name: clone ros_kvh1750 package
   git:
     repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
