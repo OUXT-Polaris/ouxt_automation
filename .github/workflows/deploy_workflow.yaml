@@ -29,6 +29,7 @@ jobs:
         package_name: [
           boost_geometry_util,
           color_names,
+          copto_ros,
           data_buffer,
           dynamixel_hardware_interface,
           geographic_conversion,
@@ -38,6 +39,7 @@ jobs:
           hungarian_solver,
           image_processing_utils,
           joy_to_twist,
+          lidar_camera_fusion,
           lua_vendor,
           message_synchronizer,
           miniv_control,
@@ -52,6 +54,7 @@ jobs:
           perception_bringup,
           perception_camera_driver,
           perception_msgs,
+          perception_server,
           playstation_controller_drivers,
           quaternion_operation,
           realsense_hardware_interface,
@@ -59,12 +62,15 @@ jobs:
           robotx_communication,
           robotx_costmap_calculator,
           robotx_ekf,
+          robotx_planner_bringup,
+          ros_kvh1750,
           scan_segmentation,
           sol_vendor,
           tcp_sender,
           unisim_ros2_control,
           usv_controller,
           wamv_control,
+          wamv_description,
         ]
     steps:
     - uses: actions/download-artifact@v2
@@ -80,7 +86,7 @@ jobs:
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"foxy,galactic\" }"
+        parameters: "{ \"rosdistro\" : \"galactic\" }"
     - name: Deploy release workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
@@ -96,7 +102,7 @@ jobs:
     - name: Check branch exist
       id: check_branch
       run: |
-        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/${{ matrix.package_name }}.git workflow/sync | wc -l)"
+        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)"
     - name: Count changes
       id: changes
       run: |

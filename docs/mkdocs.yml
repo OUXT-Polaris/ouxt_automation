@@ -91,9 +91,10 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Tutorials:
-    - tutorials/supported_platforms.md
     - tutorials/build_instraction.md
+    - tutorials/ml_pipeline.md
     - tutorials/navigation_demo.md
+    - tutorials/supported_platforms.md
   - Software Packages: packages.md
   - Tools: tools/tools.md
   - Hardware Documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/

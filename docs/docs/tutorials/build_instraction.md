@@ -45,4 +45,15 @@ export PERSONAL_ACCESS_TOKEN=$(ACCESS_TOKEN_OF_WAM_V_TAN_BOT)
 ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_endpoint.yml --connection local --ask-become-pass
 ```
 
-If your want to know personal access token, please read [this documentation](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+If you want to know personal access token, please read [this documentation](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+## setup firmware development environment
+
+This playbook includes three steps.
+1. Install Docker
+1. Clone firmware package
+1. Build firmware with docker
+
+```
+ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --ask-become-pass
+```

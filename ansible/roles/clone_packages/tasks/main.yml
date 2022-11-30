@@ -48,6 +48,27 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone perception_server
+  git:
+    repo: https://github.com/OUXT-Polaris/perception_server.git
+    dest: "{{workspace_path}}/src/perception/perception_server"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
+- name: clone ndt_omp
+  git:
+    repo: https://github.com/tier4/ndt_omp.git
+    dest: "{{workspace_path}}/src/perception/ndt_omp"
+    version: tier4/main
+    accept_hostkey: yes
+  tags: [perception]
+- name: clone lidar_camera_fusion
+  git:
+    repo: https://github.com/OUXT-Polaris/lidar_camera_fusion.git
+    dest: "{{workspace_path}}/src/perception/lidar_camera_fusion"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -61,6 +82,13 @@
   git:
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
+    version: master
+    accept_hostkey: yes
+  tags: [planning]
+- name: clone robotx_behavior_tree
+  git:
+    repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
+    dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
     version: master
     accept_hostkey: yes
   tags: [planning]
@@ -110,12 +138,13 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [utility]
-- name: clone groot
-  git:
-    repo: https://github.com/BehaviorTree/Groot.git
-    dest: "{{workspace_path}}/src/utils/groot"
-    version: master
-    accept_hostkey: yes
+# Groot is necessary?
+#- name: clone groot
+#  git:
+#    repo: https://github.com/BehaviorTree/Groot.git
+#    dest: "{{workspace_path}}/src/utils/groot"
+#    version: master
+#    accept_hostkey: yes
   tags: [utility]
 - name: clone hungarian_solver
   git:
@@ -255,6 +284,20 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
+- name: clone copto_ros
+  git:
+    repo: https://github.com/OUXT-Polaris/copto_ros.git
+    dest: "{{workspace_path}}/src/drivers/copto_ros"
+    version: master
+    accept_hostkey: yes
+  tags: [driver]
+- name: clone ros_kvh1750 package
+  git:
+    repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
+    dest: "{{workspace_path}}/src/drivers/ros_kvh1750"
+    version: ros2
+    accept_hostkey: yes
+  tags: [driver]
 
 # Control Package
 - name: clone usv_controller package
@@ -310,3 +353,4 @@
     version: 2.13.0
     accept_hostkey: yes
   tags: [wait for apt support]
+

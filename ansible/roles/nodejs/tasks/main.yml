@@ -1,4 +1,9 @@
 ---
+- name: check whether nodejs exists
+  stat:
+    path: "/usr/bin/nodejs"
+  register: chk_nodejs
+
 - name: install required packages
   apt:
     name: "{{ packages }}"
