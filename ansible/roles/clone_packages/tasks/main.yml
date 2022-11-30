@@ -133,9 +133,9 @@
 
 - name: clone grid_map
   git:
-    repo: https://github.com/tier4/grid_map.git
+    repo: https://github.com/ANYbotics/grid_map.git
     dest: "{{workspace_path}}/src/utils/grid_map"
-    version: prepare/humble
+    version: 74333f037cfce321248dfa7b954a815d4f67d79d
     accept_hostkey: yes
   tags: [utility]
 # Groot is necessary?
