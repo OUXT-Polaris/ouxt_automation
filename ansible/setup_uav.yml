@@ -1,0 +1,6 @@
+---
+- name: Setup uav
+  hosts: all
+  roles: 
+    - python
+    - ros2
