@@ -115,6 +115,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone filters
+  git:
+    repo: https://github.com/ros/filters.git
+    dest: "{{workspace_path}}/src/utils/filters"
+    version: ros2
+    accept_hostkey: yes
+  tags: [utility]
 - name: clone rospy2
   git:
     repo: https://github.com/OUXT-Polaris/rospy2.git
