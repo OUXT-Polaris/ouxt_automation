@@ -151,6 +151,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone lua_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/lua_vendor.git
+    dest: "{{workspace_path}}/src/utils/lua_vendor"
+    version: main
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -247,13 +254,6 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
-# - name: clone realsense_hardware_interface
-#   git:
-#     repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
-#     dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
-#     version: prepare/humble
-#     accept_hostkey: yes
-#   tags: [driver]
 - name: clone nmea_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
@@ -268,22 +268,6 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
-- name: clone copto_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/copto_ros.git
-    dest: "{{workspace_path}}/src/drivers/copto_ros"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-
-- name: clone copto_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/copto_ros.git
-    dest: "{{workspace_path}}/src/drivers/copto_ros"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-
 - name: clone ros_kvh1750 package
   git:
     repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
@@ -316,34 +300,3 @@
     version: prepare/humble
     accept_hostkey: yes
   tags: [simulation]
-- name: clone unisim_ros2_control
-  git:
-    repo: https://github.com/OUXT-Polaris/unisim_ros2_control.git
-    dest: "{{workspace_path}}/src/simulation/unisim_ros2_control"
-    version: master
-    accept_hostkey: yes
-  tags: [simulation]
-
-- name: clone lua_vendor
-  git:
-    repo: https://github.com/OUXT-Polaris/lua_vendor.git
-    dest: "{{workspace_path}}/src/apt-missing/lua_vendor"
-    version: main
-    accept_hostkey: yes
-  tags: [wait for apt support]
-# - name: librealsense_vendor
-#   git:
-#     repo: https://github.com/OUXT-Polaris/librealsense_vendor.git
-#     dest: "{{workspace_path}}/src/apt-missing/librealsense_vendor"
-#     version: master
-#     accept_hostkey: yes
-#   tags: [wait for apt support]
-
-- name: ros2_control
-  git:
-    repo: https://github.com/ros-controls/ros2_control.git
-    dest: "{{workspace_path}}/src/apt-missing/ros2_control"
-    version: 2.13.0
-    accept_hostkey: yes
-  tags: [wait for apt support]
-
