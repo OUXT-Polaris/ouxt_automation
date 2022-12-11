@@ -130,22 +130,6 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
-
-- name: clone grid_map
-  git:
-    repo: https://github.com/ANYbotics/grid_map.git
-    dest: "{{workspace_path}}/src/utils/grid_map"
-    version: 74333f037cfce321248dfa7b954a815d4f67d79d
-    accept_hostkey: yes
-  tags: [utility]
-# Groot is necessary?
-#- name: clone groot
-#  git:
-#    repo: https://github.com/BehaviorTree/Groot.git
-#    dest: "{{workspace_path}}/src/utils/groot"
-#    version: master
-#    accept_hostkey: yes
-  tags: [utility]
 - name: clone hungarian_solver
   git:
     repo: https://github.com/OUXT-Polaris/hungarian_solver.git
