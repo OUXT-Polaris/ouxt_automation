@@ -11,8 +11,7 @@
   tags: [setup_mavros]
 
 - name: install GeographicLib datasets
-  shell: |-
-    ros2 run mavros install_geographiclib_datasets.sh
+  shell: ros2 run mavros install_geographiclib_datasets.sh
   tags: [setup_mavros]
   
 - name: make workspace

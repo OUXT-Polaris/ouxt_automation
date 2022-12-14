@@ -3,5 +3,6 @@ ros_package_name: ros-humble-ros-base
 workspace_path: "{{ansible_env.PWD}}/../robotx_ws"
 python_workspace_path: "{{ansible_env.PWD}}/../python_ws"
 ansible_python_interpreter : "/usr/bin/python3"
-ansible_connection: local
-ntp_server: true
+ansible_connection: uav
+ansible_user : root
+ntp_server: false
