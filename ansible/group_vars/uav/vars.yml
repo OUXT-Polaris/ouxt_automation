@@ -1,5 +1,5 @@
 ---
-ros_package_name: ros-galactic-ros-base
+ros_package_name: ros-humble-ros-base
 workspace_path: "{{ansible_env.PWD}}/../robotx_ws"
 python_workspace_path: "{{ansible_env.PWD}}/../python_ws"
 ansible_python_interpreter : "/usr/bin/python3"
