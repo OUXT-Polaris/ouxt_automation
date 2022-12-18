@@ -12,7 +12,7 @@
 - name: add setup.bash to .bashrc
   lineinfile:
     dest: /home/{{ ansible_user }}/.bashrc
-    line: "source /opt/ros/galactic/setup.bash"
+    line: "source /opt/ros/humble/setup.bash"
     create: yes
   tags: [create_workspace]
 
