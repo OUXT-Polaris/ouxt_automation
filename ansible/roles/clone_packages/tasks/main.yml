@@ -251,7 +251,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
     dest: "{{workspace_path}}/src/drivers/playstation_controller_drivers"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [driver]
 - name: clone nmea_hardware_interface
