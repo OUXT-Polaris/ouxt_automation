@@ -10,7 +10,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
     dest: "{{workspace_path}}/src/perception/pcl_apps"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [perception]
 - name : clone scan_segmentation
