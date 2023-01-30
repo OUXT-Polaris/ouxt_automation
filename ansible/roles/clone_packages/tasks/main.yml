@@ -290,6 +290,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/navi_sim.git
     dest: "{{workspace_path}}/src/simulation/navi_sim"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [simulation]
