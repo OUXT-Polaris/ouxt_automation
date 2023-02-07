@@ -20,13 +20,13 @@
   ignore_errors: true
 
 - name: install depends
-  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro galactic
+  command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro humble
   become: yes
 
 - name: load env variable & build
   shell: |-
     cd {{ workspace_path }}
-    source /opt/ros/galactic/setup.bash
+    source /opt/ros/humble/setup.bash
     colcon build
   args:
     executable: /bin/bash

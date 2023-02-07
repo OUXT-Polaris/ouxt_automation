@@ -56,7 +56,11 @@
   ignore_errors: true
   tags: [setup_ros2]
 
-- name: install ros2 galactic/colcon/vcs
+# - name: fix errors
+#   shell: apt-get -y update && apt-get -y upgrade && apt-get --with-new-pkgs -y upgrade && aptitude -y full-upgrade && apt-get -y update && apt-get -y upgrade
+#   become: yes
+
+- name: install ros2 humble/colcon/vcs
   become: yes
   apt:
     name: "{{ packages }}"
@@ -73,6 +77,6 @@
       - python3-rosdep
       - python3-argcomplete
       - python3-pip
-      - ros-galactic-ament-cmake
+      - ros-humble-ament-cmake
       - ca-certificates
   tags: [setup_ros2]

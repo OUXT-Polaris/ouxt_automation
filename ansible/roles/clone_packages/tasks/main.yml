@@ -122,27 +122,13 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
+
 - name: clone rosboard
   git:
-    repo: https://github.com/OUXT-Polaris/rosboard.git
+    repo: https://github.com/dheera/rosboard.git
     dest: "{{workspace_path}}/src/utils/rosboard"
     version: main
     accept_hostkey: yes
-  tags: [utility]
-- name: clone grid_map
-  git:
-    repo: https://github.com/ANYbotics/grid_map.git
-    dest: "{{workspace_path}}/src/utils/grid_map"
-    version: 7afca6c8314bd3016dc974541aecca3ed39ccab0
-    accept_hostkey: yes
-  tags: [utility]
-# Groot is necessary?
-#- name: clone groot
-#  git:
-#    repo: https://github.com/BehaviorTree/Groot.git
-#    dest: "{{workspace_path}}/src/utils/groot"
-#    version: master
-#    accept_hostkey: yes
   tags: [utility]
 - name: clone hungarian_solver
   git:
@@ -163,6 +149,13 @@
     repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
     dest: "{{workspace_path}}/src/utils/boost_geometry_util"
     version: master
+    accept_hostkey: yes
+  tags: [utility]
+- name: clone lua_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/lua_vendor.git
+    dest: "{{workspace_path}}/src/utils/lua_vendor"
+    version: main
     accept_hostkey: yes
   tags: [utility]
 
@@ -231,14 +224,14 @@
   git:
     repo: https://github.com/OUXT-Polaris/miniv_control.git
     dest: "{{workspace_path}}/src/drivers/miniv_control"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
 - name: clone wamv_control
   git:
     repo: https://github.com/OUXT-Polaris/wamv_control.git
     dest: "{{workspace_path}}/src/drivers/wamv_control"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
 - name: clone tcp_sender
   git:
@@ -251,7 +244,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
 - name: clone playstation_controller_drivers
@@ -261,32 +254,11 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
-- name: clone realsense_hardware_interface
-  git:
-    repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
-    dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
 - name: clone nmea_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/nmea_hardware_interface"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone perception_camera_driver
-  git:
-    repo: https://github.com/OUXT-Polaris/perception_camera_driver.git
-    dest: "{{workspace_path}}/src/drivers/perception_camera_driver"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone copto_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/copto_ros.git
-    dest: "{{workspace_path}}/src/drivers/copto_ros"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [driver]
 - name: clone ros_kvh1750 package
@@ -302,7 +274,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/usv_controller.git
     dest: "{{workspace_path}}/src/control/usv_controller"
-    version: master
+    version: prepare/humble
     accept_hostkey: yes
   tags: [control]
 - name : clone joy_to_twist
@@ -318,13 +290,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/navi_sim.git
     dest: "{{workspace_path}}/src/simulation/navi_sim"
-    version: master
-    accept_hostkey: yes
-  tags: [simulation]
-- name: clone unisim_ros2_control
-  git:
-    repo: https://github.com/OUXT-Polaris/unisim_ros2_control.git
-    dest: "{{workspace_path}}/src/simulation/unisim_ros2_control"
     version: master
     accept_hostkey: yes
   tags: [simulation]

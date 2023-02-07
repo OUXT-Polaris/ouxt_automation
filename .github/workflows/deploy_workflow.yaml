@@ -29,7 +29,6 @@ jobs:
         package_name: [
           boost_geometry_util,
           color_names,
-          copto_ros,
           data_buffer,
           dynamixel_hardware_interface,
           geographic_conversion,
@@ -57,7 +56,6 @@ jobs:
           perception_server,
           playstation_controller_drivers,
           quaternion_operation,
-          realsense_hardware_interface,
           robotx_behavior_tree,
           robotx_communication,
           robotx_costmap_calculator,
@@ -67,7 +65,6 @@ jobs:
           scan_segmentation,
           sol_vendor,
           tcp_sender,
-          unisim_ros2_control,
           usv_controller,
           wamv_control,
           wamv_description,
