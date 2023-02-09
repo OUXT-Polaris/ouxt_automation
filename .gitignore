@@ -7,8 +7,6 @@ mbed_ws
 robotx_tools
 log
 private.yml
-docker/scenario_test/packages.repos
-docker/scenario_test_runtime/packages.repos
 scripts/packages.repos
 scripts/rosdep_base.yaml
 scripts/rosdep.yaml
