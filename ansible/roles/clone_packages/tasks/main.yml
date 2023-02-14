@@ -274,7 +274,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/usv_controller.git
     dest: "{{workspace_path}}/src/control/usv_controller"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [control]
 - name : clone joy_to_twist
