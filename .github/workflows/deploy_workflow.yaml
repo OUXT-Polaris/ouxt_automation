@@ -33,7 +33,6 @@ jobs:
           dynamixel_hardware_interface,
           geographic_conversion,
           geographic_info,
-          geometry_msgs_data_buffer,
           hermite_path_planner,
           hungarian_solver,
           image_processing_utils,

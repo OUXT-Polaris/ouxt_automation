@@ -101,13 +101,6 @@
     version: ros2
     accept_hostkey: yes
   tags: [utility]
-- name: clone geometry_msgs_data_buffer
-  git:
-    repo: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
-    dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
-    version: ros2
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone message_synchronizer
   git:
     repo: https://github.com/OUXT-Polaris/message_synchronizer.git
