@@ -217,7 +217,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/miniv_control.git
     dest: "{{workspace_path}}/src/drivers/miniv_control"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [driver]
 - name: clone wamv_control
