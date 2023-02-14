@@ -251,7 +251,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/nmea_hardware_interface"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [driver]
 - name: clone ros_kvh1750 package
