@@ -224,7 +224,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/wamv_control.git
     dest: "{{workspace_path}}/src/drivers/wamv_control"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
 - name: clone tcp_sender
   git:
@@ -237,7 +237,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
-    version: prepare/humble
+    version: master
     accept_hostkey: yes
   tags: [driver]
 - name: clone playstation_controller_drivers
