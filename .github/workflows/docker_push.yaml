@@ -92,9 +92,9 @@ jobs:
           context: ./.github/workflows/docker/dev_container
           file: ./.github/workflows/docker/dev_container/Dockerfile
           tags: wamvtan/dev_container:latest
-          no-cache: false
-          cache-from: type=registry,ref=wamvtan/dev_container:buildcache
-          cache-to: type=registry,ref=wamvtan/dev_container:buildcache,mode=max
+          no-cache: true
+          # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
+          # cache-to: type=registry,ref=wamvtan/dev_container:buildcache,mode=max
           push: true
       - name: Build Docker Image
         if: ${{ github.event_name == 'pull_request'}}
@@ -107,8 +107,8 @@ jobs:
           context: ./.github/workflows/docker/dev_container
           file: ./.github/workflows/docker/dev_container/Dockerfile
           tags: wamvtan/dev_container:latest
-          no-cache: false
-          cache-from: type=registry,ref=wamvtan/dev_container:buildcache
+          no-cache: true
+          # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
           push: false
     name: build and push wamvtan/dev_container
     runs-on: ubuntu-20.04
