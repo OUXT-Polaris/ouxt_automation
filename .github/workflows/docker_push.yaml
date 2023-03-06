@@ -68,7 +68,7 @@ jobs:
           no-cache: false
           cache-from: type=registry,ref=wamvtan/l4t_opencv:${{ matrix.opencv_version }}-buildcache
           push: false
-  yolox:
+  dev_container:
     name: build and push wamvtan/dev_container
     runs-on: ubuntu-20.04
     timeout-minutes: 60
