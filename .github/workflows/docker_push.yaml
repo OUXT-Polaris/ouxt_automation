@@ -69,7 +69,48 @@ jobs:
           cache-from: type=registry,ref=wamvtan/l4t_opencv:${{ matrix.opencv_version }}-buildcache
           push: false
   yolox:
-    name: build and push wamvtan/yolox
+    name: build and push wamvtan/dev_container
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and Push Docker Image
+        if: ${{ github.event_name != 'pull_request'}}
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/dev_container
+          file: ./.github/workflows/docker/dev_container/Dockerfile
+          tags: wamvtan/dev_container:latest
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/dev_container:buildcache
+          cache-to: type=registry,ref=wamvtan/dev_container:buildcache,mode=max
+          push: true
+      - name: Build Docker Image
+        if: ${{ github.event_name == 'pull_request'}}
+        uses: docker/build-push-action@v2
+        env:
+          DOCKER_BUILDKIT: 1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          context: ./.github/workflows/docker/dev_container
+          file: ./.github/workflows/docker/dev_container/Dockerfile
+          tags: wamvtan/dev_container:latest
+          no-cache: false
+          cache-from: type=registry,ref=wamvtan/dev_container:buildcache
+          push: false
+    name: build and push wamvtan/dev_container
     runs-on: ubuntu-20.04
     timeout-minutes: 30
     steps:
