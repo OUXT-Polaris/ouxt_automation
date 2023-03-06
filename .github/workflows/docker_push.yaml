@@ -110,7 +110,8 @@ jobs:
           no-cache: true
           # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
           push: false
-    name: build and push wamvtan/dev_container
+  yolox:
+    name: build and push wamvtan/yolox
     runs-on: ubuntu-20.04
     timeout-minutes: 30
     steps:
