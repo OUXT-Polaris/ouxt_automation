@@ -16,14 +16,6 @@ not first time (skip installing ros2)
 sh update.sh
 ```
 
-## setup develop container
-
-```
-docker compose build
-docker compose up -d
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_environment.yml
-```
-
 ### Troubleshooting
 > Failed to connect to the host via ssh
 
