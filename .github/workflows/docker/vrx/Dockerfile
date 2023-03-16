@@ -22,3 +22,5 @@ RUN rosdep install -iry --from-paths .
 ENV GZ_VERSION garden
 WORKDIR /home/vrx_ws
 RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"]
+ADD fuel.gazebosim.org /root/.gz/fuel/fuel.gazebosim.org
+ENTRYPOINT ["/bin/bash", "-c", "source /opt/ros/humble/setup.bash && source /home/vrx_ws/install/local_setup.bash && ros2 launch vrx_gz competition.launch.py world:=sydney_regatta headless:=true"]

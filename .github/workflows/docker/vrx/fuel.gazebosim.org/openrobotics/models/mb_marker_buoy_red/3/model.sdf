@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <model name="mb_marker_buoy_red">
+        <link name="link">
+            <inertial>
+                <pose>0 0 -0.3 0 0 0</pose>
+                <mass>20</mass>
+                <inertia>
+                    <ixx>2.316</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>2.316</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.225</izz>
+                </inertia>
+            </inertial>
+            <collision name="collision_inner">
+                <pose>0 -0.02 0.02 0 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.15</radius>
+                        <length>1.15</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <collision name="collision_outer">
+                <pose>0 0 -0.3 0 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.325</radius>
+                        <length>0.1</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <pose>0 0 0 1.57079 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>meshes/mb_marker_buoy.dae</uri>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.7921 0.0039 0.0274</ambient>
+                    <diffuse>0.7921 0.0039 0.0274</diffuse>
+                    <specular>0.7921 0.0039 0.0274 1</specular>
+                    <pbr>
+                        <metal>
+                            <roughness_map>materials/textures/MarkerBuoy_Roughness.png</roughness_map>
+                        </metal>
+                    </pbr>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>
