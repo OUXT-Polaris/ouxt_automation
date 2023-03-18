@@ -38,7 +38,7 @@ runs:
         file: ./.github/workflows/docker/yolox_trainer/Dockerfile
         tags: wamvtan/yolox_trainer:latest
         build-args: |
-          "os=${{ inputs.os }}"
+          "os=${{ inputs.os_version }}"
           "runner_version=${{ inputs.github_actions_runner_version }}"
         no-cache: false
         cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
@@ -56,7 +56,7 @@ runs:
         file: ./.github/workflows/docker/yolox_trainer/Dockerfile
         tags: wamvtan/yolox_trainer:latest
         build-args: |
-          "os=${{ inputs.os }}"
+          "os=${{ inputs.os_version }}"
           "runner_version=${{ inputs.github_actions_runner_version }}"
         no-cache: false
         cache-from: type=registry,ref=wamvtan/yolox_trainer:buildcache
