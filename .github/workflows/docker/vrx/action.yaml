@@ -56,3 +56,4 @@ runs:
         repository: wamvtan/vrx
         short-description: "Docker Image for Virtual RobotX Challenge"
         readme-filepath: ./.github/workflows/docker/vrx/README.md
+        enable-url-completion: true
