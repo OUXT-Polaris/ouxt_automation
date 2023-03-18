@@ -43,5 +43,3 @@ In default setting, you can publish/subscribe these topics.
 ```
 
 Using rviz, you can check lidar / camera data comes from docker container.　　
-
-![rviz](rviz.png)
