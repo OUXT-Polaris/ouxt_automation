@@ -74,7 +74,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/docker/dev_container/action.yaml
+      - uses: ./.github/workflows/docker/dev_container
   yolox:
     name: build and push wamvtan/yolox
     runs-on: ubuntu-20.04
