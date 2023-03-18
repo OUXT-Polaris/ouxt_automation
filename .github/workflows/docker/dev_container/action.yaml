@@ -1,4 +1,4 @@
-name: "Build Dev Container Action"
+name: "Build dev-container image Action"
 description: "Build dev-container docker images"
 
 inputs:
