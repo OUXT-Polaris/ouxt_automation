@@ -1,6 +1,14 @@
 name: "Build Dev Container Action"
 description: "Build dev-container docker images"
 
+inputs:
+  docker_username:
+    description: "Username for Dockerhub"
+    required: true
+  docker_password:
+    description: "Password for Dockerhub"
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -10,16 +18,16 @@ runs:
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ inputs.docker_username }}
+        password: ${{ inputs.docker_password }}
     - name: Build and Push Docker Image
       if: ${{ github.event_name != 'pull_request'}}
       uses: docker/build-push-action@v2
       env:
         DOCKER_BUILDKIT: 1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ inputs.docker_username }}
+        password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/dev_container
         file: ./.github/workflows/docker/dev_container/Dockerfile
         tags: wamvtan/dev_container:latest
@@ -33,8 +41,8 @@ runs:
       env:
         DOCKER_BUILDKIT: 1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ inputs.docker_username }}
+        password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/dev_container
         file: ./.github/workflows/docker/dev_container/Dockerfile
         tags: wamvtan/dev_container:latest
