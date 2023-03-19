@@ -6,10 +6,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Sanada Tatsuya" name="author"/>
-<link href="https://ouxt-polaris.github.io/ouxt_automation/tutorials/ml_pipeline/" rel="canonical"/>
+<link href="https://ouxt-polaris.github.io/ouxt_automation/tools/docker_images/" rel="canonical"/>
 <link href="../../images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.1, mkdocs-material-8.2.11" name="generator"/>
-<title>ML Pipeline - OUXT Polaris Development Automation Tool</title>
+<title>Docker Images - OUXT Polaris Development Automation Tool</title>
 <link href="../../assets/stylesheets/main.8c5ef100.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.9647289d.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ml-pipeline">
+<a class="md-skip" href="#docker-images">
           Skip to content
         </a>
 </div>
@@ -48,7 +48,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              ML Pipeline
+              Docker Images
             
           </span>
 </div>
@@ -106,7 +106,7 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../build_instraction/">
+<a class="md-tabs__link" href="../../tutorials/build_instraction/">
         Tutorials
       </a>
 </li>
@@ -116,9 +116,9 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tools/tools/">
-      Tools
-    </a>
+<a class="md-tabs__link md-tabs__link--active" href="../tools/">
+        Tools
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="https://ouxt-polaris.github.io/robotx-hardware-documentation/">
@@ -166,8 +166,8 @@
         Home
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
           Tutorials
           <span class="md-nav__icon md-icon"></span>
@@ -179,45 +179,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../build_instraction/">
+<a class="md-nav__link" href="../../tutorials/build_instraction/">
         Build Instractions
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          ML Pipeline
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        ML Pipeline
-      </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-we-can-do">
-    What we can do?
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#install">
-    Install
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../navigation_demo/">
+<a class="md-nav__link" href="../../tutorials/navigation_demo/">
         Navigation Demo
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../supported_platforms/">
+<a class="md-nav__link" href="../../tutorials/supported_platforms/">
         Supported Platform
       </a>
 </li>
@@ -229,10 +201,31 @@
         Software Packages
       </a>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tools" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tools/tools/">
+<a class="md-nav__link" href="../tools/">
         Tools
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Docker Images
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="https://ouxt-polaris.github.io/robotx-hardware-documentation/">
@@ -256,13 +249,46 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="ml-pipeline">ML Pipeline<a class="headerlink" href="#ml-pipeline" title="Permanent link">⚓︎</a></h1>
-<h2 id="what-we-can-do">What we can do?<a class="headerlink" href="#what-we-can-do" title="Permanent link">⚓︎</a></h2>
-<p>We can train / convert yolox model automatically.</p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">⚓︎</a></h2>
-<pre><code>ansible-galaxy install -fr ansible/roles/requirements.yml
-ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --ask-become-pass
-</code></pre>
+<h1 id="docker-images">Docker Images<a class="headerlink" href="#docker-images" title="Permanent link">⚓︎</a></h1>
+<p>Some docker images are distributed on dockerhub.<br/>
+Please check the README on Dockerhub for detailed usage instructions.<br/>
+Click on the name of the Docker Image to jump to the Dockerhub details page.</p>
+<table>
+<thead>
+<tr>
+<th>Image Name</th>
+<th>Dockerfile</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://hub.docker.com/r/wamvtan/vrx">wamvtan/vrx</a></td>
+<td><a href="https://github.com/OUXT-Polaris/ouxt_automation/blob/master/.github/workflows/docker/vrx/Dockerfile">Dockerfile</a></td>
+<td>Docker Images for <a href="https://github.com/osrf/vrx">virtual RobotX</a></td>
+</tr>
+<tr>
+<td><a href="https://hub.docker.com/r/wamvtan/dev_container">wamvtan/dev_container</a></td>
+<td><a href="https://github.com/OUXT-Polaris/ouxt_automation/blob/master/.github/workflows/docker/dev_container/Dockerfile">Dockerfile</a></td>
+<td>Docker Image containing software development environment and ROS2 packages.</td>
+</tr>
+<tr>
+<td><a href="https://hub.docker.com/r/wamvtan/l4t_opencv">wamvtan/l4t_opencv</a></td>
+<td><a href="https://github.com/OUXT-Polaris/ouxt_automation/blob/master/.github/workflows/docker/l4t_opencv/Dockerfile">Dockerfile</a></td>
+<td>Docker Image for building opencv for Linux 4 Tegra</td>
+</tr>
+<tr>
+<td><a href="https://hub.docker.com/r/wamvtan/yolox">wamvtan/yolox</a></td>
+<td><a href="https://github.com/OUXT-Polaris/ouxt_automation/blob/master/.github/workflows/docker/yolox/Dockerfile">Dockerfile</a></td>
+<td>Docker Images for inferencing yolox.</td>
+</tr>
+<tr>
+<td><a href="https://hub.docker.com/r/wamvtan/yolox_trainer">wamvtan/yolox_trainer</a></td>
+<td><a href="https://github.com/OUXT-Polaris/ouxt_automation/blob/master/.github/workflows/docker/yolox_trainer/Dockerfile">Dockerfile</a></td>
+<td>Docker Images for training yolox model.</td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 </div>
@@ -273,7 +299,7 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Build Instractions" class="md-footer__link md-footer__link--prev" href="../build_instraction/" rel="prev">
+<a aria-label="Previous: Tools" class="md-footer__link md-footer__link--prev" href="../tools/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -282,17 +308,17 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --
 <span class="md-footer__direction">
                 Previous
               </span>
-              Build Instractions
+              Tools
             </div>
 </div>
 </a>
-<a aria-label="Next: Navigation Demo" class="md-footer__link md-footer__link--next" href="../navigation_demo/" rel="next">
+<a aria-label="Next: Automation Pipeline" class="md-footer__link md-footer__link--next" href="../../automation_pipeline/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Next
               </span>
-              Navigation Demo
+              Automation Pipeline
             </div>
 </div>
 <div class="md-footer__button md-icon">
