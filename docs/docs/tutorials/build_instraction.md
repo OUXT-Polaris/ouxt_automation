@@ -25,7 +25,8 @@ ssh-keygen -f "${HOME}/.ssh/known_hosts" -R "[localhost]:2022"
 ```
 ## setup real robot
 
-`<span style="color: red; ">`_NOTE_ : setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.
+!!! note 
+    setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.
 
 These operations should be run in robot.
 

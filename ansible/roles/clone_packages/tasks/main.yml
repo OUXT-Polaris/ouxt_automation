@@ -108,21 +108,6 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
-- name: clone rospy2
-  git:
-    repo: https://github.com/OUXT-Polaris/rospy2.git
-    dest: "{{workspace_path}}/src/utils/rospy2"
-    version: main
-    accept_hostkey: yes
-  tags: [utility]
-
-- name: clone rosboard
-  git:
-    repo: https://github.com/dheera/rosboard.git
-    dest: "{{workspace_path}}/src/utils/rosboard"
-    version: main
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone hungarian_solver
   git:
     repo: https://github.com/OUXT-Polaris/hungarian_solver.git
