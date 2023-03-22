@@ -16,17 +16,17 @@ not first time (skip installing ros2)
 sh update.sh
 ```
 
-## setup develop container
+### Troubleshooting
+> Failed to connect to the host via ssh
 
+Please execute command below to delete fingerprint of localhost:2022
+```bash
+ssh-keygen -f "${HOME}/.ssh/known_hosts" -R "[localhost]:2022"
 ```
-docker-compose build
-docker-compose up -d
-ansible-playbook -i ansible/hosts/docker.ini ansible/setup_dev_environment.yml
-```
-
 ## setup real robot
 
-`<span style="color: red; ">`_NOTE_ : setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.
+!!! note 
+    setting up real robot is fully automated via github actions, so using this setup-robot playbook manually is not recommended.
 
 These operations should be run in robot.
 

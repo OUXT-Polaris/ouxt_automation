@@ -9,7 +9,7 @@ Please see also, [this page](build_instraction.md).
 ### run simulator and planner
 
 ```
-ros2 launch navi_sim with_planner.launch.py
+ros2 launch navi_sim with_planner.launch.py behavior_config_filepath:=config/loop_demo.yaml
 ```
 
 ### set goal

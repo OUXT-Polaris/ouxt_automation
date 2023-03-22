@@ -50,9 +50,14 @@
   become: yes
   ignore_errors: yes
 
-- name: Install docker-compose
+- name: test directory created
+  file:
+    path: "/usr/local/lib/docker/cli-plugins"
+    state: directory
+
+- name: Install docker compose v2
   get_url:
-    url: "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
-    dest: /usr/local/bin/docker-compose
-    mode: +x
+    url: "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: /usr/local/lib/docker/cli-plugins/docker-compose
+    mode: a+x
   become: yes
