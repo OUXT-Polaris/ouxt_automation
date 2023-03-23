@@ -30,14 +30,17 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 60
     strategy:
-      gui: [novnc, vnc]
-      include:
-        - docker_image: wamvtan/dev_container
-          base_image: ubuntu:22.04
-          gui: novnc
-        - docker_image: wamvtan/dev_container_vnc
-          base_image: tiryoh/ros2-desktop-vnc:humble
-          gui: vnc
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        gui: [novnc, vnc]
+        include:
+          - docker_image: wamvtan/dev_container
+            base_image: ubuntu:22.04
+            gui: novnc
+          - docker_image: wamvtan/dev_container_vnc
+            base_image: tiryoh/ros2-desktop-vnc:humble
+            gui: vnc
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/docker/dev_container
