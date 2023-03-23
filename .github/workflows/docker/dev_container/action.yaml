@@ -8,6 +8,12 @@ inputs:
   docker_password:
     description: "Password for Dockerhub"
     required: true
+  base_image:
+    description: "Base image"
+    required: true
+  image_name:
+    description: "Docker image name"
+    required: true
 
 runs:
   using: "composite"
@@ -30,7 +36,9 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/dev_container
         file: ./.github/workflows/docker/dev_container/Dockerfile
-        tags: wamvtan/dev_container:latest
+        tags: ${{ inputs.image_name }}:latest
+        build-args: |
+          BASE_IMAGE=${{ inputs.base_image }}
         no-cache: true
         # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
         # cache-to: type=registry,ref=wamvtan/dev_container:buildcache,mode=max
@@ -45,7 +53,9 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/dev_container
         file: ./.github/workflows/docker/dev_container/Dockerfile
-        tags: wamvtan/dev_container:latest
+        tags: ${{ inputs.image_name }}:latest
+        build-args: |
+          BASE_IMAGE=${{ inputs.base_image }}
         no-cache: true
         # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
         push: false
@@ -53,7 +63,7 @@ runs:
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
-        repository: wamvtan/dev_container
+        repository: ${{ inputs.image_name }}:latest
         short-description: "Docker Image for Robot Development"
         readme-filepath: ./.github/workflows/docker/dev_container/README.md
         enable-url-completion: true
