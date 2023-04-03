@@ -13,7 +13,6 @@ jobs:
   setup_dev_environment:
     name: setup_dev_environment
     runs-on: ubuntu-22.04
-    container: ubuntu:22.04
     steps:
     - name: Get current date
       id: date
