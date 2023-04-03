@@ -297,10 +297,7 @@ optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-numpy = [
-    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
-    {version = ">=1.23.2", markers = "python_version >= \"3.11\""},
-]
+numpy = {version = ">=1.21.0", markers = "python_version >= \"3.10\""}
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
 tzdata = ">=2022.1"
@@ -530,8 +527,8 @@ watchmedo = ["PyYAML (>=3.10)"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "f063c84dcd00e36ecc024107d29479325cd7ea7ab30aae2cee7cefd686a4213a"
+python-versions = "3.10.10"
+content-hash = "fba8dfe0b6c8a4fa642486e94b34d62c921cf9f1d5930145d6e1a85fe9c880ef"
 
 [metadata.files]
 ansible = []
