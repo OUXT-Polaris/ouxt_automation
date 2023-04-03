@@ -34,9 +34,7 @@ jobs:
         echo "$HOME/.poetry/bin" >> $GITHUB_PATH
     - name: Install depends
       run: |
-        poetry install && poetry shell
-      env:
-        PATH: /github/home/.local/bin:$PATH
+        poetry install
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu

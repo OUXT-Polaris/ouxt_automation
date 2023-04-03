@@ -26,15 +26,11 @@ jobs:
     - name: Install depends
       run: |
         poetry install && poetry shell
-      env:
-        PATH: /github/home/.local/bin:$PATH
     - name: Set env
       run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
     - name: Generate documentation
       run: poetry run mkdocs build
       working-directory: docs
-      env:
-        PATH: /github/home/.local/bin:$PATH
     - uses: actions/upload-artifact@v2
       if: ${{ github.event_name == 'pull_request'}}
       with:
