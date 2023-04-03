@@ -26,18 +26,22 @@ jobs:
     - name: Install depends
       run: |
         poetry install && poetry shell
-      - name: Set env
-        run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
-      - name: Generate documentation
-        run: poetry run mkdocs build
-        working-directory: docs
-      - uses: actions/upload-artifact@v2
-        if: ${{ github.event_name == 'pull_request'}}
-        with:
-          name: site
-          path: docs/site
-      - uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name != 'pull_request'}}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/site
+      env:
+        PATH: /github/home/.local/bin:$PATH
+    - name: Set env
+      run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
+    - name: Generate documentation
+      run: poetry run mkdocs build
+      working-directory: docs
+      env:
+        PATH: /github/home/.local/bin:$PATH
+    - uses: actions/upload-artifact@v2
+      if: ${{ github.event_name == 'pull_request'}}
+      with:
+        name: site
+        path: docs/site
+    - uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.event_name != 'pull_request'}}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/site

@@ -24,6 +24,8 @@ jobs:
     - name: Install depends
       run: |
         poetry install && poetry shell
+      env:
+        PATH: /github/home/.local/bin:$PATH
     - name: ansible version
       run: |
             ansible-playbook --version
