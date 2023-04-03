@@ -39,7 +39,7 @@ jobs:
             base_image: ubuntu:22.04
             gui: novnc
           - docker_image: wamvtan/dev_container_vnc
-            base_image: tiryoh/ros2-desktop-vnc:humble
+            base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
             gui: vnc
     steps:
       - uses: actions/checkout@v2
