@@ -18,14 +18,11 @@ jobs:
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-    - name: basic install
-      run: |
-          apt-get update &&
-          apt-get install -y ansible
-    - name: ansible version
-      run: |
-            ansible-playbook --version
     - uses: actions/checkout@v2-beta
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.10"
     - name: add password file
       run: |
         echo ${{ secrets.VAULT_PASSWORD }} > password.txt
@@ -34,6 +31,13 @@ jobs:
       with:
         path: robotx_ws
         key: robotx_ws-${{ steps.date.outputs.date }}
+    - name: Install poetry
+      run: |
+        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 - --version 1.1.7
+        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+    - name: Install depends
+      run: |
+        poetry install && poetry shell
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu

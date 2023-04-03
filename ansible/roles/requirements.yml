@@ -2,3 +2,6 @@
 - name: gantsign.minikube
   src: https://github.com/gantsign/ansible_role_minikube.git
   version: master
+- name: monolithprojects.github_actions_runner
+  src: https://github.com/MonolithProjects/ansible-github_actions_runner.git
+  version: 1.17.0

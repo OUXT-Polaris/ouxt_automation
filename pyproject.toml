@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ouxt_automation"
+version = "0.0.1"
+description = "setup tools for OUXT Polaris package"
+authors = ["Masaya Kataoka <ms.kataoka@gmail.com>"]
+license = "Apache 2.0"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python_github = "https://github.com/OUXT-Polaris/python_github.git"
+ansible = "2.9.8"
+
+[tool.poetry.dev-dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+fontawesome_markdown = "*"
+mkdocs-mermaid2-plugin = "*"
+pymdown-extensions = "*"
+plantuml-markdown = "*"
+python-markdown-math = "*"
+python-github-api = "*"
+mkdocs-github-dashboard  = "*"
+pandas = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
