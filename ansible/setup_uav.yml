@@ -1,8 +1,7 @@
 ---
 - name: Setup uav
   hosts: uav
-  roles: 
-    - python
+  roles:     
     - ros2
     - uav
     - build
