@@ -19,6 +19,10 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
+    - name: copy ansible directory
+      run: |
+        cp -r ansible ./.github/workflows/docker/dev_container
+      shell: bash
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
@@ -60,6 +64,7 @@ runs:
         # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
         push: false
     - uses: peter-evans/dockerhub-description@v3
+      if: ${{ github.event_name != 'pull_request'}}
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
