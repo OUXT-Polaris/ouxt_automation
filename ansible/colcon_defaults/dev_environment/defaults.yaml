@@ -1,6 +1,12 @@
 {
     "build": {
         "symlink-install": true,
-        "cmake-args": ["-DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"]
+        "cmake-args": [
+            "-DBUILD_TESTING=ON" 
+            "-DCMAKE_BUILD_TYPE=Release"
+            "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            "-DCMAKE_C_COMPILER_LAUNCHER=ccache"
+            "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
+        ]
     }
 }

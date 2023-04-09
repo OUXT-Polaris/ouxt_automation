@@ -1,4 +1,14 @@
 ---
+- name: install ccache via apt
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+    - ccache
+
 - name: check older list
   stat:
     path: /etc/ros/rosdep/sources.list.d/20-default.list
@@ -27,7 +37,7 @@
   shell: |-
     cd {{ workspace_path }}
     source /opt/ros/humble/setup.bash
-    colcon build
+    colcon build --metas defaults.yaml
   args:
     executable: /bin/bash
 
