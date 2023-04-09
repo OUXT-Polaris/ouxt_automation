@@ -51,7 +51,7 @@ jobs:
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
           image_name: ${{ matrix.docker_image }}
           base_image: ${{ matrix.base_image }}
-          entrypoint: 
+          entrypoint: ${{ matrix.entrypoint }}
   yolox:
     name: build and push wamvtan/yolox
     runs-on: ubuntu-20.04
