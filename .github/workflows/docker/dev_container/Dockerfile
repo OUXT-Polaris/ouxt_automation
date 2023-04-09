@@ -8,10 +8,7 @@ RUN apt-get update && \
 RUN pip3 install ansible\==2.9.8
 
 WORKDIR /home
-ADD https://api.github.com/repos/OUXT-Polaris/ouxt_automation/git/refs/heads/master version.json
-RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git
-
-WORKDIR /home/ouxt_automation
+COPY ansible /home/ansible
 RUN ansible-galaxy install -fr ansible/roles/requirements.yml
 RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 ADD entrypoint.sh /
