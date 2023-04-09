@@ -22,10 +22,9 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-    - name: copy ansible directory
-      run: |
-        cp -r ansible ./.github/workflows/docker/dev_container
-      shell: bash
+    - uses: actions/checkout@v2
+      with:
+        path: ouxt_automation/.github/workflows/docker/dev_container
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
