@@ -14,6 +14,9 @@ inputs:
   image_name:
     description: "Docker image name"
     required: true
+  entrypoint:
+    description: "Name of the entrypoint.sh"
+    required: true
 
 runs:
   using: "composite"
@@ -43,6 +46,7 @@ runs:
         tags: ${{ inputs.image_name }}:latest
         build-args: |
           BASE_IMAGE=${{ inputs.base_image }}
+          ENTRYPOINT_SH=${{ inputs.entrypoint }}
         no-cache: true
         # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
         # cache-to: type=registry,ref=wamvtan/dev_container:buildcache,mode=max
@@ -60,6 +64,7 @@ runs:
         tags: ${{ inputs.image_name }}:latest
         build-args: |
           BASE_IMAGE=${{ inputs.base_image }}
+          ENTRYPOINT_SH=${{ inputs.entrypoint }}
         no-cache: true
         # cache-from: type=registry,ref=wamvtan/dev_container:buildcache
         push: false
