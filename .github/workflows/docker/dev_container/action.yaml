@@ -22,9 +22,10 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-    - uses: actions/checkout@v2
-      with:
-        path: ouxt_automation/.github/workflows/docker/dev_container
+    - name: copy ouxt_automation
+      run: |
+        cp -r . ./.github/workflows/docker/dev_container
+      shell: bash
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
