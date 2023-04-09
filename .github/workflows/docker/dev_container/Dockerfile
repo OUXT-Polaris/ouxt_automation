@@ -6,9 +6,9 @@ RUN apt-get update && \
   apt-get -y clean && \
   rm -rf /var/lib/apt/lists/*
 RUN pip3 install ansible\==2.9.8
-RUN mkdir /home/ouxt_automation
+WORKDIR /home
+COPY ouxt_automation /home/ouxt_automation
 WORKDIR /home/ouxt_automation
-COPY ansible /home/ouxt_automation/ansible
 RUN ansible-galaxy install -fr ansible/roles/requirements.yml
 RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 
