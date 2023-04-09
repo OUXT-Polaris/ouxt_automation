@@ -2,3 +2,6 @@
 - name: gantsign.minikube
   src: https://github.com/gantsign/ansible_role_minikube.git
   version: master
+- name: yaegashi.blockinfile
+  src: https://github.com/yaegashi/ansible-role-blockinfile.git
+  version: master
