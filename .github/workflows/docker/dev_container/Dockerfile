@@ -12,7 +12,8 @@ COPY ansible /home/ouxt_automation/ansible
 RUN ansible-galaxy install -fr ansible/roles/requirements.yml
 RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 
+WORKDIR /
 ARG ENTRYPOINT_SH
-ADD $ENTRYPOINT_SH /
-RUN chmod +x /$ENTRYPOINT_SH
-ENTRYPOINT [/$ENTRYPOINT_SH]
+COPY ${ENTRYPOINT_SH} /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
