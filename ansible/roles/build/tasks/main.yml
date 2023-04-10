@@ -19,8 +19,8 @@
       export CCACHE_DIR={{ workspace_path }}/ccache/
 
 - name: create ccache directory
-  file: path={{ workspace_path }}/ccache/ state=directory owner={{ ansible_user }} group={{ ansible_user }} mode=0755
-
+  file: path={{ workspace_path }}/ccache/ state=directory
+  
 - name: check older list
   stat:
     path: /etc/ros/rosdep/sources.list.d/20-default.list
