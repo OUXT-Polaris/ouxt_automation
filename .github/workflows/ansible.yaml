@@ -26,14 +26,14 @@ jobs:
       run: |
             ansible-playbook --version
     - uses: actions/checkout@v2-beta
-    - name: add password file
+    - name: make robotx_ws
       run: |
-        echo ${{ secrets.VAULT_PASSWORD }} > password.txt
+            mkdir robotx_ws
     - uses: actions/cache@v2
       if: ${{ github.event.label.name != 'clean_build' }}
       with:
-        path: robotx_ws
-        key: robotx_ws-${{ steps.date.outputs.date }}
+        path: robotx_ws/ccache
+        key: ccache-${{ steps.date.outputs.date }}
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu

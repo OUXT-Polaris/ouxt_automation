@@ -1,4 +1,26 @@
 ---
+- name: install ccache via apt
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    cache_valid_time: 3600
+    update_cache: yes
+  vars:
+    packages:
+    - ccache
+
+- name: add env variables to .bashrc
+  blockinfile:
+    dest: /home/{{ ansible_user }}/.bashrc
+    insertafter: '^# Set path for ccache'
+    content: |
+      export CC="/usr/lib/ccache/gcc"
+      export CXX="/usr/lib/ccache/g++"
+      export CCACHE_DIR={{ workspace_path }}/ccache/
+
+- name: create ccache directory
+  file: path={{ workspace_path }}/ccache/ state=directory
+  
 - name: check older list
   stat:
     path: /etc/ros/rosdep/sources.list.d/20-default.list
@@ -27,7 +49,10 @@
   shell: |-
     cd {{ workspace_path }}
     source /opt/ros/humble/setup.bash
-    colcon build
+    colcon build --metas defaults.yaml --mixin ccache
   args:
     executable: /bin/bash
-
+  environment:
+    CC: /usr/lib/ccache/gcc
+    CXX: /usr/lib/ccache/g++
+    CCACHE_DIR: "{{ workspace_path }}/ccache/"
