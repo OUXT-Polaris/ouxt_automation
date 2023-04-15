@@ -116,6 +116,7 @@ jobs:
         echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
     - name: Delete old branch
       if: steps.check_branch.outputs.exist == 1
+      id: delete_stuff
       uses: phpdocker-io/github-actions-delete-abandoned-branches@v1
       with:
         github_token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
@@ -123,6 +124,9 @@ jobs:
         ignore_branches: ^(?!.*/workflow/sync).*$
         # Disable dry run and actually get stuff deleted
         dry_run: no
+    - name: Print deleted branch
+      if: steps.check_branch.outputs.exist == 1
+      run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
       if: steps.changes.outputs.count > 0
