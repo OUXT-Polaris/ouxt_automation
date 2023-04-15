@@ -114,12 +114,18 @@ jobs:
       id: check_default_branch
       run: |
         echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
-    - name: check branch exists
+    - name: Delete old branch
       if: steps.check_branch.outputs.exist == 1
-      run: exit 1
+      uses: phpdocker-io/github-actions-delete-abandoned-branches@v1
+      with:
+        github_token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
+        last_commit_age_days: 0
+        ignore_branches: ^(?!.*/workflow/sync).*$
+        # Disable dry run and actually get stuff deleted
+        dry_run: no
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
-      if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
+      if: steps.changes.outputs.count > 0
       with:
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
         commit-message: Setup workflow
