@@ -18,28 +18,14 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - uses: actions/checkout@v2-beta
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.10"
-    - name: apt update
+    - name: make robotx_ws
       run: |
-        sudo apt update
-    - name: add password file
-      run: |
-        echo ${{ secrets.VAULT_PASSWORD }} > password.txt
+            mkdir robotx_ws
     - uses: actions/cache@v2
       if: ${{ github.event.label.name != 'clean_build' }}
       with:
-        path: robotx_ws
-        key: robotx_ws-${{ steps.date.outputs.date }}
-    - name: Install poetry
-      run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 - --version 1.1.7
-        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-    - name: Install depends
-      run: |
-        poetry install
+        path: robotx_ws/ccache
+        key: ccache-${{ steps.date.outputs.date }}
     - name: ansible
       run: |
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu

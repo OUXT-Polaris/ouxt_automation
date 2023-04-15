@@ -5,3 +5,6 @@
 - name: monolithprojects.github_actions_runner
   src: https://github.com/MonolithProjects/ansible-github_actions_runner.git
   version: 1.17.0
+- name: yaegashi.blockinfile
+  src: https://github.com/yaegashi/ansible-role-blockinfile.git
+  version: master
