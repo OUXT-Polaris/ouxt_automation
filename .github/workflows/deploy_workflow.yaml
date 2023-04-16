@@ -142,7 +142,7 @@ jobs:
         labels: |
           bot
         assignees: wam-v-tan
-        reviewers: wam-v-tan
+        reviewers: hakuturu583
         team-reviewers: |
           bot
         draft: false
