@@ -147,11 +147,3 @@ jobs:
         team-reviewers: |
           bot
         draft: false
-    - name: Enable Pull Request Automerge
-      if: steps.create_pull_request.outputs.pull-request-operation == 'created'
-      uses: peter-evans/enable-pull-request-automerge@v1
-      with:
-        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-        pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
-        merge-method: squash
-        repository: OUXT-Polaris/${{ matrix.package_name }}
