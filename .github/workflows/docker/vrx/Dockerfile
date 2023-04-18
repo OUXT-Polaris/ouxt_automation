@@ -24,5 +24,6 @@ WORKDIR /home/vrx_ws
 RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"]
 ADD fuel.gazebosim.org /root/.gz/fuel/fuel.gazebosim.org
 COPY config /home/config
+ENV GZ_SIM_RESOURCE_PATH /home/vrx_ws/src/vrx/vrx_urdf:${GZ_SIM_RESOURCE_PATH}
 RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.bash && source /home/vrx_ws/install/local_setup.bash && ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=/home/config/component_config.yaml thruster_yaml:=/home/config/thruster_config.yaml wamv_target:=/home/config/wamv_target.urdf wamv_locked:=False"]
 ENTRYPOINT ["/bin/bash", "-c", "source /opt/ros/humble/setup.bash && source /home/vrx_ws/install/local_setup.bash && ros2 launch vrx_gz competition.launch.py world:=sydney_regatta headless:=true urdf:=/home/config/wamv_target.urdf"]
