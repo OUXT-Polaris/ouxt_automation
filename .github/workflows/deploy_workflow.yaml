@@ -24,6 +24,7 @@ jobs:
     needs: get_template
     runs-on: ubuntu-20.04
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix:
         package_name: [
@@ -116,14 +117,8 @@ jobs:
         echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
     - name: Delete old branch
       if: steps.check_branch.outputs.exist == 1
-      id: delete_stuff
-      uses: phpdocker-io/github-actions-delete-abandoned-branches@v1
-      with:
-        github_token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-        last_commit_age_days: 0
-        ignore_branches: ^(?!.*/workflow/sync).*$
-        # Disable dry run and actually get stuff deleted
-        dry_run: no
+      run: |
+        git push origin --delete workflow/sync; exit 0
     - name: Print deleted branch
       if: steps.check_branch.outputs.exist == 1
       run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
@@ -152,11 +147,3 @@ jobs:
         team-reviewers: |
           bot
         draft: false
-    - name: Enable Pull Request Automerge
-      if: steps.create_pull_request.outputs.pull-request-operation == 'created'
-      uses: peter-evans/enable-pull-request-automerge@v1
-      with:
-        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-        pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
-        merge-method: squash
-        repository: OUXT-Polaris/${{ matrix.package_name }}
