@@ -24,7 +24,7 @@ jobs:
     needs: get_template
     runs-on: ubuntu-20.04
     strategy:
-      max-parallel: 1
+      max-parallel: 2
       fail-fast: false
       matrix:
         package_name: [
