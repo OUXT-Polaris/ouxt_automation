@@ -17,12 +17,6 @@ RUN apt-get update && \
     apt-get install -y ros-humble-ros-base ros-dev-tools git wget && \
     rm -rf /var/lib/apt/lists/*
 
-# RUN apt-get update && apt-get install -y \
-#     git \
-#     python3-vcstool \
-#     python3-colcon-common-extensions \
-#     wget \
-#     && rm -rf /var/lib/apt/lists/*
 RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 RUN apt-get update && apt-get install -y \
