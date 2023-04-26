@@ -35,13 +35,9 @@ ADD https://api.github.com/repos/osrf/vrx/git/refs/heads/main vrx_version.json
 RUN git clone https://github.com/osrf/vrx.git
 ADD https://api.github.com/repos/gazebosim/ros_gz/git/refs/heads/humble ros_gz_version.json
 RUN git clone https://github.com/gazebosim/ros_gz.git -b humble
-RUN apt-get update
-RUN rosdep init && \
-    rosdep update && \
-    rosdep install -iry --from-paths . && \
-    rm -rf /var/lib/apt/lists/*
 ENV GZ_VERSION garden
 WORKDIR /home/vrx_ws
+RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && apt-get update && rosdep init && rosdep update && rosdep install -iry --from-paths src && rm -rf /var/lib/apt/lists/*"]
 RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"]
 ADD fuel.gazebosim.org /root/.gz/fuel/fuel.gazebosim.org
 COPY config /home/config
