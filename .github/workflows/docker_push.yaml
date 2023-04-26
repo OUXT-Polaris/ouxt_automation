@@ -8,12 +8,6 @@ on:
     branches:
       - master
   pull_request:
-    paths:
-    - ./.github/workflows/docker/l4t_opencv/**
-    - ./.github/workflows/docker/dev_container/**
-    - ./.github/workflows/docker/yolox/**
-    - ./.github/workflows/docker/yolox_trainer/**
-    - ./.github/workflows/docker/vrx/**
   release:
     types: [published]
 jobs:
