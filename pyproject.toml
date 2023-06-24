@@ -5,7 +5,7 @@ description = ""
 authors = ["Masaya Kataoka <ms.kataoka@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
-packages = [{include = "ouxt_automation"}]
+packages = []
 
 [tool.poetry.dependencies]
 python = "^3.10"
