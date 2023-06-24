@@ -13,7 +13,7 @@ on:
 
 jobs:
   get_template:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:  
       - uses: actions/checkout@v2-beta
       - uses: actions/upload-artifact@v2
@@ -22,7 +22,7 @@ jobs:
           path: ./workflow_templates/*.yaml
   deploy_workflow:
     needs: get_template
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       max-parallel: 2
       fail-fast: false

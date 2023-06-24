@@ -11,3 +11,4 @@ scripts/packages.repos
 scripts/rosdep_base.yaml
 scripts/rosdep.yaml
 dataset
+poetry.lock
