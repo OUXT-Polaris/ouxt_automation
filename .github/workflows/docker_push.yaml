@@ -44,7 +44,7 @@ jobs:
             gui: vnc
             entrypoint: entrypoint_vnc.sh
     steps:
-      - use: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/docker/dev_container
         with:
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - use: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/docker/yolox
         with:
@@ -74,7 +74,7 @@ jobs:
         os: [linux-x64]
         runner_version: [2.295.0]
     steps:
-      - use: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/docker/yolox_trainer
         with:
@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - use: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/docker/vrx
         with:
