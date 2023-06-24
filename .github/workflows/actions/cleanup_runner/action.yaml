@@ -43,3 +43,4 @@ runs:
       sudo apt-get autoremove -y >/dev/null 2>&1 || true
       sudo apt-get autoclean -y >/dev/null 2>&1 || true
       df -h
+    shell: bash
