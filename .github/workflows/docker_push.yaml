@@ -20,6 +20,7 @@ jobs:
         opencv_version: ["4.4.0", "4.5.0"]
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/l4t_opencv
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -44,8 +45,8 @@ jobs:
             gui: vnc
             entrypoint: entrypoint_vnc.sh
     steps:
-      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/dev_container
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -58,8 +59,8 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -74,8 +75,8 @@ jobs:
         os: [linux-x64]
         runner_version: [2.295.0]
     steps:
-      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox_trainer
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -87,8 +88,8 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/vrx
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
