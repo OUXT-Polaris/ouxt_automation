@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: "3.6.15"
+          python-version: "3.6.16"
       - name: Install
         run: pip3 install mkdocs mkdocs-material fontawesome_markdown mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math python-github-api mkdocs-github-dashboard pandas
       - name: Set env
