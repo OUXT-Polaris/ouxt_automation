@@ -19,6 +19,7 @@ WORKDIR /
 WORKDIR /
 RUN git clone https://github.com/Megvii-BaseDetection/YOLOX.git
 WORKDIR /YOLOX
+COPY requirements.txt .
 RUN python3 -m pip install -r requirements.txt &&\
   python3 setup.py develop
 ENV PATH="${PATH}:/opt/hpcx/ompi/bin"
