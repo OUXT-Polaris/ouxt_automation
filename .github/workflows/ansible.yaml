@@ -53,7 +53,7 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   # setup_docker_testbench:
   #   name: setup_docker_testbench
-  #   runs-on: ubuntu-20.04
+  #   runs-on: ubuntu-22.04
   #   steps:
   #   - name: Get current date
   #     id: date
@@ -83,7 +83,7 @@ jobs:
   #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   setup_ml_pipeline:
     name: setup_ml_pipeline
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
     - name: basic install
@@ -103,7 +103,7 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   setup_firmware:
     name: setup_firmware
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
     - name: basic install
@@ -123,7 +123,7 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   setup_dataset:
     name: setup_dataset
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
     - name: basic install
