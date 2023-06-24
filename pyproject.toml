@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ouxt-automation"
+version = "0.0.1"
+description = ""
+authors = ["Masaya Kataoka <ms.kataoka@gmail.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "ouxt_automation"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rocker = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
