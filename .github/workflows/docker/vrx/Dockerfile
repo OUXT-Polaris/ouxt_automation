@@ -1,20 +1,8 @@
-FROM nvidia/cuda:12.0.1-base-ubuntu22.04
+FROM npslearninglab/watery_robots:humble_current
 
-# register gpg key for ROS2
-RUN apt-get update && \
-    apt-get install -y locales software-properties-common curl && \
-    locale-gen en_US en_US.UTF-8 && \
-    update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
-    add-apt-repository universe && \
-    rm -rf /var/lib/apt/lists/*
-ENV LANG en_US.UTF-8
-RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg && \
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
-
-# install ros-humble-ros-base/ros-dev-tools/othre tools
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get install -y ros-humble-ros-base ros-dev-tools git wget && \
+    apt-get install -y git wget && \
     rm -rf /var/lib/apt/lists/*
 
 RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
@@ -31,7 +19,7 @@ ADD https://api.github.com/repos/gazebosim/ros_gz/git/refs/heads/humble ros_gz_v
 RUN git clone https://github.com/gazebosim/ros_gz.git -b humble
 ENV GZ_VERSION garden
 WORKDIR /home/vrx_ws
-RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && apt-get update && rosdep init && rosdep update && rosdep install -iry --from-paths src && rm -rf /var/lib/apt/lists/*"]
+RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && apt-get update && rosdep update && rosdep install -iry --from-paths src && rm -rf /var/lib/apt/lists/*"]
 RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"]
 ADD fuel.gazebosim.org /root/.gz/fuel/fuel.gazebosim.org
 COPY config /home/config
