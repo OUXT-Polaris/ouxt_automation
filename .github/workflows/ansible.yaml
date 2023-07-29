@@ -26,9 +26,17 @@ jobs:
       with:
         path: robotx_ws/ccache
         key: ccache-${{ steps.date.outputs.date }}
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.6
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.15.1
+    - name: install
+      run: poetry install --no-interaction
     - name: ansible
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
@@ -78,24 +86,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
-    - name: apt update
-      run: |
-        sudo apt update
-    - name: Install poetry
-      run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 - --version 1.1.7
-        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-    - name: Install depends
-      run: |
-        poetry install
+        python-version: 3.10.6
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.15.1
+    - name: install
+        run: poetry install --no-interaction
     - name: run ansible and install docker
       run: |
-          ansible-galaxy install -fr ansible/roles/requirements.yml
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-galaxy install -fr ansible/roles/requirements.yml
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_ml_pipeline.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
@@ -109,24 +111,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
-    - name: apt update
-      run: |
-        sudo apt update
-    - name: Install poetry
-      run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 - --version 1.1.7
-        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-    - name: Install depends
-      run: |
-        poetry install
+        python-version: 3.10.6
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.15.1
+    - name: install
+      run: poetry install --no-interaction
     - name: run ansible and install docker
       run: |
-          ansible-galaxy install -fr ansible/roles/requirements.yml
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-galaxy install -fr ansible/roles/requirements.yml
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
@@ -140,23 +136,17 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
-    - name: apt update
-      run: |
-        sudo apt update
-    - name: Install poetry
-      run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 - --version 1.1.7
-        echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-    - name: Install depends
-      run: |
-        poetry install
+        python-version: 3.10.6
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.15.1
+    - name: install
+      run: poetry install --no-interaction
     - name: run ansible and download dataset
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
