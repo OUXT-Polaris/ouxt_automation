@@ -13,13 +13,14 @@ on:
 jobs:
   l4t_opencv:
     name: build and push wamvtan/l4t_opencv
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 360
     strategy:
       matrix:
         opencv_version: ["4.4.0", "4.5.0"]
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/l4t_opencv
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -27,7 +28,7 @@ jobs:
           opencv_version: ${{ matrix.opencv_version }}
   dev_container:
     name: build and push wamvtan/dev_container and wamvtan/dev_container_vnc
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -45,6 +46,7 @@ jobs:
             entrypoint: entrypoint_vnc.sh
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/dev_container
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -54,17 +56,18 @@ jobs:
           entrypoint: ${{ matrix.entrypoint }}
   yolox:
     name: build and push wamvtan/yolox
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
   yolox_trainer:
     name: build and push wamvtan/yolox_trainer
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     needs: yolox
     strategy:
@@ -73,6 +76,7 @@ jobs:
         runner_version: [2.295.0]
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox_trainer
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
@@ -81,10 +85,11 @@ jobs:
           os_version: ${{ matrix.os }}
   vrx:
     name: build and push wamvtan/vrx
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/vrx
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}

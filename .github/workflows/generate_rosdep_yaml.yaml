@@ -10,7 +10,7 @@ on:
 jobs:
   generate_rosdep_yaml:
     name: generate_rosdep_yaml
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
     - name: Set up Python
@@ -48,7 +48,7 @@ jobs:
         path: ansible/packages.repos
   deploy_to_ouxt_distro:
     name: deploy_to_ouxt_distro
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: generate_rosdep_yaml
     steps:
       - uses: actions/checkout@v2

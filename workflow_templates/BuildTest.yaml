@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 180
     strategy:
       fail-fast: false
@@ -108,13 +108,12 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
   merge:
     name: merge
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 180
     needs: build
     steps:
-      - name: Merge PR
-        uses: nbrugger-tgm/merge-pr-action@v0.2.3
-        if: contains( github.event.pull_request.labels.*.name, 'bot') && github.event_name == 'pull_request'
-        with :
-          token: ${{ secrets.GITHUB_TOKEN }}
-          method: squash
+      - name: merge PR
+        if : ${{ (github.event_name == 'pull_request') && (github.actor == 'wam-v-tan') }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge ${{ github.event.pull_request.html_url }} --merge
