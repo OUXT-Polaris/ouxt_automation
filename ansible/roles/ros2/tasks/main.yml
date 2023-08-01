@@ -12,6 +12,7 @@
     - lsb-release
     - git
     - locales
+    - apt-utils
   tags: [setup_ros2]
   
 - name : generate locale
