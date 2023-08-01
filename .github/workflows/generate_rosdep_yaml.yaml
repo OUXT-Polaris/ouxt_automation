@@ -18,10 +18,10 @@ jobs:
     - name: ansible version
       run: |
             ansible-playbook --version
-    - name: Setup ROS2 galactic environment
+    - name: Setup ROS2 humble environment
       uses: ros-tooling/setup-ros@v0.2
       with:
-        required-ros-distributions: galactic
+        required-ros-distributions: humble
     - uses: actions/checkout@v2-beta
     - name: run ansible
       run: |
