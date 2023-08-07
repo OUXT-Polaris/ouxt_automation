@@ -10,7 +10,7 @@
 <link href="../tools/docker_images/" rel="prev"/>
 <link href="../license/" rel="next"/>
 <link href="../images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.1.21" name="generator"/>
 <title>Automation Pipeline - OUXT Polaris Development Automation Tool</title>
 <link href="../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
@@ -295,7 +295,7 @@ So, we developing integration pipeline for operating complex software stacks and
 <p>Integration pipeline is deployed at github actions in each repositories.</p>
 <h3 id="actions-in-ouxt_automation-package">Actions in ouxt_automation package<a class="headerlink" href="#actions-in-ouxt_automation-package" title="Permanent link">⚓︎</a></h3>
 <p>You can see the status of all Actions <a href="https://github.com/OUXT-Polaris/ouxt_automation/actions">here</a>.</p>
-<h4 id="ansible">ansible<a class="headerlink" href="#ansible" title="Permanent link">⚓︎</a></h4>
+<h4>ansible</h4>
 <p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml"><img alt="ansible" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/ansible.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt; ouxt_automation
@@ -321,7 +321,7 @@ So, we developing integration pipeline for operating complex software stacks and
     click ouxt_automation "https://github.com/OUXT-Polaris/ouxt_automation" "ouxt_automation repository"
 </div>
 <p>run_ansible_with_docker job runs ansible with setup-docker playbook and check the setup tool works well with docker.</p>
-<h4 id="document">document<a class="headerlink" href="#document" title="Permanent link">⚓︎</a></h4>
+<h4>document</h4>
 <p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml"><img alt="document" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     pull_request --send --&gt;ouxt_automation
@@ -340,7 +340,7 @@ So, we developing integration pipeline for operating complex software stacks and
     click github_pages "https://ouxt-polaris.github.io/ouxt_automation/" "github pages"
 </div>
 <p>documentation workflow generate this documentation site and deploy it into github pages.</p>
-<h4 id="deploy_workflow">deploy_workflow<a class="headerlink" href="#deploy_workflow" title="Permanent link">⚓︎</a></h4>
+<h4>deploy_workflow</h4>
 <p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml"><img alt="deploy_workflow" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     developer --manual hook--&gt;ouxt_automation
@@ -355,7 +355,7 @@ So, we developing integration pipeline for operating complex software stacks and
 </div>
 <p>deploy_workflow helps maintainers to deploy and maintain workflows for each pacakges.
 currently, over 25 packages are maintained by this workflow.</p>
-<h4 id="check_workflow_deployment">check_workflow_deployment<a class="headerlink" href="#check_workflow_deployment" title="Permanent link">⚓︎</a></h4>
+<h4>check_workflow_deployment</h4>
 <p><a href="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml"><img alt="check_workflow_deployment" src="https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml/badge.svg"/></a></p>
 <div class="mermaid">graph TB
     developer --manual hook--&gt;ouxt_automation
@@ -418,7 +418,7 @@ currently, over 25 packages are maintained by this workflow.</p>
 <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>mermaid.initialize({
+<script>mermaidAPI.initialize({
     theme: "base",
     themeVariables: {
         fontFamily: "verdana",
