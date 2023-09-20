@@ -4,7 +4,7 @@
 ![ansible](https://github.com/OUXT-Polaris/ouxt_automation/workflows/ansible/badge.svg)
 
 #### Automation
-![documentat](https://github.com/OUXT-Polaris/ouxt_automation/workflows/documentat/badge.svg)
+[![document](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml/badge.svg)](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/document.yaml)
 [![deploy_workflow](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml/badge.svg)](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/deploy_workflow.yaml)
 [![check_workflow_deployment](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml/badge.svg)](https://github.com/OUXT-Polaris/ouxt_automation/actions/workflows/check_workflow.yaml)
 
