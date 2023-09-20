@@ -95,6 +95,13 @@
     version: master
     accept_hostkey: yes
 
+- name: clone detic_onnx_ros2
+  git:
+    repo: https://github.com/OUXT-Polaris/detic_onnx_ros2.git
+    dest: "{{workspace_path}}/src/perception/detic_onnx_ros2"
+    version: master
+    accept_hostkey: yes
+
 - name: remove old rosdep list
   file:
     path: /etc/ros/rosdep/sources.list.d/20-default.list
