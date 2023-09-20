@@ -29,7 +29,7 @@ jobs:
   dev_container:
     name: build and push wamvtan/dev_container and wamvtan/dev_container_vnc
     runs-on: ubuntu-22.04
-    timeout-minutes: 60
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       max-parallel: 8
