@@ -38,6 +38,8 @@ jobs:
         poetry-version: 1.6.1
     - name: install
       run: poetry install --no-interaction
+    - name: install python3-apt
+      run: apt update && apt install -y python3-apt
     - name: ansible
       run: |
           poetry run ansible-playbook -i ansible/hosts/localhost.ini \

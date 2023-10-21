@@ -12,7 +12,6 @@
     - gnupg2
     - locales
     - lsb-release
-    - python3-apt 
   tags: [setup_ros2]
   
 - name : generate locale
