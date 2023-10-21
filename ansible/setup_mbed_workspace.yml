@@ -1,5 +1,5 @@
 ---
-- name: Setup ml pipeline
+- name: Setup firmware dev environment
   hosts: all
   roles: 
     - docker
