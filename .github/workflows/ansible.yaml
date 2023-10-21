@@ -59,7 +59,8 @@ jobs:
     - uses: actions/checkout@v2-beta
     - name: basic install
       run: |
-          sudo apt install ansible
+          apt-get update &&
+          apt-get install -y ansible
     - name: run ansible and install docker
       run: |
           ansible-galaxy install -fr ansible/roles/requirements.yml
