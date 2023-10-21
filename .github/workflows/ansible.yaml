@@ -31,7 +31,7 @@ jobs:
         python-version: 3.10.6
     - uses: abatilo/actions-poetry@v2
       with:
-        poetry-version: 1.15.1
+        poetry-version: 1.6.1
     - name: install
       run: poetry install --no-interaction
     - name: ansible
@@ -61,7 +61,7 @@ jobs:
         python-version: 3.10.6
     - uses: abatilo/actions-poetry@v2
       with:
-        poetry-version: 1.15.1
+        poetry-version: 1.6.1
     - name: install
       run: poetry install --no-interaction
     - name: run ansible and install docker
@@ -86,7 +86,7 @@ jobs:
         python-version: 3.10.6
     - uses: abatilo/actions-poetry@v2
       with:
-        poetry-version: 1.15.1
+        poetry-version: 1.6.1
     - name: install
       run: poetry install --no-interaction
     - name: run ansible and download dataset
