@@ -55,6 +55,8 @@ jobs:
     name: setup_firmware
     runs-on: ubuntu-22.04
     container: ubuntu:22.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
     steps:
     - uses: actions/checkout@v2-beta
     - name: basic install
