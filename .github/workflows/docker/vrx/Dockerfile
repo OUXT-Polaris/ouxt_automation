@@ -1,28 +1,52 @@
-FROM npslearninglab/watery_robots:humble_current
+# reference : https://github.com/osrf/vrx-docker/blob/master/vrx_server/vrx-server/Dockerfile
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get install -y git wget && \
-    rm -rf /var/lib/apt/lists/*
+ARG BASEIMG=npslearninglab/watery_robots:vrx_base
+FROM $BASEIMG
 
-RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-RUN apt-get update && apt-get install -y \
-    python3-sdformat13 \
-    gz-garden \
-    && rm -rf /var/lib/apt/lists/*
-RUN mkdir -p /home/vrx_ws/src
-WORKDIR /home/vrx_ws/src
-ADD https://api.github.com/repos/osrf/vrx/git/refs/heads/main vrx_version.json
-RUN git clone https://github.com/osrf/vrx.git
-ADD https://api.github.com/repos/gazebosim/ros_gz/git/refs/heads/humble ros_gz_version.json
-RUN git clone https://github.com/gazebosim/ros_gz.git -b humble
-ENV GZ_VERSION garden
-WORKDIR /home/vrx_ws
-RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && apt-get update && rosdep update && rosdep install -iry --from-paths src && rm -rf /var/lib/apt/lists/*"]
-RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.sh && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release"]
+# Set ROS distribution
+ARG ROSDIST=humble
+
+# Create workspace
+RUN mkdir -p ~/vrx_ws/src
+
+# TODO: restore version tag
+RUN git clone --depth 1 -b 2.3.1 https://github.com/osrf/vrx.git \
+&& mv ./vrx ~/vrx_ws/src
+
+# Compile the VRX project.
+RUN /bin/bash -c ". /opt/ros/${ROSDIST}/setup.bash && cd ~/vrx_ws && colcon build --merge-install"
+
+# Source all the needed environment files.
+RUN /bin/sh -c 'echo ". /opt/ros/${ROSDIST}/setup.bash" >> ~/.bashrc' \
+ && /bin/sh -c 'echo ". ~/vrx_ws/install/setup.sh" >> ~/.bashrc'
+## END OF SECTION BASED ON vrx/docker/Dockerfile
+
+# Cache fuel resources
+# RUN /bin/bash -c 'gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/sydney_regatta \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/post \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/ground_station \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/antenna \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_marker_buoy_red \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_marker_buoy_black \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_marker_buoy_green \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_marker_buoy_white \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_round_buoy_orange \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/mb_round_buoy_black \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/platypus \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/crocodile \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/turtle \
+#   && gz fuel download -u https://fuel.gazebosim.org/1.0/openrobotics/models/wam-v'
 ADD fuel.gazebosim.org /root/.gz/fuel/fuel.gazebosim.org
+
+# read wam-v sensors and thruster config
 COPY config /home/config
-ENV GZ_SIM_RESOURCE_PATH /home/vrx_ws/src/vrx/vrx_urdf:${GZ_SIM_RESOURCE_PATH}
-RUN ["/bin/bash", "-c", "source /opt/ros/humble/setup.bash && source /home/vrx_ws/install/local_setup.bash && ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=/home/config/component_config.yaml thruster_yaml:=/home/config/thruster_config.yaml wamv_target:=/home/config/wamv_target.urdf wamv_locked:=False"]
-ENTRYPOINT ["/bin/bash", "-c", "source /opt/ros/humble/setup.bash && source /home/vrx_ws/install/local_setup.bash && ros2 launch vrx_gz competition.launch.py world:=sydney_regatta headless:=true urdf:=/home/config/wamv_target.urdf"]
+
+# Expose port used to communiate with gzserver
+EXPOSE 11345
+
+# setup entrypoint
+COPY ./vrx_entrypoint.sh /
+
+COPY ./run_vrx_gazebo.bash /
+
+ENTRYPOINT ["/vrx_entrypoint.sh"]

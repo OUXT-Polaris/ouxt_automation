@@ -1,7 +1,0 @@
----
-- name: Setup ml pipeline
-  hosts: all
-  roles: 
-    - docker
-    - gantsign.minikube
-    - ml_pipeline
