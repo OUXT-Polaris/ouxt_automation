@@ -62,7 +62,7 @@ jobs:
     - name: basic install
       run: |
           apt-get update &&
-          apt-get install -y ansible git
+          apt-get install -y ansible git gnupg
     - name: run ansible and install docker
       run: |
           ansible-galaxy install -fr ansible/roles/requirements.yml
