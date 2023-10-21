@@ -32,14 +32,18 @@ jobs:
       id: install_python
       with:
         python-version: 3.10.12
-    - run: ls ${{ steps.install_python.outputs.python-path }}
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
-    - name: install
+    - name: poetry install
       run: poetry install --no-interaction
-    - name: install python3-apt
-      run: apt update && apt install -y python3-apt
+    # - name: install python3-apt
+    #   run: apt update && apt install -y python3-apt
+    - name: make symbolic links
+      run: |
+        ln -s apt_inst.*.so apt_inst.so
+        ln -s apt_pkg.*.so apt_pkg.so
+      working-directory: ${{ steps.install_python.outputs.python-path }}/dist-packages
     - name: ansible
       run: |
           poetry run ansible-playbook -i ansible/hosts/localhost.ini \
