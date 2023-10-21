@@ -30,7 +30,7 @@ jobs:
         with:
           poetry-version: 1.15.1
       - name: install
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --with docs
       - name: Generate documentation
         run: poetry run mkdocs build
         working-directory: docs
