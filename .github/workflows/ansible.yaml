@@ -29,9 +29,10 @@ jobs:
         path: robotx_ws/ccache
         key: ccache-${{ steps.date.outputs.date }}
     - uses: actions/setup-python@v4
+      id: install_python
       with:
         python-version: 3.10.12
-    - run: python3 --version
+    - run: ls ${{ steps.install_python.outputs.python-path }}
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
@@ -39,7 +40,10 @@ jobs:
       run: poetry install --no-interaction
     - name: ansible
       run: |
-          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini \
+            ansible/setup_dev_environment.yml --connection local --become \
+            -e ansible_user=ubuntu \
+            -e ansible_python_interpreter=${{ steps.install_python.outputs.python-path }}
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
