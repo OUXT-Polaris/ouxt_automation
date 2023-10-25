@@ -3,7 +3,6 @@
   hosts: all
   roles:
     - docker
-    - python
     - ros2
     - create_workspace
     - clone_packages
