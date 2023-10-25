@@ -10,7 +10,7 @@ on:
 jobs:
   generate_rosdep_yaml:
     name: generate_rosdep_yaml
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: basic install
       run: |
@@ -18,10 +18,10 @@ jobs:
     - name: ansible version
       run: |
             ansible-playbook --version
-    - name: Setup ROS2 galactic environment
+    - name: Setup ROS2 humble environment
       uses: ros-tooling/setup-ros@v0.2
       with:
-        required-ros-distributions: galactic
+        required-ros-distributions: humble
     - uses: actions/checkout@v2-beta
     - name: run ansible
       run: |
@@ -40,7 +40,7 @@ jobs:
         path: ansible/packages.repos
   deploy_to_ouxt_distro:
     name: deploy_to_ouxt_distro
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: generate_rosdep_yaml
     steps:
       - uses: actions/checkout@v2

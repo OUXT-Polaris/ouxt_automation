@@ -5,9 +5,7 @@ import sys
 
 # Our repos which don't have actions named BuildTest or Release
 # Specify Actions by {repository_name_in_rosdep_yaml}:{name_of_actions}
-ignore_list = ["description/wamv_description:BuildTest", "description/wamv_description:Release", 
-               "utils/rosboard:Release", 
-               "utils/rospy2:BuildTest", "utils/rospy2:Release"]
+ignore_list = ["description/wamv_description:BuildTest", "description/wamv_description:Release"]
 
 def check_workflow_deployment(repos_filepath, workflow_name):
     with open(repos_filepath) as file:

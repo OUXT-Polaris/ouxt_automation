@@ -1,0 +1,7 @@
+---
+- name: Setup uav
+  hosts: uav
+  roles:     
+    - ros2
+    - uav
+    - build

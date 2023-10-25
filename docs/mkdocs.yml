@@ -87,16 +87,18 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       toc_depth: 3
+  - admonition
 
 nav:
   - Home: index.md
   - Tutorials:
     - tutorials/build_instraction.md
-    - tutorials/ml_pipeline.md
     - tutorials/navigation_demo.md
     - tutorials/supported_platforms.md
   - Software Packages: packages.md
-  - Tools: tools/tools.md
+  - Tools: 
+    - tools/tools.md
+    - tools/docker_images.md
   - Hardware Documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
   - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md

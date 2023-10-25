@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04
 ENV DEBIAN_FRONTEND noninteractive
 #RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt-get update && \
@@ -19,6 +19,7 @@ WORKDIR /
 WORKDIR /
 RUN git clone https://github.com/Megvii-BaseDetection/YOLOX.git
 WORKDIR /YOLOX
+COPY requirements.txt .
 RUN python3 -m pip install -r requirements.txt &&\
   python3 setup.py develop
 ENV PATH="${PATH}:/opt/hpcx/ompi/bin"

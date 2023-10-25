@@ -13,7 +13,7 @@ on:
 
 jobs:
   get_template:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:  
       - uses: actions/checkout@v2-beta
       - uses: actions/upload-artifact@v2
@@ -22,23 +22,24 @@ jobs:
           path: ./workflow_templates/*.yaml
   deploy_workflow:
     needs: get_template
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix:
         package_name: [
           boost_geometry_util,
           color_names,
-          copto_ros,
           data_buffer,
+          detic_onnx_ros2,
           dynamixel_hardware_interface,
           geographic_conversion,
           geographic_info,
-          geometry_msgs_data_buffer,
           hermite_path_planner,
           hungarian_solver,
           image_processing_utils,
           joy_to_twist,
+          lidar_camera_fusion,
           lua_vendor,
           message_synchronizer,
           miniv_control,
@@ -56,7 +57,6 @@ jobs:
           perception_server,
           playstation_controller_drivers,
           quaternion_operation,
-          realsense_hardware_interface,
           robotx_behavior_tree,
           robotx_communication,
           robotx_costmap_calculator,
@@ -66,7 +66,6 @@ jobs:
           scan_segmentation,
           sol_vendor,
           tcp_sender,
-          unisim_ros2_control,
           usv_controller,
           wamv_control,
           wamv_description,
@@ -85,7 +84,7 @@ jobs:
       with:
         template: /home/runner/templates/BuildTest.yaml
         project_path: ./
-        parameters: "{ \"rosdistro\" : \"galactic\" }"
+        parameters: "{}"
     - name: Deploy release workflow
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
@@ -96,6 +95,12 @@ jobs:
       uses: OUXT-Polaris/setup-workflow-action@0.0.1
       with:
         template: /home/runner/templates/UpdateWorkflowStatus.yaml
+        project_path: ./
+        parameters: "{}"
+    - name: Deploy code review workflow
+      uses: OUXT-Polaris/setup-workflow-action@0.0.1
+      with:
+        template: /home/runner/templates/Review.yaml
         project_path: ./
         parameters: "{}"
     - name: Check branch exist
@@ -111,9 +116,16 @@ jobs:
       id: check_default_branch
       run: |
         echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+    - name: Delete old branch
+      if: steps.check_branch.outputs.exist == 1
+      run: |
+        git push origin --delete workflow/sync; exit 0
+    - name: Print deleted branch
+      if: steps.check_branch.outputs.exist == 1
+      run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
-      if: steps.check_branch.outputs.exist == 0 && steps.changes.outputs.count > 0
+      if: steps.changes.outputs.count > 0
       with:
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
         commit-message: Setup workflow
@@ -134,14 +146,5 @@ jobs:
         assignees: wam-v-tan
         reviewers: wam-v-tan
         team-reviewers: |
-          owners
-          maintainers
+          bot
         draft: false
-    - name: Enable Pull Request Automerge
-      if: steps.create_pull_request.outputs.pull-request-operation == 'created'
-      uses: peter-evans/enable-pull-request-automerge@v1
-      with:
-        token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-        pull-request-number: ${{ steps.create_pull_request.outputs.pull-request-number }}
-        merge-method: squash
-        repository: OUXT-Polaris/${{ matrix.package_name }}

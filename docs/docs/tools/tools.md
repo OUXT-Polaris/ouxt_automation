@@ -197,3 +197,14 @@ you can download dataset via [google drive](https://drive.google.com/file/d/1FMC
 ```
 ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --ask-become-pass
 ```
+
+## Code review bot by ChatGPT
+
+We developed a code review bot using ChatGPT.
+When you request a review to the bot user named wam-v-tan, it analyzes the PR differences and automatically performs the code review.
+
+The implementation of action can be found [here](https://github.com/OUXT-Polaris/chatgpt-github-actions).  
+
+Example of the code review can be seen [here.](https://github.com/OUXT-Polaris/perception_bringup/pull/52/)
+
+![bot](./images/chatgpt_review.png)

@@ -62,6 +62,13 @@
     version: tier4/main
     accept_hostkey: yes
   tags: [perception]
+- name: clone lidar_camera_fusion
+  git:
+    repo: https://github.com/OUXT-Polaris/lidar_camera_fusion.git
+    dest: "{{workspace_path}}/src/perception/lidar_camera_fusion"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -94,45 +101,10 @@
     version: ros2
     accept_hostkey: yes
   tags: [utility]
-- name: clone geometry_msgs_data_buffer
-  git:
-    repo: https://github.com/OUXT-Polaris/geometry_msgs_data_buffer.git
-    dest: "{{workspace_path}}/src/utils/geometry_msgs_data_buffer"
-    version: ros2
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone message_synchronizer
   git:
     repo: https://github.com/OUXT-Polaris/message_synchronizer.git
     dest: "{{workspace_path}}/src/utils/message_synchronizer"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone rospy2
-  git:
-    repo: https://github.com/OUXT-Polaris/rospy2.git
-    dest: "{{workspace_path}}/src/utils/rospy2"
-    version: main
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone rosboard
-  git:
-    repo: https://github.com/OUXT-Polaris/rosboard.git
-    dest: "{{workspace_path}}/src/utils/rosboard"
-    version: main
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone grid_map
-  git:
-    repo: https://github.com/ANYbotics/grid_map.git
-    dest: "{{workspace_path}}/src/utils/grid_map"
-    version: 7afca6c8314bd3016dc974541aecca3ed39ccab0
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone groot
-  git:
-    repo: https://github.com/BehaviorTree/Groot.git
-    dest: "{{workspace_path}}/src/utils/groot"
     version: master
     accept_hostkey: yes
   tags: [utility]
@@ -155,6 +127,13 @@
     repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
     dest: "{{workspace_path}}/src/utils/boost_geometry_util"
     version: master
+    accept_hostkey: yes
+  tags: [utility]
+- name: clone lua_vendor
+  git:
+    repo: https://github.com/OUXT-Polaris/lua_vendor.git
+    dest: "{{workspace_path}}/src/utils/lua_vendor"
+    version: main
     accept_hostkey: yes
   tags: [utility]
 
@@ -253,31 +232,10 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
-- name: clone realsense_hardware_interface
-  git:
-    repo: https://github.com/OUXT-Polaris/realsense_hardware_interface.git
-    dest: "{{workspace_path}}/src/drivers/realsense_hardware_interface"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
 - name: clone nmea_hardware_interface
   git:
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/nmea_hardware_interface"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone perception_camera_driver
-  git:
-    repo: https://github.com/OUXT-Polaris/perception_camera_driver.git
-    dest: "{{workspace_path}}/src/drivers/perception_camera_driver"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone copto_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/copto_ros.git
-    dest: "{{workspace_path}}/src/drivers/copto_ros"
     version: master
     accept_hostkey: yes
   tags: [driver]
@@ -310,13 +268,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/navi_sim.git
     dest: "{{workspace_path}}/src/simulation/navi_sim"
-    version: master
-    accept_hostkey: yes
-  tags: [simulation]
-- name: clone unisim_ros2_control
-  git:
-    repo: https://github.com/OUXT-Polaris/unisim_ros2_control.git
-    dest: "{{workspace_path}}/src/simulation/unisim_ros2_control"
     version: master
     accept_hostkey: yes
   tags: [simulation]
