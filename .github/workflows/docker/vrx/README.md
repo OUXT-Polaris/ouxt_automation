@@ -3,7 +3,8 @@
 ## How to use
 
 ```bash
-docker run wamvtan/vrx
+docker run -it wamvtan/vrx /bin/bash
+ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 ```
 
 In default setting, you can publish/subscribe these topics.  
