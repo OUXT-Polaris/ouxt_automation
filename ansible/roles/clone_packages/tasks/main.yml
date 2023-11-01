@@ -140,7 +140,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/vrx_bridge.git
     dest: "{{workspace_path}}/src/utils/vrx_bridge"
-    version: main
+    version: master
     accept_hostkey: yes
   tags: [utility]
 
