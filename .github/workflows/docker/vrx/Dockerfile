@@ -50,7 +50,7 @@ RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
 RUN cd ~/home/ouxt_automation
 RUN sh setup.sh
 
-RUN /bin/sh -c 'echo ". ~/ouxt_automation/install/local_setup.bash" >> ~/.bashrc'
+RUN /bin/sh -c 'echo ". ~/home/ouxt_automation/install/local_setup.bash" >> ~/.bashrc'
 
 RUN cd /
 # setup entrypoint
