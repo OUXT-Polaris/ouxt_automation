@@ -47,12 +47,12 @@ EXPOSE 11345
 RUN mkdir -p ~/ouxt_automation
 RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
 && mv ./ouxt_automation ~/ouxt_automation
-WORKDIR ~/ouxt_automation
+RUN cd ~/ouxt_automation
 RUN sh setup.sh
 
 RUN /bin/sh -c 'echo ". ~/ouxt_automation/install/local_setup.bash" >> ~/.bashrc'
 
-WORKDIR /
+RUN cd /
 # setup entrypoint
 COPY ./vrx_entrypoint.sh /
 
