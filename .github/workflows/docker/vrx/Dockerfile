@@ -49,6 +49,7 @@ COPY tmp/ouxt_automation /home/ouxt_automation
 WORKDIR /home/ouxt_automation
 RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 
+WORKDIR /
 # setup entrypoint
 COPY ./vrx_entrypoint.sh /
 
