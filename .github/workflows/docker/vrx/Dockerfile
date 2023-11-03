@@ -44,8 +44,10 @@ COPY config /home/config
 # Expose port used to communiate with gzserver
 EXPOSE 11345
 
-RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git 
-RUN cd ~/ouxt_automation
+RUN mkdir -p ~/home/ouxt_automation
+RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
+&& mv ./ouxt_automation ~/home/ouxt_automation
+RUN cd ~/home/ouxt_automation
 RUN sh setup.sh
 
 RUN /bin/sh -c 'echo ". ~/ouxt_automation/install/local_setup.bash" >> ~/.bashrc'
