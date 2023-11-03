@@ -44,6 +44,7 @@ COPY config /home/config
 # Expose port used to communiate with gzserver
 EXPOSE 11345
 
+RUN pip3 install ansible\==2.9.8
 RUN mkdir -p ~/home/ouxt_automation
 RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
 && mv ./ouxt_automation ~/home/ouxt_automation
