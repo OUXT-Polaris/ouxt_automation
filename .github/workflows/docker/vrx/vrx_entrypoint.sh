@@ -6,7 +6,7 @@ source "/opt/ros/humble/setup.bash" > /dev/null
 
 # setup vrx environment
 source ~/vrx_ws/install/setup.sh
-source ~/ouxt_automation/robotx_ws/install/local_setup.bash
+source ~/home/ouxt_automation/robotx_ws/install/local_setup.bash
 echo "vrx entrypoint executed"
 
 # TODO: optionally disable this so a gzclient can be run on the host for development.
