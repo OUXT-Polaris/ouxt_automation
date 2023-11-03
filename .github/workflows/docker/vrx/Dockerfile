@@ -44,12 +44,11 @@ COPY config /home/config
 # Expose port used to communiate with gzserver
 EXPOSE 11345
 
-WORKDIR /home
-COPY tmp/ouxt_automation /home/ouxt_automation
-WORKDIR /home/ouxt_automation
-RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
+RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
+&& mv ./ouxt_automation ~/ouxt_automation
+RUN ansible-playbook -i ansible/hosts/localhost.ini ~/ouxt_automation/ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 
-WORKDIR /
+RUN /bin/sh -c 'echo ". ~/ouxt_automation/install/local_setup.sh" >> ~/.bashrc'
 # setup entrypoint
 COPY ./vrx_entrypoint.sh /
 
