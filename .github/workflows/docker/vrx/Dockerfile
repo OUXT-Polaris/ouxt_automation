@@ -44,6 +44,7 @@ COPY config /home/config
 # Expose port used to communiate with gzserver
 EXPOSE 11345
 
+RUN pip3 install ansible\==2.9.8
 RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
 && mv ./ouxt_automation ~/ouxt_automation
 WORKDIR ~/ouxt_automation
@@ -52,6 +53,8 @@ RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environmen
 RUN sh ~/ouxt_automation/setup.sh
 
 RUN /bin/sh -c 'echo ". ~/ouxt_automation/install/local_setup.bash" >> ~/.bashrc'
+
+WORKDIR /
 # setup entrypoint
 COPY ./vrx_entrypoint.sh /
 
