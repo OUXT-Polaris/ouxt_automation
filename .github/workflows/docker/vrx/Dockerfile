@@ -46,7 +46,8 @@ EXPOSE 11345
 
 RUN git clone https://github.com/OUXT-Polaris/ouxt_automation.git \
 && mv ./ouxt_automation ~/ouxt_automation
-RUN ansible-playbook -i ansible/hosts/localhost.ini ~/ouxt_automation/ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
+WORKDIR ~/ouxt_automation
+RUN ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --ask-become-pass -e ansible_user=root
 
 RUN sh ~/ouxt_automation/setup.sh
 
