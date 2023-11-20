@@ -45,6 +45,9 @@
   command: rosdep install -y -r -i --from-paths {{ workspace_path }}/src --ignore-src --rosdistro humble
   become: yes
 
+- name: install colcon mixin
+  command: colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml && colcon mixin update default
+
 - name: load env variable & build
   shell: |-
     cd {{ workspace_path }}
