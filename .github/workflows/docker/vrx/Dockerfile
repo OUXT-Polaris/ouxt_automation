@@ -10,7 +10,7 @@ ARG ROSDIST=humble
 RUN mkdir -p ~/vrx_ws/src
 
 # TODO: restore version tag
-RUN git clone --depth 1 -b 2.3.1 https://github.com/osrf/vrx.git \
+RUN git clone --depth 1 -b 2.3.3 https://github.com/osrf/vrx.git \
 && mv ./vrx ~/vrx_ws/src
 
 # Compile the VRX project.
