@@ -9,6 +9,7 @@ ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=tr
 Next, run another docker_image wamvtan/dev_container which includes our autonomous system.
 ```bash
 docker run -it wamvtan/dev_container /bin/bash
+ros2 run vrx_brige vrx_brige_node
 ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 ```
 
