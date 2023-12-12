@@ -136,13 +136,6 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
-- name: clone vrx_bridge
-  git:
-    repo: https://github.com/OUXT-Polaris/vrx_bridge.git
-    dest: "{{workspace_path}}/src/utils/vrx_bridge"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -275,6 +268,14 @@
   git:
     repo: https://github.com/OUXT-Polaris/navi_sim.git
     dest: "{{workspace_path}}/src/simulation/navi_sim"
+    version: master
+    accept_hostkey: yes
+  tags: [simulation]
+
+- name: clone vrx_bridge
+  git:
+    repo: https://github.com/OUXT-Polaris/vrx_bridge.git
+    dest: "{{workspace_path}}/src/utils/vrx_bridge"
     version: master
     accept_hostkey: yes
   tags: [simulation]
