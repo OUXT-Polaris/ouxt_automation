@@ -95,6 +95,7 @@ nav:
     - tutorials/build_instraction.md
     - tutorials/navigation_demo.md
     - tutorials/supported_platforms.md
+    - tutorials/vrx_instruction.md
   - Software Packages: packages.md
   - Tools: 
     - tools/tools.md
