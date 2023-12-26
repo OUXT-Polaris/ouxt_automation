@@ -271,3 +271,19 @@
     version: master
     accept_hostkey: yes
   tags: [simulation]
+
+- name: clone vrx_bridge
+  git:
+    repo: https://github.com/OUXT-Polaris/vrx_bridge.git
+    dest: "{{workspace_path}}/src/simulation/vrx_bridge"
+    version: master
+    accept_hostkey: yes
+  tags: [simulation]
+
+- name: clone vrx_bringup
+  git:
+    repo: https://github.com/OUXT-Polaris/vrx_bringup.git
+    dest: "{{workspace_path}}/src/simulation/vrx_bringup"
+    version: master
+    accept_hostkey: yes
+  tags: [simulation]
