@@ -13,6 +13,8 @@ jobs:
   setup_dev_environment:
     name: setup_dev_environment
     runs-on: ubuntu-22.04
+    container:
+      image: ubuntu:22.04
     steps:
     - name: Get current date
       id: date
@@ -27,16 +29,27 @@ jobs:
         path: robotx_ws/ccache
         key: ccache-${{ steps.date.outputs.date }}
     - uses: actions/setup-python@v4
+      id: install_python
       with:
         python-version: 3.10.12
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
-    - name: install
+    - name: poetry install
       run: poetry install --no-interaction
+    # - name: install python3-apt
+    #   run: apt update && apt install -y python3-apt
+    - name: make symbolic links
+      run: |
+        ln -s apt_inst.*.so apt_inst.so
+        ln -s apt_pkg.*.so apt_pkg.so
+      working-directory: ${{ steps.install_python.outputs.python-path }}/dist-packages
     - name: ansible
       run: |
-          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini \
+            ansible/setup_dev_environment.yml --connection local --become \
+            -e ansible_user=ubuntu \
+            -e ansible_python_interpreter=${{ steps.install_python.outputs.python-path }}
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
