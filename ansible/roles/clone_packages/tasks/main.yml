@@ -69,6 +69,13 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
+- name: clone vision_opencv
+  git:
+    repo: https://github.com/OUXT-Polaris/vision_opencv.git
+    dest: "{{workspace_path}}/src/perception/vision_opencv"
+    version: feature/opencv_vendor
+    accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
