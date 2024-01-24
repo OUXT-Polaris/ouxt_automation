@@ -21,6 +21,3 @@ Also, vrx recieves [thruster and pose of thruster command](https://github.com/os
 ```
 ros2 launch vrx_bringup vrx_bringup.launch.xml
 ```
-
-
-
