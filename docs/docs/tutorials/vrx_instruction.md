@@ -19,5 +19,5 @@ Also, vrx recieves [thruster and pose of thruster command](https://github.com/os
 - The ekf.lauch commands [geographic_conversion](https://github.com/OUXT-Polaris/geographic_conversion)(geopose_converter_component) and [robotx_ekf_component](https://github.com/OUXT-Polaris/robotx_ekf).   
 
 ```
-ros2 launch vrx_bringup vrx_bringup.launch.xml
+ros2 launch vrx_bridge vrx_bringup.launch.xml
 ```
