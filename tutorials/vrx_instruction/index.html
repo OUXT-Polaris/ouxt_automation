@@ -11,7 +11,7 @@
 <link href="../../packages/" rel="next"/>
 <link href="../../images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.5" name="generator"/>
-<title>VRX Documents - OUXT Polaris Development Automation Tool</title>
+<title>Run with VRX - OUXT Polaris Development Automation Tool</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#vrx-documents">
+<a class="md-skip" href="#run-with-vrx">
           Skip to content
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              VRX Documents
+              Run with VRX
             
           </span>
 </div>
@@ -240,13 +240,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    VRX Documents
+    Run with VRX
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    VRX Documents
+    Run with VRX
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -359,7 +359,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="vrx-documents">VRX Documents<a class="headerlink" href="#vrx-documents" title="Permanent link">⚓︎</a></h1>
+<h1 id="run-with-vrx">Run with VRX<a class="headerlink" href="#run-with-vrx" title="Permanent link">⚓︎</a></h1>
 <p><a href="https://github.com/osrf/vrx/wiki/tutorials">Documents</a></p>
 <h2 id="how-to-run-demo">How to run demo<a class="headerlink" href="#how-to-run-demo" title="Permanent link">⚓︎</a></h2>
 <h3 id="confirm-dependencies">Confirm dependencies<a class="headerlink" href="#confirm-dependencies" title="Permanent link">⚓︎</a></h3>
@@ -369,7 +369,7 @@
 <li>Rocker: a Docker wrapper that will help build and run your Docker image so it is correctly configured for your local hardware.</li>
 </ul>
 <h3 id="run-the-vrx-simulator-and-lauch-vrx-simulation">Run the vrx simulator and lauch vrx simulation<a class="headerlink" href="#run-the-vrx-simulator-and-lauch-vrx-simulation" title="Permanent link">⚓︎</a></h3>
-<pre><code>docker run -it wamvtan/vrx:latest ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
+<pre><code>docker run -it wamvtan/vrx:latest --net=host --ipc=host --pid=host ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 </code></pre>
 <p>you can change <code>world:=</code> for your purpose.</p>
 <h3 id="run-vrx_bridgup-launch">Run vrx_bridgup launch<a class="headerlink" href="#run-vrx_bridgup-launch" title="Permanent link">⚓︎</a></h3>
@@ -378,7 +378,7 @@
 Also, vrx recieves <a href="https://github.com/osrf/vrx/wiki/custom_thrusters_tutorial">thruster and pose of thruster command</a> through vrx_bridge </li>
 <li>The ekf.lauch commands <a href="https://github.com/OUXT-Polaris/geographic_conversion">geographic_conversion</a>(geopose_converter_component) and <a href="https://github.com/OUXT-Polaris/robotx_ekf">robotx_ekf_component</a>.   </li>
 </ul>
-<pre><code>ros2 launch vrx_bringup vrx_bringup.launch.xml
+<pre><code>ros2 launch vrx_bridge vrx_bringup.launch.xml
 </code></pre>
 </article>
 </div>
