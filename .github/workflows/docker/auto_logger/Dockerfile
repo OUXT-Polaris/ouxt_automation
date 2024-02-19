@@ -27,3 +27,8 @@ RUN source /opt/ros/$ROS_DISTRO/setup.bash && \
 ENV ROS_LOCALHOST_ONLY 0
 
 RUN mkdir /rosbag
+
+ADD entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
