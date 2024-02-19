@@ -7,4 +7,4 @@ source "/opt/ros/$ROS_DISTRO/setup.bash"
 # exec "$@"
 
 # record all topics
-ros2 bag record -a -d 10 -s mcap
+ros2 bag record -a -d 10 -s mcap -o /rosbag

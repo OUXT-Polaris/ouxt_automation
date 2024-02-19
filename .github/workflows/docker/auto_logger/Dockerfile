@@ -23,3 +23,7 @@ RUN rosdep init && \
 
 RUN source /opt/ros/$ROS_DISTRO/setup.bash && \
     colcon build --packages-select $(colcon list -n | xargs -I{} bash -c 'if [ "`cat {}/package.xml | grep "rosidl_interface_packages"`" ]; then echo {}; fi' | xargs)
+
+ENV ROS_LOCALHOST_ONLY 0
+
+RUN mkdir /rosbag
