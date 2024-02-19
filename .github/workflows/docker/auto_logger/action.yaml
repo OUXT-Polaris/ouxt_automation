@@ -38,8 +38,8 @@ runs:
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
-        context: ./.github/workflows/docker/vrx
-        file: ./.github/workflows/docker/vrx/Dockerfile
+        context: ./.github/workflows/docker/auto_logger
+        file: ./.github/workflows/docker/auto_logger/Dockerfile
         tags: wamvtan/auto_logger:latest
         no-cache: false
         cache-from: type=registry,ref=wamvtan/auto_logger:buildcache
@@ -53,8 +53,8 @@ runs:
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
-        context: ./.github/workflows/docker/vrx
-        file: ./.github/workflows/docker/vrx/Dockerfile
+        context: ./.github/workflows/docker/auto_logger
+        file: ./.github/workflows/docker/auto_logger/Dockerfile
         tags: wamvtan/auto_logger:latest
         no-cache: false
         cache-from: type=registry,ref=wamvtan/auto_logger:buildcache
@@ -66,5 +66,5 @@ runs:
         password: ${{ inputs.docker_password }}
         repository: wamvtan/auto_logger
         short-description: "Docker Image for Virtual RobotX Challenge"
-        readme-filepath: ./.github/workflows/docker/vrx/README.md
+        readme-filepath: ./.github/workflows/docker/auto_logger/README.md
         enable-url-completion: true
