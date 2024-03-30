@@ -34,16 +34,17 @@ jobs:
       fail-fast: false
       max-parallel: 8
       matrix:
-        gui: [novnc, vnc]
+        # gui: [novnc, vnc]
+        gui: [novnc]
         include:
           - docker_image: wamvtan/dev_container
             base_image: ubuntu:22.04
             gui: novnc
             entrypoint: entrypoint.sh
-          - docker_image: wamvtan/dev_container_vnc
-            base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
-            gui: vnc
-            entrypoint: entrypoint_vnc.sh
+          # - docker_image: wamvtan/dev_container_vnc
+          #   base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
+          #   gui: vnc
+          #   entrypoint: entrypoint_vnc.sh
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/actions/cleanup_runner
