@@ -52,4 +52,6 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
 ADD entrypoint.sh /
 RUN chmod +x entrypoint.sh
 
+ENV GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:/root/vrx_ws/install/wamv_description/share:/root/vrx_ws/install/wamv_gazebo/share
+
 ENTRYPOINT ["/entrypoint.sh"]
