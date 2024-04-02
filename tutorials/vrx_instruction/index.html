@@ -10,9 +10,9 @@
 <link href="../supported_platforms/" rel="prev"/>
 <link href="../../packages/" rel="next"/>
 <link href="../../images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.15" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
 <title>Run with VRX - OUXT Polaris Development Automation Tool</title>
-<link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -369,7 +369,7 @@
 <li>Rocker: a Docker wrapper that will help build and run your Docker image so it is correctly configured for your local hardware.</li>
 </ul>
 <h3 id="run-the-vrx-simulator-and-lauch-vrx-simulation">Run the vrx simulator and lauch vrx simulation<a class="headerlink" href="#run-the-vrx-simulator-and-lauch-vrx-simulation" title="Permanent link">⚓︎</a></h3>
-<pre><code>docker run -it wamvtan/vrx:latest --net=host --ipc=host --pid=host ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
+<pre><code>docker run --pull always -it wamvtan/vrx:latest --net=host --ipc=host --pid=host ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 </code></pre>
 <p>you can change <code>world:=</code> for your purpose.</p>
 <h3 id="run-vrx_bridgup-launch">Run vrx_bridgup launch<a class="headerlink" href="#run-vrx_bridgup-launch" title="Permanent link">⚓︎</a></h3>
@@ -419,7 +419,7 @@ Also, vrx recieves <a href="https://github.com/osrf/vrx/wiki/custom_thrusters_tu
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+<script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
