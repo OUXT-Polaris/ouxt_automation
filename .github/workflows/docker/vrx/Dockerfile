@@ -11,8 +11,15 @@ ARG ROS_DISTRO=humble
 # Create workspace
 RUN mkdir -p ~/vrx_ws/src
 
+# RUN apt-get update && \
+#     apt-get upgrade -y && \
+#     apt-get install -y libgz-rendering7-ogre2-dev && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
 # TODO: restore version tag
-RUN git clone --depth 1 -b 2.3.3 https://github.com/osrf/vrx.git \
+ADD https://api.github.com/repos/OUXT-Polaris/vrx/git/refs/heads/feature/laser_refrection version.json
+RUN git clone --depth 1 -b feature/laser_refrection https://github.com/OUXT-Polaris/vrx.git \
 && mv ./vrx ~/vrx_ws/src
 
 # Compile the VRX project.
@@ -50,5 +57,7 @@ RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
 
 ADD entrypoint.sh /
 RUN chmod +x entrypoint.sh
+
+ENV GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:/root/vrx_ws/install/wamv_description/share:/root/vrx_ws/install/wamv_gazebo/share
 
 ENTRYPOINT ["/entrypoint.sh"]

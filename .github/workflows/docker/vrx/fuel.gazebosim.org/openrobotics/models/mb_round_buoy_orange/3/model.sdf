@@ -22,6 +22,7 @@
                 </geometry>
             </collision>
             <visual name="visual">
+                <laser_retro>1000.0</laser_retro>
                 <geometry>
                     <mesh>
                         <uri>meshes/mb_round_buoy.dae</uri>

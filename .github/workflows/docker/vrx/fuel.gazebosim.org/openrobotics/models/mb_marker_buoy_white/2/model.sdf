@@ -33,6 +33,7 @@
                 </geometry>
             </collision>
             <visual name="visual">
+                <laser_retro>1000.0</laser_retro>
                 <pose>0 0 0 1.57079 0 0</pose>
                 <geometry>
                     <mesh>

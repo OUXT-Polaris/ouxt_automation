@@ -5,7 +5,6 @@ set -e
 source "/opt/ros/humble/setup.bash"
 # setup vrx environment
 source ~/vrx_ws/install/setup.sh
-echo "vrx entrypoint executed"
 
 # TODO: optionally disable this so a gzclient can be run on the host for development.
 # export GAZEBO_IP=127.0.0.1
