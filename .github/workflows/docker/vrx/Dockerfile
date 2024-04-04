@@ -11,6 +11,12 @@ ARG ROS_DISTRO=humble
 # Create workspace
 RUN mkdir -p ~/vrx_ws/src
 
+# RUN apt-get update && \
+#     apt-get upgrade -y && \
+#     apt-get install -y libgz-rendering7-ogre2-dev && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
 # TODO: restore version tag
 ADD https://api.github.com/repos/OUXT-Polaris/vrx/git/refs/heads/feature/laser_refrection version.json
 RUN git clone --depth 1 -b feature/laser_refrection https://github.com/OUXT-Polaris/vrx.git \

@@ -5,6 +5,7 @@
         <pose>0 0 0 0 0 0</pose>
         <link name="base_link">
             <visual name="visual">
+                <laser_retro>1000.0</laser_retro>
                 <geometry>
                     <mesh>
                         <uri>meshes/post.dae</uri>

@@ -22,6 +22,7 @@
                 </geometry>
             </collision>
             <visual name="visual">
+                <laser_retro>1000.0</laser_retro>
                 <geometry>
                     <mesh>
                         <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/mb_round_buoy_orange/tip/files/meshes/mb_round_buoy.dae</uri>

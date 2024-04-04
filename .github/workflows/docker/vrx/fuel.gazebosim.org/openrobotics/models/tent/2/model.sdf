@@ -4,6 +4,7 @@
         <static>true</static>
         <link name="base_link">
             <visual name="visual">
+                <laser_retro>1000.0</laser_retro>
                 <geometry>
                     <mesh>
                         <uri>mesh/tent.dae</uri>
