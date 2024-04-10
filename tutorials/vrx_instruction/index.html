@@ -369,7 +369,7 @@
 <li>Rocker: a Docker wrapper that will help build and run your Docker image so it is correctly configured for your local hardware.</li>
 </ul>
 <h3 id="run-the-vrx-simulator-and-lauch-vrx-simulation">Run the vrx simulator and lauch vrx simulation<a class="headerlink" href="#run-the-vrx-simulator-and-lauch-vrx-simulation" title="Permanent link">⚓︎</a></h3>
-<pre><code>docker run --pull always -it wamvtan/vrx:latest --net=host --ipc=host --pid=host ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
+<pre><code>docker run --pull always --net=host --ipc=host --pid=host -it wamvtan/vrx:latest ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 </code></pre>
 <p>you can change <code>world:=</code> for your purpose.</p>
 <h3 id="run-vrx_bridgup-launch">Run vrx_bridgup launch<a class="headerlink" href="#run-vrx_bridgup-launch" title="Permanent link">⚓︎</a></h3>
