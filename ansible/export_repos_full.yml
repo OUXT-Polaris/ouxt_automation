@@ -1,7 +1,8 @@
 ---
 - name: Export repos file of development workspace
   hosts: all
-  roles: 
+  roles:
+    - ros2
     - create_workspace
     - clone_packages
     - export_repos
