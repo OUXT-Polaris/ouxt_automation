@@ -9,7 +9,7 @@
   
 ### Run the vrx simulator and lauch vrx simulation
 ```
-docker run --pull always -it wamvtan/vrx:latest --net=host --ipc=host --pid=host ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
+docker run --pull always --net=host --ipc=host --pid=host -it wamvtan/vrx:latest ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
 ```
 you can change ```world:=``` for your purpose.
 
