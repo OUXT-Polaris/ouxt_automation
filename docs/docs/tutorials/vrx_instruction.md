@@ -13,6 +13,12 @@ docker run --pull always --net=host --ipc=host --pid=host -it wamvtan/vrx:latest
 ```
 you can change ```world:=``` for your purpose.
 
+If you want to use cuda acceleration, please use this command.
+
+```
+docker run --gpus all --pull always --net=host --ipc=host --pid=host -it wamvtan/vrx:latest_cuda ros2 launch vrx_gz competition.launch.py world:=stationkeeping_task headless:=true urdf:=/home/config/wamv_target.urdf
+```
+
 ### Run vrx_bridgup launch
 - [vrx_bridge_node](https://github.com/OUXT-Polaris/vrx_bridge) exchange GNSS topic and Imu topic from vrx to localization system.
 Also, vrx recieves [thruster and pose of thruster command](https://github.com/osrf/vrx/wiki/custom_thrusters_tutorial) through vrx_bridge 
