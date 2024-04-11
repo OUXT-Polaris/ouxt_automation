@@ -1,4 +1,4 @@
-name: "Build YOLOX image Action"
+name: "Build YOLOX image action"
 description: "Build YOLOX docker images"
 
 inputs:

@@ -1,4 +1,4 @@
-name: "Build L4T OpenCV image Action"
+name: "Build L4T OpenCV image action"
 description: "Build L4T OpenCV docker images"
 
 inputs:

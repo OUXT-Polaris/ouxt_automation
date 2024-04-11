@@ -1,5 +1,29 @@
 # Tools
 
+## Automated logger
+
+Plug & play automated rosbag logging tools for robots.
+
+### Supported platform
+
+- [ASUSTOR FLASHSTOR 6 (FS6706T)](https://www.asustor.com/en/product?p_id=79)
+
+### How it works
+
+This tools is works on docker container, only you have to do is pull wamvtan/auto_logger image.
+
+### Setup
+
+#### Setup ASUSTOR FLASHSTOR 6 (FS6706T)
+
+Setup ASUSTOR FLASHSTOR 6 (FS6706T) using [asustor control center](https://www.asustor.com/en/service/download_acc/) or [AiMaster.](https://www.asustor.com/admv2?type=4&subject=19&sub=69&lan=en)
+
+#### Setup Portainer in ASUSTOR FLASHSTOR 6 (FS6706T)
+
+Please check these documentation.
+- [Introducing Portainer(EN)](https://www.asustor.com/en/online/College_topic?topic=145)
+- [Introducing Portainer(JP)](https://www.asustor.com/ja/online/College_topic?topic=145)
+
 ## Train yolox model
 ### Requirement
 - [docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)

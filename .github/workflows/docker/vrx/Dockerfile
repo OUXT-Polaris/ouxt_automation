@@ -3,22 +3,28 @@
 ARG BASEIMG=npslearninglab/watery_robots:vrx_base
 FROM $BASEIMG
 
+SHELL ["/bin/bash", "-c"]
+
 # Set ROS distribution
-ARG ROSDIST=humble
+ARG ROS_DISTRO=humble
 
 # Create workspace
 RUN mkdir -p ~/vrx_ws/src
 
+# RUN apt-get update && \
+#     apt-get upgrade -y && \
+#     apt-get install -y libgz-rendering7-ogre2-dev && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
 # TODO: restore version tag
-RUN git clone --depth 1 -b 2.3.3 https://github.com/osrf/vrx.git \
+ADD https://api.github.com/repos/OUXT-Polaris/vrx/git/refs/heads/feature/laser_refrection version.json
+RUN git clone --depth 1 -b feature/laser_refrection https://github.com/OUXT-Polaris/vrx.git \
 && mv ./vrx ~/vrx_ws/src
 
 # Compile the VRX project.
-RUN /bin/bash -c ". /opt/ros/${ROSDIST}/setup.bash && cd ~/vrx_ws && colcon build --merge-install"
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash && cd ~/vrx_ws && colcon build
 
-# Source all the needed environment files.
-RUN /bin/sh -c 'echo ". /opt/ros/${ROSDIST}/setup.bash" >> ~/.bashrc' \
- && /bin/sh -c 'echo ". ~/vrx_ws/install/setup.sh" >> ~/.bashrc'
 ## END OF SECTION BASED ON vrx/docker/Dockerfile
 
 # Cache fuel resources
@@ -45,8 +51,13 @@ COPY config /home/config
 EXPOSE 11345
 
 # setup entrypoint
-COPY ./vrx_entrypoint.sh /
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
+    source ~/vrx_ws/install/local_setup.bash && \
+    ros2 launch vrx_gazebo generate_wamv.launch.py component_yaml:=/home/config/component_config.yaml thruster_yaml:=/home/config/thruster_config.yaml wamv_target:=/home/config/wamv_target.urdf wamv_locked:=False
 
-COPY ./run_vrx_gazebo.bash /
+ADD entrypoint.sh /
+RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["/vrx_entrypoint.sh"]
+ENV GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:/root/vrx_ws/install/wamv_description/share:/root/vrx_ws/install/wamv_gazebo/share
+
+ENTRYPOINT ["/entrypoint.sh"]
