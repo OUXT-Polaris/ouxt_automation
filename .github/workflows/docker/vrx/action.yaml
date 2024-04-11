@@ -49,6 +49,18 @@ runs:
         no-cache: false
         cache-from: type=registry,ref=wamvtan/vrx:buildcache
         push: false
+    - name: Build Docker Image with cuda
+      uses: docker/build-push-action@v2
+      env:
+        DOCKER_BUILDKIT: 1
+      with:
+        username: ${{ inputs.docker_username }}
+        password: ${{ inputs.docker_password }}
+        context: ./.github/workflows/docker/vrx
+        file: ./.github/workflows/docker/vrx/Dockerfile.cuda
+        tags: wamvtan/vrx:latest_cuda
+        no-cache: true
+        push: ${{ github.event_name != 'pull_request'}}
     - uses: peter-evans/dockerhub-description@v3
       if: ${{ github.event_name == 'pull_request'}}
       with:
