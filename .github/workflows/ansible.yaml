@@ -13,8 +13,6 @@ jobs:
   setup_dev_environment:
     name: setup_dev_environment
     runs-on: ubuntu-22.04
-    container:
-      image: ubuntu:22.04
     steps:
     - name: Get current date
       id: date
@@ -37,8 +35,8 @@ jobs:
         poetry-version: 1.6.1
     - name: poetry install
       run: poetry install --no-interaction
-    # - name: install python3-apt
-    #   run: apt update && apt install -y python3-apt
+    - name: install python3-apt
+      run: apt update && apt install -y python3-apt
     # - name: make symbolic links
     #   run: |
     #     ln -s apt_inst.*.so apt_inst.so
