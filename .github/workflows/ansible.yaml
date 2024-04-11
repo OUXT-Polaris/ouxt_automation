@@ -36,7 +36,7 @@ jobs:
     - name: poetry install
       run: poetry install --no-interaction
     - name: install python3-apt
-      run: apt-get update && apt-get install -y python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python3-apt
     # - name: make symbolic links
     #   run: |
     #     ln -s apt_inst.*.so apt_inst.so
