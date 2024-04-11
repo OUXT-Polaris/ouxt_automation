@@ -33,10 +33,10 @@ jobs:
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
-    - name: poetry install
-      run: poetry install --no-interaction
     - name: install python3-apt
       run: sudo apt-get update && sudo apt-get install -y python-apt-dev
+    - name: poetry install
+      run: poetry install --no-interaction
     # - name: make symbolic links
     #   run: |
     #     ln -s apt_inst.*.so apt_inst.so
@@ -73,6 +73,8 @@ jobs:
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
+    - name: install python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python-apt-dev
     - name: install
       run: poetry install --no-interaction
     - name: run ansible and install docker
@@ -97,6 +99,8 @@ jobs:
     - uses: abatilo/actions-poetry@v2
       with:
         poetry-version: 1.6.1
+    - name: install python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python-apt-dev
     - name: install
       run: poetry install --no-interaction
     - name: run ansible and download dataset
