@@ -23,8 +23,16 @@ jobs:
         run: pip3 install mkdocs mkdocs-material fontawesome_markdown mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math python-github-api mkdocs-github-dashboard pandas markdown==3.3.0
       - name: Set env
         run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
+     - uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.12
+      - uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: 1.6.1
+      - name: install
+        run: poetry install --no-interaction --with docs
       - name: Generate documentation
-        run: mkdocs build
+        run: poetry run mkdocs build
         working-directory: docs
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'pull_request'}}

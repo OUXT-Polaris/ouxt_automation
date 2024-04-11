@@ -13,18 +13,10 @@ jobs:
   setup_dev_environment:
     name: setup_dev_environment
     runs-on: ubuntu-22.04
-    container: ubuntu:22.04
     steps:
     - name: Get current date
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-    - name: basic install
-      run: |
-          apt-get update &&
-          apt-get install -y ansible
-    - name: ansible version
-      run: |
-            ansible-playbook --version
     - uses: actions/checkout@v2-beta
     - name: make robotx_ws
       run: |
@@ -34,9 +26,28 @@ jobs:
       with:
         path: robotx_ws/ccache
         key: ccache-${{ steps.date.outputs.date }}
+    - uses: actions/setup-python@v4
+      id: install_python
+      with:
+        python-version: 3.10.12
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.6.1
+    - name: install python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python-apt-dev
+    - name: poetry install
+      run: poetry install --no-interaction
+    # - name: make symbolic links
+    #   run: |
+    #     ln -s apt_inst.*.so apt_inst.so
+    #     ln -s apt_pkg.*.so apt_pkg.so
+    #   working-directory: ${{ steps.install_python.outputs.python-path }}/dist-packages
     - name: ansible
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini \
+            ansible/setup_dev_environment.yml --connection local --become \
+            -e ansible_user=ubuntu \
+            -e ansible_python_interpreter=${{ steps.install_python.outputs.python-path }}
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
     - uses: actions/upload-artifact@v2
@@ -56,12 +67,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
-    - name: basic install
-      run: |
-          sudo apt install ansible
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.12
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.6.1
+    - name: install python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python-apt-dev
+    - name: install
+      run: poetry install --no-interaction
     - name: run ansible and install docker
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
@@ -75,12 +93,19 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2-beta
-    - name: basic install
-      run: |
-          sudo apt install ansible
+    - uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.12
+    - uses: abatilo/actions-poetry@v2
+      with:
+        poetry-version: 1.6.1
+    - name: install python3-apt
+      run: sudo apt-get update && sudo apt-get install -y python-apt-dev
+    - name: install
+      run: poetry install --no-interaction
     - name: run ansible and download dataset
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --become -e ansible_user=ubuntu
+          poetry run ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dataset.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()
