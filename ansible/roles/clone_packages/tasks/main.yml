@@ -76,6 +76,12 @@
     version: feature/opencv_vendor
     accept_hostkey: yes
   tags: [perception]
+- name: clone point_painting
+  git:
+    repo: https://github.com/OUXT-Polaris/point_painting.git
+    dest: "{{workspace_path}}/src/perception/point_painting"
+    version: master
+    accept_hostkey: yes
 
 # Planning Packages
 - name : clone hermite_path_planner
