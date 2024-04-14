@@ -82,6 +82,12 @@
     dest: "{{workspace_path}}/src/perception/point_painting"
     version: master
     accept_hostkey: yes
+- name: clone pcl_type_adapter
+  git:
+    repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
+    dest: "{{workspace_path}}/src/perception/pcl_type_adapter"
+    version: master
+    accept_hostkey: yes
 
 # Planning Packages
 - name : clone hermite_path_planner
