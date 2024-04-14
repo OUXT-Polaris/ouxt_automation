@@ -51,6 +51,7 @@ jobs:
           odom_frame_publisher,
           ouxt_common,
           pcl_apps,
+          pcl_type_adapter,
           perception_bringup,
           perception_camera_driver,
           perception_msgs,
