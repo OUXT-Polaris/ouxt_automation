@@ -45,7 +45,7 @@ wamv_imu:
 lidar:
     - name: left_lidar
       type: 16_beam
-      x: 1.6
+      x: 1.2
       y: 0.5
       z: 0.9
       R: 0.0
@@ -54,7 +54,7 @@ lidar:
       post_Y: 0.0
     - name: right_lidar
       type: 16_beam
-      x: 1.6
+      x: 1.2
       y: -0.5
       z: 0.9
       R: 0.0
