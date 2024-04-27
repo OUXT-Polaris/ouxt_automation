@@ -1,5 +1,5 @@
 FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04 as glvnd
-FROM wamvtan/vrx:latest
+FROM vrx:latest
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libglvnd0 \
