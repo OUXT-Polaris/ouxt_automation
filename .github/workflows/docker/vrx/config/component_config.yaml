@@ -45,20 +45,20 @@ wamv_imu:
 lidar:
     - name: left_lidar
       type: 16_beam
-      x: 1.8
+      x: 1.5
       y: 0.5
-      z: 0.7
+      z: 1.4
       R: 0.0
-      P: 0
+      P: 0.0
       Y: 0.0
       post_Y: 0.0
     - name: right_lidar
       type: 16_beam
-      x: 1.8
+      x: 1.5
       y: -0.5
-      z: 0.7
+      z: 1.4
       R: 0.0
-      P: 0
+      P: 0.0
       Y: 0.0
       post_Y: 0.0
 wamv_ball_shooter:
