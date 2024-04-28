@@ -18,8 +18,8 @@ RUN mkdir -p ~/vrx_ws/src
 #     rm -rf /var/lib/apt/lists/*
 
 # TODO: restore version tag
-ADD https://api.github.com/repos/OUXT-Polaris/vrx/git/refs/heads/feature/laser_refrection version.json
-RUN git clone --depth 1 -b feature/laser_refrection https://github.com/OUXT-Polaris/vrx.git \
+ADD https://api.github.com/repos/OUXT-Polaris/vrx/git/refs/heads/ouxt/main version.json
+RUN git clone --depth 1 -b ouxt/main https://github.com/OUXT-Polaris/vrx.git \
 && mv ./vrx ~/vrx_ws/src
 
 # Compile the VRX project.

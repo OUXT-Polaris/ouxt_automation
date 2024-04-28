@@ -1,20 +1,20 @@
 wamv_camera:
     - name: front_left_camera
       visualize: False
-      x: 0.75
-      y: 0.5
-      z: 1.5
+      x: 1.2
+      y: -0.5
+      z: 0.9
       R: 0.0
-      P: ${radians(15)}
+      P: 0.0
       Y: 0.0
       post_Y: 0.0
     - name: front_right_camera
       visualize: False
-      x: 0.75
+      x: 1.2
       y: -0.5
-      z: 1.5
+      z: 0.9
       R: 0.0
-      P: ${radians(15)}
+      P: 0.0
       Y: 0.0
       post_Y: 0.0
     - name: ball_shooter_camera
@@ -43,13 +43,22 @@ wamv_imu:
       P: 0.0
       Y: 0.0
 lidar:
-    - name: lidar_wamv
+    - name: left_lidar
       type: 16_beam
-      x: 0.7
-      y: 0.0
-      z: 1.8
+      x: 1.2
+      y: 0.5
+      z: 0.9
       R: 0.0
-      P: ${radians(8)}
+      P: 0.0
+      Y: 0.0
+      post_Y: 0.0
+    - name: right_lidar
+      type: 16_beam
+      x: 1.2
+      y: -0.5
+      z: 0.9
+      R: 0.0
+      P: 0.0
       Y: 0.0
       post_Y: 0.0
 wamv_ball_shooter:
