@@ -82,6 +82,12 @@
     dest: "{{workspace_path}}/src/perception/point_painting"
     version: master
     accept_hostkey: yes
+- name: clone 
+  git:
+    repo: https://github.com/OUXT-Polaris/detic_onnx_ros2.git
+    dest: "{{workspace_path}}/src/perception/detic_onnx_ros2"
+    version: master
+    accept_hostkey: yes
 - name: clone pcl_type_adapter
   git:
     repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
