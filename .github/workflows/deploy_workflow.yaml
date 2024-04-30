@@ -56,6 +56,7 @@ jobs:
           perception_camera_driver,
           perception_msgs,
           perception_server,
+          point_painting,
           playstation_controller_drivers,
           quaternion_operation,
           robotx_behavior_tree,
