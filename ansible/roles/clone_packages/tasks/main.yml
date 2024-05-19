@@ -8,7 +8,7 @@
 # Perception Packages
 - name : clone grid_map
   git:
-    repo: https://github.com/ANYbotics/grid_map.git
+    repo: https://github.com/OUXT-Polaris/grid_map.git
     dest: "{{workspace_path}}/src/perception/grid_map"
     version: humble
     accept_hostkey: yes
