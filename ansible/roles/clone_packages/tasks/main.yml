@@ -6,6 +6,13 @@
     dest: "{{workspace_path}}"
     mode: 0577
 # Perception Packages
+- name : clone grid_map
+  git:
+    repo: https://github.com/OUXT-Polaris/grid_map.git
+    dest: "{{workspace_path}}/src/perception/grid_map"
+    version: humble
+    accept_hostkey: yes
+  tags: [perception]
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
@@ -82,18 +89,21 @@
     dest: "{{workspace_path}}/src/perception/point_painting"
     version: master
     accept_hostkey: yes
-- name: clone 
+  tags: [perception]
+- name: clone detic_onnx_ros2
   git:
     repo: https://github.com/OUXT-Polaris/detic_onnx_ros2.git
     dest: "{{workspace_path}}/src/perception/detic_onnx_ros2"
     version: master
     accept_hostkey: yes
+  tags: [perception]
 - name: clone pcl_type_adapter
   git:
     repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
     dest: "{{workspace_path}}/src/perception/pcl_type_adapter"
     version: master
     accept_hostkey: yes
+  tags: [perception]
 
 # Planning Packages
 - name : clone hermite_path_planner
@@ -159,6 +169,13 @@
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
     dest: "{{workspace_path}}/src/utils/lua_vendor"
     version: main
+    accept_hostkey: yes
+  tags: [utility]
+- name: clone launch_composition
+  git:
+    repo: https://github.com/OUXT-Polaris/launch_composition.git
+    dest: "{{workspace_path}}/src/utils/launch_composition"
+    version: master
     accept_hostkey: yes
   tags: [utility]
 

@@ -26,35 +26,35 @@ jobs:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
           opencv_version: ${{ matrix.opencv_version }}
-  dev_container:
-    name: build and push wamvtan/dev_container and wamvtan/dev_container_vnc
-    runs-on: ubuntu-22.04
-    timeout-minutes: 120
-    strategy:
-      fail-fast: false
-      max-parallel: 8
-      matrix:
-        # gui: [novnc, vnc]
-        gui: [novnc]
-        include:
-          - docker_image: wamvtan/dev_container
-            base_image: ubuntu:22.04
-            gui: novnc
-            entrypoint: entrypoint.sh
-          # - docker_image: wamvtan/dev_container_vnc
-          #   base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
-          #   gui: vnc
-          #   entrypoint: entrypoint_vnc.sh
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/actions/cleanup_runner
-      - uses: ./.github/workflows/docker/dev_container
-        with:
-          docker_username: ${{ secrets.DOCKER_USERNAME }}
-          docker_password: ${{ secrets.DOCKER_PASSWORD }}
-          image_name: ${{ matrix.docker_image }}
-          base_image: ${{ matrix.base_image }}
-          entrypoint: ${{ matrix.entrypoint }}
+  # dev_container:
+  #   name: build and push wamvtan/dev_container and wamvtan/dev_container_vnc
+  #   runs-on: ubuntu-22.04
+  #   timeout-minutes: 120
+  #   strategy:
+  #     fail-fast: false
+  #     max-parallel: 8
+  #     matrix:
+  #       # gui: [novnc, vnc]
+  #       gui: [novnc]
+  #       include:
+  #         - docker_image: wamvtan/dev_container
+  #           base_image: ubuntu:22.04
+  #           gui: novnc
+  #           entrypoint: entrypoint.sh
+  #         - docker_image: wamvtan/dev_container_vnc
+  #           base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
+  #           gui: vnc
+  #           entrypoint: entrypoint_vnc.sh
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: ./.github/workflows/actions/cleanup_runner
+  #     - uses: ./.github/workflows/docker/dev_container
+  #       with:
+  #         docker_username: ${{ secrets.DOCKER_USERNAME }}
+  #         docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  #         image_name: ${{ matrix.docker_image }}
+  #         base_image: ${{ matrix.base_image }}
+  #         entrypoint: ${{ matrix.entrypoint }}
   yolox:
     name: build and push wamvtan/yolox
     runs-on: ubuntu-22.04
