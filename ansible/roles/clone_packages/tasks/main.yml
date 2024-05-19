@@ -10,7 +10,7 @@
   git:
     repo: https://github.com/ANYbotics/grid_map.git
     dest: "{{workspace_path}}/src/perception/grid_map"
-    version: master
+    version: humble
     accept_hostkey: yes
   tags: [perception]
 - name : clone pcl_apps
