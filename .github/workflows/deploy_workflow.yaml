@@ -110,16 +110,16 @@ jobs:
     - name: Check branch exist
       id: check_branch
       run: |
-        echo "::set-output name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)"
+        echo "name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)" >> "$GITHUB_OUTPUT"
     - name: Count changes
       id: changes
       run: |
         git add -N .
-        echo "::set-output name=count::$(git diff --name-only | wc -l)"
+        echo "name=count::$(git diff --name-only | wc -l)" >> "$GITHUB_OUTPUT"
     - name: Check default branch
       id: check_default_branch
       run: |
-        echo "::set-output name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')"
+        echo "name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')" >> "$GITHUB_OUTPUT"
     - name: Delete old branch
       if: steps.check_branch.outputs.exist == 1
       run: |
