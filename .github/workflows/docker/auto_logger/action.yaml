@@ -22,7 +22,7 @@ runs:
           ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
     - name: copy repos file
       run: |
-        cp ansible/mv ansible/packages.repos .github/workflows/docker/auto_logger/
+        cp ansible/mv ansible/packages_exact.repos .github/workflows/docker/auto_logger/
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
