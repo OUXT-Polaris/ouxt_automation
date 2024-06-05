@@ -10,8 +10,8 @@ RUN apt update && \
 RUN mkdir -p messages_ws/src
 
 WORKDIR messages_ws
-COPY packages.repos packages.repos
-RUN vcs import src < packages.repos
+COPY packages_exact.repos packages_exact.repos
+RUN vcs import src < packages_exact.repos
 
 RUN rosdep init && \
     rosdep update && \

@@ -33,7 +33,9 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: repos_file
-        path: ansible/packages.repos
+        path: | 
+          ansible/packages.repos
+          ansible/packages_exact.repos
   deploy_to_ouxt_distro:
     name: deploy_to_ouxt_distro
     runs-on: ubuntu-22.04

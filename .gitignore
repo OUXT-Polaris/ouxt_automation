@@ -8,6 +8,7 @@ robotx_tools
 log
 private.yml
 scripts/packages.repos
+scripts/packages_exact.repos
 scripts/rosdep_base.yaml
 scripts/rosdep.yaml
 dataset
