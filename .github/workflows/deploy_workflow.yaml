@@ -34,6 +34,7 @@ jobs:
           detic_onnx_ros2,
           geographic_conversion,
           geographic_info,
+          grid_map_type_adapter,
           hermite_path_planner,
           hungarian_solver,
           image_processing_utils,
