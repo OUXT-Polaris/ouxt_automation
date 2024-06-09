@@ -226,13 +226,6 @@
   tags: [localization]
 
 # Driver Packages
-- name: clone nmea_gps_driver
-  git:
-    repo: https://github.com/OUXT-Polaris/nmea_gps_driver.git
-    dest: "{{workspace_path}}/src/drivers/nmea_gps_driver"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
 - name: clone wamv_control
   git:
     repo: https://github.com/OUXT-Polaris/wamv_control.git
@@ -250,13 +243,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
     dest: "{{workspace_path}}/src/drivers/playstation_controller_drivers"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone nmea_hardware_interface
-  git:
-    repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
-    dest: "{{workspace_path}}/src/drivers/nmea_hardware_interface"
     version: master
     accept_hostkey: yes
   tags: [driver]

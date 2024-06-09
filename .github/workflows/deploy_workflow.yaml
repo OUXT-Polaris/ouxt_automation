@@ -43,7 +43,6 @@ jobs:
           lua_vendor,
           message_synchronizer,
           navi_sim,
-          nmea_gps_driver,
           nmea_hardware_interface,
           nmea_to_geopose,
           odom_frame_publisher,
