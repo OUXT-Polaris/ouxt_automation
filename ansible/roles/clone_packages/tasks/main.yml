@@ -187,13 +187,6 @@
     version: master
     accept_hostkey: yes
   tags: [description]
-- name: clone miniv_description
-  git:
-    repo: https://github.com/OUXT-Polaris/miniv_description.git
-    dest: "{{workspace_path}}/src/description/miniv_description"
-    version: master
-    accept_hostkey: yes
-  tags: [description]
 
 # Localization Packages
 - name: clone geographic_conversion
@@ -240,13 +233,6 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
-- name: clone miniv_control
-  git:
-    repo: https://github.com/OUXT-Polaris/miniv_control.git
-    dest: "{{workspace_path}}/src/drivers/miniv_control"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
 - name: clone wamv_control
   git:
     repo: https://github.com/OUXT-Polaris/wamv_control.git
@@ -257,13 +243,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/tcp_sender.git
     dest: "{{workspace_path}}/src/drivers/tcp_sender"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone dynamixel_hardware_interface
-  git:
-    repo: https://github.com/OUXT-Polaris/dynamixel_hardware_interface.git
-    dest: "{{workspace_path}}/src/drivers/dynamixel_hardware_interface"
     version: master
     accept_hostkey: yes
   tags: [driver]
@@ -279,13 +258,6 @@
     repo: https://github.com/OUXT-Polaris/nmea_hardware_interface.git
     dest: "{{workspace_path}}/src/drivers/nmea_hardware_interface"
     version: master
-    accept_hostkey: yes
-  tags: [driver]
-- name: clone ros_kvh1750 package
-  git:
-    repo: https://github.com/OUXT-Polaris/ros_kvh1750.git
-    dest: "{{workspace_path}}/src/drivers/ros_kvh1750"
-    version: ros2
     accept_hostkey: yes
   tags: [driver]
 
