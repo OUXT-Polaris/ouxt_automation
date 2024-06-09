@@ -6,13 +6,6 @@
     dest: "{{workspace_path}}"
     mode: 0577
 # Perception Packages
-- name : clone grid_map
-  git:
-    repo: https://github.com/OUXT-Polaris/grid_map.git
-    dest: "{{workspace_path}}/src/perception/grid_map"
-    version: humble
-    accept_hostkey: yes
-  tags: [perception]
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
@@ -169,13 +162,6 @@
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
     dest: "{{workspace_path}}/src/utils/lua_vendor"
     version: main
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone launch_composition
-  git:
-    repo: https://github.com/OUXT-Polaris/launch_composition.git
-    dest: "{{workspace_path}}/src/utils/launch_composition"
-    version: master
     accept_hostkey: yes
   tags: [utility]
 
