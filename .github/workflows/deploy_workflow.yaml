@@ -49,7 +49,6 @@ jobs:
           pcl_apps,
           pcl_type_adapter,
           perception_bringup,
-          perception_camera_driver,
           perception_msgs,
           perception_server,
           playstation_controller_drivers,
