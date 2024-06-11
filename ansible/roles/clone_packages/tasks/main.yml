@@ -98,7 +98,7 @@
     accept_hostkey: yes
   tags: [perception]
 - name: clone grid_map_type_adapter
-  gir:
+  git:
     repo: https://github.com/OUXT-Polaris/grid_map_type_adapter.git
     dest: "{{workspace_path}}/src/perception/grid_map_type_adapter"
     version: master
