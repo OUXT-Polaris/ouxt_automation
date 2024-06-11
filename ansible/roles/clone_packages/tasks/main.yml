@@ -33,7 +33,7 @@
     dest: "{{workspace_path}}/src/perception/image_processing_utils"
     version: master
     accept_hostkey: yes
-  tags: [perception, perception_camera]
+  tags: [perception]
 - name: clone robotx_costmap_calculator
   git:
     repo: https://github.com/OUXT-Polaris/robotx_costmap_calculator.git
@@ -94,6 +94,13 @@
   git:
     repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
     dest: "{{workspace_path}}/src/perception/pcl_type_adapter"
+    version: master
+    accept_hostkey: yes
+  tags: [perception]
+- name: clone grid_map_type_adapter
+  git:
+    repo: https://github.com/OUXT-Polaris/grid_map_type_adapter.git
+    dest: "{{workspace_path}}/src/perception/grid_map_type_adapter"
     version: master
     accept_hostkey: yes
   tags: [perception]
