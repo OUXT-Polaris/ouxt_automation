@@ -1,7 +1,8 @@
 ---
 - name: Setup Development Environment
   hosts: all
-  roles:    
+  roles:
+    - docker
     - ros2
     - create_workspace
     - clone_packages
