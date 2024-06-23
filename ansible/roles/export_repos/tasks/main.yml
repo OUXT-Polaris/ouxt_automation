@@ -31,4 +31,4 @@
   shell: vcs export {{workspace_path}}/src > packages_exact.repos --exact
 
 - name: export repos file
-  shell: vcs export {{workspace_path}}/src > packages_exact.repos
+  shell: vcs export {{workspace_path}}/src > packages.repos

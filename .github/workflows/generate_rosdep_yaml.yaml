@@ -8,6 +8,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  generate_repos_file:
+    name: generate_repos_file
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        module: ["perception", "control", "drivers", "localization", "planning"]
+    steps:
+      - name: Export repos file
+        run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --ask-become-pass -t ${{ matrix.module }} -t utility
+
   generate_rosdep_yaml:
     name: generate_rosdep_yaml
     runs-on: ubuntu-22.04
@@ -21,7 +31,7 @@ jobs:
     - uses: actions/checkout@v2-beta
     - name: run ansible
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
     - name: run script
       run: |
         python3 generate_rosdep_yaml.py ../robotx_ws/src/
@@ -32,7 +42,7 @@ jobs:
         path: scripts/rosdep.yaml
     - uses: actions/upload-artifact@v2
       with:
-        name: repos_file
+        name: repos_fileutility
         path: | 
           ansible/packages.repos
           ansible/packages_exact.repos
