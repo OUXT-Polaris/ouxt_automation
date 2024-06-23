@@ -106,3 +106,25 @@ jobs:
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  wamv:
+    name: build and push wamvtan/wamv
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    strategy:
+      matrix:
+        module: ["perception", "control", "drivers", "localization", "planning"]
+    steps:
+      - name: Export repos file
+        run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --ask-become-pass -t ${{ matrix.module }} -t utility
+      - uses: actions/upload-artifact@v2
+        with:
+          name: repos_file_${{ matrix.module }}
+          path: | 
+            ansible/packages.repos
+            ansible/packages_exact.repos
+      - uses: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/docker/wamv
+        with:
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
+          module: ${{ matrix.module }}

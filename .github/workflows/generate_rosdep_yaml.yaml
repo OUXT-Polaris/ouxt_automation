@@ -8,21 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate_repos_file:
-    name: generate_repos_file
-    runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        module: ["perception", "control", "drivers", "localization", "planning"]
-    steps:
-      - name: Export repos file
-        run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --ask-become-pass -t ${{ matrix.module }} -t utility
-      - uses: actions/upload-artifact@v2
-        with:
-          name: repos_file_${{ matrix.module }}
-          path: | 
-            ansible/packages.repos
-            ansible/packages_exact.repos
   generate_rosdep_yaml:
     name: generate_rosdep_yaml
     runs-on: ubuntu-22.04
