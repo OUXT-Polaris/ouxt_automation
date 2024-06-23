@@ -38,6 +38,7 @@ runs:
         cache-from: type=registry,ref=wamvtan/wamv:buildcache
         cache-to: type=registry,ref=wamvtan/wamv:buildcache,mode=max
         push: true
+        platforms: linux/arm64/v8
     - name: Build Docker Image
       if: ${{ github.event_name == 'pull_request'}}
       uses: docker/build-push-action@v2
@@ -52,3 +53,4 @@ runs:
         no-cache: false
         cache-from: type=registry,ref=wamvtan/wamv:buildcache
         push: false
+        platforms: linux/arm64/v8
