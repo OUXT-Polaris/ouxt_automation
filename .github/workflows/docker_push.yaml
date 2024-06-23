@@ -120,6 +120,8 @@ jobs:
             sudo apt install ansible
       - name: Export repos file
         run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --ask-become-pass -t ${{ matrix.module }} -t utility
+      - name: Move repos file
+        run: mv ansible/packages_exact.repos ./.github/workflows/docker/wamv/packages_exact.repos
       - uses: actions/upload-artifact@v2
         with:
           name: repos_file_${{ matrix.module }}
