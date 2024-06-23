@@ -1,4 +1,4 @@
-FROM docker.io/hakuturu583/cuda_ros:lt4-humble-cuda-12.2.2-devel as build_stage
+FROM docker.io/hakuturu583/cuda_ros:lt4-humble-cuda-12.2.2-devel
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && \
