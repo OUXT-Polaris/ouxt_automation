@@ -17,7 +17,12 @@ jobs:
     steps:
       - name: Export repos file
         run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --ask-become-pass -t ${{ matrix.module }} -t utility
-
+      - uses: actions/upload-artifact@v2
+        with:
+          name: repos_file_${{ matrix.module }}
+          path: | 
+            ansible/packages.repos
+            ansible/packages_exact.repos
   generate_rosdep_yaml:
     name: generate_rosdep_yaml
     runs-on: ubuntu-22.04
@@ -42,7 +47,7 @@ jobs:
         path: scripts/rosdep.yaml
     - uses: actions/upload-artifact@v2
       with:
-        name: repos_fileutility
+        name: repos_file
         path: | 
           ansible/packages.repos
           ansible/packages_exact.repos
