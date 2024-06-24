@@ -120,7 +120,7 @@ jobs:
             sudo apt install ansible
       - name: Export repos file
         run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local -t ${{ matrix.module }} -t utility --become -e ansible_user=ubuntu
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: repos_file_${{ matrix.module }}
           path: | 
@@ -136,7 +136,7 @@ jobs:
         module: ["perception", "control", "drivers", "localization", "planning"]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v3
         with:
           name: repos_file_${{ matrix.module }}
           path: ./.github/workflows/docker/wamv/repos
