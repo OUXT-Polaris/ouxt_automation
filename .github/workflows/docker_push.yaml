@@ -106,7 +106,7 @@ jobs:
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
-  wamv:
+  wamv_repos:
     name: build and push wamvtan/wamv
     runs-on: ubuntu-22.04
     timeout-minutes: 360
@@ -120,14 +120,26 @@ jobs:
             sudo apt install ansible
       - name: Export repos file
         run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local -t ${{ matrix.module }} -t utility --become -e ansible_user=ubuntu
-      - name: Move repos file
-        run: mv ansible/packages_exact.repos ./.github/workflows/docker/wamv/packages_exact.repos
       - uses: actions/upload-artifact@v2
         with:
           name: repos_file_${{ matrix.module }}
           path: | 
             ansible/packages.repos
             ansible/packages_exact.repos
+  wamv:
+    name: build and push wamvtan/wamv
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    strategy:
+      matrix:
+        module: ["perception", "control", "drivers", "localization", "planning"]
+    needs: wamv_repos
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v4
+        with:
+          name: repos_file_${{ matrix.module }}
+          path: ./.github/workflows/docker/wamv/repos
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/wamv
         with:
