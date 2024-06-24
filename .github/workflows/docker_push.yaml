@@ -136,11 +136,11 @@ jobs:
         module: ["perception", "control", "drivers", "localization", "planning"]
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: actions/download-artifact@v3
         with:
           name: repos_file_${{ matrix.module }}
           path: ./.github/workflows/docker/wamv/repos
-      - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/wamv
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
