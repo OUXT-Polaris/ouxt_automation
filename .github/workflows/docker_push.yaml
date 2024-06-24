@@ -107,7 +107,7 @@ jobs:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
   wamv_repos:
-    name: build and push wamvtan/wamv
+    name: generate repos file for wamvtan/wamv
     runs-on: ubuntu-22.04
     timeout-minutes: 360
     strategy:
