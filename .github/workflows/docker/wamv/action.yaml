@@ -33,7 +33,7 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/wamv
         file: ./.github/workflows/docker/wamv/Dockerfile
-        tags: wamvtan/wamv:latest
+        tags: wamvtan/wamv_${{ inputs.module }}:latest
         no-cache: false
         cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
         cache-to: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache,mode=max
@@ -49,7 +49,7 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/wamv
         file: ./.github/workflows/docker/wamv/Dockerfile
-        tags: wamvtan/wamv:latest
+        tags: wamvtan/wamv_${{ inputs.module }}:latest
         no-cache: false
         cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
         push: false
