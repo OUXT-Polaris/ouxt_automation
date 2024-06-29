@@ -22,9 +22,10 @@ RUN --mount=type=cache,target=/wamv_ws/build source /opt/ros/$ROS_DISTRO/setup.b
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     rosdep install -iry --from-paths src && \
-    colcon build --symlink-install \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    apt-get clean &&\
+    rm -rf /var/lib/apt/lists/*
+
+RUN colcon build --symlink-install
 
 ADD entrypoint.sh /
 RUN chmod +x entrypoint.sh
