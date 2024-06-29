@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /wamv_ws/src
 WORKDIR /wamv_ws/src
-ADD repos/packages_exact.repos .
+ADD ./repos/packages_exact.repos .
 RUN vcs import . < packages_exact.repos
 WORKDIR ../
 ENV USE_NCCL 0
@@ -25,7 +25,7 @@ RUN --mount=type=cache,target=/wamv_ws/build source /opt/ros/$ROS_DISTRO/setup.b
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
 
-RUN colcon build --symlink-install
+RUN source /opt/ros/$ROS_DISTRO/setup.bash && colcon build --symlink-install
 
 ADD entrypoint.sh /
 RUN chmod +x entrypoint.sh
