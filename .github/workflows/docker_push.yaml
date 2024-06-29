@@ -141,6 +141,8 @@ jobs:
         with:
           name: repos_file_${{ matrix.module }}
           path: ./.github/workflows/docker/wamv/repos
+      - run: ls ./.github/workflows/docker/wamv/repos
+      - run: cat ./.github/workflows/docker/wamv/repos/packages_exact.repos
       - uses: ./.github/workflows/docker/wamv
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}

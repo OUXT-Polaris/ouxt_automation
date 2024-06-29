@@ -35,8 +35,8 @@ runs:
         file: ./.github/workflows/docker/wamv/Dockerfile
         tags: wamvtan/wamv:latest
         no-cache: false
-        cache-from: type=registry,ref=wamvtan/wamv:buildcache
-        cache-to: type=registry,ref=wamvtan/wamv:buildcache,mode=max
+        cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
+        cache-to: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache,mode=max
         push: true
         platforms: linux/arm64/v8
     - name: Build Docker Image
@@ -51,6 +51,6 @@ runs:
         file: ./.github/workflows/docker/wamv/Dockerfile
         tags: wamvtan/wamv:latest
         no-cache: false
-        cache-from: type=registry,ref=wamvtan/wamv:buildcache
+        cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
         push: false
         platforms: linux/arm64/v8
