@@ -171,6 +171,13 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
+- name: clone tcp_sender
+  git:
+    repo: https://github.com/OUXT-Polaris/tcp_sender.git
+    dest: "{{workspace_path}}/src/drivers/tcp_sender"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -225,13 +232,6 @@
     dest: "{{workspace_path}}/src/drivers/wamv_control"
     version: master
     accept_hostkey: yes
-- name: clone tcp_sender
-  git:
-    repo: https://github.com/OUXT-Polaris/tcp_sender.git
-    dest: "{{workspace_path}}/src/drivers/tcp_sender"
-    version: master
-    accept_hostkey: yes
-  tags: [driver]
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
