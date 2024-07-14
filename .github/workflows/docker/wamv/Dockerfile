@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /wamv_ws/src
 WORKDIR /wamv_ws/src
-ADD ./repos/packages_exact.repos .
+COPY ./repos/packages_exact.repos packages_exact.repos
 RUN vcs import . < packages_exact.repos
 WORKDIR ../
 ENV USE_NCCL 0
