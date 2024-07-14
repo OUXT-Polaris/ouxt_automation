@@ -90,13 +90,6 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
-- name: clone pcl_type_adapter
-  git:
-    repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
-    dest: "{{workspace_path}}/src/perception/pcl_type_adapter"
-    version: master
-    accept_hostkey: yes
-  tags: [perception]
 - name: clone grid_map_type_adapter
   git:
     repo: https://github.com/OUXT-Polaris/grid_map_type_adapter.git
@@ -129,6 +122,13 @@
   tags: [planning]
 
 # Utility Packages
+- name: clone pcl_type_adapter
+  git:
+    repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
+    dest: "{{workspace_path}}/src/utils/pcl_type_adapter"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 - name: clone data_buffer
   git:
     repo: https://github.com/OUXT-Polaris/data_buffer.git
