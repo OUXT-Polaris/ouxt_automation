@@ -25,7 +25,7 @@ jobs:
     - name: ansible version
       run: |
             ansible-playbook --version
-    - uses: actions/checkout@v2-beta
+    - uses: actions/checkout@v4
     - name: make robotx_ws
       run: |
             mkdir robotx_ws
@@ -55,7 +55,7 @@ jobs:
     name: setup_firmware
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2-beta
+    - uses: actions/checkout@v4
     - name: basic install
       run: |
           sudo apt install ansible
@@ -74,7 +74,7 @@ jobs:
     name: setup_dataset
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2-beta
+    - uses: actions/checkout@v4
     - name: basic install
       run: |
           sudo apt install ansible

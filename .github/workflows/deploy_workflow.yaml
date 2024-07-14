@@ -15,7 +15,7 @@ jobs:
   get_template:
     runs-on: ubuntu-22.04
     steps:  
-      - uses: actions/checkout@v2-beta
+      - uses: actions/checkout@v4
       - uses: actions/upload-artifact@v2
         with:
           name: templates
@@ -73,7 +73,7 @@ jobs:
       with:
         name: templates
         path: ~/templates
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: OUXT-Polaris/${{ matrix.package_name }}
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
