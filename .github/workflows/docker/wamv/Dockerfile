@@ -26,7 +26,7 @@ RUN --mount=type=cache,target=/wamv_ws/build source /opt/ros/$ROS_DISTRO/setup.b
     rm -rf /var/lib/apt/lists/*
 
 RUN source /opt/ros/$ROS_DISTRO/setup.bash && \
-    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 
 ADD entrypoint.sh /
 RUN chmod +x entrypoint.sh
