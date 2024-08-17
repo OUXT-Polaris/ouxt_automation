@@ -19,7 +19,7 @@ jobs:
       matrix:
         opencv_version: ["4.4.0", "4.5.0"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/l4t_opencv
         with:
@@ -46,7 +46,7 @@ jobs:
   #           gui: vnc
   #           entrypoint: entrypoint_vnc.sh
   #   steps:
-  #     - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v4
   #     - uses: ./.github/workflows/actions/cleanup_runner
   #     - uses: ./.github/workflows/docker/dev_container
   #       with:
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox
         with:
@@ -76,7 +76,7 @@ jobs:
         os: [linux-x64]
         runner_version: [2.295.0]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/yolox_trainer
         with:
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/vrx
         with:
@@ -100,9 +100,51 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
       - uses: ./.github/workflows/docker/vrx
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  export_wamv_repos:
+    name: export_wamv_repos
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    strategy:
+      matrix:
+        module: ["perception", "control", "drivers", "localization", "planning"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: basic install
+        run: |
+            sudo apt install ansible
+      - name: Export repos file
+        run: ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local -t ${{ matrix.module }} -t utility --become -e ansible_user=ubuntu
+      - uses: actions/upload-artifact@v3
+        with:
+          name: repos_file_${{ matrix.module }}
+          path: | 
+            ansible/packages.repos
+            ansible/packages_exact.repos
+  wamv:
+    needs: export_wamv_repos
+    name: build and push wamvtan/wamv
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    strategy:
+      matrix:
+        module: ["perception", "control", "drivers", "localization", "planning"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/cleanup_runner
+      - uses: actions/download-artifact@v3
+        with:
+          name: repos_file_${{ matrix.module }}
+          path: ./.github/workflows/docker/wamv/repos
+      - run: ls ./.github/workflows/docker/wamv/repos
+      - run: cat ./.github/workflows/docker/wamv/repos/packages_exact.repos
+      - uses: ./.github/workflows/docker/wamv
+        with:
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
+          module: ${{ matrix.module }}

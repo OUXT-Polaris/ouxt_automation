@@ -1,0 +1,11 @@
+---
+- name: Export repos file of development workspace
+  hosts: all
+  roles:
+    - role: ros2
+      tags: always
+    - role: create_workspace
+      tags: always
+    - role: clone_packages
+    - role: export_repos
+      tags: always

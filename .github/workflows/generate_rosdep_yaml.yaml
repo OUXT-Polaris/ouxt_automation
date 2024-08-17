@@ -18,10 +18,10 @@ jobs:
     - name: ansible version
       run: |
             ansible-playbook --version
-    - uses: actions/checkout@v2-beta
+    - uses: actions/checkout@v4
     - name: run ansible
       run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos_full.yml --connection local --become -e ansible_user=ubuntu
+          ansible-playbook -i ansible/hosts/localhost.ini ansible/export_repos.yml --connection local --become -e ansible_user=ubuntu
     - name: run script
       run: |
         python3 generate_rosdep_yaml.py ../robotx_ws/src/
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs: generate_rosdep_yaml
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: OUXT-Polaris/ouxt_distro
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}

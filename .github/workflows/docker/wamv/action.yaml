@@ -1,5 +1,5 @@
-name: "Build YOLOX image action"
-description: "Build YOLOX docker images"
+name: "Build WAM-V image action"
+description: "Build WAM-V docker images"
 
 inputs:
   docker_username:
@@ -8,11 +8,13 @@ inputs:
   docker_password:
     description: "Password for Dockerhub"
     required: true
+  module:
+    description: "Software module"
+    required: true
 
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v4
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
@@ -28,13 +30,14 @@ runs:
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
-        context: ./.github/workflows/docker/yolox
-        file: ./.github/workflows/docker/yolox/Dockerfile
-        tags: wamvtan/yolox:latest
+        context: ./.github/workflows/docker/wamv
+        file: ./.github/workflows/docker/wamv/Dockerfile
+        tags: wamvtan/wamv_${{ inputs.module }}:latest
         no-cache: false
-        cache-from: type=registry,ref=wamvtan/yolox:buildcache
-        cache-to: type=registry,ref=wamvtan/yolox:buildcache,mode=max
+        cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
+        cache-to: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache,mode=max
         push: true
+        platforms: linux/arm64/v8
     - name: Build Docker Image
       if: ${{ github.event_name == 'pull_request'}}
       uses: docker/build-push-action@v2
@@ -43,9 +46,10 @@ runs:
       with:
         username: ${{ inputs.docker_username }}
         password: ${{ inputs.docker_password }}
-        context: ./.github/workflows/docker/yolox
-        file: ./.github/workflows/docker/yolox/Dockerfile
-        tags: wamvtan/yolox:latest
+        context: ./.github/workflows/docker/wamv
+        file: ./.github/workflows/docker/wamv/Dockerfile
+        tags: wamvtan/wamv_${{ inputs.module }}:latest
         no-cache: false
-        cache-from: type=registry,ref=wamvtan/yolox:buildcache
+        cache-from: type=registry,ref=wamvtan/wamv_${{ inputs.module }}:buildcache
         push: false
+        platforms: linux/arm64/v8
