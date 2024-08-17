@@ -69,13 +69,14 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
-- name: clone vision_opencv
-  git:
-    repo: https://github.com/OUXT-Polaris/vision_opencv.git
-    dest: "{{workspace_path}}/src/perception/vision_opencv"
-    version: feature/opencv_vendor
-    accept_hostkey: yes
-  tags: [perception]
+# This package is too heavy for building, so it will be add cahce layer in the near future.
+# - name: clone vision_opencv
+#   git:
+#     repo: https://github.com/OUXT-Polaris/vision_opencv.git
+#     dest: "{{workspace_path}}/src/perception/vision_opencv"
+#     version: feature/opencv_vendor
+#     accept_hostkey: yes
+#   tags: [base]
 - name: clone point_painting
   git:
     repo: https://github.com/OUXT-Polaris/point_painting.git
