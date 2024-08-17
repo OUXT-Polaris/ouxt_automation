@@ -90,6 +90,11 @@ jobs:
     strategy:
       matrix:
         module: ["perception", "control", "drivers", "localization", "planning"]
+        include:
+          - platform: "linux/arm64/v8"
+            base_image: docker.io/hakuturu583/cuda_ros:lt4-humble-cuda-12.2.2-devel
+          - platform: "linux/amd64"
+            base_image: docker.io/hakuturu583/cuda_ros:humble-cuda-12.2.0-devel
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
@@ -104,3 +109,5 @@ jobs:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
           module: ${{ matrix.module }}
+          platform: ${{ matrix.platform }}
+          base_image: ${{ matrix.base_image }}
