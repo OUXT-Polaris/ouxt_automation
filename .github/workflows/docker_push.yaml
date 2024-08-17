@@ -11,50 +11,6 @@ on:
   release:
     types: [published]
 jobs:
-  l4t_opencv:
-    name: build and push wamvtan/l4t_opencv
-    runs-on: ubuntu-22.04
-    timeout-minutes: 360
-    strategy:
-      matrix:
-        opencv_version: ["4.4.0", "4.5.0"]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/cleanup_runner
-      - uses: ./.github/workflows/docker/l4t_opencv
-        with:
-          docker_username: ${{ secrets.DOCKER_USERNAME }}
-          docker_password: ${{ secrets.DOCKER_PASSWORD }}
-          opencv_version: ${{ matrix.opencv_version }}
-  # dev_container:
-  #   name: build and push wamvtan/dev_container and wamvtan/dev_container_vnc
-  #   runs-on: ubuntu-22.04
-  #   timeout-minutes: 120
-  #   strategy:
-  #     fail-fast: false
-  #     max-parallel: 8
-  #     matrix:
-  #       # gui: [novnc, vnc]
-  #       gui: [novnc]
-  #       include:
-  #         - docker_image: wamvtan/dev_container
-  #           base_image: ubuntu:22.04
-  #           gui: novnc
-  #           entrypoint: entrypoint.sh
-  #         - docker_image: wamvtan/dev_container_vnc
-  #           base_image: tiryoh/ros2-desktop-vnc:humble-amd64-20230115T1406
-  #           gui: vnc
-  #           entrypoint: entrypoint_vnc.sh
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: ./.github/workflows/actions/cleanup_runner
-  #     - uses: ./.github/workflows/docker/dev_container
-  #       with:
-  #         docker_username: ${{ secrets.DOCKER_USERNAME }}
-  #         docker_password: ${{ secrets.DOCKER_PASSWORD }}
-  #         image_name: ${{ matrix.docker_image }}
-  #         base_image: ${{ matrix.base_image }}
-  #         entrypoint: ${{ matrix.entrypoint }}
   yolox:
     name: build and push wamvtan/yolox
     runs-on: ubuntu-22.04
