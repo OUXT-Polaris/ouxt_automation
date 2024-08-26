@@ -54,6 +54,7 @@ jobs:
           perception_server,
           playstation_controller_drivers,
           point_painting,
+          prometheus_ros,
           quaternion_operation,
           robotx_behavior_tree,
           robotx_communication,
