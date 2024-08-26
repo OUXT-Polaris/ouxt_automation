@@ -179,6 +179,13 @@
     version: master
     accept_hostkey: yes
   tags: [utility]
+- name: clone prometheus_ros
+  git:
+    repo: https://github.com/OUXT-Polaris/prometheus_ros.git
+    dest: "{{workspace_path}}/src/drivers/prometheus_ros"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
