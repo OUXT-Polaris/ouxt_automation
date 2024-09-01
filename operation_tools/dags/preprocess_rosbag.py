@@ -2,7 +2,6 @@ from airflow import DAG
 from airflow.models import BaseOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
-from airflow.sensors.s3_key_sensor import S3KeySensor
 from airflow.utils.decorators import apply_defaults
 from datetime import datetime, timedelta
 import re
@@ -11,56 +10,103 @@ import re
 from airflow import DAG
 from datetime import datetime
 
+
+class S3RegexListOperator(BaseOperator):
+    @apply_defaults
+    def __init__(
+        self,
+        bucket_name: str,
+        prefix: str,
+        regex_pattern: str,
+        aws_conn_id: str = "aws_default",
+        *args,
+        **kwargs,
+    ):
+        super(S3RegexListOperator, self).__init__(*args, **kwargs)
+        self.bucket_name = bucket_name
+        self.prefix = prefix
+        self.regex_pattern = regex_pattern
+        self.aws_conn_id = aws_conn_id
+
+    def execute(self, context):
+        s3 = S3Hook(aws_conn_id=self.aws_conn_id)
+        all_files = s3.list_keys(bucket_name=self.bucket_name, prefix=self.prefix)
+
+        if not all_files:
+            self.log.info(
+                "No files found in the bucket %s with prefix %s",
+                self.bucket_name,
+                self.prefix,
+            )
+            return []
+
+        matching_files = [
+            file for file in all_files if re.match(self.regex_pattern, file)
+        ]
+
+        self.log.info(
+            "Found %d files matching the pattern %s",
+            len(matching_files),
+            self.regex_pattern,
+        )
+        context["ti"].xcom_push(key="matching_files", value=matching_files)
+
+        return matching_files
+
+
 default_args = {
-    'owner': 'airflow',
-    'start_date': datetime(2023, 9, 1),
-    'retries': 1,
+    "owner": "airflow",
+    "start_date": datetime(2023, 9, 1),
+    "retries": 1,
 }
 
 # 処理を実行するPython関数
 def process_new_file(**kwargs):
-    s3_key = kwargs['ti'].xcom_pull(task_ids='check_for_new_file')
-    print(f"New file detected: {s3_key}")
+    s3_keys = kwargs["ti"].xcom_pull(
+        task_ids="listup_mcap_files_in_datalake", key="matching_files"
+    )
+    if len(s3_keys) == 0:
+        print("No files are found, something wrong heppens.")
+    else:
+        for s3_key in s3_keys:
+            print(f"New file detected: {s3_key}")
     # ここにファイル処理のロジックを記述
+
 
 # DAGの設定
 default_args = {
-    'owner': 'airflow',
-    'depends_on_past': False,
-    'start_date': datetime(2023, 8, 29),
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 0,
-    'retry_delay': timedelta(minutes=5),
+    "owner": "airflow",
+    "depends_on_past": False,
+    "start_date": datetime(2023, 8, 29),
+    "email_on_failure": False,
+    "email_on_retry": False,
+    "retries": 0,
+    "retry_delay": timedelta(minutes=5),
 }
 
 dag = DAG(
-    'preprocess_rosbag',
+    "preprocess_rosbag",
     default_args=default_args,
-    description='S3に新しいファイルが追加されたことを検知して処理を実行するDAG',
-    schedule_interval=None,  # このDAGはスケジュールではなくセンサーでトリガーされる
+    description="When you upload new data to the minio storage datalake, preprocess data.",
+    schedule_interval=timedelta(minutes=2),
     catchup=False,
+    max_active_runs=1,
 )
 
-# S3に新しいファイルが追加されたことを検知するセンサー
-check_for_new_file = S3KeySensor(
-    task_id='check_for_new_file',
-    bucket_name='datalake',         # S3バケット名
-    bucket_key='rosbag/**.mcap',    # 検知するファイルのパス（ワイルドカードを使用可能）
-    wildcard_match=True,            # ワイルドカードでのマッチングを許可
-    aws_conn_id='aws_default',      # Airflowで設定されているAWSの接続ID
-    timeout=18*60*60,               # センサーのタイムアウト時間
-    poke_interval=60,               # 次のチェックまでの待ち時間（秒）
+list_matching_files = S3RegexListOperator(
+    task_id="listup_mcap_files_in_datalake",
+    bucket_name="datalake",
+    prefix="rosbag/",
+    regex_pattern=r"^.*\.mcap$",
+    aws_conn_id="aws_default",
     dag=dag,
 )
 
-# 新しいファイルが検知されたら処理を実行するタスク
 process_file = PythonOperator(
-    task_id='process_file',
+    task_id="process_file",
     provide_context=True,
     python_callable=process_new_file,
     dag=dag,
 )
 
-# タスクの依存関係を設定
-check_for_new_file >> process_file
+list_matching_files >> process_file
