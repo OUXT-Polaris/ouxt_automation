@@ -39,7 +39,7 @@ jobs:
           ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_dev_environment.yml --connection local --become -e ansible_user=ubuntu
     - name: export repos file
       run: vcs export --exact robotx_ws/src > robotx.repos
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: robotx.repos
         path: robotx.repos

@@ -26,11 +26,11 @@ jobs:
       run: |
         python3 generate_rosdep_yaml.py ../robotx_ws/src/
       working-directory: scripts
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: rosdep_yaml
         path: scripts/rosdep.yaml
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: repos_file
         path: | 
