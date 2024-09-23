@@ -60,7 +60,7 @@ default_args = {
     "retries": 1,
 }
 
-# 処理を実行するPython関数
+
 def process_new_file(**kwargs):
     s3_keys = kwargs["ti"].xcom_pull(
         task_ids="listup_mcap_files_in_datalake", key="matching_files"
@@ -70,10 +70,8 @@ def process_new_file(**kwargs):
     else:
         for s3_key in s3_keys:
             print(f"New file detected: {s3_key}")
-    # ここにファイル処理のロジックを記述
 
 
-# DAGの設定
 default_args = {
     "owner": "airflow",
     "depends_on_past": False,
