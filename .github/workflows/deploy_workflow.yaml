@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:  
       - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: templates
           path: ./workflow_templates/*.yaml
