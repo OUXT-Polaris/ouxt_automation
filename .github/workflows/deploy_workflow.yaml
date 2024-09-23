@@ -71,7 +71,7 @@ jobs:
           wamv_description,
         ]
     steps:
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v4
       with:
         name: templates
         path: ~/templates

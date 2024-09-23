@@ -45,10 +45,10 @@ jobs:
         with:
           repository: OUXT-Polaris/ouxt_distro
           token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: rosdep_yaml
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: repos_file
       - name: Check branch exist
