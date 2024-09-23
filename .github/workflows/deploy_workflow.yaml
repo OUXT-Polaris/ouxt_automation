@@ -55,6 +55,7 @@ jobs:
           playstation_controller_drivers,
           point_painting,
           prometheus_ros,
+          protolink,
           quaternion_operation,
           robotx_behavior_tree,
           robotx_communication,
