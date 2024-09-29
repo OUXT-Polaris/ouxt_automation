@@ -13,10 +13,6 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v4
-    - name: basic install
-      run: |
-          sudo apt install make ansible
-    - uses: actions/checkout@v4
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
