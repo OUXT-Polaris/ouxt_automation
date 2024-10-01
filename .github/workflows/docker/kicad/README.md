@@ -24,4 +24,4 @@ sh start_kicad.sh
 
 Open [http://localhost:3000/](http://localhost:3000/)
 
-![kicad](./kicad.png)
+![kicad](https://raw.githubusercontent.com/OUXT-Polaris/ouxt_automation/refs/heads/master/.github/workflows/docker/kicad/kicad.png)
