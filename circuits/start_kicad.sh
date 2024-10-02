@@ -7,4 +7,5 @@ docker run \
   -e TZ=Etc/UTC \
   -p 3000:3000 \
   -p 3001:3001 \
+  -v ${PWD}/computer_sensor_board:/config/circuits/computer_sensor_board \
   wamvtan/kicad:latest
