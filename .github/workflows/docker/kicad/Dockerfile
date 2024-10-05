@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install kibot --no-compile
 
-RUN useradd -m user
-USER user
-WORKDIR /home/user
+# RUN useradd -m user
+# USER user
+# WORKDIR /home/user
 
 CMD ["kicad"]
