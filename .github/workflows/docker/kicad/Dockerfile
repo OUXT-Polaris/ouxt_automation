@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     wget \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     x11-apps \
     && apt-get clean
 
-RUN pip3 install kibot
+RUN pip3 install kibot --no-compile
 
 RUN useradd -m user
 USER user
