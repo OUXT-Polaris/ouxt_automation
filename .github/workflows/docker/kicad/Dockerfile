@@ -14,8 +14,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install kibot --no-compile
 
-# RUN useradd -m user
-# USER user
-# WORKDIR /home/user
+ADD entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-CMD ["kicad"]
+ENTRYPOINT ["/entrypoint.sh"]
