@@ -2,4 +2,4 @@ kibot:
   version: 1
 
 preflight:
-  run_erc: true
+  erc: true
