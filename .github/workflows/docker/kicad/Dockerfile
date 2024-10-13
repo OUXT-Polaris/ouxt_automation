@@ -32,4 +32,6 @@ COPY sym-lib-table /root/.config/kicad/8.0
 
 WORKDIR /workspace
 
+COPY kibot.yaml /workspace/kibot.yaml
+
 ENTRYPOINT ["/entrypoint.sh"]
