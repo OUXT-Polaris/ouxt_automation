@@ -3,3 +3,8 @@ kibot:
 
 preflight:
   erc: true
+
+outputs:
+  - name: print schematic
+    type: svg_sch_print
+    dir: /workspace/schematics
