@@ -24,7 +24,7 @@ jobs:
         with:
           version: "latest"
       - name: Install
-        run: uv symc
+        run: uv sync
       - name: Set env
         run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
       - name: Generate documentation
