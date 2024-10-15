@@ -1,10 +1,8 @@
-docker run \
+docker run --name=kicad \
+  -it \
+  -e DISPLAY=$DISPLAY \
+  --net=host \
   --rm \
-  --name=kicad \
-  --security-opt seccomp=unconfined `#optional` \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -p 3000:3000 \
-  -p 3001:3001 \
-  wamvtan/kicad:latest
+  -v ${PWD}/computer_sensor_board:/workspace/computer_sensor_board \
+  -v ${PWD}/3rdparty:/root/.local/share/kicad/8.0/3rdparty \
+  wamvtan/kicad:latest kicad

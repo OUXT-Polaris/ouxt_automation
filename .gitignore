@@ -13,3 +13,7 @@ scripts/rosdep_base.yaml
 scripts/rosdep.yaml
 dataset
 poetry.lock
+__pycache__
+
+# kicad
+fp-info-cache

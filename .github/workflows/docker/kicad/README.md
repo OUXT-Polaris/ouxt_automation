@@ -22,6 +22,4 @@ cd ouxt_automation/circuits
 sh start_kicad.sh
 ```
 
-Open [http://localhost:3000/](http://localhost:3000/)
-
 ![kicad](https://raw.githubusercontent.com/OUXT-Polaris/ouxt_automation/refs/heads/master/.github/workflows/docker/kicad/kicad.png)

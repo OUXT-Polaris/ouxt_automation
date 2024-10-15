@@ -19,12 +19,16 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.10.15"
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
       - name: Install
-        run: pip3 install mkdocs mkdocs-material fontawesome_markdown mkdocs-mermaid2-plugin pymdown-extensions plantuml-markdown python-markdown-math python-github-api mkdocs-github-dashboard pandas markdown==3.3.0
+        run: uv sync
       - name: Set env
         run: echo "GITHUB_TOKEN=${{ secrets.WAMV_TAN_BOT_SECRET }}" >> $GITHUB_ENV
       - name: Generate documentation
-        run: mkdocs build
+        run: uv run mkdocs build
         working-directory: docs
       - uses: actions/upload-artifact@v4
         if: ${{ github.event_name == 'pull_request'}}
