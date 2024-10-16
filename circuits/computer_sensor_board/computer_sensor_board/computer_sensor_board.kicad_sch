@@ -2893,10 +2893,10 @@
 		(uuid "9ee25083-8ae2-41b5-9e03-13608bf83c04")
 	)
 	(junction
-		(at 186.69 137.16)
+		(at 186.69 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "da906ab5-1310-4f2e-8b1d-72f7424d38c5")
+		(uuid "bb3fe665-f02f-4d32-ba16-39ca2ec655cb")
 	)
 	(junction
 		(at 95.25 57.15)
@@ -2999,7 +2999,7 @@
 		(uuid "56e04f8a-4dd5-494e-99b1-7bb1f2131c1f")
 	)
 	(no_connect
-		(at 176.53 129.54)
+		(at 176.53 130.81)
 		(uuid "57c88216-1828-4cbe-98a6-dd6211acdcab")
 	)
 	(no_connect
@@ -3023,7 +3023,7 @@
 		(uuid "61b02380-454a-41e0-97ee-46797e4ecf24")
 	)
 	(no_connect
-		(at 179.07 129.54)
+		(at 179.07 130.81)
 		(uuid "625dd5c8-2859-4d7a-a6f3-32672d4d2da5")
 	)
 	(no_connect
@@ -3185,6 +3185,16 @@
 	(no_connect
 		(at 264.16 48.26)
 		(uuid "fe720fda-f169-4c38-8f93-f61252d5f15b")
+	)
+	(wire
+		(pts
+			(xy 186.69 138.43) (xy 186.69 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "023cfb68-a3eb-46c7-8388-822795b8a328")
 	)
 	(wire
 		(pts
@@ -3398,7 +3408,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 124.46) (xy 186.69 137.16)
+			(xy 186.69 124.46) (xy 186.69 138.43)
 		)
 		(stroke
 			(width 0)
@@ -3408,7 +3418,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 114.3) (xy 171.45 129.54)
+			(xy 171.45 114.3) (xy 171.45 130.81)
 		)
 		(stroke
 			(width 0)
@@ -3445,16 +3455,6 @@
 			(type default)
 		)
 		(uuid "7bdad320-5021-4b47-a812-39be6f63dbc8")
-	)
-	(wire
-		(pts
-			(xy 186.69 137.16) (xy 186.69 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c8e1d40-535b-4f62-93d6-487fa3fd1fab")
 	)
 	(wire
 		(pts
@@ -4565,7 +4565,7 @@
 	)
 	(symbol
 		(lib_id "Connector:USB_A")
-		(at 176.53 137.16 90)
+		(at 176.53 138.43 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4574,7 +4574,7 @@
 		(fields_autoplaced yes)
 		(uuid "c6b9985c-9dfd-45d9-a848-58e69ee3563d")
 		(property "Reference" "J4"
-			(at 167.64 135.8899 90)
+			(at 167.64 137.1599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4583,7 +4583,7 @@
 			)
 		)
 		(property "Value" "USB_M5Stack_1"
-			(at 167.64 138.4299 90)
+			(at 167.64 139.6999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4592,7 +4592,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 177.8 133.35 0)
+			(at 177.8 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4601,7 +4601,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 177.8 133.35 0)
+			(at 177.8 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4610,7 +4610,7 @@
 			)
 		)
 		(property "Description" "USB Type A connector"
-			(at 176.53 137.16 0)
+			(at 176.53 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
