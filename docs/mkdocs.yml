@@ -34,6 +34,7 @@ theme:
 plugins:
   - github-dashboard
   - search
+  - inline-select-svg
   - mermaid2:
       arguments:
         theme: base
@@ -101,5 +102,7 @@ nav:
     - tools/tools.md
     - tools/docker_images.md
   - Hardware Documentation: https://ouxt-polaris.github.io/robotx-hardware-documentation/
+  - Circuit:
+    - Computer Sensor Board: circuit/computer_sensor_board/computer_sensor_board.md
   - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md

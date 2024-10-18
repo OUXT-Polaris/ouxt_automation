@@ -1,18 +1,37 @@
-FROM linuxserver/kicad:8.0.1
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    wget \
+    curl \
+    && add-apt-repository --yes ppa:kicad/kicad-8.0-releases \
+    && apt-get update && apt-get install -y \
+    python3-pip \
+    kicad \
+    xvfb \
+    x11-apps \
+    unzip \
+    git \
+    && apt-get clean
 
-ENV KICAD8_3DMODEL_DIR="/usr/share/kicad/3dmodels/"
-ENV KICAD8_FOOTPRINT_DIR="/usr/share/kicad/footprints/"
-ENV KICAD8_SYMBOL_DIR="/usr/share/kicad/symbols/"
+RUN pip3 install kibot --no-compile
 
-RUN mkdir kicad_libraries
-WORKDIR /kicad_libraries
-ADD https://github.com/ncarandini/KiCad-RP-Pico/archive/refs/heads/main.zip KiCad-RP-Pico.zip
-RUN unzip KiCad-RP-Pico.zip
+ADD entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-RUN cp -r "/kicad_libraries/KiCad-RP-Pico-main/RP-Pico Libraries/Pico.wrl" ${KICAD8_3DMODEL_DIR}
-RUN cp -r "/kicad_libraries/KiCad-RP-Pico-main/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.pretty" ${KICAD8_FOOTPRINT_DIR}
-RUN cp -r "/kicad_libraries/KiCad-RP-Pico-main/RP-Pico Libraries/MCU_RaspberryPi_and_Boards.kicad_sym" ${KICAD8_SYMBOL_DIR}
+WORKDIR /usr/share/kicad/footprints
+RUN git clone https://github.com/XenGi/teensy.pretty.git
 
-WORKDIR /
+WORKDIR /usr/share/kicad/symbols
+RUN git clone https://github.com/XenGi/teensy_library.git
+RUN kicad-cli sym upgrade teensy_library/teensy.lib -o teensy.kicad_sym
 
-COPY autostart /defaults/autostart
+# RUN mkdir -p ~/.config/kicad/8.0
+COPY fp-lib-table /root/.config/kicad/8.0
+COPY sym-lib-table /root/.config/kicad/8.0
+
+WORKDIR /workspace
+
+COPY kibot.yaml /workspace/kibot.yaml
+
+ENTRYPOINT ["/entrypoint.sh"]
