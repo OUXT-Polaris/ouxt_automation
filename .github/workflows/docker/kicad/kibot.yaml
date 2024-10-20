@@ -8,3 +8,55 @@ outputs:
   - name: print schematic
     type: svg_sch_print
     dir: /workspace/schematics
+  - name: print pcb
+    type: pcb_print
+    dir: /workspace/pcb
+    options:
+      format: SVG
+      pages:
+      - layers:
+        - layer: F.Cu
+        - layer: F.Mask
+          color: '#14332440'
+        - layer: F.Paste
+        - layer: F.Silkscreen
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        sheet: Front copper
+      - layers:
+        - layer: B.Cu
+        - layer: B.Mask
+          color: '#14332440'
+        - layer: B.Silkscreen
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        mirror: true
+        sheet: Bottom copper
+      - layers:
+        - layer: B.Courtyard
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        mirror: true
+        sheet: Bottom courtyard area
+      - layers:
+        - layer: F.Courtyard
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        sheet: Front courtyard area
+      - layers:
+        - layer: B.Fab
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        mirror: true
+        sheet: Bottom documentation
+      - layers:
+        - layer: F.Fab
+        - layer: Edge.Cuts
+        - layer: User.Comments
+        sheet: Front documentation
+      keep_temporal_files: true
+      add_background: true
+  - name: renderer_for_present
+    comment: Renderer for the presentation
+    type: pcbdraw
+    dir: render
