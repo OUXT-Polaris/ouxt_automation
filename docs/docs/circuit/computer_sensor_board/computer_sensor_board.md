@@ -1,6 +1,6 @@
 # Computer Sensor Board
 
-![Design](kibot_output/render/computer_sensor_board-schematic.svg)
+![Design](kibot_output/render/computer_sensor_board-top.svg)
 
 This board provides power to the Mini-V control system.  
 
