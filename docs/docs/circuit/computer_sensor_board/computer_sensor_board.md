@@ -28,4 +28,4 @@ Under development.
 
 ### Back
 
-![pcb_front](kibot_output/pcb/computer_sensor_board-assembly_page_01.svg)
+![pcb_back](kibot_output/pcb/computer_sensor_board-assembly_page_02.svg)
