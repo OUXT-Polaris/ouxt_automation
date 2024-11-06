@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/automation_pipeline/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/license/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/packages/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/circuit/computer_sensor_board/computer_sensor_board/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tools/docker_images/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tools/tools/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/build_instraction/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/navigation_demo/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/supported_platforms/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ouxt-polaris.github.io/ouxt_automation/tutorials/vrx_instruction/</loc>
-         <lastmod>2024-11-05</lastmod>
+         <lastmod>2024-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
