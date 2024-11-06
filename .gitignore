@@ -22,3 +22,4 @@ fp-info-cache
 *.lck
 kibot_output
 *.bak
+_autosave*

@@ -23,3 +23,18 @@ sh start_kicad.sh
 ```
 
 ![kicad](https://raw.githubusercontent.com/OUXT-Polaris/ouxt_automation/refs/heads/master/.github/workflows/docker/kicad/kicad.png)
+
+## Trouble shooting
+
+If you see error below,
+
+```bash
+Authorization required, but no authorization protocol specified
+12:13:36: Error: Unable to initialize GTK+, is DISPLAY set properly?
+```
+
+Please run command below.
+
+```bash
+xhost + local:
+```
