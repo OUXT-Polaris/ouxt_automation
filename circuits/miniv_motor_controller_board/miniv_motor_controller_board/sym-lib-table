@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "M78AR05-1")(type "KiCad")(uri "/workspace/computer_sensor_board/computer_sensor_board/M78AR05-1.kicad_sym")(options "")(descr ""))
+)
