@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "miniv_motor_controller_board")(type "KiCad")(uri "/workspace/miniv_motor_controller_board/miniv_motor_controller_board.pretty")(options "")(descr ""))
+  (lib (name "3557-15")(type "KiCad")(uri "${KIPRJMOD}/3557-15.pretty")(options "")(descr ""))
+  (lib (name "TLP222A")(type "KiCad")(uri "${KIPRJMOD}/TLP222A.pretty")(options "")(descr ""))
+)
