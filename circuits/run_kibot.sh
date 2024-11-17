@@ -5,4 +5,5 @@ docker run --name=kibot \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/schematics:/workspace/schematics \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/pcb:/workspace/pcb \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/render:/workspace/render \
+  -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/gerber:/workspace/gerber \
   wamvtan/kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/computer_sensor_board/computer_sensor_board/computer_sensor_board.kicad_sch
