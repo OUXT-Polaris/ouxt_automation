@@ -64,3 +64,6 @@ outputs:
   - name: output gerber
     type: gerber
     dir: /workspace/gerber
+  - name: output drill file
+    type: excellon
+    dir: /workspace/drill
