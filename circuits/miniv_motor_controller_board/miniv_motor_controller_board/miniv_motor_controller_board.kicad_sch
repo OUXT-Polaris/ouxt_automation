@@ -3619,12 +3619,6 @@
 		(uuid "1050eb53-8756-4e47-8602-d9357efb7fd3")
 	)
 	(junction
-		(at 246.38 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "111438e2-dcb6-4300-bb18-4d0d38a2cb42")
-	)
-	(junction
 		(at 151.13 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3649,16 +3643,16 @@
 		(uuid "2eb8b132-3476-4215-95f1-6a50b31cd8e2")
 	)
 	(junction
+		(at 248.92 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "41729df6-808a-4e03-a689-6027732cd7d5")
+	)
+	(junction
 		(at 168.91 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "518a5afc-b149-488b-8754-7c3b45bba46b")
-	)
-	(junction
-		(at 107.95 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5234f1e6-741c-4d8f-838b-52a502b6dba9")
 	)
 	(junction
 		(at 124.46 100.33)
@@ -3731,6 +3725,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d6760c65-6846-4a6a-be5c-694bc882d5af")
+	)
+	(junction
+		(at 107.95 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "db95c182-e9b8-4f98-b40b-22d5ddf3d176")
 	)
 	(junction
 		(at 233.68 67.31)
@@ -4002,7 +4002,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 90.17) (xy 246.38 123.19)
+			(xy 248.92 90.17) (xy 248.92 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4042,16 +4042,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 72.39) (xy 93.98 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08cb930d-be96-46c2-b9f9-41721d22ed0b")
-	)
-	(wire
-		(pts
 			(xy 104.14 132.08) (xy 99.06 132.08)
 		)
 		(stroke
@@ -4082,16 +4072,6 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 90.17) (xy 250.19 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1200a423-13b6-4169-99ea-6b35e8cd2248")
-	)
-	(wire
-		(pts
 			(xy 152.4 143.51) (xy 157.48 143.51)
 		)
 		(stroke
@@ -4099,6 +4079,16 @@
 			(type default)
 		)
 		(uuid "13f2709b-0a45-4fb6-832d-c747712315e8")
+	)
+	(wire
+		(pts
+			(xy 238.76 123.19) (xy 236.22 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a473001-e8cd-46fc-a66d-323092e68968")
 	)
 	(wire
 		(pts
@@ -4112,7 +4102,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 128.27) (xy 190.5 128.27)
+			(xy 170.18 128.27) (xy 189.23 128.27)
 		)
 		(stroke
 			(width 0)
@@ -4122,13 +4112,13 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 110.49) (xy 120.65 110.49)
+			(xy 107.95 93.98) (xy 107.95 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1fb2b74c-fdb1-460a-a0fb-b32ef132a159")
+		(uuid "1e1abdd4-fde9-4724-bc5c-a9845e043fc2")
 	)
 	(wire
 		(pts
@@ -4142,7 +4132,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 110.49) (xy 110.49 110.49)
+			(xy 107.95 110.49) (xy 124.46 110.49)
 		)
 		(stroke
 			(width 0)
@@ -4232,7 +4222,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 123.19) (xy 173.99 123.19)
+			(xy 189.23 123.19) (xy 173.99 123.19)
 		)
 		(stroke
 			(width 0)
@@ -4262,7 +4252,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 85.09) (xy 120.65 85.09)
+			(xy 124.46 74.93) (xy 120.65 74.93)
 		)
 		(stroke
 			(width 0)
@@ -4272,7 +4262,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 90.17) (xy 246.38 90.17)
+			(xy 233.68 90.17) (xy 248.92 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4302,6 +4292,26 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 133.35) (xy 200.66 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a8855a4-21cd-4db0-be03-4d0de04e321e")
+	)
+	(wire
+		(pts
+			(xy 248.92 90.17) (xy 250.19 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bac7512-97ea-4e49-8502-502b224667a8")
+	)
+	(wire
+		(pts
 			(xy 265.43 87.63) (xy 265.43 128.27)
 		)
 		(stroke
@@ -4322,7 +4332,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 72.39) (xy 107.95 85.09)
+			(xy 107.95 72.39) (xy 107.95 74.93)
 		)
 		(stroke
 			(width 0)
@@ -4362,7 +4372,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 85.09) (xy 107.95 95.25)
+			(xy 107.95 74.93) (xy 107.95 77.47)
 		)
 		(stroke
 			(width 0)
@@ -4379,6 +4389,16 @@
 			(type default)
 		)
 		(uuid "750d2e1a-658d-471f-acb3-1c81b1174dba")
+	)
+	(wire
+		(pts
+			(xy 93.98 72.39) (xy 107.95 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c7a2ae4-01b9-4bdc-bc51-013d91dd26df")
 	)
 	(wire
 		(pts
@@ -4402,7 +4422,7 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 128.27) (xy 265.43 128.27)
+			(xy 254 128.27) (xy 265.43 128.27)
 		)
 		(stroke
 			(width 0)
@@ -4442,7 +4462,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 95.25) (xy 124.46 85.09)
+			(xy 124.46 95.25) (xy 124.46 74.93)
 		)
 		(stroke
 			(width 0)
@@ -4612,13 +4632,23 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 133.35) (xy 181.61 133.35)
+			(xy 189.23 133.35) (xy 181.61 133.35)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d1039956-3e04-458d-a576-fff6b74b87a9")
+	)
+	(wire
+		(pts
+			(xy 243.84 128.27) (xy 236.22 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4c95335-b4e6-497c-8f58-023587d7128c")
 	)
 	(wire
 		(pts
@@ -4632,13 +4662,23 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 85.09) (xy 110.49 85.09)
+			(xy 107.95 74.93) (xy 110.49 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "dd60e74e-44df-49d4-b354-949d7240122d")
+	)
+	(wire
+		(pts
+			(xy 199.39 123.19) (xy 200.66 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd801b6d-486e-4ddb-acc8-2075bb4f148c")
 	)
 	(wire
 		(pts
@@ -4669,6 +4709,26 @@
 			(type default)
 		)
 		(uuid "e12b152c-6c02-4ec9-8397-d471c67c472e")
+	)
+	(wire
+		(pts
+			(xy 199.39 128.27) (xy 200.66 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e483fdca-2045-4a94-847f-b0743adda7cd")
+	)
+	(wire
+		(pts
+			(xy 107.95 85.09) (xy 107.95 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5348cfa-497f-4c13-bb14-ca29654e1d9e")
 	)
 	(wire
 		(pts
@@ -5007,7 +5067,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Open")
-		(at 115.57 85.09 0)
+		(at 115.57 74.93 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -5016,7 +5076,7 @@
 		(fields_autoplaced yes)
 		(uuid "1604b5ac-a3b7-4fae-b03d-33dfd298250e")
 		(property "Reference" "JP1"
-			(at 115.57 78.74 0)
+			(at 115.57 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5024,7 +5084,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Open"
-			(at 115.57 81.28 0)
+			(at 115.57 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5032,7 +5092,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 115.57 85.09 0)
+			(at 115.57 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5041,7 +5101,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 115.57 85.09 0)
+			(at 115.57 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5050,7 +5110,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, open"
-			(at 115.57 85.09 0)
+			(at 115.57 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5075,7 +5135,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 241.3 123.19 0)
+		(at 243.84 123.19 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -5083,7 +5143,7 @@
 		(dnp no)
 		(uuid "195d5dc8-e77d-46b4-a280-e98b9f2c2fda")
 		(property "Reference" "JP8"
-			(at 241.046 121.412 0)
+			(at 243.586 121.412 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5091,7 +5151,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Bridged"
-			(at 243.332 124.968 0)
+			(at 245.872 124.968 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5099,7 +5159,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm"
-			(at 241.3 123.19 0)
+			(at 243.84 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5108,7 +5168,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 241.3 123.19 0)
+			(at 243.84 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5117,7 +5177,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 241.3 123.19 0)
+			(at 243.84 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5158,7 +5218,7 @@
 				)
 			)
 		)
-		(property "Value" "TLP222A"
+		(property "Value" "TLP624"
 			(at 115.57 91.44 0)
 			(effects
 				(font
@@ -5177,7 +5237,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://toshiba.semicon-storage.com/info/docget.jsp?did=17036&prodName=TLP222A"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g107551/"
 			(at 115.57 97.79 0)
 			(effects
 				(font
@@ -5282,6 +5342,73 @@
 			(project ""
 				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
 					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 107.95 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2ef97d66-6d53-4ef2-9f31-706ade38999c")
+		(property "Reference" "R6"
+			(at 104.648 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1K"
+			(at 104.648 83.566 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 106.172 81.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g108535/"
+			(at 107.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 107.95 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e6c6a0a2-66f6-4317-9e01-ee588cba3c4f")
+		)
+		(pin "1"
+			(uuid "9203f12e-8207-4ae8-83e0-32064f9e359b")
+		)
+		(instances
+			(project "miniv_motor_controller_board"
+				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -5432,74 +5559,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Open")
-		(at 115.57 110.49 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "59172858-10f9-48f7-894d-2f0dc4dc9842")
-		(property "Reference" "JP2"
-			(at 115.57 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Open"
-			(at 115.57 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 115.57 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 115.57 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, open"
-			(at 115.57 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "558be290-7dbb-429c-8825-14a6aa32e759")
-		)
-		(pin "2"
-			(uuid "59ec71f3-10b7-4631-b56e-e776db964dd9")
-		)
-		(instances
-			(project ""
-				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 177.8 67.31 0)
 		(unit 1)
@@ -5636,6 +5695,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 107.95 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "64894b6a-99d5-4a30-b2ba-f93d96dd10d4")
+		(property "Reference" "R5"
+			(at 104.648 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "390"
+			(at 104.648 92.456 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 106.172 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g108531/"
+			(at 107.95 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 107.95 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c0cb5dfd-00a5-4db5-bdf5-b6eb357ff735")
+		)
+		(pin "1"
+			(uuid "0f467c52-ba2b-44be-9e4d-14e94a7c9744")
+		)
+		(instances
+			(project "miniv_motor_controller_board"
+				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x02_Pin")
 		(at 281.94 90.17 180)
 		(unit 1)
@@ -5729,7 +5855,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_AMASS:AMASS_XT30PW-F_1x02_P2.50mm_Horizontal"
 			(at 133.35 99.06 0)
 			(effects
 				(font
@@ -5864,7 +5990,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "AE-RELAY953B-12V:AE-RELAY953B-12V"
 			(at 219.71 128.27 0)
 			(effects
 				(font
@@ -6054,7 +6180,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 195.58 128.27 0)
+		(at 194.31 128.27 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -6062,7 +6188,7 @@
 		(dnp no)
 		(uuid "95c990eb-6cc9-46a6-a869-44edd29ebcfe")
 		(property "Reference" "JP5"
-			(at 195.326 126.492 0)
+			(at 194.056 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6070,7 +6196,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Bridged"
-			(at 194.056 130.302 0)
+			(at 192.786 130.302 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6078,7 +6204,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm"
-			(at 195.58 128.27 0)
+			(at 194.31 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6087,7 +6213,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 195.58 128.27 0)
+			(at 194.31 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6096,7 +6222,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 195.58 128.27 0)
+			(at 194.31 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6336,7 +6462,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 195.58 123.19 0)
+		(at 194.31 123.19 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -6344,7 +6470,7 @@
 		(dnp no)
 		(uuid "c9168948-336c-456c-9df4-7fc48d4e8baf")
 		(property "Reference" "JP6"
-			(at 195.58 118.11 0)
+			(at 194.31 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6352,7 +6478,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Bridged"
-			(at 193.548 120.904 0)
+			(at 192.278 120.904 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6360,7 +6486,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm"
-			(at 195.58 123.19 0)
+			(at 194.31 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6369,7 +6495,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 195.58 123.19 0)
+			(at 194.31 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6378,7 +6504,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 195.58 123.19 0)
+			(at 194.31 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6403,7 +6529,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 195.58 133.35 0)
+		(at 194.31 133.35 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -6411,7 +6537,7 @@
 		(dnp no)
 		(uuid "c92f8a82-83ea-4dbd-a911-1f692cf77328")
 		(property "Reference" "JP4"
-			(at 195.326 134.62 0)
+			(at 194.056 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6419,7 +6545,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Bridged"
-			(at 195.326 137.16 0)
+			(at 194.056 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6427,7 +6553,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.1sqmm_1x01_D0.4mm_OD1mm"
-			(at 195.58 133.35 0)
+			(at 194.31 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6436,7 +6562,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 195.58 133.35 0)
+			(at 194.31 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6445,7 +6571,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 195.58 133.35 0)
+			(at 194.31 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6817,7 +6943,7 @@
 				)
 			)
 		)
-		(property "Value" "TLP222A"
+		(property "Value" "TLP624"
 			(at 111.76 128.27 0)
 			(effects
 				(font
@@ -6836,7 +6962,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://toshiba.semicon-storage.com/info/docget.jsp?did=17036&prodName=TLP222A"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g107551/"
 			(at 111.76 134.62 0)
 			(effects
 				(font
@@ -6903,7 +7029,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "M78AR05-1:M78AR05-1"
 			(at 158.75 77.47 0)
 			(effects
 				(font
@@ -6950,7 +7076,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 241.3 128.27 0)
+		(at 248.92 128.27 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
@@ -6958,7 +7084,7 @@
 		(dnp no)
 		(uuid "e5b0526d-b427-46b7-b850-2eef8ebfd0af")
 		(property "Reference" "JP7"
-			(at 241.046 126.492 0)
+			(at 248.666 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6966,7 +7092,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Bridged"
-			(at 243.332 130.048 0)
+			(at 250.952 130.048 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6974,7 +7100,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm"
-			(at 241.3 128.27 0)
+			(at 248.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6983,7 +7109,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 241.3 128.27 0)
+			(at 248.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6992,7 +7118,7 @@
 			)
 		)
 		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 241.3 128.27 0)
+			(at 248.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)

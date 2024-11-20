@@ -4,4 +4,5 @@
   (lib (name "3557-15")(type "KiCad")(uri "${KIPRJMOD}/3557-15.pretty")(options "")(descr ""))
   (lib (name "TLP222A")(type "KiCad")(uri "${KIPRJMOD}/TLP222A.pretty")(options "")(descr ""))
   (lib (name "AE-RELAY953B-12V")(type "KiCad")(uri "${KIPRJMOD}/AE-RELAY953B-12V.pretty")(options "")(descr ""))
+  (lib (name "M78AR05-1")(type "KiCad")(uri "/workspace/computer_sensor_board/computer_sensor_board/M78AR05-1.pretty")(options "")(descr ""))
 )
