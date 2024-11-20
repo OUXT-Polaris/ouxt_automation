@@ -6161,7 +6161,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
+		(property "Value" "Relay_GND"
 			(at 194.056 130.302 0)
 			(effects
 				(font
@@ -6373,7 +6373,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
+		(property "Value" "Relay_COM"
 			(at 244.094 124.968 0)
 			(effects
 				(font
@@ -6510,7 +6510,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
+		(property "Value" "Relay_VCC"
 			(at 193.548 120.904 0)
 			(effects
 				(font
@@ -6577,7 +6577,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
+		(property "Value" "Relay_SIG"
 			(at 195.326 137.16 0)
 			(effects
 				(font
@@ -7124,7 +7124,7 @@
 				)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
+		(property "Value" "Relay_NO"
 			(at 243.332 130.302 0)
 			(effects
 				(font
