@@ -3398,7 +3398,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 10.16mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R4"
-			(at 8.08 2.5 360)
+			(at 8.08 2.5 0)
 			(layer "F.SilkS")
 			(uuid "781d50c0-b963-4ac0-a93d-52fda5689584")
 			(effects
@@ -3409,7 +3409,7 @@
 			)
 		)
 		(property "Value" "470"
-			(at 5.08 2.37 360)
+			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "b337b6d9-e692-4cd6-9712-c10a5a9bbdea")
 			(effects
@@ -3624,7 +3624,7 @@
 			(uuid "577224f2-685f-4253-94f1-8df031e25741")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 5.08 0 360)
+			(at 5.08 0 0)
 			(layer "F.Fab")
 			(uuid "00e5b7c0-6e80-4e28-aec3-e40e637c87a2")
 			(effects
@@ -3944,7 +3944,7 @@
 	(footprint "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm"
 		(layer "F.Cu")
 		(uuid "67531ecc-50de-4279-b0dd-bfe67458b583")
-		(at 82 53)
+		(at 59 42)
 		(descr "Soldered wire connection, for a single 0.5 mm² wire, basic insulation, conductor diameter 0.9mm, outer diameter 2.1mm, size source Multi-Contact FLEXI-E 0.5 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
 		(tags "connector wire 0.5sqmm")
 		(property "Reference" "JP2"
@@ -7398,7 +7398,7 @@
 	(footprint "3557-15:3557-15"
 		(layer "F.Cu")
 		(uuid "da76160c-5806-43f4-91e5-b4e034be8abe")
-		(at 75.5 46.5)
+		(at 52.735 47.7)
 		(property "Reference" "F1"
 			(at 0 -0.5 0)
 			(unlocked yes)
@@ -8934,14 +8934,6 @@
 		(uuid "1f248a0a-2f14-464c-97e0-4fc856d59641")
 	)
 	(segment
-		(start 71.25 55.75)
-		(end 44.4 55.75)
-		(width 3)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "20fd2730-6074-4a84-9f11-ebe9c07a99ba")
-	)
-	(segment
 		(start 83.92 124.92)
 		(end 79 120)
 		(width 1)
@@ -8964,14 +8956,6 @@
 		(layer "F.Cu")
 		(net 2)
 		(uuid "3f6c0139-a0aa-4bf4-aee9-dc07e9fc47a1")
-	)
-	(segment
-		(start 71.25 55.75)
-		(end 87.9 55.75)
-		(width 3)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "40c7b957-8da3-48d3-bbaa-2e5a8d5011a3")
 	)
 	(segment
 		(start 44.4 55.75)
@@ -9118,14 +9102,6 @@
 		(uuid "f09a66d1-9092-4851-8c63-0a217bee955d")
 	)
 	(segment
-		(start 68.765 44.8)
-		(end 52.003388 44.8)
-		(width 9)
-		(layer "B.Cu")
-		(net 3)
-		(uuid "1d3b14cf-ddeb-4680-aeed-cf640379e5d5")
-	)
-	(segment
 		(start 40.603388 56.2)
 		(end 37.65 56.2)
 		(width 9)
@@ -9134,12 +9110,20 @@
 		(uuid "5ab74a9a-232b-40c9-9084-66e31efd35f1")
 	)
 	(segment
-		(start 52.003388 44.8)
-		(end 40.603388 56.2)
+		(start 46 50.803388)
+		(end 46 46)
 		(width 9)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "88351033-1439-482b-927b-addcffd2aaff")
+		(uuid "a6d48744-55c4-4ac1-b25f-8508d63efbeb")
+	)
+	(segment
+		(start 40.603388 56.2)
+		(end 46 50.803388)
+		(width 9)
+		(layer "B.Cu")
+		(net 3)
+		(uuid "b2bf0305-3d73-442e-81eb-8dde87433817")
 	)
 	(segment
 		(start 38 86)
@@ -9678,19 +9662,19 @@
 		(uuid "9931b372-cf83-4505-ba6f-58ebc63e9e07")
 	)
 	(segment
-		(start 82.235 48.2)
-		(end 82.235 52.765)
+		(start 59.47 49.4)
+		(end 59.47 42.47)
 		(width 9)
 		(layer "B.Cu")
 		(net 82)
-		(uuid "2fa93853-8614-4dd8-947e-b8fe2eb696ed")
+		(uuid "4d84c5ba-3a5a-46a5-bc2a-72ca85a636e3")
 	)
 	(segment
-		(start 82.235 52.765)
-		(end 82 53)
+		(start 59.47 42.47)
+		(end 59 42)
 		(width 9)
 		(layer "B.Cu")
 		(net 82)
-		(uuid "625e3d38-0cb1-439b-a35b-f4a4b124917d")
+		(uuid "f1ef875b-2d08-444b-a2fe-e33aaa8e359b")
 	)
 )
