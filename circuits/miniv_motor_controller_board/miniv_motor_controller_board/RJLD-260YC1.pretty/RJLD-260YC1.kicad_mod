@@ -78,6 +78,19 @@
 		(layer "F.SilkS")
 		(uuid "899fd308-9c17-49b4-a497-47e9bec81a24")
 	)
+	(fp_text user "RJ45"
+		(at -1.47 10.12 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "e7851893-8939-4374-9d97-1d41780f138e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
@@ -89,72 +102,6 @@
 				(thickness 0.15)
 			)
 		)
-	)
-	(dimension
-		(type aligned)
-		(layer "F.SilkS")
-		(uuid "18371b01-688a-4916-96fb-8f754a5d8ead")
-		(pts
-			(xy 9.85 -10.675) (xy 9.85 10.675)
-		)
-		(height -5.15)
-		(gr_text "21.3500 mm"
-			(at 13.9 0 90)
-			(layer "F.SilkS")
-			(uuid "18371b01-688a-4916-96fb-8f754a5d8ead")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 1)
-			(precision 4)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(extension_height 0.58642)
-			(extension_offset 0.5) keep_text_aligned)
-	)
-	(dimension
-		(type aligned)
-		(layer "F.SilkS")
-		(uuid "b5c488fd-6f88-4ac2-ba0a-4fd543d1ff41")
-		(pts
-			(xy 9.85 -10.675) (xy -9.85 -10.675)
-		)
-		(height 2.324999)
-		(gr_text "19.7000 mm"
-			(at 0 -14.099999 0)
-			(layer "F.SilkS")
-			(uuid "b5c488fd-6f88-4ac2-ba0a-4fd543d1ff41")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 1)
-			(precision 4)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(extension_height 0.58642)
-			(extension_offset 0.5) keep_text_aligned)
 	)
 	(pad "" thru_hole circle
 		(at -7.75 -3.05)
