@@ -7,4 +7,5 @@
   (lib (name "M78AR05-1")(type "KiCad")(uri "/workspace/computer_sensor_board/computer_sensor_board/M78AR05-1.pretty")(options "")(descr ""))
   (lib (name "RJLD-260YC1")(type "KiCad")(uri "${KIPRJMOD}/RJLD-260YC1.pretty")(options "")(descr ""))
   (lib (name "SS-12D00G3")(type "KiCad")(uri "${KIPRJMOD}/SS-12D00G3.pretty")(options "")(descr ""))
+  (lib (name "Teensy_Custom")(type "KiCad")(uri "${KIPRJMOD}/Teensy_Custom.pretty")(options "")(descr ""))
 )
