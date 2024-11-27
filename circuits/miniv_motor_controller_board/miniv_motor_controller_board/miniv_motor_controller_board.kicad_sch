@@ -5186,16 +5186,16 @@
 		(uuid "500ec419-d181-42ca-91b5-0a3d3fdba47a")
 	)
 	(junction
-		(at 168.91 64.77)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "518a5afc-b149-488b-8754-7c3b45bba46b")
-	)
-	(junction
 		(at 158.75 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6bf39df5-1ca2-409f-87e5-89ee79602870")
+	)
+	(junction
+		(at 236.22 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "716657dc-b489-4d31-b20c-8486e674813e")
 	)
 	(junction
 		(at 173.99 64.77)
@@ -5717,16 +5717,6 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 64.77) (xy 173.99 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "208620ae-98ef-4e85-8bb4-aa5d7d2c7e6a")
-	)
-	(wire
-		(pts
 			(xy 99.06 143.51) (xy 99.06 144.78)
 		)
 		(stroke
@@ -5984,6 +5974,16 @@
 			(type default)
 		)
 		(uuid "6b700fa0-4ed7-482e-9130-376aae2b9f7c")
+	)
+	(wire
+		(pts
+			(xy 236.22 64.77) (xy 220.98 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bcc1e58-88e5-461c-aa0b-cc831ca5f0ed")
 	)
 	(wire
 		(pts
@@ -6637,7 +6637,7 @@
 	)
 	(wire
 		(pts
-			(xy 260.35 64.77) (xy 220.98 64.77)
+			(xy 260.35 64.77) (xy 236.22 64.77)
 		)
 		(stroke
 			(width 0)
@@ -6687,7 +6687,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 64.77) (xy 168.91 64.77)
+			(xy 161.29 64.77) (xy 173.99 64.77)
 		)
 		(stroke
 			(width 0)
@@ -6774,6 +6774,72 @@
 			(type default)
 		)
 		(uuid "fef6bae8-5a8c-482c-b92d-8d90c80ddbbc")
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 236.22 64.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "04691e97-968d-42ed-b81f-9cf7dd2c034c")
+		(property "Reference" "#FLG02"
+			(at 236.22 62.865 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 236.22 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 236.22 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 236.22 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 236.22 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cdab7d52-10bd-4d67-9832-84253d0ee326")
+		)
+		(instances
+			(project "miniv_motor_controller_board"
+				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
+					(reference "#FLG02")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -6967,72 +7033,6 @@
 			(project ""
 				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
 					(reference "H1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 168.91 64.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1297c512-8df5-46a8-bcd5-8409a8286b5c")
-		(property "Reference" "#FLG01"
-			(at 168.91 62.865 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 168.91 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 168.91 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 168.91 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 168.91 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "35f3bb41-1f3b-4e1e-8c6e-b8772a6ccb1a")
-		)
-		(instances
-			(project ""
-				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
-					(reference "#FLG01")
 					(unit 1)
 				)
 			)
@@ -7517,7 +7517,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MIWI06-24S12:MIWI06-24S12"
 			(at 217.17 49.53 0)
 			(effects
 				(font
