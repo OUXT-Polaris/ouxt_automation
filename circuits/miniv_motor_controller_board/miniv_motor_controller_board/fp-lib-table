@@ -8,4 +8,5 @@
   (lib (name "RJLD-260YC1")(type "KiCad")(uri "${KIPRJMOD}/RJLD-260YC1.pretty")(options "")(descr ""))
   (lib (name "SS-12D00G3")(type "KiCad")(uri "${KIPRJMOD}/SS-12D00G3.pretty")(options "")(descr ""))
   (lib (name "Teensy_Custom")(type "KiCad")(uri "${KIPRJMOD}/Teensy_Custom.pretty")(options "")(descr ""))
+  (lib (name "2MD1-T2-B4-M2-Q-N")(type "KiCad")(uri "${KIPRJMOD}/2MD1-T2-B4-M2-Q-N.pretty")(options "")(descr ""))
 )
