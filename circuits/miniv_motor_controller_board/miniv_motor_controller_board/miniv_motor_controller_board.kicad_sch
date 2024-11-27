@@ -5951,6 +5951,16 @@
 	)
 	(wire
 		(pts
+			(xy 130.81 116.84) (xy 140.97 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63a48fad-3f5b-4e6f-b65c-3eb2a04613ca")
+	)
+	(wire
+		(pts
 			(xy 100.33 95.25) (xy 100.33 100.33)
 		)
 		(stroke
@@ -6291,16 +6301,6 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 116.84) (xy 138.43 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b494550b-5809-49e2-ad9e-9b731009ed77")
-	)
-	(wire
-		(pts
 			(xy 104.14 161.29) (xy 109.22 161.29)
 		)
 		(stroke
@@ -6351,7 +6351,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 137.16) (xy 130.81 137.16)
+			(xy 119.38 137.16) (xy 138.43 137.16)
 		)
 		(stroke
 			(width 0)
@@ -8077,74 +8077,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 134.62 116.84 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "792cdf98-9294-4a94-a5c1-b93744bcc73f")
-		(property "Reference" "R2"
-			(at 134.62 110.49 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 134.62 113.03 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 134.62 115.062 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g108535/"
-			(at 134.62 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 134.62 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "06d1202c-b1b8-40d6-ad2b-d70ad4dbee49")
-		)
-		(pin "1"
-			(uuid "7ad40083-9e6b-4f82-8ef6-964ec13f04d8")
-		)
-		(instances
-			(project "miniv_motor_controller_board"
-				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 233.68 152.4 0)
 		(unit 1)
@@ -8842,74 +8774,6 @@
 			(project ""
 				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
 					(reference "JP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 134.62 137.16 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ce47a56b-ea94-4942-b9f4-770f5e39a478")
-		(property "Reference" "R1"
-			(at 134.62 130.81 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 134.62 133.35 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 134.62 135.382 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g108535/"
-			(at 134.62 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 134.62 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "27f3bc6f-b15f-47ae-8b52-28571499952b")
-		)
-		(pin "1"
-			(uuid "be014bc1-059d-404a-8d74-6e7b81d270d8")
-		)
-		(instances
-			(project ""
-				(path "/54ae4e30-07a3-4793-b6e1-7fe8564be1ba"
-					(reference "R1")
 					(unit 1)
 				)
 			)
