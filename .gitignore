@@ -23,3 +23,5 @@ fp-info-cache
 kibot_output
 *.bak
 _autosave*
+miniv_motor_controller_board.xml
+computer_sensor_board.xml
