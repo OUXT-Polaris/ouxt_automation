@@ -3,6 +3,7 @@ kibot:
 
 preflight:
   erc: true
+  drc: true
 
 outputs:
   - name: print schematic
@@ -59,4 +60,16 @@ outputs:
   - name: renderer_for_present
     comment: Renderer for the presentation
     type: pcbdraw
-    dir: render
+    dir: /workspace/render
+  - name: output gerber
+    type: gerber
+    dir: /workspace/gerber
+  - name: output drill file
+    type: excellon
+    dir: /workspace/drill
+<<<<<<< HEAD
+  - name: output Interactive HTML BoM
+    type: ibom
+    dir: /workspace/bom
+=======
+>>>>>>> origin/master
