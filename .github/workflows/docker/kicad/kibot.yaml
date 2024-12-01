@@ -67,3 +67,6 @@ outputs:
   - name: output drill file
     type: excellon
     dir: /workspace/drill
+  - name: output Interactive HTML BoM
+    type: ibom
+    dir: /workspace/bom
