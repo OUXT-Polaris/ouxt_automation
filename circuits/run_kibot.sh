@@ -8,7 +8,7 @@ docker run --name=kibot \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/gerber:/workspace/gerber \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/drill:/workspace/drill \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/bom:/workspace/bom \
-  kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/computer_sensor_board/computer_sensor_board/computer_sensor_board.kicad_sch
+  wamvtan/kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/computer_sensor_board/computer_sensor_board/computer_sensor_board.kicad_sch
 
 docker run --name=kibot \
   --rm \
@@ -20,5 +20,5 @@ docker run --name=kibot \
   -v ${PWD}/../docs/docs/circuit/miniv_motor_controller_board/kibot_output/gerber:/workspace/gerber \
   -v ${PWD}/../docs/docs/circuit/miniv_motor_controller_board/kibot_output/drill:/workspace/drill \
   -v ${PWD}/../docs/docs/circuit/miniv_motor_controller_board/kibot_output/bom:/workspace/bom \
-  kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/miniv_motor_controller_board/miniv_motor_controller_board/miniv_motor_controller_board.kicad_sch
+  wamvtan/kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/miniv_motor_controller_board/miniv_motor_controller_board/miniv_motor_controller_board.kicad_sch
 
