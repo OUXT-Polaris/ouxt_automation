@@ -1,0 +1,23 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,8.0.6-8.0.6-0~ubuntu22.04.1*%
+%TF.CreationDate,2024-12-01T06:02:26+00:00*%
+%TF.ProjectId,miniv_motor_controller_board,6d696e69-765f-46d6-9f74-6f725f636f6e,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 8.0.6-8.0.6-0~ubuntu22.04.1) date 2024-12-01 06:02:26*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.050000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X42000000Y-50000000D02*
+X122000000Y-50000000D01*
+X122000000Y-150000000D01*
+X42000000Y-150000000D01*
+X42000000Y-50000000D01*
+M02*
