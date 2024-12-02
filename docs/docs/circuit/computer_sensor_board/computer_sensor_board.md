@@ -22,6 +22,8 @@ Under development.
 
 ## Board Design
 
+[Download Gerber Data](kibot_output/zip/gerber_and_drill.zip){ .md-button .md-button--primary }
+
 ### Front
 
 ![pcb_front](kibot_output/pcb/computer_sensor_board-assembly_page_01.svg)

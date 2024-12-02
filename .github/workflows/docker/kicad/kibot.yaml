@@ -82,8 +82,8 @@ outputs:
     options:
       format: ZIP
       output: 'gerber_and_drill.zip'
-      include:
-        - '/workspace/gerber/*.gbr'
-        - '/workspace/gerber/*.drl'
-        - '/workspace/drill/*.gdr'
-        - '/workspace/drill/*.drl'
+      files:
+        - source: '/workspace/gerber/*.gbr'
+        - source: '/workspace/gerber/*.drl'
+        - source: '/workspace/drill/*.gbr'
+        - source: '/workspace/drill/*.drl'

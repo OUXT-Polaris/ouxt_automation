@@ -17,7 +17,7 @@ Under development.
 
 ## Board Design
 
-[Download Gerber Data](kibot_output/bom/gerber){ .md-button .md-button--primary }
+[Download Gerber Data](kibot_output/zip/gerber_and_drill.zip){ .md-button .md-button--primary }
 
 ### Front
 
