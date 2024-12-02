@@ -76,3 +76,14 @@ outputs:
       group_fields: Value,Footprint,Datasheet
       extra_data_file: "%F.xml"
     dir: /workspace/bom
+  - name: Make zipfile of the gerber and drill file.
+    type: compress
+    dir: /workspace/zip
+    options:
+      format: ZIP
+      output: 'gerber_and_drill.zip'
+      include:
+        - '/workspace/gerber/*.gbr'
+        - '/workspace/gerber/*.drl'
+        - '/workspace/drill/*.gdr'
+        - '/workspace/drill/*.drl'
