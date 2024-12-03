@@ -368,7 +368,7 @@ wheels = [
 
 [[package]]
 name = "mkdocs-github-dashboard"
-version = "0.2.3"
+version = "0.2.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "mkdocs" },
@@ -376,7 +376,7 @@ dependencies = [
     { name = "python-github-api" },
     { name = "tabulate" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a6/96/4ac42f1b50fc58e15e5b5354463c1393f624ea894844c92ba4ce148cf84c/mkdocs_github_dashboard-0.2.3.zip", hash = "sha256:0f38d8b882d13b9f91d6b3097d064c2863df3fcd1d6bb9e7af3b3cbb022097fc", size = 16673 }
+sdist = { url = "https://files.pythonhosted.org/packages/35/74/7ef5ba21988282dc982f96ca41ef260def52e109d55c479a7e13209f445c/mkdocs_github_dashboard-0.2.5.zip", hash = "sha256:03fed4b8e1c40fc313ba1821edb941fe033defe14920c5fcb8036a1d9541a22f", size = 16830 }
 
 [[package]]
 name = "mkdocs-inline-select-svg-plugin"
@@ -524,7 +524,7 @@ requires-dist = [
     { name = "fontawesome-markdown", specifier = ">=0.2.6" },
     { name = "markdown", specifier = "==3.3.0" },
     { name = "mkdocs", specifier = ">=1.5.3" },
-    { name = "mkdocs-github-dashboard", specifier = ">=0.2.3" },
+    { name = "mkdocs-github-dashboard", specifier = ">=0.2.5" },
     { name = "mkdocs-inline-select-svg-plugin", specifier = ">=0.1.0" },
     { name = "mkdocs-material", specifier = ">=9.5.18" },
     { name = "mkdocs-mermaid2-plugin", specifier = ">=1.1.1" },
