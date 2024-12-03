@@ -8,7 +8,7 @@ dependencies = [
     "fontawesome-markdown>=0.2.6",
     "markdown==3.3.0",
     "mkdocs>=1.5.3",
-    "mkdocs-github-dashboard>=0.2.3",
+    "mkdocs-github-dashboard>=0.2.5",
     "mkdocs-material>=9.5.18",
     "mkdocs-mermaid2-plugin>=1.1.1",
     "pandas>=2.2.3",
