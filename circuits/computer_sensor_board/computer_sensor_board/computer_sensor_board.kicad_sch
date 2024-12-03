@@ -1697,6 +1697,7 @@
 		)
 		(property "Value" "~"
 			(at 162.56 104.14 90)
+			(show_name yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1713,7 +1714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g113536/"
 			(at 157.48 102.87 0)
 			(effects
 				(font
@@ -1994,7 +1995,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g108153/"
 			(at 165.1 127 0)
 			(effects
 				(font
