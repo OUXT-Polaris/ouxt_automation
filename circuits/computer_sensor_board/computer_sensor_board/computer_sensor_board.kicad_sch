@@ -1299,7 +1299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g100160/"
 			(at 198.12 144.78 0)
 			(effects
 				(font
@@ -1503,7 +1503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g117948"
 			(at 152.4 88.9 0)
 			(effects
 				(font
@@ -1573,7 +1573,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g117948"
 			(at 149.86 142.24 0)
 			(effects
 				(font
@@ -1643,7 +1643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g117948"
 			(at 149.86 132.08 0)
 			(effects
 				(font
@@ -1787,7 +1787,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g100160/"
 			(at 175.26 144.78 0)
 			(effects
 				(font
@@ -1860,7 +1860,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g117948"
 			(at 96.52 123.19 0)
 			(effects
 				(font
