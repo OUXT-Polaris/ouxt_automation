@@ -6956,7 +6956,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g118155/"
 			(at 281.94 67.31 0)
 			(effects
 				(font
@@ -7264,7 +7264,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g115707/"
 			(at 147.32 88.9 0)
 			(effects
 				(font
@@ -7607,7 +7607,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g106533/"
 			(at 217.17 49.53 0)
 			(effects
 				(font
@@ -7824,7 +7824,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g106095/"
 			(at 219.71 128.27 0)
 			(effects
 				(font
@@ -8040,7 +8040,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g118155/"
 			(at 281.94 90.17 0)
 			(effects
 				(font
@@ -8177,7 +8177,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g118223/"
 			(at 269.24 87.63 0)
 			(effects
 				(font
@@ -8746,7 +8746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g112247/"
 			(at 114.3 161.29 0)
 			(effects
 				(font
@@ -8948,7 +8948,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.digikey.jp/ja/products/detail/sparkfun-electronics/DEV-20359/16688101"
 			(at 39.37 109.22 0)
 			(effects
 				(font
@@ -9353,7 +9353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g113536/"
 			(at 158.75 77.47 0)
 			(effects
 				(font
@@ -9557,7 +9557,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g100301/"
 			(at 107.95 97.79 0)
 			(effects
 				(font
