@@ -8109,7 +8109,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://akizukidenshi.com/catalog/g/g117948"
 			(at 118.11 96.52 0)
 			(effects
 				(font
