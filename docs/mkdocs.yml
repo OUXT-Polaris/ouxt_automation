@@ -32,6 +32,7 @@ theme:
 
 # Plugins
 plugins:
+  - akizukidenshi_order_button
   - github-dashboard
   - search
   - inline-select-svg

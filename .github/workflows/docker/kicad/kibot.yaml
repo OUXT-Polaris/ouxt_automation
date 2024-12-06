@@ -76,6 +76,11 @@ outputs:
       group_fields: Value,Footprint,Datasheet
       extra_data_file: "%F.xml"
     dir: /workspace/bom
+  - name: output CSV BoM
+    type: bom
+    options:
+      format: XML
+    dir: /workspace/bom
   - name: Make zipfile of the gerber and drill file.
     type: compress
     dir: /workspace/zip

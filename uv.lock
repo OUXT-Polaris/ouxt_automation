@@ -441,6 +441,22 @@ wheels = [
 ]
 
 [[package]]
+name = "mkdocs-order-button"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markdown" },
+    { name = "mkdocs" },
+    { name = "mkdocs-material" },
+    { name = "plantuml-markdown" },
+    { name = "pymdown-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a7/10/2d32f57a8b941dbcb91c35518fcb518c80cab718df481e156f78bed0c206/mkdocs_order_button-0.1.0.tar.gz", hash = "sha256:51c80a7305e402c6171739a7d31389984fd385f1edb055be2a6ef1f5482ef668", size = 7834 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f9/b9/f76a924c34c53eabd7b77f8171a315308babfc31644d437084235bbd8b49/mkdocs_order_button-0.1.0-py3-none-any.whl", hash = "sha256:9afc1c7cae43fce7964116087fa7406e8da9bff75d7d6112ca3560b0bd6ddee1", size = 11488 },
+]
+
+[[package]]
 name = "numpy"
 version = "2.1.2"
 source = { registry = "https://pypi.org/simple" }
@@ -512,6 +528,7 @@ dependencies = [
     { name = "mkdocs-inline-select-svg-plugin" },
     { name = "mkdocs-material" },
     { name = "mkdocs-mermaid2-plugin" },
+    { name = "mkdocs-order-button" },
     { name = "pandas" },
     { name = "plantuml-markdown" },
     { name = "pymdown-extensions" },
@@ -528,6 +545,7 @@ requires-dist = [
     { name = "mkdocs-inline-select-svg-plugin", specifier = ">=0.1.0" },
     { name = "mkdocs-material", specifier = ">=9.5.18" },
     { name = "mkdocs-mermaid2-plugin", specifier = ">=1.1.1" },
+    { name = "mkdocs-order-button", specifier = ">=0.1.0" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "plantuml-markdown", specifier = ">=3.10.4" },
     { name = "pymdown-extensions", specifier = ">=10.4" },

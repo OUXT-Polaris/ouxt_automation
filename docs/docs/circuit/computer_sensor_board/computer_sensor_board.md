@@ -37,3 +37,5 @@ Under development.
 <iframe src="../kibot_output/bom/computer_sensor_board-ibom.html" width="100%" height="500px" style="border: none;"></iframe>
 
 [Open with fullscreen](kibot_output/bom/computer_sensor_board-ibom.html){ .md-button .md-button--primary }
+
+@akizuki_denshi_order_button(./kibot_output/bom/computer_sensor_board-bom.xml)
