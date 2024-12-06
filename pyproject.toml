@@ -17,4 +17,5 @@ dependencies = [
     "python-github-api>=0.1.1",
     "python-markdown-math>=0.8",
     "mkdocs-inline-select-svg-plugin>=0.1.0",
+    "mkdocs-order-button>=0.1.0",
 ]
