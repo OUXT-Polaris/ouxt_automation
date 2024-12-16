@@ -3,4 +3,5 @@
   (lib (name "M78AR15")(type "KiCad")(uri "${KIPRJMOD}/M78AR15.pretty")(options "")(descr ""))
   (lib (name "5075AR-04-WH")(type "KiCad")(uri "${KIPRJMOD}/5075AR-04-WH.pretty")(options "")(descr ""))
   (lib (name "M78AR05-1")(type "KiCad")(uri "${KIPRJMOD}/M78AR05-1.pretty")(options "")(descr ""))
+  (lib (name "MTP4835I3")(type "KiCad")(uri "${KIPRJMOD}/MTP4835I3.pretty")(options "")(descr ""))
 )
