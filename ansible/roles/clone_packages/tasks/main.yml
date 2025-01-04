@@ -254,6 +254,12 @@
     version: master
     accept_hostkey: yes
   tags: [driver]
+- name: clone
+  git:
+    repo: https://github.com/HarvestX/PlayStation-JoyInterface-ROS2.git
+    dest: "{{workspace_path}}/src/drivers/playstation_joy_interfaces"
+    version: humble
+    accept_hostkey: yes
 
 # Control Package
 - name: clone usv_controller package
