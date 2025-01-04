@@ -3,4 +3,5 @@
   (lib (name "M78AR12-1")(type "KiCad")(uri "/workspace/computer_sensor_board/M78AR12-1.kicad_sym")(options "")(descr ""))
   (lib (name "5075AR-04-WH")(type "KiCad")(uri "${KIPRJMOD}/5075AR-04-WH.kicad_sym")(options "")(descr ""))
   (lib (name "M78AR05-1")(type "KiCad")(uri "${KIPRJMOD}/M78AR05-1.kicad_sym")(options "")(descr ""))
+  (lib (name "TO-3PH")(type "KiCad")(uri "${KIPRJMOD}/TO-3PH.kicad_sym")(options "")(descr ""))
 )

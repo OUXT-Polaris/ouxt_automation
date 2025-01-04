@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 3.2,
-          "height": 3.2,
-          "width": 3.2
+          "drill": 0.762,
+          "height": 1.524,
+          "width": 1.524
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -51,13 +51,7 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [
-        {
-          "gap": 0.0,
-          "via_gap": 0.0,
-          "width": 0.0
-        }
-      ],
+      "diff_pair_dimensions": [],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -177,9 +171,7 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [
-        0.0
-      ],
+      "track_widths": [],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -206,12 +198,7 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [
-        {
-          "diameter": 0.0,
-          "drill": 0.0
-        }
-      ],
+      "via_dimensions": [],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -229,9 +216,7 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [
-      "power_pin_not_driven|1168400|1130300|dc6496b8-3994-4fa1-8528-22874b1e77df|00000000-0000-0000-0000-000000000000|/6ddf9647-3471-4724-9337-c9866d28db60|/6ddf9647-3471-4724-9337-c9866d28db60|"
-    ],
+    "erc_exclusions": [],
     "meta": {
       "version": 0
     },
@@ -446,7 +431,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "computer_sensor_board.kicad_pro",
+    "filename": "smart_battery.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -591,7 +576,7 @@
   },
   "sheets": [
     [
-      "6ddf9647-3471-4724-9337-c9866d28db60",
+      "9f995038-ffb5-4b66-9b3a-2c74c93734d0",
       "Root"
     ]
   ],
