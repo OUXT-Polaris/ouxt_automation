@@ -112,17 +112,22 @@ jobs:
       run: |
         git add -N .
         echo "name=count::$(git diff --name-only | wc -l)" >> "$GITHUB_OUTPUT"
-    - name: Check default branch
-      id: check_default_branch
+    - name: Check branch exist
+      id: check_branch
       run: |
-        echo "name=default_branch::$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')" >> "$GITHUB_OUTPUT"
+        if git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | grep -q 'refs/heads/workflow/sync'; then
+          echo "exist=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "exist=false" >> "$GITHUB_OUTPUT"
+        fi
     - name: Delete old branch
-      if: steps.check_branch.outputs.exist == 1
+      if: steps.check_branch.outputs.exist == 'true'
       run: |
-        git push origin --delete workflow/sync; exit 0
+        git push origin --delete workflow/sync || true
     - name: Print deleted branch
-      if: steps.check_branch.outputs.exist == 1
-      run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
+      if: steps.check_branch.outputs.exist == 'true'
+      run: |
+        echo "Deleted branch workflow/sync"
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
       if: steps.changes.outputs.count > 0
