@@ -107,5 +107,6 @@ nav:
   - Circuit:
     - Computer Sensor Board: circuit/computer_sensor_board/computer_sensor_board.md
     - Mini-V Motor Controller Board: circuit/miniv_motor_controller_board/miniv_motor_controller_board.md
+    - Mini-V Estop Board: circuit/miniv_estop_board/miniv_estop_board.md
   - Automation Pipeline: automation_pipeline.md
   - LICENSE: license.md
