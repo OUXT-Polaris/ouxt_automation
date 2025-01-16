@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "16PB017-01025")(type "KiCad")(uri "/workspace/computer_sensor_board/computer_sensor_board/16PB017-01025.pretty")(options "")(descr ""))
+)

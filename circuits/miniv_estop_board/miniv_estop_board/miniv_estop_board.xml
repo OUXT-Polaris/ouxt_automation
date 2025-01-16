@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/workspace/miniv_estop_board/miniv_estop_board/miniv_estop_board.kicad_sch</source>
+    <date>2025-01-16T14:43:41+0000</date>
+    <tool>Eeschema 8.0.6-8.0.6-0~ubuntu22.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>miniv_estop_board.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>0.1u</value>
+      <footprint>Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g110147/</datasheet>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g110147/</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e9b537cd-15f6-443a-91ef-a7e03ee2ffc8</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>0.1u</value>
+      <footprint>Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g110147/</datasheet>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g110147/</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40764cfb-5bf0-4477-a735-3b8148cae83b</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>0.1u</value>
+      <footprint>Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g110147/</datasheet>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g110147/</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bf714360-b69f-424b-99b5-3e31e8e6effb</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>0.1u</value>
+      <footprint>Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g110147/</datasheet>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g110147/</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c77faf20-40e6-440e-a119-9cf8f4924a8c</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>LED</value>
+      <footprint>LED_D3.0mm</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g111636/</datasheet>
+      <description>Light emitting diode</description>
+      <fields>
+        <field name="Footprint">LED_D3.0mm</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g111636/</field>
+        <field name="Description">Light emitting diode</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6ea4d035-d28a-4429-9339-b0425e76ede0</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>LED</value>
+      <footprint>LED_D3.0mm</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g111636/</datasheet>
+      <description>Light emitting diode</description>
+      <fields>
+        <field name="Footprint">LED_D3.0mm</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g111636/</field>
+        <field name="Description">Light emitting diode</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d21d5b31-bdaa-40bf-a096-1aeeb5a7557a</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <description>Mounting Hole without connection</description>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>38aa6279-e19f-4e3c-bf04-148a8f29f52c</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <description>Mounting Hole without connection</description>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ca5d2e03-3dbf-4536-b9fd-a6fa115b5de6</tstamps>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <description>Mounting Hole without connection</description>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>656dd65c-9e52-4d81-be4b-957425529b59</tstamps>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <description>Mounting Hole without connection</description>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>480c3d60-9c60-4569-a5e5-9e2c9eaedaff</tstamps>
+    </comp>
+    <comp ref="HS1">
+      <value>Heatsink</value>
+      <footprint>16PB017-01025</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g105053/</datasheet>
+      <description>Heatsink</description>
+      <fields>
+        <field name="Footprint">16PB017-01025</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g105053/</field>
+        <field name="Description">Heatsink</field>
+      </fields>
+      <libsource lib="Mechanical" part="Heatsink" description="Heatsink"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="thermal heat temperature"/>
+      <property name="ki_fp_filters" value="Heatsink_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3d76858-b0e7-43b8-9cd3-afdd327e3011</tstamps>
+    </comp>
+    <comp ref="HS2">
+      <value>Heatsink</value>
+      <footprint>16PB017-01025</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g105053/</datasheet>
+      <description>Heatsink</description>
+      <fields>
+        <field name="Footprint">16PB017-01025</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g105053/</field>
+        <field name="Description">Heatsink</field>
+      </fields>
+      <libsource lib="Mechanical" part="Heatsink" description="Heatsink"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="thermal heat temperature"/>
+      <property name="ki_fp_filters" value="Heatsink_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>96f76cd0-8157-46a3-9fe4-61b342f6dfa0</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_Main_DCDC</value>
+      <footprint>AMASS_XT60PW-F_1x02_P7.20mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g118155/</datasheet>
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">AMASS_XT60PW-F_1x02_P7.20mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g118155/</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c2dcf703-0f1a-4bf9-bb0e-bd525b7a1897</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_neopixel_01</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g101310/</datasheet>
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g101310/</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>959af45f-5e0d-4442-8956-081eafa74433</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_neopixel_02</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g101310/</datasheet>
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g101310/</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6058557-46fc-4aa5-a3a4-8ef0abc25886</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_neopixel_03</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g101310/</datasheet>
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g101310/</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4de834e2-bd59-432b-9e35-09ae14f6ca07</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>Conn_neopixel_04</value>
+      <footprint>TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g101310/</datasheet>
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g101310/</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9e85bd7a-2a90-4fa7-b62c-2bb0d32a45f6</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>EStop_button</value>
+      <footprint>AMASS_XT60PW-F_1x02_P7.20mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g118155/</datasheet>
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">AMASS_XT60PW-F_1x02_P7.20mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g118155/</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1a4a4151-07ca-41e8-9e99-6d3ce049c133</tstamps>
+    </comp>
+    <comp ref="J7">
+      <value>EStop_signal0</value>
+      <footprint>AMASS_XT30PW-F_1x02_P2.50mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117948</datasheet>
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">AMASS_XT30PW-F_1x02_P2.50mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117948</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>82195b07-e83a-4622-aa56-2ef359f5f82b</tstamps>
+    </comp>
+    <comp ref="J8">
+      <value>EStop_signal1</value>
+      <footprint>AMASS_XT30PW-F_1x02_P2.50mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117948</datasheet>
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Footprint">AMASS_XT30PW-F_1x02_P2.50mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117948</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54a72dbd-bac4-41ac-b0e4-376d43dd5a11</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>2SJ555-E</value>
+      <footprint>Package_TO_SOT_THT:TO-3P-3_Vertical</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g109042/</datasheet>
+      <description>P-MOSFET transistor, gate/drain/source</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-3P-3_Vertical</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g109042/</field>
+        <field name="Description">P-MOSFET transistor, gate/drain/source</field>
+      </fields>
+      <libsource lib="Device" part="Q_PMOS_GDS" description="P-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor PMOS P-MOS P-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4d3bf1d8-dcb4-483c-8478-b2a636e92783</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>NPN</value>
+      <footprint>Package_TO_SOT_THT:TO-92L_HandSolder</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117089/</datasheet>
+      <description>NPN transistor, emitter/collector/base</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92L_HandSolder</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117089/</field>
+        <field name="Description">NPN transistor, emitter/collector/base</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_ECB" description="NPN transistor, emitter/collector/base"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NPN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0ba03597-7f17-4f2a-8525-c23795e4a4a8</tstamps>
+    </comp>
+    <comp ref="Q3">
+      <value>NPN</value>
+      <footprint>Package_TO_SOT_THT:TO-92L_HandSolder</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117089/</datasheet>
+      <description>NPN transistor, emitter/collector/base</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92L_HandSolder</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117089/</field>
+        <field name="Description">NPN transistor, emitter/collector/base</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_ECB" description="NPN transistor, emitter/collector/base"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NPN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3c96b6c6-ddcd-4b48-a083-4c8c85dd5ebf</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>NPN</value>
+      <footprint>Package_TO_SOT_THT:TO-92L_HandSolder</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117089/</datasheet>
+      <description>NPN transistor, emitter/collector/base</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92L_HandSolder</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117089/</field>
+        <field name="Description">NPN transistor, emitter/collector/base</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_ECB" description="NPN transistor, emitter/collector/base"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NPN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6ae4bdf3-8c51-4965-9039-aa2b4d0e3366</tstamps>
+    </comp>
+    <comp ref="Q6">
+      <value>2SJ555-E</value>
+      <footprint>Package_TO_SOT_THT:TO-3P-3_Vertical</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g109042/</datasheet>
+      <description>P-MOSFET transistor, gate/drain/source</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-3P-3_Vertical</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g109042/</field>
+        <field name="Description">P-MOSFET transistor, gate/drain/source</field>
+      </fields>
+      <libsource lib="Device" part="Q_PMOS_GDS" description="P-MOSFET transistor, gate/drain/source"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor PMOS P-MOS P-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe3a3330-dfda-44a5-91b0-53c42e861305</tstamps>
+    </comp>
+    <comp ref="Q7">
+      <value>NPN</value>
+      <footprint>Package_TO_SOT_THT:TO-92L_HandSolder</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g117089/</datasheet>
+      <description>NPN transistor, emitter/collector/base</description>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92L_HandSolder</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g117089/</field>
+        <field name="Description">NPN transistor, emitter/collector/base</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_ECB" description="NPN transistor, emitter/collector/base"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="transistor NPN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0abd508f-b2d5-456a-96a6-453cfb9cb8d1</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>1K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g108535/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g108535/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>030b63fa-c36e-48c7-be58-b829ce706242</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>390</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g108531/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g108531/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>04817ca7-af5a-4b61-8edc-e377838c8537</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>4.7K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125472/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125472/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5aaae7fc-5cf7-4bee-b764-323947526503</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>470</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125471/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125471/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9f9c5662-9475-4966-925f-f823d997001c</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>4.7K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125472/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125472/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bddee7bb-24c5-4e88-a103-f530ee4f58d7</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>4.7K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125472/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125472/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3df395db-9d2e-45f8-abac-dda7d794c16c</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>4.7K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125472/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125472/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7bf09a79-477b-486c-9294-42a739733621</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>470</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125471/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125471/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>90d571e1-0d60-47c4-aa2f-e6134df4142a</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>470</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125471/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125471/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6e178013-cfbf-4de8-a642-b65d82e2d476</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>470</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125471/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125471/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1b8ba547-e862-4633-b579-f01deda53008</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>4.7K</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g125472/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g125472/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b7e5656e-7177-4d1b-b144-8941c1f485b8</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>390</value>
+      <footprint>R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://akizukidenshi.com/catalog/g/g108531/</datasheet>
+      <description>Resistor</description>
+      <fields>
+        <field name="Footprint">R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Datasheet">https://akizukidenshi.com/catalog/g/g108531/</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5161422b-4e2c-4ed3-b40c-aede50491395</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>Teensy4.1</value>
+      <footprint>Teensy:Teensy41</footprint>
+      <datasheet>https://www.digikey.jp/ja/products/detail/sparkfun-electronics/DEV-20359/16688101</datasheet>
+      <fields>
+        <field name="Footprint">Teensy:Teensy41</field>
+        <field name="Datasheet">https://www.digikey.jp/ja/products/detail/sparkfun-electronics/DEV-20359/16688101</field>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="teensy" part="Teensy4.1" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="miniv_estop_board.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dff41a93-b91c-4327-8f76-6b4aab2cd0fa</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Light emitting diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NPN_ECB">
+      <description>NPN transistor, emitter/collector/base</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NPN_ECB</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">NPN transistor, emitter/collector/base</field>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="C" type="passive"/>
+        <pin num="3" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_PMOS_GDS">
+      <description>P-MOSFET transistor, gate/drain/source</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_PMOS_GDS</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">P-MOSFET transistor, gate/drain/source</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="Heatsink">
+      <description>Heatsink</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Heatsink_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">HS</field>
+        <field name="Value">Heatsink</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Heatsink</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Mounting Hole without connection</field>
+      </fields>
+    </libpart>
+    <libpart lib="teensy" part="Teensy4.1">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">Teensy4.1</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="0_RX1_CRX2_CS1" type="bidirectional"/>
+        <pin num="3" name="1_TX1_CTX2_MISO1" type="bidirectional"/>
+        <pin num="4" name="2_OUT2" type="bidirectional"/>
+        <pin num="5" name="3_LRCLK2" type="bidirectional"/>
+        <pin num="6" name="4_BCLK2" type="bidirectional"/>
+        <pin num="7" name="5_IN2" type="bidirectional"/>
+        <pin num="8" name="6_OUT1D" type="bidirectional"/>
+        <pin num="9" name="7_RX2_OUT1A" type="bidirectional"/>
+        <pin num="10" name="8_TX2_IN1" type="bidirectional"/>
+        <pin num="11" name="9_OUT1C" type="bidirectional"/>
+        <pin num="12" name="10_CS_MQSR" type="bidirectional"/>
+        <pin num="13" name="11_MOSI_CTX1" type="bidirectional"/>
+        <pin num="14" name="12_MISO_MQSL" type="bidirectional"/>
+        <pin num="15" name="3V3" type="power_in"/>
+        <pin num="16" name="24_A10_TX6_SCL2" type="bidirectional"/>
+        <pin num="17" name="25_A11_RX6_SDA2" type="bidirectional"/>
+        <pin num="18" name="26_A12_MOSI1" type="bidirectional"/>
+        <pin num="19" name="27_A13_SCK1" type="bidirectional"/>
+        <pin num="20" name="28_RX7" type="bidirectional"/>
+        <pin num="21" name="29_TX7" type="bidirectional"/>
+        <pin num="22" name="30_CRX3" type="bidirectional"/>
+        <pin num="23" name="31_CTX3" type="bidirectional"/>
+        <pin num="24" name="32_OUT1B" type="bidirectional"/>
+        <pin num="25" name="33_MCLK2" type="bidirectional"/>
+        <pin num="26" name="34_RX8" type="bidirectional"/>
+        <pin num="27" name="35_TX8" type="bidirectional"/>
+        <pin num="28" name="36_CS" type="bidirectional"/>
+        <pin num="29" name="37_CS" type="bidirectional"/>
+        <pin num="30" name="38_CS1_IN1" type="bidirectional"/>
+        <pin num="31" name="39_MISO1_OUT1A" type="bidirectional"/>
+        <pin num="32" name="40_A16" type="bidirectional"/>
+        <pin num="33" name="41_A17" type="bidirectional"/>
+        <pin num="34" name="GND" type="power_in"/>
+        <pin num="35" name="13_SCK_LED" type="bidirectional"/>
+        <pin num="36" name="14_A0_TX3_SPDIF_OUT" type="bidirectional"/>
+        <pin num="37" name="15_A1_RX3_SPDIF_IN" type="bidirectional"/>
+        <pin num="38" name="16_A2_RX4_SCL1" type="bidirectional"/>
+        <pin num="39" name="17_A3_TX4_SDA1" type="bidirectional"/>
+        <pin num="40" name="18_A4_SDA" type="bidirectional"/>
+        <pin num="41" name="19_A5_SCL" type="bidirectional"/>
+        <pin num="42" name="20_A6_TX5_LRCLK1" type="bidirectional"/>
+        <pin num="43" name="21_A7_RX5_BCLK1" type="bidirectional"/>
+        <pin num="44" name="22_A8_CTX1" type="bidirectional"/>
+        <pin num="45" name="23_A9_CRX1_MCLK1" type="bidirectional"/>
+        <pin num="46" name="3V3" type="output"/>
+        <pin num="47" name="GND" type="output"/>
+        <pin num="48" name="VIN" type="power_in"/>
+        <pin num="49" name="VUSB" type="power_out"/>
+        <pin num="50" name="VBAT" type="power_in"/>
+        <pin num="51" name="3V3" type="power_in"/>
+        <pin num="52" name="GND" type="input"/>
+        <pin num="53" name="PROGRAM" type="input"/>
+        <pin num="54" name="ON_OFF" type="input"/>
+        <pin num="55" name="5V" type="power_out"/>
+        <pin num="56" name="D-" type="bidirectional"/>
+        <pin num="57" name="D+" type="bidirectional"/>
+        <pin num="58" name="GND" type="power_in"/>
+        <pin num="59" name="GND" type="power_in"/>
+        <pin num="60" name="R+" type="bidirectional"/>
+        <pin num="61" name="LED" type="bidirectional"/>
+        <pin num="62" name="T-" type="bidirectional"/>
+        <pin num="63" name="T+" type="bidirectional"/>
+        <pin num="64" name="GND" type="power_in"/>
+        <pin num="65" name="R-" type="bidirectional"/>
+        <pin num="66" name="D-" type="bidirectional"/>
+        <pin num="67" name="D+" type="bidirectional"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/symbols/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/symbols/Device.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>/usr/share/kicad/symbols/Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="teensy">
+      <uri>/usr/share/kicad/symbols/teensy.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="J7" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J8" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U1" pin="34" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="2" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="48" pinfunction="VIN" pintype="power_in"/>
+    </net>
+    <net code="3" name="Net-(D1-K)">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="Net-(D3-A)">
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="J4" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J5" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="Q6" pin="3" pinfunction="S" pintype="passive"/>
+    </net>
+    <net code="5" name="Net-(D3-K)">
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+    </net>
+    <net code="6" name="Net-(J1-Pin_1)">
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="Q6" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="47" pinfunction="GND" pintype="output"/>
+    </net>
+    <net code="7" name="Net-(J1-Pin_2)">
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="D" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="D" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="8" name="Net-(J2-Pin_2)">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q7" pin="2" pinfunction="C" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="9" name="Net-(J3-Pin_2)">
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q2" pin="2" pinfunction="C" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="10" name="Net-(J4-Pin_2)">
+      <node ref="J4" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="C" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="11" name="Net-(J5-Pin_2)">
+      <node ref="J5" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q4" pin="2" pinfunction="C" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+    </net>
+    <net code="12" name="Net-(J6-Pin_1)">
+      <node ref="J6" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J7" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="U1" pin="33" pinfunction="41_A17" pintype="bidirectional"/>
+    </net>
+    <net code="13" name="Net-(J6-Pin_2)">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="J6" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="U1" pin="46" pinfunction="3V3" pintype="output"/>
+    </net>
+    <net code="14" name="Net-(Q2-B)">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="B" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+    </net>
+    <net code="15" name="Net-(Q2-E)">
+      <node ref="Q2" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="U1" pin="38" pinfunction="16_A2_RX4_SCL1" pintype="bidirectional"/>
+    </net>
+    <net code="16" name="Net-(Q3-B)">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="Q3" pin="3" pinfunction="B" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+    </net>
+    <net code="17" name="Net-(Q3-E)">
+      <node ref="Q3" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="U1" pin="37" pinfunction="15_A1_RX3_SPDIF_IN" pintype="bidirectional"/>
+    </net>
+    <net code="18" name="Net-(Q4-B)">
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="Q4" pin="3" pinfunction="B" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+    </net>
+    <net code="19" name="Net-(Q4-E)">
+      <node ref="Q4" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="14_A0_TX3_SPDIF_OUT" pintype="bidirectional"/>
+    </net>
+    <net code="20" name="Net-(Q7-B)">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="Q7" pin="3" pinfunction="B" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+    </net>
+    <net code="21" name="Net-(Q7-E)">
+      <node ref="Q7" pin="1" pinfunction="E" pintype="passive"/>
+      <node ref="U1" pin="39" pinfunction="17_A3_TX4_SDA1" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="unconnected-(U1-0_RX1_CRX2_CS1-Pad2)">
+      <node ref="U1" pin="2" pinfunction="0_RX1_CRX2_CS1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="23" name="unconnected-(U1-1_TX1_CTX2_MISO1-Pad3)">
+      <node ref="U1" pin="3" pinfunction="1_TX1_CTX2_MISO1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="24" name="unconnected-(U1-2_OUT2-Pad4)">
+      <node ref="U1" pin="4" pinfunction="2_OUT2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="25" name="unconnected-(U1-3V3-Pad15)">
+      <node ref="U1" pin="15" pinfunction="3V3" pintype="power_in+no_connect"/>
+    </net>
+    <net code="26" name="unconnected-(U1-3V3-Pad51)">
+      <node ref="U1" pin="51" pinfunction="3V3" pintype="power_in+no_connect"/>
+    </net>
+    <net code="27" name="unconnected-(U1-3_LRCLK2-Pad5)">
+      <node ref="U1" pin="5" pinfunction="3_LRCLK2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="28" name="unconnected-(U1-4_BCLK2-Pad6)">
+      <node ref="U1" pin="6" pinfunction="4_BCLK2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="29" name="unconnected-(U1-5V-Pad55)">
+      <node ref="U1" pin="55" pinfunction="5V" pintype="power_out+no_connect"/>
+    </net>
+    <net code="30" name="unconnected-(U1-5_IN2-Pad7)">
+      <node ref="U1" pin="7" pinfunction="5_IN2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="31" name="unconnected-(U1-6_OUT1D-Pad8)">
+      <node ref="U1" pin="8" pinfunction="6_OUT1D" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="32" name="unconnected-(U1-7_RX2_OUT1A-Pad9)">
+      <node ref="U1" pin="9" pinfunction="7_RX2_OUT1A" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="33" name="unconnected-(U1-8_TX2_IN1-Pad10)">
+      <node ref="U1" pin="10" pinfunction="8_TX2_IN1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="34" name="unconnected-(U1-9_OUT1C-Pad11)">
+      <node ref="U1" pin="11" pinfunction="9_OUT1C" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="35" name="unconnected-(U1-10_CS_MQSR-Pad12)">
+      <node ref="U1" pin="12" pinfunction="10_CS_MQSR" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="36" name="unconnected-(U1-11_MOSI_CTX1-Pad13)">
+      <node ref="U1" pin="13" pinfunction="11_MOSI_CTX1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="37" name="unconnected-(U1-12_MISO_MQSL-Pad14)">
+      <node ref="U1" pin="14" pinfunction="12_MISO_MQSL" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="38" name="unconnected-(U1-13_SCK_LED-Pad35)">
+      <node ref="U1" pin="35" pinfunction="13_SCK_LED" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="39" name="unconnected-(U1-18_A4_SDA-Pad40)">
+      <node ref="U1" pin="40" pinfunction="18_A4_SDA" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="40" name="unconnected-(U1-19_A5_SCL-Pad41)">
+      <node ref="U1" pin="41" pinfunction="19_A5_SCL" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="41" name="unconnected-(U1-20_A6_TX5_LRCLK1-Pad42)">
+      <node ref="U1" pin="42" pinfunction="20_A6_TX5_LRCLK1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="42" name="unconnected-(U1-21_A7_RX5_BCLK1-Pad43)">
+      <node ref="U1" pin="43" pinfunction="21_A7_RX5_BCLK1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="43" name="unconnected-(U1-22_A8_CTX1-Pad44)">
+      <node ref="U1" pin="44" pinfunction="22_A8_CTX1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="44" name="unconnected-(U1-23_A9_CRX1_MCLK1-Pad45)">
+      <node ref="U1" pin="45" pinfunction="23_A9_CRX1_MCLK1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(U1-24_A10_TX6_SCL2-Pad16)">
+      <node ref="U1" pin="16" pinfunction="24_A10_TX6_SCL2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="46" name="unconnected-(U1-25_A11_RX6_SDA2-Pad17)">
+      <node ref="U1" pin="17" pinfunction="25_A11_RX6_SDA2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="47" name="unconnected-(U1-26_A12_MOSI1-Pad18)">
+      <node ref="U1" pin="18" pinfunction="26_A12_MOSI1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="48" name="unconnected-(U1-27_A13_SCK1-Pad19)">
+      <node ref="U1" pin="19" pinfunction="27_A13_SCK1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="49" name="unconnected-(U1-28_RX7-Pad20)">
+      <node ref="U1" pin="20" pinfunction="28_RX7" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="50" name="unconnected-(U1-29_TX7-Pad21)">
+      <node ref="U1" pin="21" pinfunction="29_TX7" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="51" name="unconnected-(U1-30_CRX3-Pad22)">
+      <node ref="U1" pin="22" pinfunction="30_CRX3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="52" name="unconnected-(U1-31_CTX3-Pad23)">
+      <node ref="U1" pin="23" pinfunction="31_CTX3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="53" name="unconnected-(U1-32_OUT1B-Pad24)">
+      <node ref="U1" pin="24" pinfunction="32_OUT1B" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="54" name="unconnected-(U1-33_MCLK2-Pad25)">
+      <node ref="U1" pin="25" pinfunction="33_MCLK2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(U1-34_RX8-Pad26)">
+      <node ref="U1" pin="26" pinfunction="34_RX8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(U1-35_TX8-Pad27)">
+      <node ref="U1" pin="27" pinfunction="35_TX8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(U1-36_CS-Pad28)">
+      <node ref="U1" pin="28" pinfunction="36_CS" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(U1-37_CS-Pad29)">
+      <node ref="U1" pin="29" pinfunction="37_CS" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(U1-38_CS1_IN1-Pad30)">
+      <node ref="U1" pin="30" pinfunction="38_CS1_IN1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="60" name="unconnected-(U1-39_MISO1_OUT1A-Pad31)">
+      <node ref="U1" pin="31" pinfunction="39_MISO1_OUT1A" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(U1-40_A16-Pad32)">
+      <node ref="U1" pin="32" pinfunction="40_A16" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(U1-D+-Pad57)">
+      <node ref="U1" pin="57" pinfunction="D+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U1-D+-Pad67)">
+      <node ref="U1" pin="67" pinfunction="D+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(U1-D--Pad56)">
+      <node ref="U1" pin="56" pinfunction="D-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(U1-D--Pad66)">
+      <node ref="U1" pin="66" pinfunction="D-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(U1-GND-Pad1)">
+      <node ref="U1" pin="1" pinfunction="GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U1-GND-Pad52)">
+      <node ref="U1" pin="52" pinfunction="GND" pintype="input+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U1-GND-Pad58)">
+      <node ref="U1" pin="58" pinfunction="GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U1-GND-Pad59)">
+      <node ref="U1" pin="59" pinfunction="GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U1-GND-Pad64)">
+      <node ref="U1" pin="64" pinfunction="GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(U1-LED-Pad61)">
+      <node ref="U1" pin="61" pinfunction="LED" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(U1-ON_OFF-Pad54)">
+      <node ref="U1" pin="54" pinfunction="ON_OFF" pintype="input+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(U1-PROGRAM-Pad53)">
+      <node ref="U1" pin="53" pinfunction="PROGRAM" pintype="input+no_connect"/>
+    </net>
+    <net code="74" name="unconnected-(U1-R+-Pad60)">
+      <node ref="U1" pin="60" pinfunction="R+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="75" name="unconnected-(U1-R--Pad65)">
+      <node ref="U1" pin="65" pinfunction="R-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="76" name="unconnected-(U1-T+-Pad63)">
+      <node ref="U1" pin="63" pinfunction="T+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="77" name="unconnected-(U1-T--Pad62)">
+      <node ref="U1" pin="62" pinfunction="T-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="78" name="unconnected-(U1-VBAT-Pad50)">
+      <node ref="U1" pin="50" pinfunction="VBAT" pintype="power_in+no_connect"/>
+    </net>
+    <net code="79" name="unconnected-(U1-VUSB-Pad49)">
+      <node ref="U1" pin="49" pinfunction="VUSB" pintype="power_out+no_connect"/>
+    </net>
+  </nets>
+</export>
