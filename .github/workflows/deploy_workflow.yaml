@@ -107,11 +107,6 @@ jobs:
       id: check_branch
       run: |
         echo "name=exist::$(git ls-remote --heads https://github.com/OUXT-Polaris/${{ matrix.package_name }}.git workflow/sync | wc -l)" >> "$GITHUB_OUTPUT"
-    - name: Count changes
-      id: changes
-      run: |
-        git add -N .
-        echo "name=count::$(git diff --name-only | wc -l)" >> "$GITHUB_OUTPUT"
     - name: Check if branch exists
       id: check_branch_exist
       run: |
@@ -120,17 +115,9 @@ jobs:
         else
           echo "exist=false" >> "$GITHUB_OUTPUT"
         fi
-    - name: Delete old branch
-      if: steps.check_branch_exist.outputs.exist == 'true'
-      run: |
-        git push origin --delete workflow/sync || true
-    - name: Print deleted branch
-      if: steps.check_branch_exist.outputs.exist == 'true'
-      run: |
-        echo "Deleted branch workflow/sync"
     - uses: peter-evans/create-pull-request@v3
       id: create_pull_request
-      if: steps.changes.outputs.count > 0
+      if: steps.check_branch_exist.outputs.exist == 'false'
       with:
         token: ${{ secrets.WAMV_TAN_BOT_SECRET }}
         commit-message: Setup workflow
