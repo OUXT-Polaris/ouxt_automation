@@ -1,0 +1,8 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "SS-12D00G3")(type "KiCad")(uri "/workspace/miniv_motor_controller_board/miniv_motor_controller_board/SS-12D00G3.pretty")(options "")(descr ""))
+  (lib (name "llm_hat")(type "KiCad")(uri "${KIPRJMOD}/llm_hat.pretty")(options "")(descr ""))
+  (lib (name "M5")(type "KiCad")(uri "${KIPRJMOD}/M5.pretty")(options "")(descr ""))
+  (lib (name "CCG30-24-05S")(type "KiCad")(uri "${KIPRJMOD}/CCG30-24-05S.pretty")(options "")(descr ""))
+  (lib (name "3557-15")(type "KiCad")(uri "/workspace/miniv_motor_controller_board/miniv_motor_controller_board/3557-15.pretty")(options "")(descr ""))
+)

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "llm_module")(type "KiCad")(uri "${KIPRJMOD}/llm_module.kicad_sym")(options "")(descr ""))
+  (lib (name "CCG30-24-05S")(type "KiCad")(uri "${KIPRJMOD}/CCG30-24-05S.kicad_sym")(options "")(descr ""))
+)

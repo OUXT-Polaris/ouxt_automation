@@ -21,6 +21,7 @@ RUN chmod +x /entrypoint.sh
 
 WORKDIR /usr/share/kicad/footprints
 RUN git clone https://github.com/XenGi/teensy.pretty.git
+RUN git clone -b RPi_HAT https://github.com/jonbuford/kicad-library.git && 
 
 WORKDIR /usr/share/kicad/symbols
 RUN git clone https://github.com/XenGi/teensy_library.git

@@ -1,0 +1,15 @@
+(footprint "BF@MouseBite2.54_Dot" (version 20211014) (generator pcbnew)
+  (layer "F.Cu")
+  (tedit 5F24B1FD)
+  (attr through_hole)
+  (fp_text reference "REF**" (at 0 -1.905) (layer "F.SilkS") hide
+    (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 4fd5904e-cffd-446d-8822-fb0b9d8e0896)
+  )
+  (fp_text value "BF@MouseBite2.54_Dot" (at 0 3) (layer "F.Fab") hide
+    (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 133b056e-69e4-425d-818b-abaddb454381)
+  )
+  (fp_line (start 3.81 -1.27) (end -3.81 -1.27) (layer "Dwgs.User") (width 0.12) (tstamp 73ced20e-6110-49c0-b015-67b5549e38cc))
+  (pad "" np_thru_hole circle (at 0 -1.016) (size 0.6 0.6) (drill 0.6) (layers *.Cu) (tstamp ddb08778-d065-413f-9206-72f250629136))
+)
