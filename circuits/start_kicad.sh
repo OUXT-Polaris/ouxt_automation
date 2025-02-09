@@ -1,3 +1,5 @@
+xhost +local:
+
 docker run --name=kicad \
   -it \
   -e DISPLAY=$DISPLAY \
