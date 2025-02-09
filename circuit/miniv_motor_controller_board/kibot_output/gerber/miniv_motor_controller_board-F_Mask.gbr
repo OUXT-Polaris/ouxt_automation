@@ -1,12 +1,12 @@
-%TF.GenerationSoftware,KiCad,Pcbnew,8.0.6-8.0.6-0~ubuntu22.04.1*%
-%TF.CreationDate,2025-02-05T00:54:09+00:00*%
+%TF.GenerationSoftware,KiCad,Pcbnew,8.0.8-8.0.8-0~ubuntu22.04.1*%
+%TF.CreationDate,2025-02-09T15:37:57+00:00*%
 %TF.ProjectId,miniv_motor_controller_board,6d696e69-765f-46d6-9f74-6f725f636f6e,rev?*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Soldermask,Top*%
 %TF.FilePolarity,Negative*%
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 8.0.6-8.0.6-0~ubuntu22.04.1) date 2025-02-05 00:54:09*
+G04 Created by KiCad (PCBNEW 8.0.8-8.0.8-0~ubuntu22.04.1) date 2025-02-09 15:37:57*
 %MOMM*%
 %LPD*%
 G01*
@@ -50,7 +50,8 @@ G04 Aperture macros list end*
 %ADD28C,2.040000*%
 %ADD29C,1.524000*%
 %ADD30C,2.400000*%
-%ADD31R,1.800000X1.800000*%
+%ADD31C,3.400000*%
+%ADD32R,1.800000X1.800000*%
 G04 APERTURE END LIST*
 D10*
 %TO.C,R5*%
@@ -271,7 +272,7 @@ D14*
 %TO.C,JP5*%
 X118000000Y-102500000D03*
 %TD*%
-D19*
+D31*
 %TO.C,U4*%
 X105000000Y-91500000D03*
 X105000000Y-67500000D03*
@@ -318,7 +319,7 @@ X63000000Y-127500000D03*
 D11*
 X63000000Y-137660000D03*
 %TD*%
-D31*
+D32*
 %TO.C,D2*%
 X79500000Y-102000000D03*
 D27*
