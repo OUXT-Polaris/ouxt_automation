@@ -1,3 +1,5 @@
+echo ============================ computer_sensor_board ============================
+
 docker run --name=kibot \
   --rm \
   -v ${PWD}/computer_sensor_board:/workspace/computer_sensor_board \
@@ -11,6 +13,8 @@ docker run --name=kibot \
   -v ${PWD}/../docs/docs/circuit/computer_sensor_board/kibot_output/zip:/workspace/zip \
   wamvtan/kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/computer_sensor_board/computer_sensor_board/computer_sensor_board.kicad_sch
 
+echo ============================ miniv_motor_controller_board ============================
+
 docker run --name=kibot \
   --rm \
   -v ${PWD}/miniv_motor_controller_board:/workspace/miniv_motor_controller_board \
@@ -23,6 +27,8 @@ docker run --name=kibot \
   -v ${PWD}/../docs/docs/circuit/miniv_motor_controller_board/kibot_output/bom:/workspace/bom \
   -v ${PWD}/../docs/docs/circuit/miniv_motor_controller_board/kibot_output/zip:/workspace/zip \
   wamvtan/kicad:latest kibot -c /workspace/kibot.yaml -e /workspace/miniv_motor_controller_board/miniv_motor_controller_board/miniv_motor_controller_board.kicad_sch
+
+echo ============================ miniv_estop_board ============================
 
 docker run --name=kibot \
   --rm \
