@@ -1,4 +1,4 @@
-name: Buildtest for firmware.
+name: build_firmware
 
 on:
   pull_request:
