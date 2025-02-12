@@ -1,0 +1,33 @@
+name: build_firmware
+
+on:
+  pull_request:
+    paths:
+      - "firmware/**"
+  workflow_dispatch:
+
+jobs:
+  build_platformio_firmware:
+    name: build_platformio_firmware
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project_directory: ["firmware/mini_v/motor_driver"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os }}-pio
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PlatformIO Core
+        run: pip install --upgrade platformio
+        working-directory: ${{ matrix.project_directory }}
+
+      - name: Build PlatformIO Project
+        run: pio run
+        working-directory: ${{ matrix.project_directory }}
