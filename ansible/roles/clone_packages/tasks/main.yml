@@ -260,6 +260,13 @@
     dest: "{{workspace_path}}/src/drivers/playstation_joy_interfaces"
     version: humble
     accept_hostkey: yes
+- name: clone protolink_drivers
+  git:
+    repo: https://github.com/OUXT-Polaris/protolink_drivers.git
+    dest: "{{workspace_path}}/src/drivers/protolink_drivers"
+    version: master
+    accept_hostkey: yes
+  tags: [utility]
 
 # Control Package
 - name: clone usv_controller package
