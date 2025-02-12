@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build_platformio_firmware:
+    name: build_platformio_firmware
     runs-on: ubuntu-latest
     strategy:
       matrix:
