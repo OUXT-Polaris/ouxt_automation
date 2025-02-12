@@ -30,3 +30,4 @@ jobs:
 
       - name: Build PlatformIO Project
         run: pio run
+        working-directory: ${{ matrix.project_directory }}
