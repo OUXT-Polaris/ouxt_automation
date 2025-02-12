@@ -1,12 +1,9 @@
 name: Buildtest for firmware.
 
 on:
-  schedule:
-  - cron: 0 0 * * *
   pull_request:
     paths:
-      - "ansible/**"
-      - ".github/workflows/ansible.yaml"
+      - "firmware/**"
   workflow_dispatch:
 
 jobs:
