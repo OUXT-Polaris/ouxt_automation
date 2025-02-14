@@ -52,7 +52,7 @@ void loop() {
     protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
       = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
     if(pb_decode(&pb_stream, protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields, &msg)) {
-      int signal = constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0;
+      int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
       servo.writeMicroseconds(constrain(signal, 1100, 1900));
       Serial.println(signal);
     }
