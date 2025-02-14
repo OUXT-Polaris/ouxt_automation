@@ -2,5 +2,6 @@ syntax = "proto3";
 package protolink__hardware_communication_msgs__MotorControl;
 
 message hardware_communication_msgs__MotorControl {
-double motor_speed = 1;
+bool motor_enable = 1;
+double motor_speed = 2;
 }
