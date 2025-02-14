@@ -15,16 +15,35 @@ EthernetUDP Udp;
 // buffers for receiving and sending data
 uint8_t packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
 
+// EStop settings
+byte estopPin = 40;
+bool preEstopState = true;
+unsigned long preTime = 0;
+
+// ESC settings
 byte servoPin = 41;
+unsigned int startupTime = 4000;
 Servo servo;
+
+
+bool get_msg_udp(protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl *msg_) {
+  int packetSize = Udp.parsePacket();
+  if (packetSize) {
+    const size_t num_bytes = Udp.read(packetBuffer, UDP_TX_PACKET_MAX_SIZE);
+    pb_istream_t pb_stream = pb_istream_from_buffer(packetBuffer, num_bytes);
+    return pb_decode(&pb_stream, protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields, msg_);
+  }
+  return false;
+}
+
 
 void setup() {
   Serial.begin(9600);
 
-	servo.attach(servoPin);
-	servo.writeMicroseconds(1500); // send "stop" signal to ESC.
+  pinMode(13, OUTPUT);
+  pinMode(estopPin, INPUT_PULLDOWN);
 
-	delay(7000); // delay to allow the ESC to recognize the stopped signal
+	servo.attach(servoPin);
 
   Ethernet.begin(MAC, IP);
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
@@ -40,26 +59,33 @@ void setup() {
   Udp.begin(LOCALPORT);
 
   // visualize
-  pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
+
+  preTime = millis();
 }
 
 void loop() {
-  int packetSize = Udp.parsePacket();
-  if (packetSize) {
-    const size_t num_bytes = Udp.read(packetBuffer, UDP_TX_PACKET_MAX_SIZE);
-    pb_istream_t pb_stream = pb_istream_from_buffer(packetBuffer, num_bytes);
+  bool estopState = !digitalRead(estopPin);   // Estop: true, normal: false
+
+  if (!estopState && preEstopState) {
+    preTime = millis();
+    servo.writeMicroseconds(1500);             // send "stop" signal to ESC.
+  }
+  else if(millis() - preTime > startupTime) {  // delay to allow the ESC to recognize the stopped signal
     protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
       = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
-    if(pb_decode(&pb_stream, protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields, &msg)) {
-      if (msg.motor_enable) {
+    if(get_msg_udp(&msg)) {
+      if (msg.motor_enable && !estopState){
         int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
         servo.writeMicroseconds(constrain(signal, 1100, 1900));
-        Serial.println(msg.motor_speed);
+        Serial.println(signal);
       }
-      else
+      else{
         servo.writeMicroseconds(1500);
+        Serial.println(1500);
+      }
     }
   }
+  preEstopState = estopState;
   delay(1);
 }
