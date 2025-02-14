@@ -6,6 +6,8 @@ actions_ws
 mbed_ws
 robotx_tools
 log
+build
+install
 private.yml
 scripts/packages.repos
 scripts/packages_exact.repos
