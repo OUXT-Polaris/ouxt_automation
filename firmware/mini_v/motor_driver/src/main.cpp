@@ -1,16 +1,14 @@
 #include <Arduino.h>
+#include <NativeEthernet.h>
+#include <NativeEthernetUdp.h>
 #include <Servo.h>
+
 #include <proto/hardware_communication_msgs__MotorControl.pb.h>
 #include "pb_encode.h"
 #include "pb_decode.h"
-#include <NativeEthernet.h>
-#include <NativeEthernetUdp.h>
+#include "config.hpp"
 
-byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
-};
-IPAddress ip(192, 168, 1, 100);
-unsigned int localPort = 8888;      // local port to listen on
+
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
 
@@ -21,13 +19,14 @@ byte servoPin = 41;
 Servo servo;
 
 void setup() {
-	servo.attach(servoPin);
+  Serial.begin(9600);
 
+	servo.attach(servoPin);
 	servo.writeMicroseconds(1500); // send "stop" signal to ESC.
 
 	delay(7000); // delay to allow the ESC to recognize the stopped signal
 
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(MAC, IP);
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
     Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
     while (true) {
@@ -38,8 +37,11 @@ void setup() {
     Serial.println("Ethernet cable is not connected.");
   }
   // start UDP
-  Udp.begin(localPort);
+  Udp.begin(LOCALPORT);
 
+  // visualize
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
 }
 
 void loop() {
@@ -50,8 +52,10 @@ void loop() {
     protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
       = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
     if(pb_decode(&pb_stream, protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields, &msg)) {
-      int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
+      int signal = constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0;
       servo.writeMicroseconds(constrain(signal, 1100, 1900));
+      Serial.println(signal);
     }
   }
+  delay(1);
 }
