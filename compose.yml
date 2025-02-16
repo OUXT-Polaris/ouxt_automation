@@ -1,0 +1,24 @@
+services:
+  robotx_ws:
+    build:
+      context: .
+    image: ouxt/automation:humble
+    container_name: robotx_ws
+    hostname: robotx_ws
+    working_dir: /home/ros/ouxt_automation/robotx_ws
+    tty: true
+    privileged: true
+    network_mode: "host"
+    environment:
+      # to transport X11 application window
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - USER_ID=$USER_ID
+      - GROUP_ID=$GROUP_ID
+    volumes:
+      # to use devices
+      - /dev:/dev
+      # to tansport X11 application (require xhost local:)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # ros work dir
+      - ./:/home/ros/ouxt_automation/

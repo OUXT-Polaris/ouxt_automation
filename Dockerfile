@@ -11,7 +11,7 @@ SHELL ["/bin/bash", "-c"]
 ##################
 ## Install variety
 ##################
-RUN apt update && apt install -y iproute2 gnupg2 lsb-releas vim ansible qlocate && \
+RUN apt update && apt install -y iproute2 gnupg2 lsb-release vim ansible locate && \
   updatedb
 
 
@@ -20,17 +20,20 @@ RUN apt update && apt install -y iproute2 gnupg2 lsb-releas vim ansible qlocate 
 ## ref: https://penguin-coffeebreak.com/archives/242
 ####################################################
 RUN apt install bash-completion && source /etc/bash_completion && \
-	rm /etc/apt/apt.conf.d/docker-clean && apt update
+  rm /etc/apt/apt.conf.d/docker-clean && apt update
 
 
 ##################
 ## Create new user
 ##################
-RUN @"
+RUN <<EOT
 apt install sudo gosu
 useradd -ms /bin/bash ros
 echo "export USER=ros" >> /home/ros/.bashrc
-"@
+EOT
 
 WORKDIR /home/ros
 
+COPY ./entrypoint.sh /usr/bin
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT [ "/bin/bash", "-c", "/usr/bin/entrypoint.sh" ]
