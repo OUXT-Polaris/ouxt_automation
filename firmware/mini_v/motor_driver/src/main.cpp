@@ -7,10 +7,11 @@
 #include "pb_encode.h"
 #include "pb_decode.h"
 #include "config.hpp"
+#include "heart_beat.hpp"
 
 
 // An EthernetUDP instance to let us send and receive packets over UDP
-EthernetUDP Udp;
+EthernetUDP UdpMotor;
 
 // buffers for receiving and sending data
 uint8_t packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
@@ -25,11 +26,14 @@ byte servoPin = 41;
 unsigned int startupTime = 4000;
 Servo servo;
 
+// Heart Beat
+UDPHeartBeat UdpHeart(LOCALPORT_HEART, TIMEOUT);
 
-bool get_msg_udp(protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl *msg_) {
-  int packetSize = Udp.parsePacket();
+
+bool get_motor_msg_udp(protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl *msg_) {
+  int packetSize = UdpMotor.parsePacket();
   if (packetSize) {
-    const size_t num_bytes = Udp.read(packetBuffer, UDP_TX_PACKET_MAX_SIZE);
+    const size_t num_bytes = UdpMotor.read(packetBuffer, UDP_TX_PACKET_MAX_SIZE);
     pb_istream_t pb_stream = pb_istream_from_buffer(packetBuffer, num_bytes);
     return pb_decode(&pb_stream, protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields, msg_);
   }
@@ -56,7 +60,9 @@ void setup() {
     Serial.println("Ethernet cable is not connected.");
   }
   // start UDP
-  Udp.begin(LOCALPORT);
+  UdpHeart.begin();
+  UdpMotor.begin(LOCALPORT_MOTOR);
+  
 
   // visualize
   digitalWrite(13, HIGH);
@@ -65,27 +71,40 @@ void setup() {
 }
 
 void loop() {
-  bool estopState = !digitalRead(estopPin);   // Estop: true, normal: false
+  bool estopState = !digitalRead(estopPin);    // Estop: true, normal: false
+  estopState = false;
 
-  if (!estopState && preEstopState) {
-    preTime = millis();
-    servo.writeMicroseconds(1500);             // send "stop" signal to ESC.
-  }
-  else if(millis() - preTime > startupTime) {  // delay to allow the ESC to recognize the stopped signal
-    protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
-      = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
-    if(get_msg_udp(&msg)) {
-      if (msg.motor_enable && !estopState){
-        int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
-        servo.writeMicroseconds(constrain(signal, 1100, 1900));
-        Serial.println(signal);
-      }
-      else{
-        servo.writeMicroseconds(1500);
-        Serial.println(1500);
+  if (UdpHeart.verify_survival()) {              // Check Heart Beat
+    if (!estopState && preEstopState) {          // When the Estop was released
+      preTime = millis();
+      servo.writeMicroseconds(1500);
+    }
+    else if(millis() - preTime > startupTime) {  // delay to allow the ESC to recognize the stopped signal
+      protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
+        = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
+      if(get_motor_msg_udp(&msg)) {
+        if (msg.motor_enable && !estopState){
+          int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
+          servo.writeMicroseconds(constrain(signal, 1100, 1900));
+          digitalWrite(13, HIGH);
+          Serial.println(signal);
+        }
+        else{
+          servo.writeMicroseconds(1500);
+          digitalWrite(13, LOW);
+          Serial.println(1500);
+        }
       }
     }
+    else
+      Serial.printf("[%d]: Waiting for starting up\n", millis() - preTime);
   }
+  else {
+    servo.writeMicroseconds(1500);
+    digitalWrite(13, LOW);
+    Serial.println("Heart beat is not coming. Stop motor.");
+  }
+
   preEstopState = estopState;
   delay(1);
 }
