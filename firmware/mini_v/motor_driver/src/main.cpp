@@ -72,7 +72,6 @@ void setup() {
 
 void loop() {
   bool estopState = !digitalRead(estopPin);    // Estop: true, normal: false
-  estopState = false;
 
   if (UdpHeart.verify_survival()) {              // Check Heart Beat
     if (!estopState && preEstopState) {          // When the Estop was released
