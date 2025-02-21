@@ -11,18 +11,7 @@
 
 /* Struct definitions */
 typedef struct _protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     bool motor_enable;
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
-    bool motor_enable;
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
-    bool motor_enable;
->>>>>>> origin/master
     double motor_speed;
 } protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl;
 
@@ -32,23 +21,6 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_default {0}
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero {0}
-
-/* Field tags (for use in manual encoding/decoding) */
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_motor_speed_tag 1
-
-/* Struct field encoding specification for nanopb */
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, DOUBLE,   motor_speed,       1)
-=======
-=======
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
->>>>>>> origin/master
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_default {0, 0}
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero {0, 0}
 
@@ -60,13 +32,6 @@ X(a, STATIC,   SINGULAR, DOUBLE,   motor_speed,       1)
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, BOOL,     motor_enable,      1) \
 X(a, STATIC,   SINGULAR, DOUBLE,   motor_speed,       2)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
->>>>>>> origin/master
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_CALLBACK NULL
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_DEFAULT NULL
 
@@ -77,19 +42,7 @@ extern const pb_msgdesc_t protolink__hardware_communication_msgs__MotorControl_h
 
 /* Maximum encoded size of messages (where known) */
 #define PROTOLINK__HARDWARE_COMMUNICATION_MSGS__MOTORCONTROL_PROTO_HARDWARE_COMMUNICATION_MSGS__MOTORCONTROL_PB_H_MAX_SIZE protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_size
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_size 9
-=======
 #define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_size 11
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_size 11
->>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
-=======
-#define protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_size 11
->>>>>>> origin/master
 
 #ifdef __cplusplus
 } /* extern "C" */
