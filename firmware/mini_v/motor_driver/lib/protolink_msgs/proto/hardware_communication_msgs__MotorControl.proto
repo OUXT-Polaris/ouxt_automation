@@ -4,6 +4,7 @@ package protolink__hardware_communication_msgs__MotorControl;
 message hardware_communication_msgs__MotorControl {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 double motor_speed = 1;
 =======
 bool motor_enable = 1;
@@ -13,4 +14,8 @@ double motor_speed = 2;
 bool motor_enable = 1;
 double motor_speed = 2;
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+bool motor_enable = 1;
+double motor_speed = 2;
+>>>>>>> origin/master
 }

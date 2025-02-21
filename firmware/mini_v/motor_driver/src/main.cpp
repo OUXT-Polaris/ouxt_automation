@@ -1,6 +1,7 @@
 #include <Arduino.h>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <Servo.h>
 #include <proto/hardware_communication_msgs__MotorControl.pb.h>
 #include "pb_encode.h"
@@ -18,6 +19,8 @@ EthernetUDP Udp;
 =======
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
 #include <NativeEthernet.h>
 #include <NativeEthernetUdp.h>
 #include <Servo.h>
@@ -32,13 +35,17 @@ EthernetUDP Udp;
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP UdpMotor;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
 
 // buffers for receiving and sending data
 uint8_t packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 byte servoPin = 41;
@@ -55,6 +62,8 @@ void setup() {
 =======
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
 // EStop settings
 byte estopPin = 40;
 bool preEstopState = true;
@@ -90,9 +99,12 @@ void setup() {
 
   Ethernet.begin(MAC, IP);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
     Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
     while (true) {
@@ -103,6 +115,7 @@ void setup() {
     Serial.println("Ethernet cable is not connected.");
   }
   // start UDP
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   Udp.begin(localPort);
@@ -124,6 +137,8 @@ void loop() {
 =======
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
   UdpHeart.begin();
   UdpMotor.begin(LOCALPORT_MOTOR);
   
@@ -171,7 +186,10 @@ void loop() {
   preEstopState = estopState;
   delay(1);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
 =======
 >>>>>>> e6e99620788d4244a48300a042935bab1c4fb7fc
+=======
+>>>>>>> origin/master
 }
