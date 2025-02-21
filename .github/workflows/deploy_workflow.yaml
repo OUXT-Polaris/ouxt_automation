@@ -56,6 +56,7 @@ jobs:
           point_painting,
           prometheus_ros,
           protolink,
+          protolink_drivers,
           quaternion_operation,
           robotx_behavior_tree,
           robotx_communication,
