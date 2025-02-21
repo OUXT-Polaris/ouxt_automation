@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "estop_driver",
+			"path": "estop_driver"
+		},
+		{
+			"path": "motor_driver"
+		}
+	],
+	"settings": {}
+}
