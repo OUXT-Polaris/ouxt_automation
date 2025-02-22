@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "motor_driver"
+		},
+		{
+			"path": "gnss_driver"
 		}
 	],
 	"settings": {}
