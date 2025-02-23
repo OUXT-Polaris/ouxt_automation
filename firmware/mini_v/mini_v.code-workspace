@@ -9,7 +9,16 @@
 		},
 		{
 			"path": "motor_driver"
+		},
+		{
+			"path": "gnss_driver"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"array": "cpp",
+			"string": "cpp",
+			"string_view": "cpp"
+		}
+	}
 }
