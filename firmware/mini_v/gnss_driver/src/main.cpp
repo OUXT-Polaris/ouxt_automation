@@ -1,17 +1,3 @@
-/**
- * @file getSensorData.ino
- * @author SeanKwok (shaoxiang@m5stack.com)
- * @brief M5Module GNSS Get Possition Demo.
- * @version 0.1
- * @date 2023-08-31
- *  
- *(´・ω・｀)
- * @Hardwares:M5Module GNSS
- * @Platform Version: Arduino M5Stack Board Manager v2.0.7
- * @Dependent Library:
- * TinyGPSPlus: https://github.com/mikalhart/TinyGPSPlus
- */
-
 #include <Arduino.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
@@ -70,6 +56,13 @@ void loop()
         size_t msg_length;
         pb_ostream_t stream = pb_ostream_from_buffer(msg_buffer, sizeof(msg_buffer));
 
+        Serial.printf(" %f", msg.position.latitude);
+        Serial.printf(" %f", msg.position.longitude);
+        Serial.printf(" %f", msg.position.altitude);
+        Serial.printf(" %f", msg.orientation.w);
+        Serial.printf(" %f", msg.orientation.x);
+        Serial.printf(" %f", msg.orientation.y);
+        Serial.printf(" %f", msg.orientation.z);
         bool result = pb_encode(&stream, protolink__geographic_msgs__GeoPose_geographic_msgs__GeoPose_fields, &msg);
         if (result && stream.bytes_written > 10)
         {
@@ -77,10 +70,10 @@ void loop()
             Udp.write(msg_buffer, stream.bytes_written);
             Udp.endPacket();
 
-            Serial.printf("written: %d,", stream.bytes_written);
-            data.print();
+            Serial.printf(" written: %d\n", stream.bytes_written);
+            // data.print();
         }
-        else Serial.println("Error: encode");
+        else Serial.printf(" Encode error: witten %d\n", stream.bytes_written);
     }
     else
         Serial.println(F("No GPS data received: check wiring"));
