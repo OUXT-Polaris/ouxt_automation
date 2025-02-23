@@ -56,13 +56,6 @@ void loop()
         size_t msg_length;
         pb_ostream_t stream = pb_ostream_from_buffer(msg_buffer, sizeof(msg_buffer));
 
-        Serial.printf(" %f", msg.position.latitude);
-        Serial.printf(" %f", msg.position.longitude);
-        Serial.printf(" %f", msg.position.altitude);
-        Serial.printf(" %f", msg.orientation.w);
-        Serial.printf(" %f", msg.orientation.x);
-        Serial.printf(" %f", msg.orientation.y);
-        Serial.printf(" %f", msg.orientation.z);
         bool result = pb_encode(&stream, protolink__geographic_msgs__GeoPose_geographic_msgs__GeoPose_fields, &msg);
         if (result && stream.bytes_written > 10)
         {
@@ -70,8 +63,8 @@ void loop()
             Udp.write(msg_buffer, stream.bytes_written);
             Udp.endPacket();
 
-            Serial.printf(" written: %d\n", stream.bytes_written);
-            // data.print();
+            Serial.printf(" written: %d,", stream.bytes_written);
+            data.print();
         }
         else Serial.printf(" Encode error: witten %d\n", stream.bytes_written);
     }
