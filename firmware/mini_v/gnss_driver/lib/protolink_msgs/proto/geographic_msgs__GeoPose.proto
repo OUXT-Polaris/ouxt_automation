@@ -1,0 +1,20 @@
+syntax = "proto3";
+package protolink__geographic_msgs__GeoPose;
+
+message geographic_msgs__GeoPose {
+message geographic_msgs__GeoPoint {
+double latitude = 1;
+double longitude = 2;
+double altitude = 3;
+}
+
+geographic_msgs__GeoPoint position = 1;
+message geometry_msgs__Quaternion {
+double x = 1;
+double y = 2;
+double z = 3;
+double w = 4;
+}
+
+geometry_msgs__Quaternion orientation = 2;
+}
