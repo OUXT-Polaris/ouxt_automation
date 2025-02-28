@@ -6,7 +6,8 @@ services:
     container_name: wamv_perception
     platform: linux/arm64
     environment:
-      - ROS_DOMAIN_ID=0
+      - ROS_DOMAIN_ID=1
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
       - wamv_network
     ipc: host
@@ -20,7 +21,8 @@ services:
     container_name: wamv_planning
     platform: linux/arm64
     environment:
-      - ROS_DOMAIN_ID=0
+      - ROS_DOMAIN_ID=1
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
       - wamv_network
     ipc: host
@@ -34,7 +36,8 @@ services:
     container_name: wamv_control
     platform: linux/arm64
     environment:
-      - ROS_DOMAIN_ID=0
+      - ROS_DOMAIN_ID=1
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
       - wamv_network
     ipc: host
@@ -48,7 +51,8 @@ services:
     container_name: wamv_localization
     platform: linux/arm64
     environment:
-      - ROS_DOMAIN_ID=0
+      - ROS_DOMAIN_ID=1
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
       - wamv_network
     ipc: host
@@ -62,7 +66,8 @@ services:
     container_name: wamv_drivers
     platform: linux/arm64
     environment:
-      - ROS_DOMAIN_ID=0
+      - ROS_DOMAIN_ID=1
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     networks:
       - wamv_network
     ipc: host
