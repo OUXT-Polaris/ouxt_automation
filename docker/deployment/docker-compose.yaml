@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  wamv_perception:
+    image: wamvtan/wamv_perception
+    container_name: wamv_perception
+    platform: linux/arm64
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - wamv_network
+    ipc: host
+    restart: always
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash && 
+               ros2 topic pub -r 2 /chatter std_msgs/msg/String 'data: \"Hello from perception\"'"
+
+  wamv_planning:
+    image: wamvtan/wamv_planning
+    container_name: wamv_planning
+    platform: linux/arm64
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - wamv_network
+    ipc: host
+    restart: always
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash && 
+               ros2 topic pub -r 2 /chatter std_msgs/msg/String 'data: \"Hello from planning\"'"
+
+  wamv_control:
+    image: wamvtan/wamv_control
+    container_name: wamv_control
+    platform: linux/arm64
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - wamv_network
+    ipc: host
+    restart: always
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash && 
+               ros2 topic pub -r 2 /chatter std_msgs/msg/String 'data: \"Hello from control\"'"
+
+  wamv_localization:
+    image: wamvtan/wamv_localization
+    container_name: wamv_localization
+    platform: linux/arm64
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - wamv_network
+    ipc: host
+    restart: always
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash && 
+               ros2 topic pub -r 2 /chatter std_msgs/msg/String 'data: \"Hello from localization\"'"
+
+  wamv_drivers:
+    image: wamvtan/wamv_drivers
+    container_name: wamv_drivers
+    platform: linux/arm64
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - wamv_network
+    ipc: host
+    restart: always
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash && 
+               ros2 topic pub -r 2 /chatter std_msgs/msg/String 'data: \"Hello from drivers\"'"
+
+networks:
+  wamv_network:
+    driver: bridge
