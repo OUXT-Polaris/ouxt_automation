@@ -151,13 +151,6 @@
     version: ros2
     accept_hostkey: yes
   tags: [utility]
-- name: clone robotx_communication
-  git:
-    repo: https://github.com/OUXT-Polaris/robotx_communication.git
-    dest: "{{workspace_path}}/src/utils/robotx_communication"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone boost_geometry_util
   git:
     repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
