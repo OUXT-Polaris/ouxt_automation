@@ -24,6 +24,7 @@ RUN --mount=type=cache,target=/wamv_ws/build source /opt/ros/$ROS_DISTRO/setup.b
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
     rosdep install -iry --from-paths src && \
+    sudo apt-get install -y ros-$ROS_DISTRO-rmw-cyclonedds-cpp && \
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
 
