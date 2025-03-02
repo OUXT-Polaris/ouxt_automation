@@ -194,14 +194,15 @@
     depth: 1
     accept_hostkey: yes
   tags: [utility]
-- name: clone prometheus_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/prometheus_ros.git
-    dest: "{{workspace_path}}/src/drivers/prometheus_ros"
-    version: master
-    depth: 1
-    accept_hostkey: yes
-  tags: [utility]
+# This package is not used in RoboBoat
+# - name: clone prometheus_ros
+#   git:
+#     repo: https://github.com/OUXT-Polaris/prometheus_ros.git
+#     dest: "{{workspace_path}}/src/drivers/prometheus_ros"
+#     version: master
+#     depth: 1
+#     accept_hostkey: yes
+#   tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
