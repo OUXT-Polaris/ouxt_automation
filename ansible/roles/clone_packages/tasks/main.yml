@@ -11,7 +11,6 @@
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
     dest: "{{workspace_path}}/src/perception/pcl_apps"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name : clone scan_segmentation
@@ -19,7 +18,6 @@
     repo: https://github.com/OUXT-Polaris/scan_segmentation.git
     dest: "{{workspace_path}}/src/perception/scan_segmentation"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name : clone preception_bringup
@@ -27,7 +25,6 @@
     repo: https://github.com/OUXT-Polaris/perception_bringup.git
     dest: "{{workspace_path}}/src/perception/perception_bringup"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name : clone image_processing_utils
@@ -35,7 +32,6 @@
     repo: https://github.com/OUXT-Polaris/image_processing_utils.git
     dest: "{{workspace_path}}/src/perception/image_processing_utils"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone robotx_costmap_calculator
@@ -43,7 +39,6 @@
     repo: https://github.com/OUXT-Polaris/robotx_costmap_calculator.git
     dest: "{{workspace_path}}/src/perception/robotx_costmap_calculator"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone perception_msgs
@@ -51,7 +46,6 @@
     repo: https://github.com/OUXT-Polaris/perception_msgs.git
     dest: "{{workspace_path}}/src/perception/perception_msgs"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone perception_server
@@ -59,7 +53,6 @@
     repo: https://github.com/OUXT-Polaris/perception_server.git
     dest: "{{workspace_path}}/src/perception/perception_server"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone ndt_omp
@@ -67,7 +60,6 @@
     repo: https://github.com/tier4/ndt_omp.git
     dest: "{{workspace_path}}/src/perception/ndt_omp"
     version: tier4/main
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone lidar_camera_fusion
@@ -75,7 +67,6 @@
     repo: https://github.com/OUXT-Polaris/lidar_camera_fusion.git
     dest: "{{workspace_path}}/src/perception/lidar_camera_fusion"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 # This package is too heavy for building, so it will be add cahce layer in the near future.
@@ -91,7 +82,6 @@
     repo: https://github.com/OUXT-Polaris/point_painting.git
     dest: "{{workspace_path}}/src/perception/point_painting"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone detic_onnx_ros2
@@ -99,7 +89,6 @@
     repo: https://github.com/OUXT-Polaris/detic_onnx_ros2.git
     dest: "{{workspace_path}}/src/perception/detic_onnx_ros2"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 - name: clone grid_map_type_adapter
@@ -107,7 +96,6 @@
     repo: https://github.com/OUXT-Polaris/grid_map_type_adapter.git
     dest: "{{workspace_path}}/src/perception/grid_map_type_adapter"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [perception]
 
@@ -117,7 +105,6 @@
     repo: https://github.com/OUXT-Polaris/hermite_path_planner.git
     dest: "{{workspace_path}}/src/planning/hermite_path_planner"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [planning]
 - name: clone robotx_behavior_tree
@@ -125,15 +112,15 @@
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
+    # download 3d model is too heavy in competition.
     depth: 1
     accept_hostkey: yes
   tags: [planning]
-- name: clone robotx_behavior_tree
+- name: clone robotx_planner_bringup
   git:
     repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
     dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [planning]
 
@@ -143,7 +130,6 @@
     repo: https://github.com/OUXT-Polaris/pcl_type_adapter.git
     dest: "{{workspace_path}}/src/utils/pcl_type_adapter"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone data_buffer
@@ -151,7 +137,6 @@
     repo: https://github.com/OUXT-Polaris/data_buffer.git
     dest: "{{workspace_path}}/src/utils/data_buffer"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone message_synchronizer
@@ -159,7 +144,6 @@
     repo: https://github.com/OUXT-Polaris/message_synchronizer.git
     dest: "{{workspace_path}}/src/utils/message_synchronizer"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone hungarian_solver
@@ -167,7 +151,6 @@
     repo: https://github.com/OUXT-Polaris/hungarian_solver.git
     dest: "{{workspace_path}}/src/utils/hungarian_solver"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone boost_geometry_util
@@ -175,7 +158,6 @@
     repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
     dest: "{{workspace_path}}/src/utils/boost_geometry_util"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone lua_vendor
@@ -183,7 +165,6 @@
     repo: https://github.com/OUXT-Polaris/lua_vendor.git
     dest: "{{workspace_path}}/src/utils/lua_vendor"
     version: main
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 - name: clone tcp_sender
@@ -191,7 +172,6 @@
     repo: https://github.com/OUXT-Polaris/tcp_sender.git
     dest: "{{workspace_path}}/src/drivers/tcp_sender"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [utility]
 # This package is not used in RoboBoat
@@ -200,7 +180,6 @@
 #     repo: https://github.com/OUXT-Polaris/prometheus_ros.git
 #     dest: "{{workspace_path}}/src/drivers/prometheus_ros"
 #     version: master
-#     depth: 1
 #     accept_hostkey: yes
 #   tags: [utility]
 
@@ -210,6 +189,7 @@
     repo: https://github.com/OUXT-Polaris/wamv_description.git
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
+    # download 3d model is too heavy in competition.
     depth: 1
     accept_hostkey: yes
   tags: [description]
@@ -220,7 +200,6 @@
     repo: https://github.com/OUXT-Polaris/geographic_conversion.git
     dest: "{{workspace_path}}/src/localization/geographic_conversion"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [localization]
 - name: clone nmea_to_geopose
@@ -228,7 +207,6 @@
     repo: https://github.com/OUXT-Polaris/nmea_to_geopose.git
     dest: "{{workspace_path}}/src/localization/nmea_to_geopose"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [localization]
 - name: clone odom_frame_publisher
@@ -236,7 +214,6 @@
     repo: https://github.com/OUXT-Polaris/odom_frame_publisher.git
     dest: "{{workspace_path}}/src/localization/odom_frame_publisher"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [localization]
 - name: clone geographic_info
@@ -244,7 +221,6 @@
     repo: https://github.com/OUXT-Polaris/geographic_info.git
     dest: "{{workspace_path}}/src/localization/geographic_info"
     version: ros2
-    depth: 1
     accept_hostkey: yes
   tags: [localization]
 - name: clone robotx_ekf
@@ -252,7 +228,6 @@
     repo: https://github.com/OUXT-Polaris/robotx_ekf.git
     dest: "{{workspace_path}}/src/localization/robotx_ekf"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [localization]
 
@@ -268,7 +243,6 @@
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
     dest: "{{workspace_path}}/src/drivers/playstation_controller_drivers"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [driver]
 - name: clone
@@ -282,7 +256,6 @@
     repo: https://github.com/OUXT-Polaris/protolink.git
     dest: "{{workspace_path}}/src/drivers/protolink"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [driver]
 - name: clone protolink_drivers
@@ -290,7 +263,6 @@
     repo: https://github.com/OUXT-Polaris/protolink_drivers.git
     dest: "{{workspace_path}}/src/drivers/protolink_drivers"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [driver]
 
@@ -300,7 +272,6 @@
     repo: https://github.com/OUXT-Polaris/usv_controller.git
     dest: "{{workspace_path}}/src/control/usv_controller"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [control]
 - name : clone joy_to_twist
@@ -308,7 +279,6 @@
     repo: https://github.com/OUXT-Polaris/joy_to_twist.git
     dest: "{{workspace_path}}/src/control/joy_to_twist"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [control]
 
@@ -318,7 +288,6 @@
     repo: https://github.com/OUXT-Polaris/navi_sim.git
     dest: "{{workspace_path}}/src/simulation/navi_sim"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [simulation]
 
@@ -327,6 +296,5 @@
     repo: https://github.com/OUXT-Polaris/vrx_bridge.git
     dest: "{{workspace_path}}/src/simulation/vrx_bridge"
     version: master
-    depth: 1
     accept_hostkey: yes
   tags: [simulation]
