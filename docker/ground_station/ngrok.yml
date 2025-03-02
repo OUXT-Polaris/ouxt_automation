@@ -1,0 +1,19 @@
+version: "1"
+authtoken: ${NGROK_AUTHTOKEN}  # Use the environment variable for the ngrok token
+region: us  # Optional: Set your preferred ngrok region (e.g., "us", "eu", "ap", etc.)
+services:
+  static-site:
+    image: dockersamples/static-site
+    build: .
+    ports:
+      - "80:80"
+    restart: always
+  ngrok:
+    image: ngrok/ngrok:latest
+    command:
+      - "http"
+      - "http://host.docker.internal:80"
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - 4040:4040

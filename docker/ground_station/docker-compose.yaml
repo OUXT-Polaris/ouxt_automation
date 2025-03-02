@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  # zenoh-router:
+  #   image: eclipse/zenoh
+  #   container_name: zenoh-router
+  #   command: --init -p 7447:7447/tcp -p 8000:8000/tcp  # Command to run Zenoh Router with specified ports
+  #   ipc: host
+  #   ports:
+  #     - "7447:7447"   # Expose port 7447 for Zenoh Router
+  #     - "8000:8000"   # Expose port 8000 (optional, for additional communication)
+  #   restart: always  # Always restart the container in case of failure
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    ports:
+      - 4040:4040
+
+networks:
+  wamv_network:
+    driver: bridge
+
