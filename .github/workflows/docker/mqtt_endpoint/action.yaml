@@ -8,12 +8,9 @@ inputs:
   docker_password:
     description: "Password for Dockerhub"
     required: true
-<<<<<<< HEAD
   platform:
     description: "Platform of the image"
     required: true
-=======
->>>>>>> e57bd6b470fe2bca77bb02cd19b652ce9bbc9ed0
 
 runs:
   using: "composite"
