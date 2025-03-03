@@ -16,7 +16,7 @@ public:
 
     bool verify_survival();
     
-    protolink__hardware_communication_msgs__HeartBeat_hardware_communication_msgs__HeartBeat get_msgs();
+    auto get_msgs() -> protolink__hardware_communication_msgs__HeartBeat_hardware_communication_msgs__HeartBeat;
 
 private:
     const uint16_t port;
