@@ -4,7 +4,20 @@ import paho.mqtt.client as mqtt
 from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
     hardware_communication_msgs__HeartBeat,
 )
+from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
+    hardware_communication_msgs__MotorControl,
+)
 from google.protobuf.json_format import MessageToJson
+
+heartbeat_topic = "miniv/heartbeat"
+left_motor_control_topic = "miniv/left_motor"
+left_motor_command = hardware_communication_msgs__MotorControl()
+left_motor_command.motor_enable = True
+right_motor_control_topic = "miniv/right_motor"
+right_motor_command = hardware_communication_msgs__MotorControl()
+right_motor_command.motor_enable = True
+
+udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
 def on_connect(client, userdata, flags, rc):
@@ -24,11 +37,19 @@ def on_disconnect(client, userdata, rc):
             print(f"Reconnection failed: {e}")
 
 
+def on_message(client, userdata, msg):
+    if msg.topic == left_motor_control_topic:
+        left_motor_command.ParseFromString(msg.payload.decode("utf-8"))
+    if msg.topic == right_motor_control_topic:
+        right_motor_command.ParseFromString(msg.payload.decode("utf-8"))
+
+
 def main():
     broker = "54.212.20.15"
     port = 1883
-    topic = "miniv/heartbeat"
-    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    right_motor_ip = "192.168.0.101"
+    left_motor_ip = "192.168.0.102"
+    estop_ip = "192.168.0.103"
 
     client = mqtt.Client()
     client.on_connect = on_connect
@@ -52,7 +73,7 @@ def main():
             print(MessageToJson(message))
             udp_sock.sendto(
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
-                ("192.168.0.103", 4000),
+                (estop_ip, 4000),
             )
             time.sleep(keep_alive_timeout)
     except KeyboardInterrupt:
