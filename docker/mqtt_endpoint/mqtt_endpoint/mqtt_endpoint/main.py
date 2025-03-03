@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
     hardware_communication_msgs__HeartBeat,
 )
+from google.protobuf.json_format import MessageToJson
 
 
 def main():
@@ -16,15 +17,21 @@ def main():
     client = mqtt.Client()
 
     client.connect(broker, port)
+    client.loop_start()
+
     sequence = 0
-    message = hardware_communication_msgs__HeartBeat
+    message = hardware_communication_msgs__HeartBeat()
+    time.sleep(1)
     while True:
         if client.is_connected():
-            print("Send heart beat to EStop")
-            print("message.SerializeToString()")
-            message.sequence = sequence
             sequence = sequence + 1
-            sock.sendto(message.SerializeToString(), (broadcast_ip, port))
+            message.sequence = sequence
+            print("Send heart beat to EStop")
+            print(MessageToJson(message))
+            udp_sock.sendto(
+                hardware_communication_msgs__HeartBeat.SerializeToString(message),
+                ("255.255.255.255", port),
+            )
         else:
             print("Does not connected")
         # message = "Hello, MQTT!"
