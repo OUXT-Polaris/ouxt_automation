@@ -17,6 +17,11 @@ jobs:
           - "firmware/mini_v/estop_driver"
           - "firmware/mini_v/gnss_driver"
           - "firmware/mini_v/motor_driver"
+        environment:
+          - "right"
+          - "left"
+          - "teensy41"
+          - "m5stack-cores3"
         include:
           - project_directory: "firmware/mini_v/motor_driver"
             environment: "right"
