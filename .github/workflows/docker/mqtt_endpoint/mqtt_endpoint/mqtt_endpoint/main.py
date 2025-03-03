@@ -18,6 +18,9 @@ right_motor_command = hardware_communication_msgs__MotorControl()
 right_motor_command.motor_enable = True
 disconnection_count = 0
 
+right_motor_ip = "192.168.0.101"
+left_motor_ip = "192.168.0.102"
+
 udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
@@ -45,13 +48,20 @@ def on_message(client, userdata, msg):
         left_motor_command.ParseFromString(msg.payload)
     if msg.topic == right_motor_control_topic:
         right_motor_command.ParseFromString(msg.payload)
+    print("Send!")
+    udp_sock.sendto(
+        hardware_communication_msgs__HeartBeat.SerializeToString(left_motor_command),
+        (left_motor_ip, 4000),
+    )
+    udp_sock.sendto(
+        hardware_communication_msgs__HeartBeat.SerializeToString(right_motor_command),
+        (right_motor_ip, 4000),
+    )
 
 
 def main():
     broker = "54.212.20.15"
     port = 1883
-    right_motor_ip = "192.168.0.101"
-    left_motor_ip = "192.168.0.102"
     estop_ip = "192.168.0.103"
 
     client = mqtt.Client()

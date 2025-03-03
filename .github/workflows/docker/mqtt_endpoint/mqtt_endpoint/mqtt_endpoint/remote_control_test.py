@@ -5,11 +5,13 @@ from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,
 )
 
+
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
     else:
         print(f"Connection failed with code {rc}")
+
 
 def main():
     left_motor_control_topic = "miniv/left_motor"
