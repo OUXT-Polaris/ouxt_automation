@@ -1,0 +1,6 @@
+syntax = "proto3";
+package protolink__hardware_communication_msgs__HeartBeat;
+
+message hardware_communication_msgs__HeartBeat {
+uint64 sequence = 1;
+}

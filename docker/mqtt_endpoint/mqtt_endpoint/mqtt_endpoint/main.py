@@ -11,10 +11,11 @@ def main():
     client.connect(broker, port)
 
     while True:
-        message = "Hello, MQTT!"
-        print(f"Sending message: {message}")
-        client.publish(topic, message)
-        time.sleep(2)
+        # if client.is_connected():
+        # message = "Hello, MQTT!"
+        # print(f"Sending message: {message}")
+        # client.publish(topic, message)
+        time.sleep(1)
 
 if __name__ == "__main__":
     main()
