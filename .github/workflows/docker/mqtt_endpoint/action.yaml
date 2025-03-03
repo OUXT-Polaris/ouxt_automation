@@ -8,6 +8,9 @@ inputs:
   docker_password:
     description: "Password for Dockerhub"
     required: true
+  platform:
+    description: "Platform of the image"
+    required: true
 
 runs:
   using: "composite"
@@ -35,6 +38,7 @@ runs:
         cache-from: type=registry,ref=wamvtan/mqtt_endpoint:buildcache
         cache-to: type=registry,ref=wamvtan/mqtt_endpoint:buildcache,mode=max
         push: true
+        platforms: ${{ inputs.platform }}
     - name: Build Docker Image
       if: ${{ github.event_name == 'pull_request'}}
       uses: docker/build-push-action@v2
@@ -49,6 +53,7 @@ runs:
         no-cache: false
         cache-from: type=registry,ref=wamvtan/mqtt_endpoint:buildcache
         push: false
+        platforms: ${{ inputs.platform }}
     # - uses: peter-evans/dockerhub-description@v3
     #   if: ${{ github.event_name == 'pull_request'}}
     #   with:

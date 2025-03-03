@@ -96,7 +96,16 @@ jobs:
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
   mqtt_endpoint:
     name: build and push wamvtan/mqtt_endpoint
-    runs-on: ubuntu-22.04-arm
+    strategy:
+      matrix:
+        # platform: ["aarch64", "amd64"]
+        # build_os: ["ubuntu-22.04-arm", "ubuntu-22.04"]
+        include:
+          - platform: aarch64
+            build_os: ubuntu-22.04-arm
+          - platform: amd64
+            build_os: ubuntu-22.04
+    runs-on: ${{ matrix.build_os }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -105,6 +114,7 @@ jobs:
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
+          platform: ${{ matrix.platform }}
   # Docker Docker Pull will be difficult due to communication capacity, so this line will be uncommented for the duration of RoboBoat.
   # wamv:
   #   needs: export_wamv_repos
