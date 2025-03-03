@@ -8,6 +8,25 @@
 #include "proto/hardware_communication_msgs__HeartBeat.pb.h"
 #include "pb_decode.h"
 
+#include <MqttClient.h>
+
+
+// ============== Object to supply system functions ================================
+class System: public MqttClient::System {
+public:
+	unsigned long millis() const {
+		return ::millis();
+	}
+};
+
+class MqttHeartBeat {
+public:
+    MqttHeartBeat(EthernetClient & network);
+    void on_loop();
+private:
+    MqttClient *mqtt = NULL;
+    EthernetClient network;
+};
 
 class UDPHeartBeat {
 public:
