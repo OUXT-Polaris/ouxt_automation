@@ -165,20 +165,14 @@
     version: main
     accept_hostkey: yes
   tags: [utility]
-- name: clone tcp_sender
-  git:
-    repo: https://github.com/OUXT-Polaris/tcp_sender.git
-    dest: "{{workspace_path}}/src/drivers/tcp_sender"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone prometheus_ros
-  git:
-    repo: https://github.com/OUXT-Polaris/prometheus_ros.git
-    dest: "{{workspace_path}}/src/drivers/prometheus_ros"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
+# This package does not use in RoboBoat 2025, so temporary remove it.
+# - name: clone prometheus_ros
+#   git:
+#     repo: https://github.com/OUXT-Polaris/prometheus_ros.git
+#     dest: "{{workspace_path}}/src/drivers/prometheus_ros"
+#     version: master
+#     accept_hostkey: yes
+#   tags: [utility]
 
 # Description Packages
 - name: clone wamv_description
@@ -227,12 +221,6 @@
   tags: [localization]
 
 # Driver Packages
-- name: clone wamv_control
-  git:
-    repo: https://github.com/OUXT-Polaris/wamv_control.git
-    dest: "{{workspace_path}}/src/drivers/wamv_control"
-    version: master
-    accept_hostkey: yes
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers

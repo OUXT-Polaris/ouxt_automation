@@ -64,10 +64,8 @@ jobs:
           robotx_planner_bringup,
           scan_segmentation,
           sol_vendor,
-          tcp_sender,
           usv_controller,
           vision_opencv,
-          wamv_control,
           wamv_description,
         ]
     steps:
