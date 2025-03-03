@@ -24,8 +24,11 @@ def main():
     right_motor_command.motor_speed = 0.3
 
     broker = "54.212.20.15"
+    lwt_topic = "client/status"
+    lwt_message = "Remote motor control command disconnected" 
     port = 1883
     client = mqtt.Client()
+    client.will_set(lwt_topic, lwt_message, 0, False)
 
     keep_alive_timeout = 1
 
@@ -49,6 +52,14 @@ def main():
     except Exception as e:
         print(e)
     finally:
+        left_motor_command.motor_speed = 0
+        client.publish(
+            left_motor_control_topic, left_motor_command.SerializeToString()
+        )
+        right_motor_command.motor_speed = 0
+        client.publish(
+            right_motor_control_topic, right_motor_command.SerializeToString()
+        )
         client.loop_stop()
         client.disconnect()
 

@@ -10,6 +10,8 @@ from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
 from google.protobuf.json_format import MessageToJson
 
 heartbeat_topic = "miniv/heartbeat"
+lwt_topic = "client/status"
+lwt_message = "Remote motor control command disconnected"
 left_motor_control_topic = "miniv/left_motor"
 left_motor_command = hardware_communication_msgs__MotorControl()
 left_motor_command.motor_enable = True
@@ -48,6 +50,8 @@ def on_message(client, userdata, msg):
         left_motor_command.ParseFromString(msg.payload)
     if msg.topic == right_motor_control_topic:
         right_motor_command.ParseFromString(msg.payload)
+    if msg.topic == lwt_topic and msg.payload == lwt_message:
+        print("Motor control command disconnected")
     udp_sock.sendto(
         hardware_communication_msgs__HeartBeat.SerializeToString(left_motor_command),
         (left_motor_ip, 8888),
@@ -87,8 +91,8 @@ def main():
                 break
             sequence = sequence + 1
             message.sequence = sequence
-            print("Send heart beat to EStop")
-            print(MessageToJson(message))
+            # print("Send heart beat to EStop")
+            # print(MessageToJson(message))
             udp_sock.sendto(
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
                 (estop_ip, 4000),
