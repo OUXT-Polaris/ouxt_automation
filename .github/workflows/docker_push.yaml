@@ -95,6 +95,17 @@ jobs:
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  mqtt_endpoint:
+    name: build and push wamvtan/mqtt_endpoint
+    runs-on: ubuntu-22.04-arm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/actions/cleanup_runner
+      - uses: ./.github/workflows/docker/mqtt_endpoint
+        with:
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
   wamv:
     needs: export_wamv_repos
     name: build and push wamvtan/wamv
