@@ -98,8 +98,8 @@ jobs:
     name: build and push wamvtan/mqtt_endpoint
     strategy:
       matrix:
-        platform: ["aarch64", "amd64"]
-        build_os: ["ubuntu-22.04-arm", "ubuntu-22.04"]
+        # platform: ["aarch64", "amd64"]
+        # build_os: ["ubuntu-22.04-arm", "ubuntu-22.04"]
         include:
           - platform: aarch64
             build_os: ubuntu-22.04-arm
