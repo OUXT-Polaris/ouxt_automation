@@ -6,6 +6,7 @@ from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
 )
 from google.protobuf.json_format import MessageToJson
 
+
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
@@ -33,8 +34,10 @@ def main():
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
+    keep_alive_timeout = 1
+
     try:
-        client.connect(broker, port, 1)
+        client.connect(broker, port, keep_alive_timeout)
         client.loop_start()
 
         sequence = 0
@@ -51,7 +54,7 @@ def main():
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
                 ("192.168.0.103", 4000),
             )
-            time.sleep(1)
+            time.sleep(keep_alive_timeout)
     except KeyboardInterrupt:
         print("Exiting...")
     except Exception as e:
