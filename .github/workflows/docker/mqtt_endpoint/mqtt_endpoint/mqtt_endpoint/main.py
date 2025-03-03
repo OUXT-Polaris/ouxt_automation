@@ -24,6 +24,8 @@ udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
+        # Subscribe all topics
+        client.subscribe("#")
     else:
         print(f"Connection failed with code {rc}")
 
@@ -39,11 +41,10 @@ def on_disconnect(client, userdata, rc):
 
 
 def on_message(client, userdata, msg):
-    print("Got Message")
     if msg.topic == left_motor_control_topic:
-        left_motor_command.ParseFromString(msg.payload.decode("utf-8"))
+        left_motor_command.ParseFromString(msg.payload)
     if msg.topic == right_motor_control_topic:
-        right_motor_command.ParseFromString(msg.payload.decode("utf-8"))
+        right_motor_command.ParseFromString(msg.payload)
 
 
 def main():
