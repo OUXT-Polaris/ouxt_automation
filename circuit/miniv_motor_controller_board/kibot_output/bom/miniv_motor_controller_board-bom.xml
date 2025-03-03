@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<KiCad_BOM PCB_Variant="default" KiCad_Version="8.0.8-8.0.8-0~ubuntu22.04.1" Component_Groups="22" Component_Count="29" Fitted_Components="29" Number_of_PCBs="1" Total_Components="29" Schematic_Source="miniv_motor_controller_board" Schematic_Revision="" Schematic_Date="2025-03-03_09-14-23" encoding="utf-8">
+<KiCad_BOM PCB_Variant="default" KiCad_Version="8.0.8-8.0.8-0~ubuntu22.04.1" Component_Groups="22" Component_Count="29" Fitted_Components="29" Number_of_PCBs="1" Total_Components="29" Schematic_Source="miniv_motor_controller_board" Schematic_Revision="" Schematic_Date="2025-03-03_09-50-49" encoding="utf-8">
 	<group Row="1" Description="Unpolarized capacitor" Part="C" References="C1" Value="0.1u" Footprint="C_Disc_D5.1mm_W3.2mm_P5.00mm" Quantity_Per_PCB="1" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g110147/"/>
 	<group Row="2" Description="Light emitting diode" Part="LED" References="D2" Value="LED" Footprint="LED_D3.0mm" Quantity_Per_PCB="1" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g111636/"/>
 	<group Row="3" Description="Fuse" Part="Fuse" References="F1" Value="Fuse" Footprint="3557-15" Quantity_Per_PCB="1" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g118223/"/>
