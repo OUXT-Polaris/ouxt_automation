@@ -9,6 +9,7 @@
 #include "pb_decode.h"
 
 #include <MqttClient.h>
+#include <string>
 
 
 // ============== Object to supply system functions ================================
@@ -21,11 +22,17 @@ public:
 
 class MqttHeartBeat {
 public:
-    MqttHeartBeat(EthernetClient & network);
-    void on_loop();
+    MqttHeartBeat(EthernetClient & network, const std::string & broker_url);
+    auto reconnect() -> void;
+    auto is_connected() -> bool;
 private:
     MqttClient *mqtt = NULL;
     EthernetClient network;
+    const std::string broker_url;
+    MqttClient::System *mqttSystem = NULL;
+    MqttClient::Network * mqttNetwork = NULL;
+    MqttClient::Buffer *mqttSendBuffer = NULL;
+    MqttClient::Buffer *mqttRecvBuffer = NULL;
 };
 
 class UDPHeartBeat {
