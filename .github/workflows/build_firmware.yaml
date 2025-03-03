@@ -16,6 +16,15 @@ jobs:
           - "firmware/mini_v/estop_driver"
           - "firmware/mini_v/gnss_driver"
           - "firmware/mini_v/motor_driver"
+        include:
+          - project_directory: "firmware/mini_v/motor_driver"
+            environment: "right"
+          - project_directory: "firmware/mini_v/motor_driver"
+            environment: "left"
+          - project_directory: "firmware/mini_v/estop_driver"
+            environment: "default"
+          - project_directory: "firmware/mini_v/gnss_driver"
+            environment: "default"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
