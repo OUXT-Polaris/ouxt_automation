@@ -101,12 +101,22 @@ def main():
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
                 (right_motor_ip, 4000),
             )
-            time.sleep(keep_alive_timeout)
+            time.sleep(0.05)
     except KeyboardInterrupt:
         print("Exiting...")
     except Exception as e:
         print(e)
     finally:
+        left_motor_command.motor_speed = 0
+        udp_sock.sendto(
+            hardware_communication_msgs__HeartBeat.SerializeToString(left_motor_command),
+            (left_motor_ip, 8888),
+        )
+        right_motor_command.motor_speed = 0
+        udp_sock.sendto(
+            hardware_communication_msgs__HeartBeat.SerializeToString(right_motor_command),
+            (right_motor_ip, 8888),
+        )
         client.loop_stop()
         client.disconnect()
 
