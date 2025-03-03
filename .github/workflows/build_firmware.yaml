@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "firmware/**"
+      - ".github/workflows/build_firmware.yaml"
   workflow_dispatch:
 
 jobs:
@@ -12,7 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        project_directory: ["firmware/mini_v/motor_driver"]
+        project_directory:
+          - "firmware/mini_v/estop_driver"
+          - "firmware/mini_v/gnss_driver"
+          - "firmware/mini_v/motor_driver"
+        include:
+          - project_directory: "firmware/mini_v/motor_driver"
+            environment: "right"
+          - project_directory: "firmware/mini_v/motor_driver"
+            environment: "left"
+          - project_directory: "firmware/mini_v/estop_driver"
+            environment: "default"
+          - project_directory: "firmware/mini_v/gnss_driver"
+            environment: "default"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -31,3 +44,8 @@ jobs:
       - name: Build PlatformIO Project
         run: pio run
         working-directory: ${{ matrix.project_directory }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: .pio/build
