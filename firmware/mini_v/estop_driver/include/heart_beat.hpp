@@ -11,6 +11,8 @@
 #include <MqttClient.h>
 #include <string>
 
+// Enable MqttClient logs
+#define MQTT_LOG_ENABLED 0
 
 // ============== Object to supply system functions ================================
 class System: public MqttClient::System {
@@ -22,8 +24,8 @@ public:
 
 class MqttHeartBeat {
 public:
-    MqttHeartBeat(EthernetClient & network, const std::string & broker_url);
-    auto reconnect() -> void;
+    MqttHeartBeat(EthernetClient & network, usb_serial_class & serial, const std::string & broker_url);
+    auto connect() -> void;
     auto is_connected() -> bool;
 private:
     MqttClient *mqtt = NULL;

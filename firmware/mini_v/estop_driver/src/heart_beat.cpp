@@ -1,17 +1,30 @@
 #include "heart_beat.hpp"
 
-MqttHeartBeat::MqttHeartBeat(EthernetClient & network, const std::string & broker_url) 
+MqttHeartBeat::MqttHeartBeat(
+    EthernetClient & network, 
+    usb_serial_class & serial,
+    const std::string & broker_url) 
 : network(network), 
   broker_url(broker_url)
 {
     // Setup MqttClient
 	mqttSystem = new System;
-	// MqttClient::Logger *mqttLogger = new MqttClient::LoggerImpl<HardwareSerial>(Serial);
+	MqttClient::Logger *mqttLogger = new MqttClient::LoggerImpl<usb_serial_class>(serial);
 	mqttNetwork = new MqttClient::NetworkClientImpl<Client>(network, *mqttSystem);
 	//// Make 128 bytes send buffer
 	mqttSendBuffer = new MqttClient::ArrayBuffer<128>();
 	//// Make 128 bytes receive buffer
 	mqttRecvBuffer = new MqttClient::ArrayBuffer<128>();
+	//// Configure client options
+	MqttClient::Options mqttOptions;
+	////// Set command timeout to 10 seconds
+	mqttOptions.commandTimeoutMs = 10000;
+	//// Allow up to 2 subscriptions simultaneously
+	MqttClient::MessageHandlers *mqttMessageHandlers = new MqttClient::MessageHandlersImpl<2>();
+	mqtt = new MqttClient (
+		mqttOptions, *mqttLogger, *mqttSystem, *mqttNetwork, *mqttSendBuffer,
+		*mqttRecvBuffer, *mqttMessageHandlers
+	);
 }
 
 auto MqttHeartBeat::is_connected() -> bool
@@ -19,7 +32,7 @@ auto MqttHeartBeat::is_connected() -> bool
     return mqtt->isConnected();
 }
 
-auto MqttHeartBeat::reconnect() -> void
+auto MqttHeartBeat::connect() -> void
 {
     if(is_connected()) {
 		// Close connection if exists

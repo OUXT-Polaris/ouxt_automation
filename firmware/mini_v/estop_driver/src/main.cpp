@@ -23,7 +23,9 @@ Adafruit_NeoPixel pixels[pixels_n] = {
 };
 
 // Heart Beat
-UDPHeartBeat UdpHeart(LOCALPORT_HEART, TIMEOUT);
+UDPHeartBeat udp_heart(LOCALPORT_HEART, TIMEOUT);
+EthernetClient mqtt_network;
+MqttHeartBeat mqtt_heart(mqtt_network, Serial, "54.212.20.15");
 
 unsigned long pre_time = 0;
 unsigned long pre_saver_time = 0;
@@ -73,14 +75,17 @@ void setup()
     Serial.println("Ethernet cable is not connected.");
   }
   // start UDP
-  UdpHeart.begin();
+  udp_heart.begin();
+  if(!mqtt_heart.is_connected()) {
+    mqtt_heart.connect();
+  }
 }
 
 
 void loop()
 {
   // Check heart beat and signal on/off
-  if (UdpHeart.verify_survival()) digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
+  if (udp_heart.verify_survival()) digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
   else digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
 
   // Check e-stop button state
