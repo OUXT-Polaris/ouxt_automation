@@ -68,7 +68,9 @@ jobs:
     timeout-minutes: 360
     strategy:
       matrix:
-        module: ["perception", "control", "drivers", "localization", "planning"]
+        # Docker Docker Pull will be difficult due to communication capacity, so this line will be uncommented for the duration of RoboBoat.
+        # module: ["perception", "control", "drivers", "localization", "planning"]
+        module: []
     steps:
       - uses: actions/checkout@v4
       - name: basic install
