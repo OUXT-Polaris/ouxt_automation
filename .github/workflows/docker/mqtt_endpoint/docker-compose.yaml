@@ -3,3 +3,4 @@ services:
   mqtt_endpoint:
     image: wamvtan/mqtt_endpoint:latest
     network_mode: host
+    restart: always
