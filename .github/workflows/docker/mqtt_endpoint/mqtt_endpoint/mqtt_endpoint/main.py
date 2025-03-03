@@ -16,6 +16,7 @@ left_motor_command.motor_enable = True
 right_motor_control_topic = "miniv/right_motor"
 right_motor_command = hardware_communication_msgs__MotorControl()
 right_motor_command.motor_enable = True
+disconnection_count = 0
 
 udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -68,6 +69,11 @@ def main():
         time.sleep(1)
         while True:
             if not client.is_connected():
+                disconnection_count = disconnection_count + 1
+            else:
+                disconnection_count = 0
+            if disconnection_count >= 3:
+                print("Disconnection detected, shuting down...")
                 break
             sequence = sequence + 1
             message.sequence = sequence
