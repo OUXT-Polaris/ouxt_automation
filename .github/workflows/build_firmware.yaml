@@ -23,9 +23,9 @@ jobs:
           - project_directory: "firmware/mini_v/motor_driver"
             environment: "left"
           - project_directory: "firmware/mini_v/estop_driver"
-            environment: "default"
+            environment: "teensy41"
           - project_directory: "firmware/mini_v/gnss_driver"
-            environment: "default"
+            environment: "teensy41"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
