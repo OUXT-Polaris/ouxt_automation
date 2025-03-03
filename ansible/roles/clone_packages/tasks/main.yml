@@ -151,13 +151,6 @@
     version: ros2
     accept_hostkey: yes
   tags: [utility]
-- name: clone robotx_communication
-  git:
-    repo: https://github.com/OUXT-Polaris/robotx_communication.git
-    dest: "{{workspace_path}}/src/utils/robotx_communication"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
 - name: clone boost_geometry_util
   git:
     repo: https://github.com/OUXT-Polaris/boost_geometry_util.git
@@ -183,13 +176,6 @@
   git:
     repo: https://github.com/OUXT-Polaris/prometheus_ros.git
     dest: "{{workspace_path}}/src/drivers/prometheus_ros"
-    version: master
-    accept_hostkey: yes
-  tags: [utility]
-- name: clone protolink
-  git:
-    repo: https://github.com/OUXT-Polaris/protolink.git
-    dest: "{{workspace_path}}/src/drivers/protolink"
     version: master
     accept_hostkey: yes
   tags: [utility]
@@ -260,6 +246,20 @@
     dest: "{{workspace_path}}/src/drivers/playstation_joy_interfaces"
     version: humble
     accept_hostkey: yes
+- name: clone protolink
+  git:
+    repo: https://github.com/OUXT-Polaris/protolink.git
+    dest: "{{workspace_path}}/src/drivers/protolink"
+    version: master
+    accept_hostkey: yes
+  tags: [driver]
+- name: clone protolink_drivers
+  git:
+    repo: https://github.com/OUXT-Polaris/protolink_drivers.git
+    dest: "{{workspace_path}}/src/drivers/protolink_drivers"
+    version: master
+    accept_hostkey: yes
+  tags: [driver]
 
 # Control Package
 - name: clone usv_controller package
