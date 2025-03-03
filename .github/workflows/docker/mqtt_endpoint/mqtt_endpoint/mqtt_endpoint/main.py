@@ -48,14 +48,13 @@ def on_message(client, userdata, msg):
         left_motor_command.ParseFromString(msg.payload)
     if msg.topic == right_motor_control_topic:
         right_motor_command.ParseFromString(msg.payload)
-    print("Send!")
     udp_sock.sendto(
         hardware_communication_msgs__HeartBeat.SerializeToString(left_motor_command),
-        (left_motor_ip, 4000),
+        (left_motor_ip, 8888),
     )
     udp_sock.sendto(
         hardware_communication_msgs__HeartBeat.SerializeToString(right_motor_command),
-        (right_motor_ip, 4000),
+        (right_motor_ip, 8888),
     )
 
 
@@ -93,6 +92,14 @@ def main():
             udp_sock.sendto(
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
                 (estop_ip, 4000),
+            )
+            udp_sock.sendto(
+                hardware_communication_msgs__HeartBeat.SerializeToString(message),
+                (left_motor_ip, 4000),
+            )
+            udp_sock.sendto(
+                hardware_communication_msgs__HeartBeat.SerializeToString(message),
+                (right_motor_ip, 4000),
             )
             time.sleep(keep_alive_timeout)
     except KeyboardInterrupt:
