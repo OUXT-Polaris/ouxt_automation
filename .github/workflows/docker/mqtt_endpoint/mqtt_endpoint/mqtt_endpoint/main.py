@@ -38,6 +38,7 @@ def on_disconnect(client, userdata, rc):
 
 
 def on_message(client, userdata, msg):
+    print("Got Message")
     if msg.topic == left_motor_control_topic:
         left_motor_command.ParseFromString(msg.payload.decode("utf-8"))
     if msg.topic == right_motor_control_topic:
@@ -54,6 +55,7 @@ def main():
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
+    client.on_message = on_message
 
     keep_alive_timeout = 1
 
@@ -63,7 +65,7 @@ def main():
 
         sequence = 0
         message = hardware_communication_msgs__HeartBeat()
-        time.sleep(3)
+        time.sleep(1)
         while True:
             if not client.is_connected():
                 break

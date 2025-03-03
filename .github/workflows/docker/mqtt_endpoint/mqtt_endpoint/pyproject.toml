@@ -15,3 +15,4 @@ build-backend = "hatchling.build"
 
 [project.scripts]
 endpoint = "mqtt_endpoint.main:main"
+remote_control_test = "mqtt_endpoint.remote_control_test:main"
