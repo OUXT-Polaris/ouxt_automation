@@ -12,7 +12,6 @@ def main():
     port = 1883
     topic = "miniv/heartbeat"
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
     client = mqtt.Client()
 
@@ -30,13 +29,10 @@ def main():
             print(MessageToJson(message))
             udp_sock.sendto(
                 hardware_communication_msgs__HeartBeat.SerializeToString(message),
-                ("255.255.255.255", port),
+                ("192.168.0.103", 4000),
             )
         else:
             print("Does not connected")
-        # message = "Hello, MQTT!"
-        # print(f"Sending message: {message}")
-        # client.publish(topic, message)
         time.sleep(1)
 
 
