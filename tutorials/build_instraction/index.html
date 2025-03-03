@@ -437,11 +437,7 @@ ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_endpoint.yml --con
 <p>If you want to know personal access token, please read <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">this documentation</a>.</p>
 <h2 id="setup-firmware-development-environment">setup firmware development environment<a class="headerlink" href="#setup-firmware-development-environment" title="Permanent link">⚓︎</a></h2>
 <p>This playbook includes three steps.
-1. Install Docker
-1. Clone firmware package
-1. Build firmware with docker</p>
-<pre><code>ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --ask-become-pass
-</code></pre>
+1. Install PlatformIO</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
