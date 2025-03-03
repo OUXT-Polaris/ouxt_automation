@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "firmware/**"
+      - ".github/workflows/build_firmware.yaml"
   workflow_dispatch:
 
 jobs:
