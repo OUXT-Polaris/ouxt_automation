@@ -25,7 +25,7 @@ jobs:
           - project_directory: "firmware/mini_v/estop_driver"
             environment: "teensy41"
           - project_directory: "firmware/mini_v/gnss_driver"
-            environment: "teensy41"
+            environment: "m5stack-cores3"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
