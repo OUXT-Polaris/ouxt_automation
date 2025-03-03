@@ -29,7 +29,7 @@ jobs:
     - name: make robotx_ws
       run: |
             mkdir robotx_ws
-    - uses: actions/cache@v2
+    - uses: actions/cache@v4
       if: ${{ github.event.label.name != 'clean_build' }}
       with:
         path: robotx_ws/ccache
@@ -43,25 +43,6 @@ jobs:
       with:
         name: robotx.repos
         path: robotx.repos
-    - name: Notify Slack
-      uses: 8398a7/action-slack@v2
-      if: failure()
-      with:
-        status: ${{ job.status }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-  setup_firmware:
-    name: setup_firmware
-    runs-on: ubuntu-22.04
-    steps:
-    - uses: actions/checkout@v4
-    - name: basic install
-      run: |
-          sudo apt install ansible
-    - name: run ansible and install docker
-      run: |
-          ansible-playbook -i ansible/hosts/localhost.ini ansible/setup_mbed_workspace.yml --connection local --become -e ansible_user=ubuntu
     - name: Notify Slack
       uses: 8398a7/action-slack@v2
       if: failure()

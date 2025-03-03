@@ -2,7 +2,6 @@ ros_package_name: ros-humble-desktop-full
 workspace_path: "{{ansible_env.PWD}}/../robotx_ws"
 python_workspace_path: "{{ansible_env.PWD}}/../python_ws"
 actions_workspace_path: "{{ansible_env.PWD}}/../actions_ws"
-mbed_workspace_path: "{{ansible_env.PWD}}/../mbed_ws"
 dataset_path: "{{ansible_env.PWD}}/../dataset"
 ansible_python_interpreter : "/usr/bin/python3"
 ntp_server: true
