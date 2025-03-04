@@ -86,7 +86,7 @@ class MqttEndPoint:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
         if msg.topic == self.groundstation_heartbeat.topic:
-            self.groundstation_heartbeat.receive()
+            self.groundstation_heartbeat.receive(msg.payload)
 
 
 def main():
