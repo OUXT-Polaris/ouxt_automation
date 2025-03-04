@@ -93,9 +93,9 @@ class MqttEndPoint:
         if msg.topic == self.left_motor_command.command_topic:
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
             self.right_motor_command.send_command()
-            print("Left")
-            print(self.left_motor_command.command.motor_speed)
-            print(self.left_motor_command.command.mode)
+            # print("Left")
+            # print(self.left_motor_command.command.motor_speed)
+            # print(self.left_motor_command.command.mode)
         if msg.topic == self.right_motor_command.command_topic:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
@@ -110,6 +110,8 @@ class MqttEndPoint:
             self.heartbeat_command.ParseFromString(msg.payload)
             self.left_motor_command.set_mode(self.heartbeat_command.mode)
             self.right_motor_command.set_mode(self.heartbeat_command.mode)
+            self.right_motor_command.send_command()
+            self.left_motor_command.send_command()
 
 
 def main():
