@@ -8,8 +8,6 @@ class MqttEndPoint:
     heartbeat_topic = "miniv/heartbeat"
     lwt_topic = "client/status"
     lwt_message = "Remote motor control command disconnected"
-    left_motor_control_topic = "miniv/left_motor"
-    right_motor_control_topic = "miniv/right_motor"
     disconnection_count = 0
     broker_ip = "54.212.20.15"
     mqtt_port = 1883
@@ -20,6 +18,7 @@ class MqttEndPoint:
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.on_connect = self.on_connect
+        self.mqtt_client.on_disconnect = self.on_disconnect
         self.mqtt_client.connect(
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
@@ -27,10 +26,10 @@ class MqttEndPoint:
         # Wait until the connection was established.
         time.sleep(1)
         self.left_motor_command = MotorCommand(
-            self.udp_socket, "192.168.0.102", 8888, 4000
+            self.udp_socket, "192.168.0.102", 8888, 4000, "miniv/left_motor"
         )
         self.right_motor_command = MotorCommand(
-            self.udp_socket, "192.168.0.101", 8888, 4000
+            self.udp_socket, "192.168.0.101", 8888, 4000, "miniv/right_motor"
         )
 
     def on_connect(self, client, userdata, flags, rc):
@@ -40,6 +39,23 @@ class MqttEndPoint:
             client.subscribe("#")
         else:
             print(f"Connection failed with code {rc}")
+
+    def on_disconnect(self, client, userdata, rc):
+        if rc != 0:
+            print(f"Unexpected disconnection. Reconnecting... (rc={rc})")
+            time.sleep(5)
+            try:
+                client.reconnect()
+            except Exception as e:
+                print(f"Reconnection failed: {e}")
+
+    def on_message(client, userdata, msg):
+        if msg.topic == left_motor_command.command_topic:
+            left_motor_command.send_command_from_serialized_string(msg.payload)
+            right_motor_command.send()
+        if msg.topic == right_motor_command.command_topic:
+            left_motor_command.send()
+            right_motor_command.send_command_from_serialized_string(msg.payload)
 
 
 def main():
