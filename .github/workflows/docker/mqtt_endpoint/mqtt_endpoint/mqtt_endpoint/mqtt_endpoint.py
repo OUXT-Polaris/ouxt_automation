@@ -16,21 +16,23 @@ class MqttEndPoint:
 
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.mqtt_client = mqtt.Client()
-        self.mqtt_client.on_connect = self.on_connect
-        self.mqtt_client.on_disconnect = self.on_disconnect
-        self.mqtt_client.connect(
-            self.broker_ip, self.mqtt_port, self.keep_alive_timeout
-        )
-        self.mqtt_client.loop_start()
-        # Wait until the connection was established.
-        time.sleep(1)
         self.left_motor_command = MotorCommand(
             self.udp_socket, "192.168.0.102", 8888, 4000, "miniv/left_motor"
         )
         self.right_motor_command = MotorCommand(
             self.udp_socket, "192.168.0.101", 8888, 4000, "miniv/right_motor"
         )
+        print("Start connecting to MQTT Broker")
+        self.mqtt_client = mqtt.Client()
+        self.mqtt_client.on_connect = self.on_connect
+        self.mqtt_client.on_disconnect = self.on_disconnect
+        self.mqtt_client.on_message = self.on_message
+        self.mqtt_client.connect(
+            self.broker_ip, self.mqtt_port, self.keep_alive_timeout
+        )
+        self.mqtt_client.loop_start()
+        # Wait until the connection was established.
+        time.sleep(1)
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
@@ -49,11 +51,11 @@ class MqttEndPoint:
             except Exception as e:
                 print(f"Reconnection failed: {e}")
 
-    def on_message(client, userdata, msg):
-        if msg.topic == left_motor_command.command_topic:
+    def on_message(self, client, userdata, msg):
+        if msg.topic == self.left_motor_command.command_topic:
             left_motor_command.send_command_from_serialized_string(msg.payload)
             right_motor_command.send()
-        if msg.topic == right_motor_command.command_topic:
+        if msg.topic == self.right_motor_command.command_topic:
             left_motor_command.send()
             right_motor_command.send_command_from_serialized_string(msg.payload)
 
