@@ -18,7 +18,6 @@ class MqttEndPoint:
 
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.scheduler = sched.scheduler(time.time, time.sleep)
         self.left_motor_command = MotorCommand(
             "192.168.0.102",
             8888,
@@ -33,7 +32,7 @@ class MqttEndPoint:
         self.heartbeat_command.sequence = 1
         self.heartbeat_command.mode = 1
         self.groundstation_heartbeat = GroundStationHeartBeat(
-            "ground_station/heartbeat", 3.0, self.scheduler
+            "ground_station/heartbeat", 3.0
         )
         print("Start connecting to MQTT Broker")
         self.mqtt_client = mqtt.Client()
@@ -46,12 +45,6 @@ class MqttEndPoint:
 
     def start_loop(self):
         self.mqtt_client.loop_forever()
-
-    # def stop_all_motors(self):
-    #     self.right_motor_command.stop = True
-    #     self.left_motor_command.stop = True
-    #     # Wait for graceful shutting down.
-    #     time.sleep(1)
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
