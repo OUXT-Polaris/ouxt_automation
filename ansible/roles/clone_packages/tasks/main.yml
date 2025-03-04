@@ -6,13 +6,6 @@
     dest: "{{workspace_path}}"
     mode: 0577
 # Perception Packages
-- name : clone nebula
-  git:
-    repo: https://github.com/tier4/nebula.git
-    dest: "{{workspace_path}}/src/perception/nebula"
-    version: main
-    accept_hostkey: yes
-  tags: [perception]
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
@@ -228,6 +221,29 @@
   tags: [localization]
 
 # Driver Packages
+- name : clone nebula
+  git:
+    repo: https://github.com/tier4/nebula.git
+    dest: "{{workspace_path}}/src/perception/nebula"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula start
+- name : clone transport drivers
+  git:
+    repo: https://github.com/autowarefoundation/transport_drivers
+    dest: "{{workspace_path}}/src/perception/transport_drivers"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+- name : clone ros2_socketcan
+  git:
+    repo: https://github.com/autowarefoundation/ros2_socketcan
+    dest: "{{workspace_path}}/src/perception/ros2_socketcan"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula end
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
