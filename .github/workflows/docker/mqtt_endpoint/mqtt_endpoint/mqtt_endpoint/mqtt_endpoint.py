@@ -4,9 +4,7 @@ import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
 from mqtt_endpoint.ground_station_heartbeat import GroundStationHeartBeat
-from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
-    hardware_communication_msgs__HeartBeat,
-)
+from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 
 
 class MqttEndPoint:
@@ -37,8 +35,9 @@ class MqttEndPoint:
             "miniv/right_motor",
             self.scheduler,
         )
-        self.heartbeat_command = hardware_communication_msgs__HeartBeat()
+        self.heartbeat_command = ground_station_heartbeat()
         self.heartbeat_command.sequence = 1
+        self.heartbeat_command.mode = 1
         self.groundstation_heartbeat = GroundStationHeartBeat(
             "ground_station/heartbeat", 3.0, self.scheduler
         )
@@ -55,15 +54,8 @@ class MqttEndPoint:
     def send_estop_heartbeat(self, scheduler):
         if self.mqtt_client.is_connected():
             self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
-            print(
-                hardware_communication_msgs__HeartBeat.SerializeToString(
-                    self.heartbeat_command
-                )
-            )
             self.udp_socket.sendto(
-                hardware_communication_msgs__HeartBeat.SerializeToString(
-                    self.heartbeat_command
-                ),
+                ground_station_heartbeat.SerializeToString(self.heartbeat_command),
                 (self.estop_ip, self.estop_port),
             )
         scheduler.enter(0.1, 1, self.send_estop_heartbeat, (scheduler,))
