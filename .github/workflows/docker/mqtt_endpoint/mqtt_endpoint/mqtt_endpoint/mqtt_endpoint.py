@@ -2,7 +2,6 @@ import time
 import socket
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
-from mqtt_endpoint.ground_station_heartbeat import GroundStationHeartBeat
 from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 
 
@@ -30,9 +29,6 @@ class MqttEndPoint:
         self.heartbeat_command = ground_station_heartbeat()
         self.heartbeat_command.sequence = 1
         self.heartbeat_command.mode = 1
-        self.groundstation_heartbeat = GroundStationHeartBeat(
-            "ground_station/heartbeat", 3.0
-        )
         print("Start connecting to MQTT Broker")
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.on_connect = self.on_connect
@@ -80,7 +76,6 @@ class MqttEndPoint:
                 print("mode: MANUAL")
             elif self.heartbeat_command.mode == 2:
                 print("mode: ESTOP")
-            self.groundstation_heartbeat.receive()
             self.heartbeat_command.ParseFromString(msg.payload)
             self.left_motor_command.set_mode(self.heartbeat_command.mode)
             self.right_motor_command.set_mode(self.heartbeat_command.mode)
