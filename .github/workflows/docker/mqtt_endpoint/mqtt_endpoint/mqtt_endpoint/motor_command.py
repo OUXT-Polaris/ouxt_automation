@@ -33,6 +33,9 @@ class MotorCommand:
         self.scheduler = scheduler
         self.send_heartbeat(self.scheduler)
 
+    def set_mode(self, mode: int):
+        self.heartbeat.mode = mode
+
     def send_command(self):
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
