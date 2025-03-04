@@ -112,9 +112,11 @@
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
+    # download 3d model is too heavy in competition.
+    depth: 1
     accept_hostkey: yes
   tags: [planning]
-- name: clone robotx_behavior_tree
+- name: clone robotx_planner_bringup
   git:
     repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
     dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
@@ -181,6 +183,8 @@
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
+    # download 3d model is too heavy in competition.
+    depth: 1
   tags: [description]
 
 # Localization Packages
