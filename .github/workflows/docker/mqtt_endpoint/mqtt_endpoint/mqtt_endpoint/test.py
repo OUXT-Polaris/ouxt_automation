@@ -4,11 +4,12 @@ from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
 )
 import socket
 
+
 def main():
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     command = hardware_communication_msgs__MotorControl()
     command.motor_enable = True
-    command.motor_speed = 3.0
+    command.motor_speed = 0.0
     command.mode = 1
     while True:
         udp_socket.sendto(

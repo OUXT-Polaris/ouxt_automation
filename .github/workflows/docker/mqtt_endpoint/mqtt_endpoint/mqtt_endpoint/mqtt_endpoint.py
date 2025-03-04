@@ -27,7 +27,7 @@ class MqttEndPoint:
             self.scheduler,
         )
         self.right_motor_command = MotorCommand(
-            "192.168.0.101",
+            "192.168.0.50",
             8888,
             4000,
             "miniv/right_motor",
