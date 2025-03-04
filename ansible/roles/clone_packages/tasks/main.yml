@@ -6,6 +6,13 @@
     dest: "{{workspace_path}}"
     mode: 0577
 # Perception Packages
+- name : clone nebula
+  git:
+    repo: https://github.com/tier4/nebula.git
+    dest: "{{workspace_path}}/src/perception/nebula"
+    version: main
+    accept_hostkey: yes
+  tags: [perception]
 - name : clone pcl_apps
   git:
     repo: https://github.com/OUXT-Polaris/pcl_apps.git
