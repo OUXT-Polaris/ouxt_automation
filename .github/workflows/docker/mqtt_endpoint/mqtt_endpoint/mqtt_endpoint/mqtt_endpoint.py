@@ -42,7 +42,10 @@ class MqttEndPoint:
         )
 
     def send_estop_heartbeat(self, scheduler):
-        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
+        if not client.is_connected():
+            scheduler.enter(0.1, 1, self.send_estop_heartbeat, (scheduler,))
+        else:
+            self.stop_all_motors()
 
     def start_loop(self):
         self.mqtt_client.loop_start()
