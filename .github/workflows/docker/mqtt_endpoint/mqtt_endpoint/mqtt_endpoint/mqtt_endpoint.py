@@ -43,20 +43,9 @@ class MqttEndPoint:
         self.mqtt_client.connect(
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
-        self.send_estop_heartbeat(self.scheduler)
-
-    # def send_estop_heartbeat(self, scheduler):
-    #     if self.mqtt_client.is_connected():
-    #         self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
-    #         self.udp_socket.sendto(
-    #             ground_station_heartbeat.SerializeToString(self.heartbeat_command),
-    #             (self.estop_ip, self.estop_port),
-    #         )
-    #     scheduler.enter(1, 1, self.send_estop_heartbeat, (scheduler,))
 
     def start_loop(self):
-        self.mqtt_client.loop_start()
-        self.scheduler.run()
+        self.mqtt_client.loop_forever()
 
     # def stop_all_motors(self):
     #     self.right_motor_command.stop = True
