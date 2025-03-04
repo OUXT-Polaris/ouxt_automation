@@ -23,7 +23,7 @@ Servo servo;
 UDPHeartBeat UdpHeart(LOCALPORT_HEART, TIMEOUT);
 
 // Motor Control
-ProtoUDP<protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl, 
+ProtoUDP<protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl,
   protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_fields>
     motor_man(LOCALPORT_MOTOR_MAN),
     motor_auto(LOCALPORT_MOTOR_AUTO);
@@ -47,6 +47,7 @@ void setup() {
   if (Ethernet.linkStatus() == LinkOFF) {
     Serial.println("Ethernet cable is not connected.");
   }
+
   // start UDP
   UdpHeart.begin();
   motor_man.begin();
@@ -71,10 +72,11 @@ void loop() {
       protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
         = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
       
-      // Get msg and flush both cache
-      bool status = motor_man.get_msg(&msg) == true ? true : motor_auto.get_msg(&msg);
-      motor_man.flush();
-      motor_auto.flush();
+      // Get msg
+      bool status = false;
+      if (UdpHeart.get_mode() == 0) status = motor_auto.get_msg(&msg);
+      else if (UdpHeart.get_mode() == 1) status = motor_man.get_msg(&msg);
+      else status = true;
 
       if(status) {
         if (msg.motor_enable && !estopState){
@@ -100,5 +102,5 @@ void loop() {
   }
 
   preEstopState = estopState;
-  delay(1);
+  delay(26);
 }
