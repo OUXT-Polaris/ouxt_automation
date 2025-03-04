@@ -39,11 +39,10 @@ class MotorCommand:
         self.command.mode = mode
 
     def send_command(self):
-        pass
-        # self.udp_socket.sendto(
-        #     hardware_communication_msgs__MotorControl.SerializeToString(self.command),
-        #     (self.ip_address, self.command_port),
-        # )
+        self.udp_socket.sendto(
+            hardware_communication_msgs__MotorControl.SerializeToString(self.command),
+            (self.ip_address, self.command_port),
+        )
 
     # def send_heartbeat(self, scheduler):
     #     self.heartbeat.sequence = self.heartbeat.sequence + 1

@@ -101,7 +101,7 @@ class MqttEndPoint:
                 print("mode: MANUAL")
             elif self.heartbeat_command.mode == 2:
                 print("mode: ESTOP")
-            self.groundstation_heartbeat.receive(msg.payload)
+            self.groundstation_heartbeat.receive()
             self.heartbeat_command.ParseFromString(msg.payload)
             self.left_motor_command.set_mode(self.heartbeat_command.mode)
             self.right_motor_command.set_mode(self.heartbeat_command.mode)
