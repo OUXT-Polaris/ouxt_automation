@@ -55,6 +55,7 @@ def main():
             right_motor_command.motor_speed = joy_controller.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
             heartbeat_command.mode = joy_controller.mode
+            # print("mode : " + str(heartbeat_command.mode))
 
             client.publish(
                 left_motor_control_topic, left_motor_command.SerializeToString()
