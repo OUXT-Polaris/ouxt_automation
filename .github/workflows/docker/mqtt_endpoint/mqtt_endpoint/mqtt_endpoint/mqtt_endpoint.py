@@ -11,7 +11,7 @@ class MqttEndPoint:
     broker_ip = "54.212.20.15"
     mqtt_port = 1883
     estop_ip = "192.168.0.103"
-    keep_alive_timeout = 1
+    keep_alive_timeout = 10
 
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
