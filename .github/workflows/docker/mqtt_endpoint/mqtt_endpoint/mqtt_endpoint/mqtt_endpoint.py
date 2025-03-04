@@ -42,8 +42,16 @@ class MqttEndPoint:
         self.mqtt_client.connect(
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
+
+    def start_loop(self):
         self.mqtt_client.loop_start()
         self.scheduler.run()
+
+    def stop_all_motors(self):
+        self.right_motor_command.stop = True
+        self.left_motor_command.stop = True
+        # Wait for graceful shutting down.
+        time.sleep(1)
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
@@ -72,7 +80,13 @@ class MqttEndPoint:
 
 
 def main():
-    MqttEndPoint()
+    endpoint = MqttEndPoint()
+    try:
+        endpoint.start_loop()
+    except KeyboardInterrupt:
+        print("Exiting...")
+    finally:
+        endpoint.stop_all_motors()
 
 
 if __name__ == "__main__":

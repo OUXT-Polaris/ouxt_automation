@@ -22,6 +22,7 @@ class MotorCommand:
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
         )
+        self.stop = False
         self.command.motor_enable = True
         self.udp_socket = udp_socket
         self.ip_address = ip_address
@@ -38,10 +39,15 @@ class MotorCommand:
         )
 
     def send_heartbeat(self, scheduler):
-        self.udp_socket.sendto(
-            hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
-            (self.ip_address, self.heartbeat_port),
-        )
+        if not self.stop:
+            self.udp_socket.sendto(
+                hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
+                (self.ip_address, self.heartbeat_port),
+            )
+        else:
+            print("Try stopping motor")
+            self.command.motor_speed = 0
+            self.send()
         scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
 
     def send_command_from_serialized_string(self, serialized_string: str):
