@@ -1,9 +1,7 @@
 import time
 import socket
 import sched
-from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
-    hardware_communication_msgs__HeartBeat,
-)
+from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,
 )
@@ -22,6 +20,9 @@ class MotorCommand:
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
         )
+        self.heartbeat: ground_station_heartbeat = ground_station_heartbeat()
+        self.heartbeat.sequence = 1
+        self.heartbeat.mode = 1
         self.stop = False
         self.command.motor_enable = True
         self.udp_socket = udp_socket
@@ -39,16 +40,17 @@ class MotorCommand:
         )
 
     def send_heartbeat(self, scheduler):
+        self.heartbeat.sequence = self.heartbeat.sequence + 1
         if not self.stop:
             self.udp_socket.sendto(
-                hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
+                ground_station_heartbeat.SerializeToString(self.heartbeat),
                 (self.ip_address, self.heartbeat_port),
             )
         else:
             print("Try stopping motor")
             self.command.motor_speed = 0
-            self.send_command()
-        scheduler.enter(0.1, 2, self.send_heartbeat, (scheduler,))
+            self.send()
+        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
 
     def send_command_from_serialized_string(self, serialized_string: str):
         if not self.stop:
