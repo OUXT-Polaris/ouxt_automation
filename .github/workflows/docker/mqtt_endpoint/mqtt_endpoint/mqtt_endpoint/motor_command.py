@@ -47,8 +47,8 @@ class MotorCommand:
         else:
             print("Try stopping motor")
             self.command.motor_speed = 0
-            self.send()
-        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
+            self.send_command()
+        scheduler.enter(0.1, 2, self.send_heartbeat, (scheduler,))
 
     def send_command_from_serialized_string(self, serialized_string: str):
         if not self.stop:

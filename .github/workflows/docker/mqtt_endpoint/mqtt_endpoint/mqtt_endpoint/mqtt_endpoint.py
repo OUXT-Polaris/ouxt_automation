@@ -4,6 +4,9 @@ import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
 from mqtt_endpoint.ground_station_heartbeat import GroundStationHeartBeat
+from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
+    hardware_communication_msgs__HeartBeat,
+)
 
 
 class MqttEndPoint:
@@ -12,6 +15,7 @@ class MqttEndPoint:
     broker_ip = "54.212.20.15"
     mqtt_port = 1883
     estop_ip = "192.168.0.103"
+    estop_port = 4000
     keep_alive_timeout = 10
 
     def __init__(self):
@@ -33,8 +37,9 @@ class MqttEndPoint:
             "miniv/right_motor",
             self.scheduler,
         )
+        self.heartbeat_command = hardware_communication_msgs__HeartBeat()
         self.groundstation_heartbeat = GroundStationHeartBeat(
-            "ground_station/heartbeat", 1.0, self.scheduler
+            "ground_station/heartbeat", 3.0, self.scheduler
         )
         print("Start connecting to MQTT Broker")
         self.mqtt_client = mqtt.Client()
@@ -44,22 +49,30 @@ class MqttEndPoint:
         self.mqtt_client.connect(
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
+        self.send_estop_heartbeat(self.scheduler)
 
     def send_estop_heartbeat(self, scheduler):
-        if not client.is_connected():
-            scheduler.enter(0.1, 1, self.send_estop_heartbeat, (scheduler,))
-        else:
-            self.stop_all_motors()
+        if not self.mqtt_client.is_connected():
+            self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
+            self.udp_socket.sendto(
+                hardware_communication_msgs__HeartBeat.SerializeToString(
+                    self.heartbeat_command
+                ),
+                (self.estop_ip, self.estop_port),
+            )
+        scheduler.enter(0.1, 1, self.send_estop_heartbeat, (scheduler,))
+        # else:
+        #     self.stop_all_motors()
 
     def start_loop(self):
         self.mqtt_client.loop_start()
         self.scheduler.run()
 
-    def stop_all_motors(self):
-        self.right_motor_command.stop = True
-        self.left_motor_command.stop = True
-        # Wait for graceful shutting down.
-        time.sleep(1)
+    # def stop_all_motors(self):
+    #     self.right_motor_command.stop = True
+    #     self.left_motor_command.stop = True
+    #     # Wait for graceful shutting down.
+    #     time.sleep(1)
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
@@ -95,8 +108,8 @@ def main():
         endpoint.start_loop()
     except KeyboardInterrupt:
         print("Exiting...")
-    finally:
-        endpoint.stop_all_motors()
+    # finally:
+    #     endpoint.stop_all_motors()
 
 
 if __name__ == "__main__":

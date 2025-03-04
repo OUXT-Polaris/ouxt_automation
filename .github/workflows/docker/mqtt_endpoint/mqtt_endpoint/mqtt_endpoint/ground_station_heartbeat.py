@@ -31,6 +31,5 @@ class GroundStationHeartBeat:
         if self.last_timestamp:
             now = datetime.datetime.now()
             if (now - self.last_timestamp).total_seconds() >= self.timeout:
-                print("Heartbeat from ground station timed out!!")
                 self.is_timeout = True
         scheduler.enter(0.1, 2, self.check_timeout, (scheduler,))
