@@ -17,6 +17,7 @@ class MotorCommand:
         command_port: int,
         heartbeat_port: int,
         command_topic: str,
+        scheduler: sched.scheduler,
     ):
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
@@ -27,9 +28,8 @@ class MotorCommand:
         self.command_port = command_port
         self.heartbeat_port = heartbeat_port
         self.command_topic = command_topic
-        self.scheduler = sched.scheduler(time.time, time.sleep)
+        self.scheduler = scheduler
         self.send_heartbeat(self.scheduler)
-        self.scheduler.run()
 
     def send_command(self):
         self.udp_socket.sendto(

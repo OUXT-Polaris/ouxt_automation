@@ -1,5 +1,6 @@
 import time
 import socket
+import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
 
@@ -16,11 +17,22 @@ class MqttEndPoint:
 
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.scheduler = sched.scheduler(time.time, time.sleep)
         self.left_motor_command = MotorCommand(
-            self.udp_socket, "192.168.0.102", 8888, 4000, "miniv/left_motor"
+            self.udp_socket,
+            "192.168.0.102",
+            8888,
+            4000,
+            "miniv/left_motor",
+            self.scheduler,
         )
         self.right_motor_command = MotorCommand(
-            self.udp_socket, "192.168.0.101", 8888, 4000, "miniv/right_motor"
+            self.udp_socket,
+            "192.168.0.101",
+            8888,
+            4000,
+            "miniv/right_motor",
+            self.scheduler,
         )
         print("Start connecting to MQTT Broker")
         self.mqtt_client = mqtt.Client()
@@ -31,8 +43,7 @@ class MqttEndPoint:
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
         self.mqtt_client.loop_start()
-        # Wait until the connection was established.
-        time.sleep(1)
+        self.scheduler.run()
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
@@ -53,11 +64,11 @@ class MqttEndPoint:
 
     def on_message(self, client, userdata, msg):
         if msg.topic == self.left_motor_command.command_topic:
-            left_motor_command.send_command_from_serialized_string(msg.payload)
-            right_motor_command.send()
+            self.left_motor_command.send_command_from_serialized_string(msg.payload)
+            self.right_motor_command.send_command()
         if msg.topic == self.right_motor_command.command_topic:
-            left_motor_command.send()
-            right_motor_command.send_command_from_serialized_string(msg.payload)
+            self.left_motor_command.send_command()
+            self.right_motor_command.send_command_from_serialized_string(msg.payload)
 
 
 def main():
