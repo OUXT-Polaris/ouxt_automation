@@ -45,16 +45,14 @@ class MqttEndPoint:
         )
         self.send_estop_heartbeat(self.scheduler)
 
-    def send_estop_heartbeat(self, scheduler):
-        if self.mqtt_client.is_connected():
-            self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
-            self.udp_socket.sendto(
-                ground_station_heartbeat.SerializeToString(self.heartbeat_command),
-                (self.estop_ip, self.estop_port),
-            )
-        scheduler.enter(1, 1, self.send_estop_heartbeat, (scheduler,))
-        # else:
-        #     self.stop_all_motors()
+    # def send_estop_heartbeat(self, scheduler):
+    #     if self.mqtt_client.is_connected():
+    #         self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
+    #         self.udp_socket.sendto(
+    #             ground_station_heartbeat.SerializeToString(self.heartbeat_command),
+    #             (self.estop_ip, self.estop_port),
+    #         )
+    #     scheduler.enter(1, 1, self.send_estop_heartbeat, (scheduler,))
 
     def start_loop(self):
         self.mqtt_client.loop_start()
@@ -91,6 +89,10 @@ class MqttEndPoint:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
         if msg.topic == self.groundstation_heartbeat.topic:
+            self.udp_socket.sendto(
+                msg.payload,
+                (self.estop_ip, self.estop_port),
+            )
             if self.heartbeat_command.mode == 0:
                 print("mode: AUTO")
             elif self.heartbeat_command.mode == 1:
