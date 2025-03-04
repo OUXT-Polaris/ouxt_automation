@@ -25,6 +25,7 @@ class MotorCommand:
         self.heartbeat.mode = 1
         self.stop = False
         self.command.motor_enable = True
+        self.command.mode = 1
         self.udp_socket = udp_socket
         self.ip_address = ip_address
         self.command_port = command_port
@@ -35,6 +36,7 @@ class MotorCommand:
 
     def set_mode(self, mode: int):
         self.heartbeat.mode = mode
+        self.command.mode = mode
 
     def send_command(self):
         self.udp_socket.sendto(
