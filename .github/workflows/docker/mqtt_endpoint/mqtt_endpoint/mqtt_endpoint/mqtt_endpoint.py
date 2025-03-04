@@ -22,16 +22,12 @@ class MqttEndPoint:
         self.left_motor_command = MotorCommand(
             "192.168.0.102",
             8888,
-            4000,
             "miniv/left_motor",
-            self.scheduler,
         )
         self.right_motor_command = MotorCommand(
             "192.168.0.50",
             8888,
-            4000,
             "miniv/right_motor",
-            self.scheduler,
         )
         self.heartbeat_command = ground_station_heartbeat()
         self.heartbeat_command.sequence = 1
