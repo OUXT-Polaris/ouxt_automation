@@ -10,8 +10,8 @@ from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 class MqttEndPoint:
     heartbeat_topic = "miniv/heartbeat"
     disconnection_count = 0
-    broker_ip = "54.212.20.15"
-    mqtt_port = 1883
+    broker_ip = "2.tcp.ngrok.io"
+    mqtt_port = 12028
     estop_ip = "192.168.0.103"
     estop_port = 4000
     keep_alive_timeout = 10

@@ -20,17 +20,17 @@ class JoyController:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.JOYBUTTONDOWN:  # ボタンが押された場合
+                    # print("Xボタンが押されました(auto)")
                     if self.j.get_button(0):
                         self.mode = 0
-                        # print("Xボタンが押されました(auto)")
+                    # print("Aボタンが押されました(stop)")
                     elif self.j.get_button(1):
-                        self.mode = 2
-                        # print("Aボタンが押されました(stop)")
-                    elif self.j.get_button(2):
                         self.mode = 1
-                        # print("Bボタンが押されました(manual)")
+                    # print("Bボタンが押されました(manual)")
+                    elif self.j.get_button(2):
+                        self.mode = 2
+                    # print("Yボタンが押されました")
                     elif self.j.get_button(3):
-                        # print("Yボタンが押されました")
                         pass
                 elif event.type == pygame.JOYAXISMOTION:
 

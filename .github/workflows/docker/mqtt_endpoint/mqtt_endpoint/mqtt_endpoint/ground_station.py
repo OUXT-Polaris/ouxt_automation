@@ -32,8 +32,8 @@ def main():
 
     joy_controller = JoyController()
 
-    broker = "54.212.20.15"
-    port = 1883
+    broker = "2.tcp.ngrok.io"
+    port = 12028
     client = mqtt.Client()
 
     keep_alive_timeout = 1
@@ -55,7 +55,12 @@ def main():
             right_motor_command.motor_speed = joy_controller.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
             heartbeat_command.mode = joy_controller.mode
-
+            if heartbeat_command.mode == 0:
+                print("mode : AUTO")
+            elif heartbeat_command.mode == 1:
+                print("mode : MANUAL")
+            elif heartbeat_command.mode == 2:
+                print("mode : ESTOP")
             client.publish(
                 left_motor_control_topic, left_motor_command.SerializeToString()
             )

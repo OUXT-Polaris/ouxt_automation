@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    ports:
+      - "2000:2000"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
