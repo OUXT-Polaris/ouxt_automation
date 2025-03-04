@@ -8,7 +8,7 @@ from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
 from mqtt_endpoint.ground_station_heartbeat_pb2 import (
     ground_station_heartbeat,
 )
-from mqtt_endpoint import joy_controller as joy
+from mqtt_endpoint.joy_controller import JoyController
 
 
 def on_connect(client, userdata, flags, rc):
@@ -30,6 +30,8 @@ def main():
     groundstation_heartbeat_topic = "ground_station/heartbeat"
     heartbeat_command = ground_station_heartbeat()
 
+    joy_controller = JoyController()
+
     broker = "54.212.20.15"
     port = 1883
     client = mqtt.Client()
@@ -47,12 +49,12 @@ def main():
             if not client.is_connected():
                 break
 
-            joy.update()
+            joy_controller.update()
 
-            left_motor_command.motor_speed = joy.stick_ly
-            right_motor_command.motor_speed = joy.stick_ry
+            left_motor_command.motor_speed = joy_controller.stick_ly
+            right_motor_command.motor_speed = joy_controller.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
-            heartbeat_command.mode = joy.mode
+            heartbeat_command.mode = joy_controller.mode
 
             client.publish(
                 left_motor_control_topic, left_motor_command.SerializeToString()

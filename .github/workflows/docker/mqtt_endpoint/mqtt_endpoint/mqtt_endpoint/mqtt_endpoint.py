@@ -97,6 +97,12 @@ class MqttEndPoint:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
         if msg.topic == self.groundstation_heartbeat.topic:
+            if self.heartbeat_command.mode == 0:
+                print("mode: AUTO")
+            elif self.heartbeat_command.mode == 1:
+                print("mode: MANUAL")
+            elif self.heartbeat_command.mode == 2:
+                print("mode: ESTOP")
             self.groundstation_heartbeat.receive(msg.payload)
             self.heartbeat_command.ParseFromString(msg.payload)
             self.left_motor_command.set_mode(self.heartbeat_command.mode)
