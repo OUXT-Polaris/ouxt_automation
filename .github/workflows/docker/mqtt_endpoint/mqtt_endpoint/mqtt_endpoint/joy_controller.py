@@ -12,25 +12,24 @@ class JoyController:
 
     def __init__(self):
         pygame.init()
-        j = pygame.joystick.Joystick(0)
-        j.init()
+        self.j = pygame.joystick.Joystick(0)
+        self.j.init()
 
     def update(self):
         try:
             events = pygame.event.get()
-            print(events)
             for event in events:
                 if event.type == pygame.JOYBUTTONDOWN:  # ボタンが押された場合
-                    if j.get_button(0):
+                    if self.j.get_button(0):
                         self.mode = 0
                         # print("Xボタンが押されました(auto)")
-                    elif j.get_button(1):
+                    elif self.j.get_button(1):
                         self.mode = 2
                         # print("Aボタンが押されました(stop)")
-                    elif j.get_button(2):
+                    elif self.j.get_button(2):
                         self.mode = 1
                         # print("Bボタンが押されました(manual)")
-                    elif j.get_button(3):
+                    elif self.j.get_button(3):
                         # print("Yボタンが押されました")
                         pass
                 elif event.type == pygame.JOYAXISMOTION:
@@ -41,10 +40,10 @@ class JoyController:
                         else:
                             return value
 
-                    self.stick_lx = zero(j.get_axis(0), self.gap)
-                    self.stick_ly = zero(j.get_axis(1), self.gap)
-                    self.stick_rx = zero(j.get_axis(2), self.gap)
-                    self.stick_ry = zero(j.get_axis(3), self.gap)
+                    self.stick_lx = zero(self.j.get_axis(0), self.gap)
+                    self.stick_ly = zero(self.j.get_axis(1), self.gap)
+                    self.stick_rx = zero(self.j.get_axis(2), self.gap)
+                    self.stick_ry = zero(self.j.get_axis(3), self.gap)
             # print(f"左スティック座標 ({stick_lx}, {stick_ly}),右スティック座標 ({stick_rx}, {stick_ry}),状態：{mode}")
 
         except KeyboardInterrupt:
