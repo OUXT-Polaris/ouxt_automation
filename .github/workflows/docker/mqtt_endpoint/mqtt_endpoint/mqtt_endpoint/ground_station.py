@@ -55,6 +55,8 @@ def main():
             right_motor_command.motor_speed = joy_controller.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
             heartbeat_command.mode = joy_controller.mode
+            right_motor_command.mode = joy_controller.mode
+            left_motor_command.mode = joy_controller.mode
             if heartbeat_command.mode == 0:
                 print("mode : AUTO")
             elif heartbeat_command.mode == 1:

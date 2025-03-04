@@ -5,6 +5,7 @@ from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,
 )
+from google.protobuf.json_format import MessageToJson
 
 
 class MotorCommand:
@@ -39,6 +40,8 @@ class MotorCommand:
         self.command.mode = mode
 
     def send_command(self):
+        print(self.ip_address)
+        print(MessageToJson(self.command))
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
             (self.ip_address, self.command_port),

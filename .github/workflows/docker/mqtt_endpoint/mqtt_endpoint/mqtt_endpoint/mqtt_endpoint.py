@@ -90,6 +90,7 @@ class MqttEndPoint:
                 print(f"Reconnection failed: {e}")
 
     def on_message(self, client, userdata, msg):
+        print(msg.topic)
         if msg.topic == self.left_motor_command.command_topic:
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
             self.right_motor_command.send_command()
