@@ -21,7 +21,7 @@ class GroundStationHeartBeat:
             self.is_emergency = True
         if self.last_message == self.autonomous_message:
             self.is_emergency = False
-        scheduler.enter(0.1, 2, self.check_timeout, (scheduler,))
+        scheduler.enter(1, 2, self.check_timeout, (scheduler,))
 
     def receive(self, message):
         self.last_message = message
@@ -32,4 +32,4 @@ class GroundStationHeartBeat:
             now = datetime.datetime.now()
             if (now - self.last_timestamp).total_seconds() >= self.timeout:
                 self.is_timeout = True
-        scheduler.enter(0.1, 2, self.check_timeout, (scheduler,))
+        scheduler.enter(1, 2, self.check_timeout, (scheduler,))

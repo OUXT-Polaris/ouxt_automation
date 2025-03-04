@@ -11,13 +11,13 @@ from google.protobuf.json_format import MessageToJson
 class MotorCommand:
     def __init__(
         self,
-        udp_socket,
         ip_address: str,
         command_port: int,
         heartbeat_port: int,
         command_topic: str,
         scheduler: sched.scheduler,
     ):
+        self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
         )
@@ -27,7 +27,6 @@ class MotorCommand:
         self.stop = False
         self.command.motor_enable = True
         self.command.mode = 1
-        self.udp_socket = udp_socket
         self.ip_address = ip_address
         self.command_port = command_port
         self.heartbeat_port = heartbeat_port
@@ -40,8 +39,6 @@ class MotorCommand:
         self.command.mode = mode
 
     def send_command(self):
-        print(self.ip_address)
-        print(MessageToJson(self.command))
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
             (self.ip_address, self.command_port),

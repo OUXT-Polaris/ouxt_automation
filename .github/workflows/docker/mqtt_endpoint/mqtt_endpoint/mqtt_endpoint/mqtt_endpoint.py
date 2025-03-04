@@ -20,7 +20,6 @@ class MqttEndPoint:
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.scheduler = sched.scheduler(time.time, time.sleep)
         self.left_motor_command = MotorCommand(
-            self.udp_socket,
             "192.168.0.102",
             8888,
             4000,
@@ -28,7 +27,6 @@ class MqttEndPoint:
             self.scheduler,
         )
         self.right_motor_command = MotorCommand(
-            self.udp_socket,
             "192.168.0.101",
             8888,
             4000,
@@ -58,7 +56,7 @@ class MqttEndPoint:
                 ground_station_heartbeat.SerializeToString(self.heartbeat_command),
                 (self.estop_ip, self.estop_port),
             )
-        scheduler.enter(0.1, 1, self.send_estop_heartbeat, (scheduler,))
+        scheduler.enter(1, 1, self.send_estop_heartbeat, (scheduler,))
         # else:
         #     self.stop_all_motors()
 
@@ -90,13 +88,9 @@ class MqttEndPoint:
                 print(f"Reconnection failed: {e}")
 
     def on_message(self, client, userdata, msg):
-        print(msg.topic)
         if msg.topic == self.left_motor_command.command_topic:
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
             self.right_motor_command.send_command()
-            # print("Left")
-            # print(self.left_motor_command.command.motor_speed)
-            # print(self.left_motor_command.command.mode)
         if msg.topic == self.right_motor_command.command_topic:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
