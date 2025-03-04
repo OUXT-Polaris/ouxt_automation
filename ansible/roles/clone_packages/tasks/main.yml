@@ -48,13 +48,6 @@
     version: master
     accept_hostkey: yes
   tags: [perception]
-- name: clone perception_server
-  git:
-    repo: https://github.com/OUXT-Polaris/perception_server.git
-    dest: "{{workspace_path}}/src/perception/perception_server"
-    version: master
-    accept_hostkey: yes
-  tags: [perception]
 - name: clone ndt_omp
   git:
     repo: https://github.com/tier4/ndt_omp.git
@@ -112,9 +105,11 @@
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
+    # download 3d model is too heavy in competition.
+    depth: 1
     accept_hostkey: yes
   tags: [planning]
-- name: clone robotx_behavior_tree
+- name: clone robotx_planner_bringup
   git:
     repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
     dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
@@ -181,6 +176,8 @@
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
+    # download 3d model is too heavy in competition.
+    depth: 1
   tags: [description]
 
 # Localization Packages
@@ -219,8 +216,38 @@
     version: master
     accept_hostkey: yes
   tags: [localization]
+- name: clone kalman_filter_localization
+  git:
+    repo: https://github.com/OUXT-Polaris/kalman_filter_localization.git
+    dest: "{{workspace_path}}/src/localization/kalman_filter_localization"
+    version: feature/use_gnss_as_initial_pose
+    accept_hostkey: yes
+  tags: [localization]
 
 # Driver Packages
+- name : clone nebula
+  git:
+    repo: https://github.com/tier4/nebula.git
+    dest: "{{workspace_path}}/src/perception/nebula"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula start
+- name : clone transport drivers
+  git:
+    repo: https://github.com/autowarefoundation/transport_drivers
+    dest: "{{workspace_path}}/src/perception/transport_drivers"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+- name : clone ros2_socketcan
+  git:
+    repo: https://github.com/autowarefoundation/ros2_socketcan
+    dest: "{{workspace_path}}/src/perception/ros2_socketcan"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula end
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
@@ -265,19 +292,20 @@
     accept_hostkey: yes
   tags: [control]
 
+# Simulation package is not necessary while RoboBoat
 # Simulation Package
-- name : clone navi_sim
-  git:
-    repo: https://github.com/OUXT-Polaris/navi_sim.git
-    dest: "{{workspace_path}}/src/simulation/navi_sim"
-    version: master
-    accept_hostkey: yes
-  tags: [simulation]
+# - name : clone navi_sim
+#   git:
+#     repo: https://github.com/OUXT-Polaris/navi_sim.git
+#     dest: "{{workspace_path}}/src/simulation/navi_sim"
+#     version: master
+#     accept_hostkey: yes
+#   tags: [simulation]
 
-- name: clone vrx_bridge
-  git:
-    repo: https://github.com/OUXT-Polaris/vrx_bridge.git
-    dest: "{{workspace_path}}/src/simulation/vrx_bridge"
-    version: master
-    accept_hostkey: yes
-  tags: [simulation]
+# - name: clone vrx_bridge
+#   git:
+#     repo: https://github.com/OUXT-Polaris/vrx_bridge.git
+#     dest: "{{workspace_path}}/src/simulation/vrx_bridge"
+#     version: master
+#     accept_hostkey: yes
+#   tags: [simulation]

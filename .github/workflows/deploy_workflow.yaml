@@ -51,7 +51,6 @@ jobs:
           pcl_type_adapter,
           perception_bringup,
           perception_msgs,
-          perception_server,
           playstation_controller_drivers,
           point_painting,
           prometheus_ros,
