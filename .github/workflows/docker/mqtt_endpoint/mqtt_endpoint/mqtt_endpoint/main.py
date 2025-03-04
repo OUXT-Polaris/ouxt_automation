@@ -113,12 +113,16 @@ def main():
     finally:
         left_motor_command.motor_speed = 0
         udp_sock.sendto(
-            hardware_communication_msgs__HeartBeat.SerializeToString(left_motor_command),
+            hardware_communication_msgs__HeartBeat.SerializeToString(
+                left_motor_command
+            ),
             (left_motor_ip, 8888),
         )
         right_motor_command.motor_speed = 0
         udp_sock.sendto(
-            hardware_communication_msgs__HeartBeat.SerializeToString(right_motor_command),
+            hardware_communication_msgs__HeartBeat.SerializeToString(
+                right_motor_command
+            ),
             (right_motor_ip, 8888),
         )
         client.loop_stop()
