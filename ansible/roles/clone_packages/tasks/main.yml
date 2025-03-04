@@ -216,6 +216,13 @@
     version: master
     accept_hostkey: yes
   tags: [localization]
+- name: clone kalman_filter_localization
+  git:
+    repo: https://github.com/OUXT-Polaris/kalman_filter_localization.git
+    dest: "{{workspace_path}}/src/localization/kalman_filter_localization"
+    version: master
+    accept_hostkey: yes
+  tags: [localization]
 
 # Driver Packages
 - name : clone nebula
