@@ -11,18 +11,13 @@ from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
 
 
 class MotorCommand:
-    command: hardware_communication_msgs__MotorControl = (
-        hardware_communication_msgs__MotorControl()
-    )
-    ip_address: str
-    command_port: int
-    heartbeat_port: int
-    udp_socket
-
     def __init__(
         self, udp_socket, ip_address: str, command_port: int, heartbeat_port: int
     ):
-        command.motor_enable = True
+        self.command: hardware_communication_msgs__MotorControl = (
+            hardware_communication_msgs__MotorControl()
+        )
+        self.command.motor_enable = True
         self.udp_socket = udp_socket
         self.ip_address = ip_address
         self.command_port = command_port
@@ -31,7 +26,7 @@ class MotorCommand:
         self.send_heartbeat(self.scheduler)
         self.scheduler.run()
 
-    def send(self, motor_speed: double):
+    def send(self, motor_speed: float):
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
             (self.ip_address, self.command_port),
@@ -42,7 +37,7 @@ class MotorCommand:
             hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
             (self.ip_address, self.heartbeat_port),
         )
-        scheduler.enter(0.1, 1, self.task, (scheduler,))
+        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
 
 
 class MqttEndPoint:
@@ -56,10 +51,6 @@ class MqttEndPoint:
     mqtt_port = 1883
     estop_ip = "192.168.0.103"
 
-    udp_socket
-    left_motor_command: MotorCommand
-    right_motor_command: MotorCommand
-
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.left_motor_command = MotorCommand(
@@ -70,5 +61,9 @@ class MqttEndPoint:
         )
 
 
+def main():
+    MqttEndPoint()
+
+
 if __name__ == "__main__":
-    pass
+    main()

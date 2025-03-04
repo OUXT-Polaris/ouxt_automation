@@ -14,5 +14,5 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.scripts]
-endpoint = "mqtt_endpoint.main:main"
+endpoint = "mqtt_endpoint.mqtt_endpoint:main"
 remote_control_test = "mqtt_endpoint.remote_control_test:main"
