@@ -18,10 +18,12 @@ def main():
     left_motor_control_topic = "miniv/left_motor"
     left_motor_command = hardware_communication_msgs__MotorControl()
     left_motor_command.motor_enable = True
+    # TODO fill left motor speed from joystick input
     left_motor_command.motor_speed = 0.3
     right_motor_control_topic = "miniv/right_motor"
     right_motor_command = hardware_communication_msgs__MotorControl()
     right_motor_command.motor_enable = True
+    # TODO fill right motor speed from joystick input
     right_motor_command.motor_speed = 0.3
 
     groundstation_heartbeat_topic = "ground_station/heartbeat"
@@ -46,7 +48,9 @@ def main():
             client.publish(
                 right_motor_control_topic, right_motor_command.SerializeToString()
             )
-            client.publish(groundstation_heartbeat_topic, "Hello!")
+            # TODO Fill heartbeat topic from joystick button input.
+            # if the user press Emergency stop button, fill "EMERGENCY" instead of "AUTO"
+            client.publish(groundstation_heartbeat_topic, "AUTO")
             time.sleep(0.05)
     except KeyboardInterrupt:
         print("Exiting...")
