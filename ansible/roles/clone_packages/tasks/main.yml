@@ -112,9 +112,11 @@
     repo: https://github.com/OUXT-Polaris/robotx_behavior_tree.git
     dest: "{{workspace_path}}/src/planning/robotx_behavior_tree"
     version: master
+    # download 3d model is too heavy in competition.
+    depth: 1
     accept_hostkey: yes
   tags: [planning]
-- name: clone robotx_behavior_tree
+- name: clone robotx_planner_bringup
   git:
     repo: https://github.com/OUXT-Polaris/robotx_planner_bringup.git
     dest: "{{workspace_path}}/src/planning/robotx_planner_bringup"
@@ -181,6 +183,8 @@
     dest: "{{workspace_path}}/src/description/wamv_description"
     version: master
     accept_hostkey: yes
+    # download 3d model is too heavy in competition.
+    depth: 1
   tags: [description]
 
 # Localization Packages
@@ -221,6 +225,29 @@
   tags: [localization]
 
 # Driver Packages
+- name : clone nebula
+  git:
+    repo: https://github.com/tier4/nebula.git
+    dest: "{{workspace_path}}/src/perception/nebula"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula start
+- name : clone transport drivers
+  git:
+    repo: https://github.com/autowarefoundation/transport_drivers
+    dest: "{{workspace_path}}/src/perception/transport_drivers"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+- name : clone ros2_socketcan
+  git:
+    repo: https://github.com/autowarefoundation/ros2_socketcan
+    dest: "{{workspace_path}}/src/perception/ros2_socketcan"
+    version: main
+    accept_hostkey: yes
+  tags: [driver]
+# dependency for nebula end
 - name: clone playstation_controller_drivers
   git:
     repo: https://github.com/OUXT-Polaris/playstation_controller_drivers
