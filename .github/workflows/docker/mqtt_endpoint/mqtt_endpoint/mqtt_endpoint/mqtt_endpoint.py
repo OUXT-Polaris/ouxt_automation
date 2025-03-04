@@ -3,6 +3,7 @@ import socket
 import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
+from mqtt_endpoint.ground_station_heartbeat import GroundStationHeartBeat
 
 
 class MqttEndPoint:
@@ -31,6 +32,9 @@ class MqttEndPoint:
             4000,
             "miniv/right_motor",
             self.scheduler,
+        )
+        self.groundstation_heartbeat = GroundStationHeartBeat(
+            "ground_station/heartbeat", 1.0, self.scheduler
         )
         print("Start connecting to MQTT Broker")
         self.mqtt_client = mqtt.Client()
@@ -81,6 +85,8 @@ class MqttEndPoint:
         if msg.topic == self.right_motor_command.command_topic:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
+        if msg.topic == self.groundstation_heartbeat.topic:
+            self.groundstation_heartbeat.receive()
 
 
 def main():

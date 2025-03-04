@@ -23,12 +23,11 @@ def main():
     right_motor_command.motor_enable = True
     right_motor_command.motor_speed = 0.3
 
+    groundstation_heartbeat_topic = "ground_station/heartbeat"
+
     broker = "54.212.20.15"
-    lwt_topic = "client/status"
-    lwt_message = "Remote motor control command disconnected"
     port = 1883
     client = mqtt.Client()
-    client.will_set(lwt_topic, lwt_message, 0, False)
 
     keep_alive_timeout = 1
 
@@ -46,6 +45,7 @@ def main():
             client.publish(
                 right_motor_control_topic, right_motor_command.SerializeToString()
             )
+            client.publish(groundstation_heartbeat_topic, "Hello!")
             time.sleep(0.05)
     except KeyboardInterrupt:
         print("Exiting...")
