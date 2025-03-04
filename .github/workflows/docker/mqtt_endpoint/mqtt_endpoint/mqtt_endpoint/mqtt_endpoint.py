@@ -38,6 +38,7 @@ class MqttEndPoint:
             self.scheduler,
         )
         self.heartbeat_command = hardware_communication_msgs__HeartBeat()
+        self.heartbeat_command.sequence = 1
         self.groundstation_heartbeat = GroundStationHeartBeat(
             "ground_station/heartbeat", 3.0, self.scheduler
         )
@@ -52,8 +53,13 @@ class MqttEndPoint:
         self.send_estop_heartbeat(self.scheduler)
 
     def send_estop_heartbeat(self, scheduler):
-        if not self.mqtt_client.is_connected():
+        if self.mqtt_client.is_connected():
             self.heartbeat_command.sequence = self.heartbeat_command.sequence + 1
+            print(
+                hardware_communication_msgs__HeartBeat.SerializeToString(
+                    self.heartbeat_command
+                )
+            )
             self.udp_socket.sendto(
                 hardware_communication_msgs__HeartBeat.SerializeToString(
                     self.heartbeat_command
