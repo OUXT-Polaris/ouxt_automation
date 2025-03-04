@@ -93,6 +93,9 @@ class MqttEndPoint:
         if msg.topic == self.left_motor_command.command_topic:
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
             self.right_motor_command.send_command()
+            print("Left")
+            print(self.left_motor_command.command.motor_speed)
+            print(self.left_motor_command.command.mode)
         if msg.topic == self.right_motor_command.command_topic:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
