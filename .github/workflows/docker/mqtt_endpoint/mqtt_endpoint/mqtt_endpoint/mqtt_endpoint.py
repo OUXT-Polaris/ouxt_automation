@@ -1,5 +1,6 @@
 import time
 import socket
+import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
     hardware_communication_msgs__HeartBeat,
@@ -26,6 +27,9 @@ class MotorCommand:
         self.ip_address = ip_address
         self.command_port = command_port
         self.heartbeat_port = heartbeat_port
+        self.scheduler = sched.scheduler(time.time, time.sleep)
+        self.send_heartbeat(self.scheduler)
+        self.scheduler.run()
 
     def send(self, motor_speed: double):
         self.udp_socket.sendto(
@@ -33,11 +37,12 @@ class MotorCommand:
             (self.ip_address, self.command_port),
         )
 
-    def send_heartbeat(self):
+    def send_heartbeat(self, scheduler):
         self.udp_socket.sendto(
             hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
             (self.ip_address, self.heartbeat_port),
         )
+        scheduler.enter(0.1, 1, self.task, (scheduler,))
 
 
 class MqttEndPoint:
