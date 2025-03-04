@@ -220,7 +220,7 @@
   git:
     repo: https://github.com/OUXT-Polaris/kalman_filter_localization.git
     dest: "{{workspace_path}}/src/localization/kalman_filter_localization"
-    version: master
+    version: feature/use_gnss_as_initial_pose
     accept_hostkey: yes
   tags: [localization]
 
