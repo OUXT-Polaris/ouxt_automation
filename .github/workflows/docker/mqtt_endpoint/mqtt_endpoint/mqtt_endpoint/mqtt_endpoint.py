@@ -1,6 +1,5 @@
 import time
 import socket
-import sched
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
 from mqtt_endpoint.ground_station_heartbeat import GroundStationHeartBeat

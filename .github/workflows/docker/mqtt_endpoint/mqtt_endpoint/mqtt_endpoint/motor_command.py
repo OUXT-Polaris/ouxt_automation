@@ -1,6 +1,5 @@
 import time
 import socket
-import sched
 from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,

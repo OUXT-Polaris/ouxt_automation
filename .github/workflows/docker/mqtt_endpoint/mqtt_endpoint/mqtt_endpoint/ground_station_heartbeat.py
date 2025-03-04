@@ -1,6 +1,4 @@
 import datetime
-import sched
-
 
 class GroundStationHeartBeat:
     def __init__(self, topic: str, timeout: float):
