@@ -4,8 +4,9 @@ RUN apk update && apk add --no-cache \
     build-base \
     pkgconfig \
     sdl2-dev \
-    freetype-dev
-    
+    freetype-dev \
+    python3-dev
+
 WORKDIR /app
 COPY mqtt_endpoint .
 RUN uv sync
