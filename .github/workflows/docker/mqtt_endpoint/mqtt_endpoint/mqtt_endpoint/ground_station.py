@@ -5,6 +5,10 @@ import paho.mqtt.client as mqtt
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,
 )
+from mqtt_endpoint.ground_station_heartbeat_pb2 import (
+    ground_station_heartbeat,
+)
+import joy_controller as joy
 
 
 def on_connect(client, userdata, flags, rc):
@@ -18,15 +22,13 @@ def main():
     left_motor_control_topic = "miniv/left_motor"
     left_motor_command = hardware_communication_msgs__MotorControl()
     left_motor_command.motor_enable = True
-    # TODO fill left motor speed from joystick input
-    left_motor_command.motor_speed = 0.3
+    
     right_motor_control_topic = "miniv/right_motor"
     right_motor_command = hardware_communication_msgs__MotorControl()
     right_motor_command.motor_enable = True
-    # TODO fill right motor speed from joystick input
-    right_motor_command.motor_speed = 0.3
 
     groundstation_heartbeat_topic = "ground_station/heartbeat"
+    heartbeat_command = ground_station_heartbeat()
 
     broker = "54.212.20.15"
     port = 1883
@@ -34,14 +36,23 @@ def main():
 
     keep_alive_timeout = 1
 
+
     try:
         client.connect(broker, port, keep_alive_timeout)
         client.on_connect = on_connect
         client.loop_start()
         time.sleep(1)
+
+        sequence = 0
         while True:
             if not client.is_connected():
                 break
+
+            left_motor_command.motor_speed = joy.get_stick_left_y()
+            right_motor_command.motor_speed = joy.get_stick_right_y()
+            heartbeat_command.sequence = sequence = sequence + 1 
+            heartbeat_command.mode = joy.get_mode()
+
             client.publish(
                 left_motor_control_topic, left_motor_command.SerializeToString()
             )
