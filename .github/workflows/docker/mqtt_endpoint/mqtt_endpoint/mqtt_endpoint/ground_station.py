@@ -47,6 +47,8 @@ def main():
             if not client.is_connected():
                 break
 
+            joy.update()
+
             left_motor_command.motor_speed = joy.stick_ly
             right_motor_command.motor_speed = joy.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
@@ -60,7 +62,9 @@ def main():
             )
             # TODO Fill heartbeat topic from joystick button input.
             # if the user press Emergency stop button, fill "EMERGENCY" instead of "AUTO"
-            client.publish(groundstation_heartbeat_topic, "AUTO")
+            client.publish(
+                groundstation_heartbeat_topic, heartbeat_command.SerializeToString()
+            )
             time.sleep(0.05)
     except KeyboardInterrupt:
         print("Exiting...")
