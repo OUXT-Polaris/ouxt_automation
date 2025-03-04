@@ -51,5 +51,9 @@ class MotorCommand:
         scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
 
     def send_command_from_serialized_string(self, serialized_string: str):
-        self.command.ParseFromString(serialized_string)
-        self.send_command()
+        if not self.stop:
+            self.command.ParseFromString(serialized_string)
+            self.send_command()
+        else:
+            self.command.motor_speed = 0
+            self.send_command()

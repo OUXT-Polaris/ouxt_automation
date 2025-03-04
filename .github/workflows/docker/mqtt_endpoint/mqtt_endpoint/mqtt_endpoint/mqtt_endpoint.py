@@ -7,8 +7,6 @@ from mqtt_endpoint.motor_command import MotorCommand
 
 class MqttEndPoint:
     heartbeat_topic = "miniv/heartbeat"
-    lwt_topic = "client/status"
-    lwt_message = "Remote motor control command disconnected"
     disconnection_count = 0
     broker_ip = "54.212.20.15"
     mqtt_port = 1883
@@ -42,6 +40,9 @@ class MqttEndPoint:
         self.mqtt_client.connect(
             self.broker_ip, self.mqtt_port, self.keep_alive_timeout
         )
+
+    def send_estop_heartbeat(self, scheduler):
+        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
 
     def start_loop(self):
         self.mqtt_client.loop_start()
