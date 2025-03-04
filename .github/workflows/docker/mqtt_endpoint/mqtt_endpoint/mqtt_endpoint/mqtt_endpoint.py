@@ -65,7 +65,7 @@ class MqttEndPoint:
         if msg.topic == self.right_motor_command.command_topic:
             self.left_motor_command.send_command()
             self.right_motor_command.send_command_from_serialized_string(msg.payload)
-        if msg.topic == self.groundstation_heartbeat.topic:
+        if msg.topic == "ground_station/heartbeat":
             self.udp_socket.sendto(
                 msg.payload,
                 (self.estop_ip, self.estop_port),
