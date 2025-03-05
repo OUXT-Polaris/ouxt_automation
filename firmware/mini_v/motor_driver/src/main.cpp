@@ -5,7 +5,6 @@
 
 #include <proto/hardware_communication_msgs__MotorControl.pb.h>
 #include "config.hpp"
-#include "heart_beat.hpp"
 #include "proto_udp.hpp"
 
 
@@ -18,9 +17,6 @@ unsigned long preTime = 0;
 byte servoPin = 41;
 unsigned int startupTime = 4000;
 Servo servo;
-
-// Heart Beat
-UDPHeartBeat UdpHeart(LOCALPORT_HEART, TIMEOUT);
 
 // Motor Control
 ProtoUDP<protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl,
@@ -49,7 +45,6 @@ void setup() {
   }
 
   // start UDP
-  UdpHeart.begin();
   motor_man.begin();
   motor_auto.begin();
   
@@ -63,43 +58,39 @@ void setup() {
 void loop() {
   bool estopState = !digitalRead(estopPin);      // Estop: true, normal: false
 
-  if (UdpHeart.verify_survival()) {              // Check Heart Beat
-    if (!estopState && preEstopState) {          // When the Estop was released
-      preTime = millis();
-      servo.writeMicroseconds(1500);
+  if (!estopState && preEstopState) {          // When the Estop was released
+    preTime = millis();
+    servo.writeMicroseconds(1500);
+  }
+  else if(millis() - preTime > startupTime) {  // delay to allow the ESC to recognize the stopped signal
+    protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
+      = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
+    
+    // Get msg
+    bool status = false;
+    if (motor_man.get_msg(&msg)) {
+      // Serial.printf("mode: %d\n", msg.mode);
+      status = true;
+      if (msg.mode == 0) status = motor_auto.get_msg(&msg);
+      else if (msg.mode == 2) msg.motor_enable = false;
     }
-    else if(millis() - preTime > startupTime) {  // delay to allow the ESC to recognize the stopped signal
-      protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl msg 
-        = protolink__hardware_communication_msgs__MotorControl_hardware_communication_msgs__MotorControl_init_zero;
-      
-      // Get msg
-      bool status = false;
-      if (UdpHeart.get_mode() == 0) status = motor_auto.get_msg(&msg);
-      else if (UdpHeart.get_mode() == 1) status = motor_man.get_msg(&msg);
-      else status = true;
 
-      if(status) {
-        if (msg.motor_enable && !estopState){
-          int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
-          servo.writeMicroseconds(constrain(signal, 1100, 1900));
-          digitalWrite(13, HIGH);
-          Serial.println(signal);
-        }
-        else{
-          servo.writeMicroseconds(1500);
-          digitalWrite(13, LOW);
-          Serial.println(1500);
-        }
+    if(status) {
+      if (msg.motor_enable && !estopState){
+        int signal = (int)(constrain(msg.motor_speed, -1.0, 1.0) * 400.0 + 1500.0);
+        servo.writeMicroseconds(constrain(signal, 1100, 1900));
+        digitalWrite(13, HIGH);
+        Serial.println(signal);
+      }
+      else{
+        servo.writeMicroseconds(1500);
+        digitalWrite(13, LOW);
+        Serial.println(1500);
       }
     }
-    else
-      Serial.printf("[%d]: Waiting for starting up\n", millis() - preTime);
   }
-  else {
-    servo.writeMicroseconds(1500);
-    digitalWrite(13, LOW);
-    Serial.println("Heart beat is not coming. Stop motor.");
-  }
+  else
+    Serial.printf("[%d]: Waiting for starting up\n", millis() - preTime);
 
   preEstopState = estopState;
   delay(26);
