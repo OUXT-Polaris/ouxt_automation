@@ -1,4 +1,4 @@
-import time
+import asyncio
 import socket
 import paho.mqtt.client as mqtt
 from mqtt_endpoint.motor_command import MotorCommand
@@ -22,7 +22,7 @@ class MqttEndPoint:
             "miniv/left_motor",
         )
         self.right_motor_command = MotorCommand(
-            "192.168.0.50",
+            "192.168.0.101",
             8888,
             "miniv/right_motor",
         )
@@ -34,17 +34,31 @@ class MqttEndPoint:
         self.mqtt_client.on_connect = self.on_connect
         self.mqtt_client.on_disconnect = self.on_disconnect
         self.mqtt_client.on_message = self.on_message
-        self.mqtt_client.connect(
-            self.broker_ip, self.mqtt_port, self.keep_alive_timeout
-        )
 
-    def start_loop(self):
-        self.mqtt_client.loop_forever()
+    async def connect(self):
+        try:
+            self.mqtt_client.connect(
+                self.broker_ip, self.mqtt_port, self.keep_alive_timeout
+            )
+            self.mqtt_client.loop_start()  # Start the MQTT loop in a background thread
+            await asyncio.sleep(0.1)  # Give the loop a chance to connect
+        except Exception as e:
+            print(f"Connection failed: {e}")
+
+    async def start_loop(self):
+        try:
+            while True:
+                await asyncio.sleep(
+                    1
+                )  # keeps the async loop alive, and allows mqtt loop to run.
+        except asyncio.CancelledError:
+            print("Async loop cancelled.")
+        finally:
+            self.mqtt_client.loop_stop()
 
     def on_connect(self, client, userdata, flags, rc):
         if rc == 0:
             print("Connected to MQTT broker")
-            # Subscribe all topics
             client.subscribe("#")
         else:
             print(f"Connection failed with code {rc}")
@@ -52,11 +66,14 @@ class MqttEndPoint:
     def on_disconnect(self, client, userdata, rc):
         if rc != 0:
             print(f"Unexpected disconnection. Reconnecting... (rc={rc})")
-            time.sleep(5)
-            try:
-                client.reconnect()
-            except Exception as e:
-                print(f"Reconnection failed: {e}")
+            asyncio.create_task(self.reconnect(client))
+
+    async def reconnect(self, client):
+        await asyncio.sleep(5)
+        try:
+            client.reconnect()
+        except Exception as e:
+            print(f"Reconnection failed: {e}")
 
     def on_message(self, client, userdata, msg):
         if msg.topic == self.left_motor_command.command_topic:
@@ -79,19 +96,22 @@ class MqttEndPoint:
             self.heartbeat_command.ParseFromString(msg.payload)
             self.left_motor_command.set_mode(self.heartbeat_command.mode)
             self.right_motor_command.set_mode(self.heartbeat_command.mode)
-            self.right_motor_command.send_command()
             self.left_motor_command.send_command()
+            self.right_motor_command.send_command()
 
 
-def main():
+async def main():
     endpoint = MqttEndPoint()
+    await endpoint.connect()
     try:
-        endpoint.start_loop()
+        await endpoint.start_loop()
     except KeyboardInterrupt:
         print("Exiting...")
-    # finally:
-    #     endpoint.stop_all_motors()
+
+
+def run_main():
+    asyncio.run(main())
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
