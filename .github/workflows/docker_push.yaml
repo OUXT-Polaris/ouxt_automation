@@ -58,7 +58,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/actions/cleanup_runner
-      - uses: ./.github/workflows/docker/vrx
+      - uses: ./.github/workflows/docker/auto_logger
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
