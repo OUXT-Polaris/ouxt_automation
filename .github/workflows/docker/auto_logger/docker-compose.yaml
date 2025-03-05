@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   rosbag_recorder:
-    image: eclipse-mosquitto
+    image: wamvtan/auto_logger:latest
     volumes:
       - rosbag_volume:/rosbag
       - config_volume:/config
