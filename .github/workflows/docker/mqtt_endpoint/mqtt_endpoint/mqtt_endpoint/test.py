@@ -12,6 +12,7 @@ import socket
 def on_message(client, userdata, msg):
     pass
 
+
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
