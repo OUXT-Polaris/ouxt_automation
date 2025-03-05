@@ -12,7 +12,6 @@ class MqttEndPoint:
     mqtt_port = 12028
     estop_ip = "192.168.0.103"
     estop_port = 4000
-    keep_alive_timeout = 10
 
     def __init__(self):
         self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -35,9 +34,7 @@ class MqttEndPoint:
         self.mqtt_client.on_connect = self.on_connect
         self.mqtt_client.on_disconnect = self.on_disconnect
         self.mqtt_client.on_message = self.on_message
-        self.mqtt_client.connect(
-            self.broker_ip, self.mqtt_port, self.keep_alive_timeout
-        )
+        self.mqtt_client.connect(self.broker_ip, self.mqtt_port)
 
     def start_loop(self):
         self.mqtt_client.loop_forever()
@@ -61,6 +58,7 @@ class MqttEndPoint:
 
     def on_message(self, client, userdata, msg):
         if msg.topic == self.left_motor_command.command_topic:
+            print(msg.payload)
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
             self.right_motor_command.send_command()
         if msg.topic == self.right_motor_command.command_topic:
@@ -78,6 +76,7 @@ class MqttEndPoint:
             elif self.heartbeat_command.mode == 2:
                 print("mode: ESTOP")
             self.heartbeat_command.ParseFromString(msg.payload)
+
 
 def main():
     endpoint = MqttEndPoint()

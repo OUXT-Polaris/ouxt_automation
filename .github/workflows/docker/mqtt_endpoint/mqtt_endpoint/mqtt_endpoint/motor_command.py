@@ -18,7 +18,6 @@ class MotorCommand:
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
         )
-        self.stop = False
         self.command.motor_enable = True
         self.command.mode = 1
         self.ip_address = ip_address
@@ -29,7 +28,6 @@ class MotorCommand:
         self.command.mode = mode
 
     def send_command(self):
-        print(MessageToJson(self.command))
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
             (self.ip_address, self.command_port),
