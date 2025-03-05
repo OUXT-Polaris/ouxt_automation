@@ -4,6 +4,7 @@ services:
     image: eclipse-mosquitto
     volumes:
       - rosbag_volume:/rosbag
+      - config_volume:/config
     user: "${UID}:${GID}"
 
 volumes:
@@ -13,3 +14,9 @@ volumes:
       type: none
       o: bind
       device: ${HOME}/auto_logger/rosbag
+  config_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${PWD}/settings

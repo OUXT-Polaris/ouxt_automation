@@ -2,14 +2,6 @@ ARG ROS_DISTRO=humble
 FROM ros:${ROS_DISTRO}-ros-core
 SHELL ["/bin/bash", "-c"]
 
-ARG UID=1000
-ARG GID=1000
-
-RUN groupadd -g $GID logger_user && \
-    useradd -m -u $UID -g $GID logger_user
-
-USER logger_user
-
 RUN apt update && \
     apt install -y ros-$ROS_DISTRO-rosbag2-storage-mcap ros-$ROS_DISTRO-rosbag2 python3-vcstool python3-rosdep git python3-colcon-common-extensions && \
     apt-get clean && \
