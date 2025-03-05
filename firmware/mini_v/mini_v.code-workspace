@@ -12,13 +12,24 @@
 		},
 		{
 			"path": "gnss_driver"
+		},
+		{
+			"name": "heart_beat",
+			"path": "../../../../PlatformIO/Projects/heart_beat"
 		}
 	],
 	"settings": {
 		"files.associations": {
 			"array": "cpp",
 			"string": "cpp",
-			"string_view": "cpp"
+			"string_view": "cpp",
+			"*.tcc": "cpp",
+			"fstream": "cpp",
+			"iosfwd": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"sstream": "cpp",
+			"streambuf": "cpp"
 		}
 	}
 }

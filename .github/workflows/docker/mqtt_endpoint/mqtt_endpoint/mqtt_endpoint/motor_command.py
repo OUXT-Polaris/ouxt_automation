@@ -1,36 +1,31 @@
 import time
 import socket
-import sched
-from mqtt_endpoint.hardware_communication_msgs__HeartBeat_pb2 import (
-    hardware_communication_msgs__HeartBeat,
-)
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import (
     hardware_communication_msgs__MotorControl,
 )
+from google.protobuf.json_format import MessageToJson
 
 
 class MotorCommand:
     def __init__(
         self,
-        udp_socket,
         ip_address: str,
         command_port: int,
-        heartbeat_port: int,
         command_topic: str,
-        scheduler: sched.scheduler,
     ):
+        self.udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.udp_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 0)
         self.command: hardware_communication_msgs__MotorControl = (
             hardware_communication_msgs__MotorControl()
         )
-        self.stop = False
         self.command.motor_enable = True
-        self.udp_socket = udp_socket
+        self.command.mode = 1
         self.ip_address = ip_address
         self.command_port = command_port
-        self.heartbeat_port = heartbeat_port
         self.command_topic = command_topic
-        self.scheduler = scheduler
-        self.send_heartbeat(self.scheduler)
+
+    def set_mode(self, mode: int):
+        self.command.mode = mode
 
     def send_command(self):
         self.udp_socket.sendto(
@@ -38,22 +33,6 @@ class MotorCommand:
             (self.ip_address, self.command_port),
         )
 
-    def send_heartbeat(self, scheduler):
-        if not self.stop:
-            self.udp_socket.sendto(
-                hardware_communication_msgs__HeartBeat.SerializeToString(self.command),
-                (self.ip_address, self.heartbeat_port),
-            )
-        else:
-            print("Try stopping motor")
-            self.command.motor_speed = 0
-            self.send()
-        scheduler.enter(0.1, 1, self.send_heartbeat, (scheduler,))
-
     def send_command_from_serialized_string(self, serialized_string: str):
-        if not self.stop:
-            self.command.ParseFromString(serialized_string)
-            self.send_command()
-        else:
-            self.command.motor_speed = 0
-            self.send_command()
+        self.command.ParseFromString(serialized_string)
+        self.send_command()

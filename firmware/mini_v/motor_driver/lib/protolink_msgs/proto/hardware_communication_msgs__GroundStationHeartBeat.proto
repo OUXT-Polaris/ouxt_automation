@@ -1,0 +1,7 @@
+syntax = "proto3";
+package protolink__hardware_communication_msgs__GroundStationHeartBeat;
+
+message hardware_communication_msgs__GroundStationHeartBeat {
+uint64 sequence = 1;
+uint32 mode = 2;
+}

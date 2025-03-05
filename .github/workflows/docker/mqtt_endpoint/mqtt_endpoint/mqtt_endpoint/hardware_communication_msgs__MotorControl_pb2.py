@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     syntax="proto3",
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n/hardware_communication_msgs__MotorControl.proto\x12\x34protolink__hardware_communication_msgs__MotorControl"V\n)hardware_communication_msgs__MotorControl\x12\x14\n\x0cmotor_enable\x18\x01 \x01(\x08\x12\x13\n\x0bmotor_speed\x18\x02 \x01(\x01\x62\x06proto3',
+    serialized_pb=b'\n/hardware_communication_msgs__MotorControl.proto\x12\x34protolink__hardware_communication_msgs__MotorControl"d\n)hardware_communication_msgs__MotorControl\x12\x14\n\x0cmotor_enable\x18\x01 \x01(\x08\x12\x13\n\x0bmotor_speed\x18\x02 \x01(\x01\x12\x0c\n\x04mode\x18\x03 \x01(\rb\x06proto3',
 )
 
 
@@ -68,6 +68,25 @@ _HARDWARE_COMMUNICATION_MSGS__MOTORCONTROL = _descriptor.Descriptor(
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
         ),
+        _descriptor.FieldDescriptor(
+            name="mode",
+            full_name="protolink__hardware_communication_msgs__MotorControl.hardware_communication_msgs__MotorControl.mode",
+            index=2,
+            number=3,
+            type=13,
+            cpp_type=3,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -78,7 +97,7 @@ _HARDWARE_COMMUNICATION_MSGS__MOTORCONTROL = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[],
     serialized_start=105,
-    serialized_end=191,
+    serialized_end=205,
 )
 
 DESCRIPTOR.message_types_by_name[
