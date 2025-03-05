@@ -6,16 +6,16 @@ services:
   #   restart: always
   udp_forward_right_motor:
     build: .
-    network_mode: host
+    # network_mode: host
     restart: always
     command: ["uv", "run", "udp_forwarder", "192.168.0.101", "8888", "--listen_port", "9001"]
   udp_forward_left_motor:
     build: .
-    network_mode: host
+    # network_mode: host
     restart: always
     command: ["uv", "run", "udp_forwarder", "192.168.0.102", "8888", "--listen_port", "9002"]
   udp_forward_estop:
     build: .
-    network_mode: host
+    # network_mode: host
     restart: always
     command: ["uv", "run", "udp_forwarder", "192.168.0.103", "4000", "--listen_port", "9003"]
