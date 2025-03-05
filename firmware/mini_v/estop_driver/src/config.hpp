@@ -2,7 +2,7 @@
 #define __CONFIG_HPP__
 
 
-const unsigned long TIMEOUT = 1000;
+const unsigned long TIMEOUT = 3000;
 
 
 byte MAC[] = {
