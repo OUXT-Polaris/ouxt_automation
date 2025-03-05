@@ -1,7 +1,0 @@
-storage_config:
-  format: mcap # ストレージ形式 (mcap, sqlite3 など)
-  compression:
-    type: zstd # 圧縮タイプ (none, zstd など)
-    level: 3    # 圧縮レベル (0-9, zstdの場合)
-  max_bagfile_size: 10737418240 # 最大バッグファイルサイズ (バイト単位, 10GB)
-  max_bagfile_duration: 60 # 最大バッグファイル時間 (秒単位)
