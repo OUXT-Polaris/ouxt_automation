@@ -17,3 +17,4 @@ build-backend = "hatchling.build"
 [project.scripts]
 endpoint = "mqtt_endpoint.mqtt_endpoint:main"
 ground_station = "mqtt_endpoint.test:main"
+udp_forward = "mqtt_endpoint.udp_forward:main"

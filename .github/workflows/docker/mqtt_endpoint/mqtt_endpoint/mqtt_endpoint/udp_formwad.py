@@ -21,7 +21,8 @@ def udp_forwarder(listen_ip, listen_port, forward_ip, forward_port):
 
         print(f"パケットを転送しました: {addr} -> {forward_ip}:{forward_port}")
 
-if __name__ == "__main__":
+
+def main():
     parser = argparse.ArgumentParser(description="UDPパケット転送ツール")
     parser.add_argument("forward_ip", help="転送先IPアドレス")
     parser.add_argument("forward_port", type=int, help="転送先ポート番号")
@@ -31,3 +32,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     udp_forwarder(args.listen_ip, args.listen_port, args.forward_ip, args.forward_port)
+
+
+if __name__ == "__main__":
+    main()
