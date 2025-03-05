@@ -11,7 +11,7 @@ RUN mkdir -p messages_ws/src
 
 WORKDIR messages_ws
 COPY packages_exact.repos packages_exact.repos
-RUN vcs import src < packages_exact.repos
+RUN vcs import --shallow src < packages_exact.repos
 
 RUN rosdep init && \
     rosdep update && \
