@@ -78,11 +78,6 @@ class MqttEndPoint:
             elif self.heartbeat_command.mode == 2:
                 print("mode: ESTOP")
             self.heartbeat_command.ParseFromString(msg.payload)
-            self.left_motor_command.set_mode(self.heartbeat_command.mode)
-            self.right_motor_command.set_mode(self.heartbeat_command.mode)
-            self.left_motor_command.send_command()
-            self.right_motor_command.send_command()
-
 
 def main():
     endpoint = MqttEndPoint()
