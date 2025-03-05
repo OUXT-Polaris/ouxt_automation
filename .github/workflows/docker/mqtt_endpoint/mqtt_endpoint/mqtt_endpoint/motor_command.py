@@ -37,4 +37,5 @@ class MotorCommand:
 
     def send_command_from_serialized_string(self, serialized_string: str):
         self.command.ParseFromString(serialized_string)
+        # print(MessageToJson(self.command))
         self.send_command()

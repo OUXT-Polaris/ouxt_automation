@@ -51,7 +51,6 @@ def main():
                 break
 
             joy_controller.update()
-
             left_motor_command.motor_speed = joy_controller.stick_ly
             right_motor_command.motor_speed = joy_controller.stick_ry
             heartbeat_command.sequence = sequence = sequence + 1
