@@ -35,4 +35,4 @@ def main():
             ground_station_heartbeat.SerializeToString(heartbeat_command),
             ("192.168.0.103", 4000),
         )
-\\
+        time.sleep(0.1)
