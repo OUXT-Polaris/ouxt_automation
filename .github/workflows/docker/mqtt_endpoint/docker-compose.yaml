@@ -1,6 +1,21 @@
 version: "3.8"
 services:
-  mqtt_endpoint:
-    image: wamvtan/mqtt_endpoint:latest
+  # mqtt_endpoint:
+  #   image: wamvtan/mqtt_endpoint:latest
+  #   network_mode: host
+  #   restart: always
+  udp_forward_right_motor:
+    build: .
     network_mode: host
     restart: always
+    command: ["uv", "run", "udp_forward", "192.168.0.101", "8888", "--listen_port", "9001"]
+  udp_forward_left_motor:
+    build: .
+    network_mode: host
+    restart: always
+    command: ["uv", "run", "udp_forward", "192.168.0.102", "8888", "--listen_port", "9002"]
+  udp_forward_estop:
+    build: .
+    network_mode: host
+    restart: always
+    command: ["uv", "run", "udp_forward", "192.168.0.103", "4000", "--listen_port", "9003"]
