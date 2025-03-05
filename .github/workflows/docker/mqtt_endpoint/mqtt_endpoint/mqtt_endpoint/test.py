@@ -16,7 +16,7 @@ def on_message(client, userdata, msg):
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
-        client.subscribe("#")
+        client.subscribe("#", qos=0)
     else:
         print(f"Connection failed with code {rc}")
 
@@ -31,7 +31,7 @@ def main():
     heartbeat_command.sequence = 1
     heartbeat_command.mode = 1
     mqtt_client = mqtt.Client()
-    mqtt_client.connect("2.tcp.ngrok.io", 12028, 3)
+    mqtt_client.connect("54.212.20.15", 1883, 3)
     mqtt_client.on_message = on_message
     mqtt_client.on_connect = on_connect
     while True:

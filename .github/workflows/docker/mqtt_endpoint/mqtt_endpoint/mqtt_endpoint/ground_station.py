@@ -33,8 +33,8 @@ def main():
 
     joy_controller = JoyController()
 
-    broker = "2.tcp.ngrok.io"
-    port = 12028
+    broker = "54.212.20.15"
+    port = 1883
     client = mqtt.Client()
 
     # keep_alive_timeout = 1
@@ -65,13 +65,17 @@ def main():
             # elif heartbeat_command.mode == 2:
             #     print("mode : ESTOP")
             client.publish(
-                left_motor_control_topic, left_motor_command.SerializeToString()
+                left_motor_control_topic, left_motor_command.SerializeToString(), qos=0
             )
             client.publish(
-                right_motor_control_topic, right_motor_command.SerializeToString()
+                right_motor_control_topic,
+                right_motor_command.SerializeToString(),
+                qos=0,
             )
             client.publish(
-                groundstation_heartbeat_topic, heartbeat_command.SerializeToString()
+                groundstation_heartbeat_topic,
+                heartbeat_command.SerializeToString(),
+                qos=0,
             )
             time.sleep(0.05)
     except KeyboardInterrupt:
@@ -80,10 +84,12 @@ def main():
         print(e)
     finally:
         left_motor_command.motor_speed = 0
-        client.publish(left_motor_control_topic, left_motor_command.SerializeToString())
+        client.publish(
+            left_motor_control_topic, left_motor_command.SerializeToString(), qos=0
+        )
         right_motor_command.motor_speed = 0
         client.publish(
-            right_motor_control_topic, right_motor_command.SerializeToString()
+            right_motor_control_topic, right_motor_command.SerializeToString(), qos=0
         )
         client.loop_stop()
         client.disconnect()

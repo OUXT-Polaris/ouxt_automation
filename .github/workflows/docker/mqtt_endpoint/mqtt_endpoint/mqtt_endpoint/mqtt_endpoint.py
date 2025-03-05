@@ -8,8 +8,8 @@ from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 class MqttEndPoint:
     heartbeat_topic = "miniv/heartbeat"
     disconnection_count = 0
-    broker_ip = "2.tcp.ngrok.io"
-    mqtt_port = 12028
+    broker_ip = "54.212.20.15"
+    mqtt_port = 1883
     estop_ip = "192.168.0.103"
     estop_port = 4000
 
@@ -43,7 +43,7 @@ class MqttEndPoint:
         if rc == 0:
             print("Connected to MQTT broker")
             # Subscribe all topics
-            client.subscribe("#")
+            client.subscribe("#", qos=0)
         else:
             print(f"Connection failed with code {rc}")
 
@@ -57,6 +57,7 @@ class MqttEndPoint:
                 print(f"Reconnection failed: {e}")
 
     def on_message(self, client, userdata, msg):
+        print(msg.topic)
         if msg.topic == self.left_motor_command.command_topic:
             print(msg.payload)
             self.left_motor_command.send_command_from_serialized_string(msg.payload)
