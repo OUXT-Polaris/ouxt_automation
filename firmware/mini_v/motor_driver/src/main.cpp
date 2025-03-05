@@ -69,7 +69,6 @@ void loop() {
     // Get msg
     bool status = false;
     if (motor_man.get_msg(&msg)) {
-      Serial.printf("mode: %d\n", msg.mode);
       status = true;
       if (msg.mode == 0) status = motor_auto.get_msg(&msg);
       else if (msg.mode == 2) msg.motor_enable = false;

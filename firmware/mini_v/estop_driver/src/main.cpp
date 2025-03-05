@@ -81,18 +81,23 @@ void setup()
 void loop()
 {
   // Check heart beat and signal on/off
-  if (UdpHeart.verify_survival()) {
+  if (UdpHeart.verify_survival())
+  {
     mode = UdpHeart.get_mode();
-    digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
+    if (mode == 0 || mode == 1) digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
+    else digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
   }
-  else digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
-
+  else {
+    mode = 3;
+    digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
+  }
+  
   // Check e-stop button state
   bool estop_state = !digitalRead(ESTOP_BUTTON_IN_PIN);
-
+  
   // Determination state
   if (estop_state == true && millis() - pre_saver_time < SAVER)
-    state = 3;
+  state = 3;
   else if (millis() - pre_time > INTERVAL)
   {
     pre_time = millis();
@@ -101,8 +106,8 @@ void loop()
     else if (mode == 1) state = 2;
   }
   else 
-    state = 0;
-
+  state = 0;
+  
   // Update estop param
   if (estop_state == false) pre_saver_time = millis();
   else if(pre_estop_state == false) pre_saver_time = millis();
