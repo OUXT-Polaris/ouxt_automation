@@ -9,6 +9,7 @@ from mqtt_endpoint.ground_station_heartbeat_pb2 import (
     ground_station_heartbeat,
 )
 from mqtt_endpoint.joy_controller import JoyController
+from google.protobuf.json_format import MessageToJson
 
 
 def on_connect(client, userdata, flags, rc):
@@ -69,8 +70,6 @@ def main():
             client.publish(
                 right_motor_control_topic, right_motor_command.SerializeToString()
             )
-            # TODO Fill heartbeat topic from joystick button input.
-            # if the user press Emergency stop button, fill "EMERGENCY" instead of "AUTO"
             client.publish(
                 groundstation_heartbeat_topic, heartbeat_command.SerializeToString()
             )

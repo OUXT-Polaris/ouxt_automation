@@ -29,16 +29,12 @@ class MotorCommand:
         self.command.mode = mode
 
     def send_command(self):
-        print(MessageToJson(self.command))
+        # print(MessageToJson(self.command))
         self.udp_socket.sendto(
             hardware_communication_msgs__MotorControl.SerializeToString(self.command),
             (self.ip_address, self.command_port),
         )
 
     def send_command_from_serialized_string(self, serialized_string: str):
-        if not self.stop:
-            self.command.ParseFromString(serialized_string)
-            self.send_command()
-        else:
-            self.command.motor_speed = 0
-            self.send_command()
+        self.command.ParseFromString(serialized_string)
+        self.send_command()
