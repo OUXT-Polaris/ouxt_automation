@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  rosbag_recorder:
+    image: eclipse-mosquitto
+    volumes:
+      - rosbag_volume:/rosbag
+    user: "${UID}:${GID}"
+
+volumes:
+  rosbag_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOME}/auto_logger/rosbag
