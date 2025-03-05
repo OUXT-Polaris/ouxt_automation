@@ -127,6 +127,8 @@ void loop()
       case 3:
       writePixels(pixels, 255, 0, 0);  // EStop (red)
       break;
+      default:
+      break;
     }
     Serial.println(state);
   }
