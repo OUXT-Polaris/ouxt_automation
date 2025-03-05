@@ -7,6 +7,8 @@ services:
       - rosbag_volume:/rosbag
       - config_volume:/config
     user: "${UID}:${GID}"
+    environment:
+      - ROS_LOG_DIR=/tmp/ros_logs
 
 volumes:
   rosbag_volume:
