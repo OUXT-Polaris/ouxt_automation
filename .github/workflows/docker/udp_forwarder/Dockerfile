@@ -8,6 +8,6 @@ RUN apk update && apk add --no-cache \
     python3-dev
 
 WORKDIR /app
-COPY mqtt_endpoint .
+COPY udp_forwarder .
 RUN uv sync
 # CMD ["uv", "run", "endpoint"]
