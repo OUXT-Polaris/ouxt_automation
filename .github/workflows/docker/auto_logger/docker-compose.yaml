@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  rosbag_recorder:
+    build: .
+    # image: wamvtan/auto_logger:latest
+    network_mode: host
+    volumes:
+      - rosbag_volume:/rosbag
+      - config_volume:/config
+    user: "${UID}:${GID}"
+    environment:
+      - ROS_LOG_DIR=/tmp/ros_logs
+
+volumes:
+  rosbag_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOME}/auto_logger/rosbag
+  config_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${PWD}/settings

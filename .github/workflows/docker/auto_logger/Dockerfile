@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=humble
-FROM ros:${ROS_DISTRO}-ros-core
+FROM dustynv/ros:${ROS_DISTRO}-ros-base-l4t-r36.3.0
 SHELL ["/bin/bash", "-c"]
 
 RUN apt update && \
@@ -11,7 +11,7 @@ RUN mkdir -p messages_ws/src
 
 WORKDIR messages_ws
 COPY packages_exact.repos packages_exact.repos
-RUN vcs import src < packages_exact.repos
+RUN vcs import --shallow src < packages_exact.repos
 
 RUN rosdep init && \
     rosdep update && \
