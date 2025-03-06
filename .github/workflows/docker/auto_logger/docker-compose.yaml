@@ -3,6 +3,7 @@ services:
   rosbag_recorder:
     build: .
     # image: wamvtan/auto_logger:latest
+    network_mode: host
     volumes:
       - rosbag_volume:/rosbag
       - config_volume:/config

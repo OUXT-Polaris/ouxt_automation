@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=humble
-FROM ros:${ROS_DISTRO}-ros-core
+FROM dustynv/ros:${ROS_DISTRO}-ros-base-l4t-r36.3.0
 SHELL ["/bin/bash", "-c"]
 
 RUN apt update && \
