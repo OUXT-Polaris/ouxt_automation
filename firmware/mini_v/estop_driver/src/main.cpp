@@ -30,6 +30,7 @@ unsigned long pre_saver_time = 0;
 bool pre_estop_state = false;
 int pre_state = -1;
 int state = 0;
+uint8_t mode = 2;
 
 
 // LEDs light up in specified colors
@@ -80,24 +81,33 @@ void setup()
 void loop()
 {
   // Check heart beat and signal on/off
-  if (UdpHeart.verify_survival()) digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
-  else digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
-
+  if (UdpHeart.verify_survival())
+  {
+    mode = UdpHeart.get_mode();
+    if (mode == 0 || mode == 1) digitalWrite(ESTOP_BUTTON_OUT_PIN, HIGH);
+    else digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
+  }
+  else {
+    mode = 3;
+    digitalWrite(ESTOP_BUTTON_OUT_PIN, LOW);
+  }
+  
   // Check e-stop button state
   bool estop_state = !digitalRead(ESTOP_BUTTON_IN_PIN);
-
+  
   // Determination state
   if (estop_state == true && millis() - pre_saver_time < SAVER)
-    state = 2;
+  state = 3;
   else if (millis() - pre_time > INTERVAL)
   {
     pre_time = millis();
-    if (estop_state == true) state = 2;
-    else state = 1;
+    if (estop_state == true || mode == 2) state = 3;
+    else if (mode == 0) state = 1;
+    else if (mode == 1) state = 2;
   }
   else 
-    state = 0;
-
+  state = 0;
+  
   // Update estop param
   if (estop_state == false) pre_saver_time = millis();
   else if(pre_estop_state == false) pre_saver_time = millis();
@@ -114,10 +124,15 @@ void loop()
       writePixels(pixels, 0, 0, 0);    // Turn-off
       break;
       case 1:
-      writePixels(pixels, 0, 0, 255);  // normal (blue)
+      writePixels(pixels, 0, 0, 255);  // auto (blue)
       break;
       case 2:
+      writePixels(pixels, 0, 255, 0);  // manual (green)
+      break;
+      case 3:
       writePixels(pixels, 255, 0, 0);  // EStop (red)
+      break;
+      default:
       break;
     }
     Serial.println(state);

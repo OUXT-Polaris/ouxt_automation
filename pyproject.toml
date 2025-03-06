@@ -19,3 +19,6 @@ dependencies = [
     "mkdocs-inline-select-svg-plugin>=0.1.0",
     "mkdocs-order-button>=0.1.0",
 ]
+
+[tool.uv.workspace]
+members = [".github/workflows/docker/udp_forwarder"]
