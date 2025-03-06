@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   rosbag_recorder:
-    build: .
-    # image: wamvtan/auto_logger:latest
+    # build: .
+    image: wamvtan/auto_logger:latest
     network_mode: host
     volumes:
       - rosbag_volume:/rosbag
