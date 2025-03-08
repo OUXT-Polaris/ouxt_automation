@@ -118,7 +118,6 @@ void imu_send()
             Serial.printf(" IMU encode error\n");
         }
     }
-    Serial.println("asdfasdf");
     delay(5);
 }
  
