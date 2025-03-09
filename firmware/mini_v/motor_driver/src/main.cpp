@@ -15,7 +15,7 @@ unsigned long preTime = 0;
 
 // ESC settings
 byte servoPin = 41;
-unsigned int startupTime = 4000;
+unsigned int startupTime = 3000;
 Servo servo;
 
 // Motor Control
