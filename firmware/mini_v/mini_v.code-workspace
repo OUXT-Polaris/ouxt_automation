@@ -23,7 +23,6 @@
 			"array": "cpp",
 			"string": "cpp",
 			"string_view": "cpp",
-<<<<<<< Updated upstream
 			"*.tcc": "cpp",
 			"fstream": "cpp",
 			"iosfwd": "cpp",
@@ -31,16 +30,6 @@
 			"limits": "cpp",
 			"sstream": "cpp",
 			"streambuf": "cpp"
-=======
-			"deque": "cpp",
-			"list": "cpp",
-			"unordered_map": "cpp",
-			"unordered_set": "cpp",
-			"vector": "cpp",
-			"initializer_list": "cpp",
-			"span": "cpp",
-			"format": "cpp"
->>>>>>> Stashed changes
 		}
 	}
 }
