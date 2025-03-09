@@ -49,7 +49,6 @@ def main():
         while True:
             if not client.is_connected():
                 break
-
             joy_controller.update()
             left_motor_command.motor_speed = joy_controller.stick_ly
             right_motor_command.motor_speed = joy_controller.stick_ry

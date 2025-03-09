@@ -1,0 +1,27 @@
+---
+- hosts: your_target_hosts
+  become: yes
+  tasks:
+    - name: Copy script to remote host
+      copy:
+        src: rosbag_record.sh
+        dest: /usr/local/bin/rosbag_record.sh
+        mode: '0755'
+
+  #   - name: Create systemd service file
+  #     template:
+  #       src: my_service.service.j2
+  #       dest: /etc/systemd/system/my_service.service
+  #     notify:
+  #       - reload systemd
+
+  #   - name: Enable and start service
+  #     systemd:
+  #       name: my_service
+  #       enabled: yes
+  #       state: started
+
+  # handlers:
+  #   - name: reload systemd
+  #     systemd:
+  #       daemon_reload: yes

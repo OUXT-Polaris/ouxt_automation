@@ -5,6 +5,8 @@ from mqtt_endpoint.ground_station_heartbeat_pb2 import ground_station_heartbeat
 from mqtt_endpoint.hardware_communication_msgs__MotorControl_pb2 import \
     hardware_communication_msgs__MotorControl
 from mqtt_endpoint.joy_controller import JoyController
+from google.protobuf.json_format import MessageToJson
+
 
 
 def on_message(client, userdata, msg):
@@ -47,6 +49,7 @@ def main():
             hardware_communication_msgs__MotorControl.SerializeToString(command_l),
             ("192.168.1.200", 9002),
         )
+        print(MessageToJson(heartbeat_command))
         udp_socket.sendto(
             ground_station_heartbeat.SerializeToString(heartbeat_command),
             ("192.168.1.200", 9003),
