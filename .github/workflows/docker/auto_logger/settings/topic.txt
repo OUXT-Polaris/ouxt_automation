@@ -1,2 +1,2 @@
-/clock
-/odom
+/wamv/sensors/cameras/front_camera_sensor/image_raw/compressed
+
