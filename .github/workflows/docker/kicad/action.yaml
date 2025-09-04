@@ -30,7 +30,7 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/kicad
         file: ./.github/workflows/docker/kicad/Dockerfile
-        tags: wamvtan/kicad:latest
+        tags: wamvtan/kicad:9.0
         no-cache: false
         cache-from: type=registry,ref=wamvtan/kicad:buildcache
         cache-to: type=registry,ref=wamvtan/kicad:buildcache,mode=max
@@ -45,7 +45,7 @@ runs:
         password: ${{ inputs.docker_password }}
         context: ./.github/workflows/docker/kicad
         file: ./.github/workflows/docker/kicad/Dockerfile
-        tags: wamvtan/kicad:latest
+        tags: wamvtan/kicad:9.0
         no-cache: false
         cache-from: type=registry,ref=wamvtan/kicad:buildcache
         push: false
