@@ -10,4 +10,4 @@ docker run --name=kicad \
   -v ${PWD}/miniv_estop_board:/workspace/miniv_estop_board \
   -v ${PWD}/smart_battery:/workspace/smart_battery \
   -v ${PWD}/3rdparty:/root/.local/share/kicad/8.0/3rdparty \
-  wamvtan/kicad:latest kicad
+  wamvtan/kicad:9.0 kicad
