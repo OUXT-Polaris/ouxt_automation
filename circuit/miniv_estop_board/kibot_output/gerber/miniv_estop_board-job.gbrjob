@@ -3,9 +3,9 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "8.0.8-8.0.8-0~ubuntu22.04.1"
+      "Version": "9.0.4-9.0.4-0~ubuntu24.04.1"
     },
-    "CreationDate": "2025-04-10T00:58:58+00:00"
+    "CreationDate": "2025-09-05T12:20:35+00:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -39,38 +39,13 @@
       "FilePolarity": "Positive"
     },
     {
+      "Path": "miniv_estop_board-F_Mask.gbr",
+      "FileFunction": "SolderMask,Top",
+      "FilePolarity": "Negative"
+    },
+    {
       "Path": "miniv_estop_board-B_Cu.gbr",
       "FileFunction": "Copper,L2,Bot",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-B_Adhesive.gbr",
-      "FileFunction": "Glue,Bot",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-F_Adhesive.gbr",
-      "FileFunction": "Glue,Top",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-B_Paste.gbr",
-      "FileFunction": "SolderPaste,Bot",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-F_Paste.gbr",
-      "FileFunction": "SolderPaste,Top",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-B_Silkscreen.gbr",
-      "FileFunction": "Legend,Bot",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-F_Silkscreen.gbr",
-      "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
@@ -79,9 +54,34 @@
       "FilePolarity": "Negative"
     },
     {
-      "Path": "miniv_estop_board-F_Mask.gbr",
-      "FileFunction": "SolderMask,Top",
-      "FilePolarity": "Negative"
+      "Path": "miniv_estop_board-F_Silkscreen.gbr",
+      "FileFunction": "Legend,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "miniv_estop_board-B_Silkscreen.gbr",
+      "FileFunction": "Legend,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "miniv_estop_board-F_Adhesive.gbr",
+      "FileFunction": "Glue,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "miniv_estop_board-B_Adhesive.gbr",
+      "FileFunction": "Glue,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "miniv_estop_board-F_Paste.gbr",
+      "FileFunction": "SolderPaste,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "miniv_estop_board-B_Paste.gbr",
+      "FileFunction": "SolderPaste,Bot",
+      "FilePolarity": "Positive"
     },
     {
       "Path": "miniv_estop_board-User_Drawings.gbr",
@@ -124,17 +124,7 @@
       "FilePolarity": "Positive"
     },
     {
-      "Path": "miniv_estop_board-User_2.gbr",
-      "FileFunction": "Other,User",
-      "FilePolarity": "Positive"
-    },
-    {
       "Path": "miniv_estop_board-User_3.gbr",
-      "FileFunction": "Other,User",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-User_4.gbr",
       "FileFunction": "Other,User",
       "FilePolarity": "Positive"
     },
@@ -144,17 +134,7 @@
       "FilePolarity": "Positive"
     },
     {
-      "Path": "miniv_estop_board-User_6.gbr",
-      "FileFunction": "Other,User",
-      "FilePolarity": "Positive"
-    },
-    {
       "Path": "miniv_estop_board-User_7.gbr",
-      "FileFunction": "Other,User",
-      "FilePolarity": "Positive"
-    },
-    {
-      "Path": "miniv_estop_board-User_8.gbr",
       "FileFunction": "Other,User",
       "FilePolarity": "Positive"
     },
