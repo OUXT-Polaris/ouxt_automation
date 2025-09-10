@@ -40,17 +40,17 @@ jobs:
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
           github_actions_runner_version: ${{ matrix.runner_version }}
           os_version: ${{ matrix.os }}
-  vrx:
-    name: build and push wamvtan/vrx
-    runs-on: ubuntu-22.04
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/actions/cleanup_runner
-      - uses: ./.github/workflows/docker/vrx
-        with:
-          docker_username: ${{ secrets.DOCKER_USERNAME }}
-          docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  # vrx:
+  #   name: build and push wamvtan/vrx
+  #   runs-on: ubuntu-22.04
+  #   timeout-minutes: 30
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ./.github/workflows/actions/cleanup_runner
+  #     - uses: ./.github/workflows/docker/vrx
+  #       with:
+  #         docker_username: ${{ secrets.DOCKER_USERNAME }}
+  #         docker_password: ${{ secrets.DOCKER_PASSWORD }}
   # auto_logger:
   #   name: build and push wamvtan/auto_logger
   #   runs-on: ubuntu-22.04
@@ -80,7 +80,7 @@ jobs:
   #     - uses: actions/upload-artifact@v4
   #       with:
   #         name: repos_file_${{ matrix.module }}
-  #         path: | 
+  #         path: |
   #           ansible/packages.repos
   #           ansible/packages_exact.repos
   kicad:
