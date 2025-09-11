@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<KiCad_BOM PCB_Variant="default" KiCad_Version="9.0.4-9.0.4-0~ubuntu24.04.1" Component_Groups="14" Component_Count="43" Fitted_Components="43" Number_of_PCBs="1" Total_Components="43" Schematic_Source="miniv_estop_board" Schematic_Revision="" Schematic_Date="2025-09-11_01-08-47" encoding="utf-8">
+<KiCad_BOM PCB_Variant="default" KiCad_Version="9.0.4-9.0.4-0~ubuntu24.04.1" Component_Groups="14" Component_Count="43" Fitted_Components="43" Number_of_PCBs="1" Total_Components="43" Schematic_Source="miniv_estop_board" Schematic_Revision="" Schematic_Date="2025-09-11_07-42-28" encoding="utf-8">
 	<group Row="1" Description="Unpolarized capacitor" Part="C" References="C1 C3 C4 C5" Value="0.1u" Footprint="C_Rect_L7.2mm_W4.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" Quantity_Per_PCB="4" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g110147/"/>
 	<group Row="2" Description="Polarized capacitor" Part="C_Polarized" References="C2 C6 C7 C9" Value="1000μ" Footprint="CP_Radial_D12.5mm_P5.00mm" Quantity_Per_PCB="4" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g113081/"/>
 	<group Row="3" Description="Light emitting diode" Part="LED" References="D1 D3" Value="LED" Footprint="LED_D3.0mm" Quantity_Per_PCB="2" Status=" " Datasheet="https://akizukidenshi.com/catalog/g/g111636/"/>
