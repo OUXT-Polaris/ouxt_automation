@@ -16,3 +16,10 @@ Please read [here.](https://ouxt-polaris.github.io/ouxt_automation/)
 Developed by [OUXT-Polaris](https://www.ouxt.jp/)
 
 <img src="docs/image/icon.png" width=5%>
+
+# Sponsor
+
+Our activities are made possible thanks to the support of our sponsors.
+
+<img src="docs/image/eightknot_logo_cc.png" width=8%>
+Eight Knot
